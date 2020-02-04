@@ -10,4 +10,4 @@ jobs:
         cat $GITHUB_EVENT_PATH
     - name: parse payload
       run: |
-        cat $GITHUB_EVENT_PATH | jq '.commits | .[0]'
+        cat $GITHUB_EVENT_PATH | jq '.commits | .[0] | .author.email'
