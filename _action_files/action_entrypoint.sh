@@ -8,7 +8,6 @@ eval "$(ssh-agent -s)"
 ######## Validate Inputs ########
 # BOOL_SAVE_MARKDOWN
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ];then
-    ssh -T git@github.com
     if [ -z "$INPUT_SSH_DEPLOY_KEY" ];then 
         echo "You must set the SSH_DEPLOY_KEY input if BOOL_SAVE_MARKDOWN is set to true."; 
         exit 1;
