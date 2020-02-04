@@ -1,0 +1,22 @@
+name: Notebook to Blog Post
+on:
+  push:
+    branches:
+      - master
+    # paths:
+    #   - '_notebooks/*.ipynb'
+
+jobs:
+  convert-notebook:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+
+    - uses: fastai/fastpages@master
+      with:
+        BOOL_SAVE_MARKDOWN: true
+        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        FORMAT: 'notebook'
