@@ -43,8 +43,7 @@ fi
 if [[ "$INPUT_FORMAT" == "word" ]];then
     ./_action_files/word2post.sh
 elif [[ "$INPUT_FORMAT" == "notebook" ]];then
-    pwd
-    ls
+    cp /fastpages/settings.ini .
     python _action_files/nb2post.py
 else
     echo "input FORMAT must be either 'word' or 'notebook', but received value: $INPUT_FORMAT";
@@ -53,10 +52,9 @@ fi
 
 # Conditionally commit markdown files to repo
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
-    echo "Hello World"
     git config --global user.name $GITHUB_ACTOR
-    echo $INPUT_SSH_DEPLOY_KEY > mykey
-    cat mykey > ~/.ssh/authorized_keys
+    echo $INPUT_SSH_DEPLOY_KEY | base64 -d > mykey
+    #cat mykey > ~/.ssh/authorized_keys
     chmod 400 mykey
     ssh-add mykey
     # git remote add github "https://$GITHUB_ACTOR:$INPUT_DEPLOY_KEY@github.com/$GITHUB_REPOSITORY.git"
