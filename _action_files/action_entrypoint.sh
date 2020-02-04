@@ -37,13 +37,14 @@ fi
 
 # Conditionally commit markdown files to repo
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" -eq "true" ]; then
-    git config --global user.name $GITHUB_ACTOR
-    echo $INPUT_SSH_DEPLOY_KEY > mykey
-    chmod 400 mykey
-    ssh-add mykey
-    git remote add github "https://$GITHUB_ACTOR:$INPUT_DEPLOY_KEY@github.com/$GITHUB_REPOSITORY.git"
-    git pull github ${GITHUB_REF} --ff-only
-    git add _posts
-    git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
-    git push github HEAD:${GITHUB_REF}
+    echo "Hello World"
+    # git config --global user.name $GITHUB_ACTOR
+    # echo $INPUT_SSH_DEPLOY_KEY > mykey
+    # chmod 400 mykey
+    # ssh-add mykey
+    # git remote add github "https://$GITHUB_ACTOR:$INPUT_DEPLOY_KEY@github.com/$GITHUB_REPOSITORY.git"
+    # git pull github ${GITHUB_REF} --ff-only
+    # git add _posts
+    # git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
+    # git push github HEAD:${GITHUB_REF}
 fi
