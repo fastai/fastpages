@@ -7,7 +7,6 @@ on:
     #   - '_notebooks/*.ipynb'
 
 jobs:
-  if: 1==2
   convert-notebook:
     runs-on: ubuntu-latest
     steps:
