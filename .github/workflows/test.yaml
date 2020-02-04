@@ -1,0 +1,11 @@
+name: See payload
+on: 'push'
+
+jobs:
+  see-payload:
+    runs-on: ubuntu-latest
+    steps:
+    - name: see payload
+      run: |
+        action=$(jq --raw-output .commits | .[1] "$GITHUB_EVENT_PATH")
+        echo $action
