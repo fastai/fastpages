@@ -27,7 +27,7 @@ fi
 ######## Run Converter ########
 # Process either word or markdown inputs
 if [[ "$INPUT_FORMAT" -eq "word" ]];then
-    _action_files/word2post.sh
+    ./_action_files/word2post.sh
 elif [[ "$INPUT_FORMAT" -eq "notebook" ]];then
     python _action_files/nb2post.py
 else
