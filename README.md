@@ -1,10 +1,23 @@
 # Fastpages
 
-A template repository and a GitHub Action that simplifies the process of creating a blog with:
+A template repository and a [GitHub Action](https://github.com/features/actions) that simplifies the process of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) with:
 
-- Jupyter Notebooks
-- Markdown
-- Word Docs
+- **Jupyter Notebooks**
+- **Word Docs**
+- **Markdown** (natively supported by Jekyll)
 
-This is the repository for your blog! Click *_config.yml* above to get started and fill in the details. Then click *index.md* and edit it to start creating your home page.
+In addition to these additional formats, additional features are provided.  See [Additional Features](#additional-features) for more details.
 
+## Setup Instructions For This Repo
+
+TODO
+- _config.yaml
+- setup `SSH_DEPLOY_KEY`
+
+## Using The GitHub Action
+
+TODO
+
+## Additional Features
+
+TODO
