@@ -12,5 +12,7 @@ WORKDIR /fastpages
 COPY . .
 RUN chmod u+x action_entrypoint.sh
 RUN chmod u+x word2post.sh
+RUN pwd
+RUN ls
 
-ENTRYPOINT [ "/fastpages/_action_files/action_entrypoint.sh" ]
+ENTRYPOINT [ "/fastpages/action_entrypoint.sh" ]
