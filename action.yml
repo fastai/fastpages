@@ -17,4 +17,4 @@ branding:
   icon: 'bar-chart-2'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: '_action_files/Dockerfile'
