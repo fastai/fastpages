@@ -35,7 +35,7 @@ else
 fi
 
 ######## Optionally save files and build GitHub Pages ########
-if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]] || [[ "$INPUT_BUILD_PAGES" == "true" ]];then
+if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]];then
 
     # Get user's email from commit history
     if [[ "$GITHUB_EVENT_NAME" == "push" ]];then
@@ -58,11 +58,6 @@ if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]] || [[ "$INPUT_BUILD_PAGES" == "tr
         git add _posts
         git commit -m "[Bot] Update $INPUT_FORMAT blog posts" --allow-empty
         git push fastpages-origin HEAD:${GITHUB_REF}
-    fi
-
-    # Optionally build GitHub Pages and send contents of _site folder to gh-pages branch
-    if [[ "$INPUT_BUILD_PAGES" == "true" ]]; then
-        echo "TODO"
     fi
 fi
 
