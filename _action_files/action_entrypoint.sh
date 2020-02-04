@@ -2,8 +2,23 @@
 set -e
 
 # setup ssh: allow key to be used without a prompt and start ssh agent
-export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null"
 eval "$(ssh-agent -s)"
+
+# -o StrictHostKeyChecking=no
+
+# Check for SSH Directory
+if [ ! -d ~/.ssh ]; then
+   mkdir -p ~/.ssh/
+fi
+
+# Create user's ssh config it doesn't exist
+if [ ! -f ~/.ssh/config ]; then
+        touch ~/.ssh/config
+        echo "StrictHostKeyChecking no" > ~/.ssh/config
+        echo "StrictHostKeyChecking no --[done]"
+        chmod 644 ~/.ssh/config
+fi
 
 ######## Validate Inputs ########
 # BOOL_SAVE_MARKDOWN
@@ -41,6 +56,7 @@ if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
     echo "Hello World"
     git config --global user.name $GITHUB_ACTOR
     echo $INPUT_SSH_DEPLOY_KEY > mykey
+    cat mykey > ~/.ssh/authorized_keys
     chmod 400 mykey
     ssh-add mykey
     # git remote add github "https://$GITHUB_ACTOR:$INPUT_DEPLOY_KEY@github.com/$GITHUB_REPOSITORY.git"
