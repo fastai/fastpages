@@ -7,5 +7,4 @@ jobs:
     steps:
     - name: see payload
       run: |
-        action=$(jq --raw-output .commits | .[1] "$GITHUB_EVENT_PATH")
-        echo $action
+        cat $GITHUB_EVENT_PATH | jq '.commits | .[1]'
