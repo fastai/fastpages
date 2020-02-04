@@ -7,8 +7,8 @@ on:
     #   - '_notebooks/*.ipynb'
 
 jobs:
-  if: contains(join(github.event.commits.*.message), '/sync')
   convert-notebook:
+    if: contains(join(github.event.commits.*.message), '/sync')
     runs-on: ubuntu-latest
     steps:
     - name: Copy Repository Contents
