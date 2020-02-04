@@ -16,7 +16,7 @@ twitter_username:
 
 # OPTIONAL: override baseurl and url if using a custom domain
 #url:  the base hostname & protocol for your site, e.g. http://example.com
-#baseurl: the subpath of your site, e.g. /blog
+baseurl: "/fastpages" # the subpath of your site, e.g. /blog
 
 # Set this to true to get LaTeX math equation support
 use_math: 
