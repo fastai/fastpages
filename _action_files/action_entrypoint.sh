@@ -5,21 +5,6 @@ set -e
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 eval "$(ssh-agent -s)"
 
-
-
-# # Check for SSH Directory
-# if [ ! -d ~/.ssh ]; then
-#    mkdir -p ~/.ssh/
-# fi
-
-# # Create user's ssh config it doesn't exist
-# if [ ! -f ~/.ssh/config ]; then
-#         touch ~/.ssh/config
-#         echo "StrictHostKeyChecking no" > ~/.ssh/config
-#         echo "StrictHostKeyChecking no --[done]"
-#         chmod 644 ~/.ssh/config
-# fi
-
 ######## Validate Inputs ########
 # BOOL_SAVE_MARKDOWN
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ];then
@@ -38,8 +23,7 @@ if [[ -z "$INPUT_FORMAT" ]]; then
 	exit 1
 fi
 
-######## Run Converter ########
-# Process either word or markdown inputs
+######## Run notebook/word converter ########
 if [[ "$INPUT_FORMAT" == "word" ]];then
     ./_action_files/word2post.sh
 elif [[ "$INPUT_FORMAT" == "notebook" ]];then
@@ -50,23 +34,37 @@ else
     exit 1;
 fi
 
-# Get user's email from commit history
-if [[ "$GITHUB_EVENT_NAME" == "push" ]];then
-    USER_EMAIL=`cat $GITHUB_EVENT_PATH | jq '.commits | .[0] | .author.email'`
-else
-    USER_EMAIL="actions@github.com"
-fi
+######## Optionally save files and build GitHub Pages ########
+if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]] || [[ "$INPUT_BUILD_PAGES" == "true" ]];then
 
-# Conditionally commit markdown files to repo
-if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
+    # Get user's email from commit history
+    if [[ "$GITHUB_EVENT_NAME" == "push" ]];then
+        USER_EMAIL=`cat $GITHUB_EVENT_PATH | jq '.commits | .[0] | .author.email'`
+    else
+        USER_EMAIL="actions@github.com"
+    fi
+
+    # Setup Git credentials if we are planning to change the data in the repo
     git config --global user.name "$GITHUB_ACTOR"
     git config --global user.email "$USER_EMAIL"
     git remote add fastpages-origin "git@github.com:$GITHUB_REPOSITORY.git"
     echo $INPUT_SSH_DEPLOY_KEY | base64 -d > mykey
     chmod 400 mykey
     ssh-add mykey
-    git pull fastpages-origin ${GITHUB_REF} --ff-only
-    git add _posts
-    git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
-    git push fastpages-origin HEAD:${GITHUB_REF}
+
+    # Optionally save intermediate markdown
+    if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]]; then
+        git pull fastpages-origin ${GITHUB_REF} --ff-only
+        git add _posts
+        git commit -m "[Bot] Update $INPUT_FORMAT blog posts" --allow-empty
+        git push fastpages-origin HEAD:${GITHUB_REF}
+    fi
+
+    # Optionally build GitHub Pages and send contents of _site folder to gh-pages branch
+    if [[ "$INPUT_BUILD_PAGES" == "true" ]]; then
+        echo "TODO"
+    fi
 fi
+
+
+
