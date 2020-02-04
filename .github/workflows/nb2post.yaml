@@ -20,3 +20,10 @@ jobs:
         BOOL_SAVE_MARKDOWN: true
         SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         FORMAT: 'notebook'
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./_site
