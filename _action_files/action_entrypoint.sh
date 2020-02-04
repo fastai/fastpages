@@ -35,7 +35,7 @@ else
 fi
 
 # Conditionally commit markdown files to repo
-if [ "$INPUT_BOOL_SAVE_MARKDOWN" -eq "true" ]; then
+if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
     echo "Hello World"
     # git config --global user.name $GITHUB_ACTOR
     # echo $INPUT_SSH_DEPLOY_KEY > mykey
