@@ -61,11 +61,12 @@ fi
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
     git config --global user.name "$GITHUB_ACTOR"
     git config --global user.email "$USER_EMAIL"
+    git remote add fastpages-github "https://github.com/$GITHUB_REPOSITORY.git"
     echo $INPUT_SSH_DEPLOY_KEY | base64 -d > mykey
     chmod 400 mykey
     ssh-add mykey
-    git pull --ff-only
+    git pull github ${GITHUB_REF} --ff-only
     git add _posts
     git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
-    git push
+    git push fastpages-github HEAD:${GITHUB_REF}
 fi
