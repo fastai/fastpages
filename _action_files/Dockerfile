@@ -12,4 +12,4 @@ WORKDIR /fastpages
 COPY . .
 RUN chmod u+x action_entrypoint.sh
 
-ENTRYPOINT [ "./action_entrypoint.sh" ]
+ENTRYPOINT [ "./_action_files/action_entrypoint.sh" ]
