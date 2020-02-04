@@ -15,7 +15,7 @@ jobs:
       with:
         persist-credentials: false
 
-    - uses: hamelsmu/fastpages@master
+    - uses: fastai/fastpages@master
       with:
         BOOL_SAVE_MARKDOWN: true
         SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
