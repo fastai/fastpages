@@ -54,8 +54,7 @@ if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
     echo $INPUT_SSH_DEPLOY_KEY | base64 -d > mykey
     chmod 400 mykey
     ssh-add mykey
-    # git remote add github "https://$GITHUB_ACTOR:$INPUT_DEPLOY_KEY@github.com/$GITHUB_REPOSITORY.git"
-    git pull github ${GITHUB_REF} --ff-only
+    git pull --ff-only
     git add _posts
     git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
     git push HEAD:${GITHUB_REF}
