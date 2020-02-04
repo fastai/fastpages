@@ -67,5 +67,5 @@ if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
     git pull --ff-only
     git add _posts
     git commit -m "Update $INPUT_FORMAT blog posts" --allow-empty
-    git push HEAD:${GITHUB_REF}
+    git push
 fi
