@@ -5,6 +5,8 @@ set -e
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 eval "$(ssh-agent -s)"
 
+
+
 # # Check for SSH Directory
 # if [ ! -d ~/.ssh ]; then
 #    mkdir -p ~/.ssh/
@@ -48,9 +50,17 @@ else
     exit 1;
 fi
 
+# Get user's email from commit history
+if [[ "$GITHUB_EVENT_NAME" == "push" ]];then
+    USER_EMAIL=`cat $GITHUB_EVENT_PATH | jq '.commits | .[0] | .author.email'`
+else
+    USER_EMAIL="actions@github.com"
+fi
+
 # Conditionally commit markdown files to repo
 if [ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]; then
-    git config --global user.name $GITHUB_ACTOR
+    git config --global user.name "$GITHUB_ACTOR"
+    git config --global user.email "$USER_EMAIL"
     echo $INPUT_SSH_DEPLOY_KEY | base64 -d > mykey
     chmod 400 mykey
     ssh-add mykey
