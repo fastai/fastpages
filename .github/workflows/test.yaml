@@ -11,4 +11,4 @@ jobs:
     - name: parse payload
       run: |
         USER_EMAIL=`cat $GITHUB_EVENT_PATH | jq '.commits | .[0] | .author.email'`
-        echo USER_EMAIL
+        echo $USER_EMAIL
