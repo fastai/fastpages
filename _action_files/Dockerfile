@@ -10,6 +10,7 @@ RUN pip install nbdev
 
 WORKDIR /fastpages
 COPY . .
-RUN chmod u+x action_entrypoint.sh
+RUN chmod u+x _action_files/action_entrypoint.sh
+RUN chmod u+x _action_files/word2post.sh
 
 ENTRYPOINT [ "./_action_files/action_entrypoint.sh" ]
