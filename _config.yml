@@ -32,6 +32,7 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jekyll-youtube
+  - jekyll-toc
 
 titles_from_headings:
   enabled:     true
