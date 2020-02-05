@@ -2,6 +2,8 @@
 
 # Fastpages 
 
+**[See A Demo](https://fastai.github.io/fastpages/)**
+
 ### :construction: This Repo Is Currently Under Construction :construction:
 
 A template repository and a [GitHub Action](https://github.com/features/actions) that simplifies the process of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) with:
