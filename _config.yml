@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: Edit _config.yml to set your title!
-description: This is where the description of your site will go. You should change it by editing the _config.yml file. It can be as long as you like! Happy blogging... ❤
+title: fastpages
+description: An easy to use blogging platform for data scientists, with support for Jupyter Notebooks and other input formats.
 github_username: jph00
 
 # Email and twitter are optional:
