@@ -35,6 +35,7 @@ plugins:
   - jekyll-toc
   - jekyll-twitter-plugin
   - jekyll-relative-links
+  - jekyll-seo-tag
 
 titles_from_headings:
   enabled:     true

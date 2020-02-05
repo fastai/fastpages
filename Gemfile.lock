@@ -259,6 +259,7 @@ DEPENDENCIES
   jekyll-github-metadata
   jekyll-octicons
   jekyll-relative-links
+  jekyll-seo-tag
   jekyll-twitter-plugin
   jekyll-youtube
   minima (~> 2.5)

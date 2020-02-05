@@ -19,6 +19,7 @@ group :jekyll_plugins do
   gem "jekyll-youtube"
   gem "jekyll-twitter-plugin"
   gem 'jekyll-relative-links'
+  gem 'jekyll-seo-tag'
 end
 
 gem "jekyll-github-metadata"
