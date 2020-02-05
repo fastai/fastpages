@@ -1,4 +1,4 @@
-name: GitHub Pages Status
+name: GH-Pages Status
 on:
   page_build
   
