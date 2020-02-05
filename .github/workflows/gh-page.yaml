@@ -6,4 +6,6 @@ jobs:
   see-page-build-payload:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ toJSON(github.event) }}
+      - run: echo $PAYLOAD
+        env:
+          PAYLOAD: ${{ toJSON(github.event) }}
