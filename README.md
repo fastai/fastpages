@@ -2,6 +2,8 @@
 
 ## :construction: This Repo Is Currently Under Construction :construction:
 
+![](https://github.com/fastai/fastpages/workflows/Notebook%20Build/badge.svg)
+
 # Welcome To fastpages 
 
 > An easy to use blogging platform for data scientists, with support for Jupyter Notebooks and other input formats.
@@ -22,5 +24,9 @@ TODO
 - setup `SSH_DEPLOY_KEY`
 
 ## Using The GitHub Action
+
+TODO
+
+## Customizing Your Blog
 
 TODO
