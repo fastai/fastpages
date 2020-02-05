@@ -31,6 +31,7 @@ plugins:
   - jekyll-gist
   - jekyll-octicons
   - jekyll-github-metadata
+  - jekyll-youtube
 
 titles_from_headings:
   enabled:     true
