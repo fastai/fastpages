@@ -1,27 +1,31 @@
 
 
-# Fastpages 
+## :construction: This Repo Is Currently Under Construction :construction:
 
-### :construction: This Repo Is Currently Under Construction :construction:
+# Welcome To fastpages 
 
-A template repository and a [GitHub Action](https://github.com/features/actions) that simplifies the process of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) with:
+> An easy to use blogging platform for data scientists, with support for Jupyter Notebooks and other input formats.
 
-- **Jupyter Notebooks**
-- **Word Docs**
-- **Markdown** (natively supported by Jekyll)
+`fastpages` is a template repository and a set of [GitHub Actions](https://github.com/features/actions) that simplifies the process of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) with Jupyter Notebooks, Word docs, or Markdown.  
 
-In addition to these additional formats, additional features are provided.  See [Additional Features](#additional-features) for more details.
+**[See A Demo](https://fastai.github.io/fastpages/)** that uses this template.  See [Customizing fastpages](#customizing-fastpages) for more detail on how to change themes.
+
+## Features
+
+TODO
+
 
 ## Setup Instructions For This Repo
 
 TODO
-- _config.yaml
+- `_config.yaml`: baseurl
 - setup `SSH_DEPLOY_KEY`
+
+
+
 
 ## Using The GitHub Action
 
 TODO
 
-## Additional Features
 
-TODO

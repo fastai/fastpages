@@ -1,4 +1,4 @@
-name: Notebook to Blog Post
+name: Notebook-to-post
 on:
   push:
     branches:
