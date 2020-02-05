@@ -26,3 +26,5 @@ TODO
 ## Using The GitHub Action
 
 TODO
+
+## Customizing Your Blog
