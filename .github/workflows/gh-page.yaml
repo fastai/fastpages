@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: echo $PAYLOAD
         env:
-          PAYLOAD: ${{ toJSON(github.event) }}
+          PAYLOAD: ${{ toJSON(github.event.status) }}
