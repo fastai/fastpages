@@ -47,7 +47,7 @@ TODO
 
 ## How Does it Work?
 
-The Jupyter to blog conversion process is powered by [nbdev](https://github.com/fastai/nbdev), which has [utilities to convert notebooks to webpages](https://nbdev.fast.ai/export2html/), including integrations with [GitHub Pages](https://pages.github.com/), such as [jekyll notes](https://nbdev.fast.ai/export2html/#add_jekyll_notes).  
+The Jupyter to blog conversion process is powered by [nbdev](https://github.com/fastai/nbdev), which has [utilities to convert notebooks to webpages](https://nbdev.fast.ai/export2html/), including integrations with [GitHub Pages](https://pages.github.com/).
 
 A [GitHub Action](https://github.com/features/actions) calls `nbdev` when changes to files are detected in the `/_notebooks` directory of your repo and converts Jupyter notebook files into blog posts.  These blog posts are placed into the `/_posts` directory (via a commit and push) which is used by GitHub Pages to render your blog posts.  This GitHub Action an be customized by modifying the [/.github/workflows/nb2post.yaml](/.github/workflows/nb2post.yaml) in your repo.  
 
