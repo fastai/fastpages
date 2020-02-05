@@ -1,0 +1,8 @@
+on:
+  page_build
+  
+jobs:
+  see-page-build-payload:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo ${{ toJSON(github.event) }}
