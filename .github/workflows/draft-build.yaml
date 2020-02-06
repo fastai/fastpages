@@ -7,6 +7,7 @@ jobs:
   netlify:
     if: github.actor == 'fastpages-chatops[bot]'
     runs-on: ubuntu-latest
+    steps:
       - name: see payload
         run: |
           echo "Labels: $LABELS"
