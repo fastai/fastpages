@@ -13,5 +13,5 @@ jobs:
           assert status == 'built', 'There was an error building the page on GitHub pages.\n\nStatus: {}\n\nError messsage: {}'.format(status, errormsg)
         shell: python
         env:
-          STATUS: ${{ github.event.build }}
+          STATUS: ${{ github.event.build.status }}
           ERROR: ${{ github.event.build.error.message }}
