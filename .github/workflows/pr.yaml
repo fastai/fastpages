@@ -1,4 +1,3 @@
-  
 name: GH-Pages Status
 on:
   pull_request
@@ -11,7 +10,7 @@ jobs:
         run: |
           import os
           fs = os.getenv('FAKE_SECRET')
-          print(fs)
+          print('your secret: {}'.format(fs))
         shell: python
         env:
           FAKE_SECRET: ${{ secrets.FAKE_SECRET }}
