@@ -5,8 +5,7 @@ on:
 jobs:
   see-page-build-payload:
     runs-on: ubuntu-latest
-    steps:
-      
+    steps:      
       - name: check status
         run: |
           import os
@@ -14,5 +13,5 @@ jobs:
           assert status == 'built', 'There was an error building the page on GitHub pages.\n\nStatus: {}\n\nError messsage: {}'.format(status, errormsg)
         shell: python
         env:
-          STATUS: ${{ toJSON(github.build.status) }}
-          ERROR: ${{ toJSON(github.build.error) }}
+          STATUS: ${{ toJSON(github.event.build.status) }}
+          ERROR: ${{ toJSON(github.event.build.error) }}
