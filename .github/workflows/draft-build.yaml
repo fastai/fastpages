@@ -1,0 +1,17 @@
+name: Publish Draft Build to Hosting Service For Review
+on: 
+  pull_request:
+    types: [labeled]
+   
+jobs:
+  netlify:
+    if: github.actor == 'fastpages-chatops[bot]'
+    runs-on: ubuntu-latest
+      - name: see payload
+        run: |
+          echo "Labels: $LABELS"
+          echo "sha:  $SHA"
+        env:
+          LABELS: ${{ toJSON(github.event.pull_request.labels) }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+    
