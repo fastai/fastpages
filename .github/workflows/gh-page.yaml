@@ -6,6 +6,13 @@ jobs:
   see-page-build-payload:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $PAYLOAD
+      
+      - name: check status
+        run: |
+          import os
+          status, errormsg = os.getenv('STATUS'), os.getenv('ERROR')
+          assert status == 'built', 'There was an error building the page on GitHub pages.\n\nStatus: {}\n\nError messsage: {}'.format(status, errormsg)
+        shell: python
         env:
-          PAYLOAD: ${{ toJSON(github.event) }}
+          STATUS: ${{ toJSON(github.build.status) }}
+          ERROR: ${{ toJSON(github.build.error) }}
