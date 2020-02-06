@@ -31,7 +31,6 @@ plugins:
   - jekyll-gist
   - jekyll-octicons
   - jekyll-github-metadata
-  - jekyll-youtube
   - jekyll-toc
   - jekyll-twitter-plugin
   - jekyll-relative-links
