@@ -26,13 +26,22 @@ jobs:
         run:  |
           if [ -z ${NETLIFY_AUTH_TOKEN} ]; then echo "::set-output name=status::public"; else echo "::set-output name=status::private"; fi
 
-      - name: make comment on PR
+      - name: make comment on PR if env does not exist
         if: steps.get_status.outputs.status == 'public'
         run: |
            ./_action_files/pr_comment.sh "Was not able to generate site preview due to absent credentials."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+      - name: Fetch context about the PR that has been commented on
+        id: chatops
+        uses: machine-learning-apps/actions-chatops@master
+        with:
+          TRIGGER_PHRASE: "/preview"
+        env: # you must supply GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: add label
         uses: buildsville/add-remove-label@v1
@@ -86,7 +95,7 @@ jobs:
            ./_action_files/pr_comment.sh "${MSG}"
         env:
            URL: ${{ steps.py.outputs.draft_url }}
-           SHA: ${{ github.event.pull_request.head.sha }}
+           SHA: ${{ steps.chatops.outputs.SHA }}
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
            ISSUE_NUMBER: ${{ github.event.issue.number }}
            
