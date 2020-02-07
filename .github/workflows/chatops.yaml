@@ -34,10 +34,10 @@ jobs:
       - name: make comment on PR
         if: steps.get_status.outputs.status == 'public'
         run: |
-           ./_action_files/pr_comment.sh "GitHub cannot automatically generate site previews for you for PRs from forks.  TODO: Give git commands"
+           ./_action_files/pr_comment.sh "Was not able to generate site preview due to absent credentials."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.pull_request.issue.number }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
            
            
       - name: setup directories for Jekyll build
@@ -68,7 +68,7 @@ jobs:
           URL: ${{ steps.py.outputs.draft_url }}
           SHA: ${{ github.event.pull_request.head.sha }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.pull_request.issue.number }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
 
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
@@ -80,4 +80,4 @@ jobs:
            URL: ${{ steps.py.outputs.draft_url }}
            SHA: ${{ github.event.pull_request.head.sha }}
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-           ISSUE_NUMBER: ${{ github.event.pull_request.issue.number }}
+           ISSUE_NUMBER: ${{ github.event.issue.number }}
