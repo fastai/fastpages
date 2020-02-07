@@ -30,7 +30,13 @@ jobs:
         uses: docker://jekyll/jekyll
         with:
           args: jekyll build
-
+          
+      - name: see files
+        run: ls -a
+      
+      - name: run it
+        run: netlify deploy --dir _site
+        
       - name: push draft build
         run: |
           ls -a
