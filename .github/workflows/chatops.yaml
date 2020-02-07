@@ -61,14 +61,14 @@ jobs:
           cat _netlify_logs.txt | python _action_files/parse_netlify.py
   
   
-      - name: Setup tmate session
-        if: steps.get_status.outputs.status == 'private'
-        uses: mxschmitt/action-tmate@v1
-        env:
-          URL: ${{ steps.py.outputs.draft_url }}
-          SHA: ${{ github.event.pull_request.head.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+#       - name: Setup tmate session
+#         if: steps.get_status.outputs.status == 'private'
+#         uses: mxschmitt/action-tmate@v1
+#         env:
+#           URL: ${{ steps.py.outputs.draft_url }}
+#           SHA: ${{ github.event.pull_request.head.sha }}
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           ISSUE_NUMBER: ${{ github.event.issue.number }}
 
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
