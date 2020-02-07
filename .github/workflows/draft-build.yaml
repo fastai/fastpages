@@ -12,7 +12,7 @@ jobs:
         run: sudo npm install netlify-cli -g
     
       - name: check status
-        run: netlify status
+        run: sudo netlify status
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -48,16 +48,16 @@ jobs:
         
       - name: push draft build
         run: |
-          ls -a
           netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
-          cd _master_reference/_action_files/
-          cat netlify_logs.txt | python parse_netlify.py
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
-      - name: make comment on PR
+      - name: Parse Logs
         run: |
-          echo "Success, TODO: Comment on the PR"
+          ls -a
+          cd _master_reference/_action_files/
+          ls -a
+          cat netlify_logs.txt | python parse_netlify.py
          
           
