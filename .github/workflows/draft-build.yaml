@@ -27,10 +27,13 @@ jobs:
 #           path: _master_reference
     
       - name: test python
+        id: py
         run: python _action_files/test.py
         
-      - name: see files
-        run: ls -a
+      - name: see outputs
+        run: echo $STUFF
+        env:
+           STUFF: ${{ steps.py.outputs.draft_url }}
         
 #       - name: setup directories for Jekyll build
 #         run: |
