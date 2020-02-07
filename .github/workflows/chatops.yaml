@@ -1,0 +1,17 @@
+name: Chatops
+on: [issue_comment]
+
+jobs:
+  trigger-chatops:
+    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview') && (github.actor == 'hamelsmu' || github.actor == 'xnutsive' || github.actor == 'sgugger'  || github.actor == 'jph00')
+    runs-on: ubuntu-latest
+    steps:
+      - name: listen for PR Comments
+        uses: machine-learning-apps/actions-chatops@master
+        with:
+          APP_PEM: ${{ secrets.APP_PEM }}
+          APP_ID: ${{ secrets.APP_ID }}
+          TRIGGER_PHRASE: "/preview"
+          INDICATOR_LABEL: "draft build pending"
+        env: # you must supply GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

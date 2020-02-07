@@ -1,0 +1,59 @@
+name: Publish Draft Build
+on: 'push'
+#   pull_request:
+#     types: [labeled]
+   
+jobs:
+  netlify:
+#     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: install netlify
+        run: sudo npm install netlify-cli -g
+        
+      - name: checkout the branch of the PR
+        uses: actions/checkout@master
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+  
+      - name: checkout master branch for action files
+        uses: actions/checkout@v2
+        with:
+          path: _master_reference
+          
+#       - name: setup directories for Jekyll build
+#         run: |
+#           rm -rf _site
+#           sudo chmod -R 777 .
+          
+#       - name: Jekyll build
+#         uses: docker://jekyll/jekyll
+#         with:
+#           args: jekyll build
+          
+      - name: see files
+        run: ls -a
+        
+      - name: push draft build
+        run: |
+          netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          
+      - name: See Files
+        run: |
+          cd _master_reference/_action_files/
+          ls -a
+          
+      - name: See Contents
+        run: |
+          cd _master_reference/_action_files/
+          cat netlify_logs.txt
+    
+      - name: run parser
+        run: | 
+          cd _master_reference/_action_files/
+          cat netlify_logs.txt | python parse_netlify.py
+         
+          
