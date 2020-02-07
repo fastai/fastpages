@@ -2,8 +2,7 @@ name: python
 on: push
 
 jobs:
-  trigger-chatops:
-      CHECK_RUN_NAME: "Draft-Site-Build"
+  py:
     runs-on: ubuntu-latest
     steps:
 
