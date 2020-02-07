@@ -46,7 +46,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           add-labels: "draft-build-pending"
           
-      - name: Copy Repository Contents
+      - name: Copy The PR's Branch Repository Contents
         uses: actions/checkout@master
         if: steps.get_status.outputs.status == 'private'
         with:
