@@ -55,15 +55,19 @@ jobs:
           import os, requests
 
           sha = os.getenv('SHA')
-          url = f'https://api.github.com/repos/{os.getenv('GITHUB_REPOSITORY')}/check-runs'
+          token = os.getenv('GITHUB_TOKEN')
+          nwo = os.getenv('GITHUB_REPOSITORY')
+          name = os.getenv('CHECK_RUN_NAME')
 
-          headers = {'authorization': f'token {os.getenv('GITHUB_TOKEN')}',
+          url = f'https://api.github.com/repos/{nwo}/check-runs'
+
+          headers = {'authorization': f'token {token}',
            'accept': 'application/vnd.github.antiope-preview+json'}
 
           payload = {
-            'name': f'{os.getenv('CHECK_RUN_NAME')}',
+            'name': f'{name}',
             'head_sha': f'{sha}',
-            'status': f'{os.getenv('STATUS')}',
+            'status': 'in_progress',
             'output':{
                 'title': f'Building preview of site for {sha}.',
                 'summary': ' ',
@@ -74,7 +78,6 @@ jobs:
           print(response)
         env:
           SHA: ${{ steps.chatops.outputs.SHA }}
-          STATUS: "in_progress"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: add label
@@ -165,15 +168,19 @@ jobs:
           import os, requests
 
           sha = os.getenv('SHA')
-          url = f'https://api.github.com/repos/{os.getenv('GITHUB_REPOSITORY')}/check-runs'
+          conclusion = os.getenv('WORKFLOW_CONCLUSION')
+          token = os.getenv('GITHUB_TOKEN')
+          name = os.getenv('CHECK_RUN_NAME')
+          nwo = os.getenv('GITHUB_REPOSITORY')
           
-          headers = {'authorization': f'token {os.getenv('GITHUB_TOKEN')}',
+          url = f'https://api.github.com/repos/{nwo}/check-runs'
+          headers = {'authorization': f'token {token}',
                      'accept': 'application/vnd.github.antiope-preview+json'}
           
           data = {
-              'name': f'{os.getenv('CHECK_RUN_NAME')}',
+              'name': f'{name}',
               'head_sha': f'{sha}',
-              'conclusion': f'{os.getenv('WORKFLOW_CONCLUSION')}',
+              'conclusion': f'{conclusion}',
           }
           response = requests.post(url=url, headers=headers, json=data)
           print(response)
