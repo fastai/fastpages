@@ -15,7 +15,10 @@ jobs:
         run: sudo npm install netlify-cli -g
           
       - name: verify netlify status
-        run: sudo netlify status
+        run: netlify status
+        env:
+         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
             
       - uses: actions/setup-python@v1
         with:
