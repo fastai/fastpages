@@ -1,6 +1,6 @@
 
 
-## :construction: This Repo Is Currently Under Construction :construction:
+## :construction: This Repo Is Still Under Construction :construction:
 
 ![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
 
