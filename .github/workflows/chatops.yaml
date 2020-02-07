@@ -70,7 +70,7 @@ jobs:
         uses: actions/checkout@master
         if: steps.get_status.outputs.status == 'private'
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ steps.chatops.outputs.SHA }}
            
       - name: setup directories for Jekyll build
         if: steps.get_status.outputs.status == 'private'
