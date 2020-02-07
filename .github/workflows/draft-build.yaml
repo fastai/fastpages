@@ -12,4 +12,16 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-    
+  
+      - name: checkout master branch for action files
+        uses: actions/checkout@v2
+        with:
+          path: master_reference
+
+      - name: install netlify
+        run: npm install netlify-cli -g
+
+      - name: push draft build
+        run: |
+          netlify deploy --dir _site > python master_reference/_action_files/parse_netlify.py
+          
