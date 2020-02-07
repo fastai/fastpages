@@ -45,7 +45,7 @@ jobs:
           python-version: 3.6
           
       - name: install requests
-        run: pip install requests
+        run: pip3 install requests
       
       - name: add label
         if: steps.get_status.outputs.status == 'private'
