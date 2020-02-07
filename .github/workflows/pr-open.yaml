@@ -11,10 +11,8 @@ jobs:
         - name: see payload
           run: |
             echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-            echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
           env:
             PAYLOAD: ${{ toJSON(github.event) }}
-            PR_PAYLOAD: ${{ github.event.pull_request }}
 
         - name: greeting
           uses: actions/first-interaction@v1
