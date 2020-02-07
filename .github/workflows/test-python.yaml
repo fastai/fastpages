@@ -14,7 +14,7 @@ jobs:
       - name: add check run
         shell: python
         run: |
-          import os, requests
+          import os
           repo = os.getenv('GITHUB_REPOSITORY')
           print(repo)
           print(f'this is the repo: {repo}')
