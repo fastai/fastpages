@@ -21,15 +21,15 @@ jobs:
         with:
           path: _master_reference
           
-      - name: setup directories for Jekyll build
-        run: |
-          rm -rf _site
-          sudo chmod -R 777 .
+#       - name: setup directories for Jekyll build
+#         run: |
+#           rm -rf _site
+#           sudo chmod -R 777 .
           
-      - name: Jekyll build
-        uses: docker://jekyll/jekyll
-        with:
-          args: jekyll build
+#       - name: Jekyll build
+#         uses: docker://jekyll/jekyll
+#         with:
+#           args: jekyll build
           
       - name: see files
         run: ls -a
@@ -41,11 +41,17 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
-      - name: Parse Logs
+      - name: See Files
         run: |
-          ls -a
           cd _master_reference/_action_files/
           ls -a
+          
+      - name: See Contents
+        run: |
+          cat netlify_logs.txt
+    
+      - name: run parser
+        run: | 
           cat netlify_logs.txt | python parse_netlify.py
          
           
