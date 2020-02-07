@@ -171,9 +171,8 @@ jobs:
           import os, requests
 
           sha = os.getenv('SHA')
-          conclusion = os.getenv('WORKFLOW_CONCLUSION')
+          conclusion = os.getenv('WORKFLOW_CONCLUSION').lower()
           token = os.getenv('GITHUB_TOKEN')
-          name = os.getenv('CHECK_RUN_NAME')
           nwo = os.getenv('GITHUB_REPOSITORY')
           check_run_id = os.getenv('CHECK_RUN_ID')
           if not check_run_id:
@@ -184,10 +183,9 @@ jobs:
                      'accept': 'application/vnd.github.antiope-preview+json'}
           
           data = {
-              'name': f'{name}',
               'conclusion': f'{conclusion}',
           }
-          response = requests.post(url=url, headers=headers, json=data)
+          response = requests.patch(url=url, headers=headers, json=data)
           print(response)
         env:
           SHA: ${{ steps.chatops.outputs.SHA }}
