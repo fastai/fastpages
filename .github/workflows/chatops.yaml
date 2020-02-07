@@ -57,7 +57,7 @@ jobs:
           headers = {'Accept': 'application/vnd.github.symmetra-preview+json',
                      'Authorization': f'token {token}'}
           url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels"
-          data = {"labels": ["Draft Build Pending"]}
+          data = {"labels": ["draft build pending"]}
           result = requests.post(url=url, headers=headers, json=data)
           print(result)
         shell: python
@@ -113,7 +113,7 @@ jobs:
           pr_num = os.getenv('PR_NUM')
           headers = {'Accept': 'application/vnd.github.symmetra-preview+json',
                      'Authorization': f'token {token}'}
-          url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels/Draft%20Build%20Pending"
+          url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels/draft%20build%20pending"
           result = requests.delete(url=url, headers=headers)
           print(result)
         shell: python
