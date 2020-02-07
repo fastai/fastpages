@@ -8,6 +8,9 @@ jobs:
     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:
+      - name: install netlify
+        run: sudo npm install netlify-cli -g
+        
       - name: checkout the branch of the PR
         uses: actions/checkout@master
         with:
@@ -17,9 +20,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: master_reference
-
-      - name: install netlify
-        run: npm install netlify-cli -g
 
       - name: push draft build
         run: |
