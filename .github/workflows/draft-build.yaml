@@ -5,6 +5,9 @@ on:
    
 jobs:
   netlify:
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:        
@@ -35,22 +38,13 @@ jobs:
           
       - name: install netlify
         run: sudo npm install netlify-cli -g
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
       - name: verify netlify status
-        run: netlify status
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: sudo netlify status
 
       - name: push draft build
         run: |
           sudo netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
       - name: get url
         id: url
