@@ -1,0 +1,24 @@
+name: python
+on: push
+
+jobs:
+  trigger-chatops:
+      CHECK_RUN_NAME: "Draft-Site-Build"
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
+          
+      - name: add check run
+        if: steps.get_status.outputs.status == 'private'
+        shell: python
+        run: |
+          import os, requests
+          repo = os.getenv('GITHUB_REPOSITORY')
+          print(repo)
+          print(f'this is the repo: f{repo}')
+          
+ 
