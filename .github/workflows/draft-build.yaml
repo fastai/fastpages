@@ -50,6 +50,9 @@ jobs:
         run: |
           cd _master_reference/_action_files/
           cat netlify_logs.txt
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
     
       - name: run parser
         run: | 
