@@ -1,5 +1,5 @@
 name: Publish Draft Build
-on: 'push'
+on:
   pull_request:
     types: [labeled]
    
