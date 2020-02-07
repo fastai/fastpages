@@ -11,6 +11,12 @@ jobs:
 #     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:        
+      - name: install netlify
+        run: sudo npm install netlify-cli -g
+          
+      - name: verify netlify status
+        run: sudo netlify status
+            
       - uses: actions/setup-python@v1
         with:
           python-version: '3.6'
@@ -35,12 +41,6 @@ jobs:
 #         uses: docker://jekyll/jekyll
 #         with:
 #           args: jekyll build --baseurl /
-          
-      - name: install netlify
-        run: sudo npm install netlify-cli -g
-          
-      - name: verify netlify status
-        run: sudo netlify status
 
       - name: push draft build
         run: |
