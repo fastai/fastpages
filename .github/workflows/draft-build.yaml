@@ -40,14 +40,14 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
       - name: verify netlify status
-        run: sudo netlify status
+        run: netlify status
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: push draft build
         run: |
-          netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
+          sudo netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
