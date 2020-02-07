@@ -1,7 +1,7 @@
 name: Publish Draft Build
-on: 
-  pull_request:
-    types: [labeled]
+on: 'push'
+#   pull_request:
+#     types: [labeled]
    
 jobs:
   netlify:
@@ -10,6 +10,12 @@ jobs:
     steps:
       - name: install netlify
         run: sudo npm install netlify-cli -g
+    
+      - name: check status
+        run: netlify status
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         
       - name: checkout the branch of the PR
         uses: actions/checkout@master
