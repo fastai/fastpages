@@ -4,14 +4,60 @@ on: [issue_comment]
 jobs:
   trigger-chatops:
     if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview') && (github.actor == 'hamelsmu' || github.actor == 'xnutsive' || github.actor == 'sgugger'  || github.actor == 'jph00')
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     runs-on: ubuntu-latest
     steps:
-      - name: listen for PR Comments
-        uses: machine-learning-apps/actions-chatops@master
+      - name: see payload
+        run: |
+          echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+          echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
+        env:
+          PAYLOAD: ${{ toJSON(github.event) }}
+          PR_PAYLOAD: ${{ github.event.pull_request }}
+    
+      - name: Copy Repository Contents
+        uses: actions/checkout@master
+        
+      - name: verify env exists
+        id: get_status
+        run:  |
+          if [ -z ${NETLIFY_AUTH_TOKEN} ]; then echo "::set-output name=status::public"; else echo "::set-output name=status::private"; fi
+          
+
+      - name: make comment on PR
+        if: steps.get_status.outputs.status == 'public'
+        run: |
+           ./_action_files/pr_comment.sh "GitHub cannot automatically generate site previews for you for PRs from forks.  TODO: Give git commands"
+           
+           
+      - name: setup directories for Jekyll build
+        if: steps.get_status.outputs.status == 'private'
+        run: |
+          rm -rf _site
+          sudo chmod -R 777 .
+          
+      - name: Jekyll build with baseurl as root for netifly
+        if: steps.get_status.outputs.status == 'private'
+        uses: docker://jekyll/jekyll
         with:
-          APP_PEM: ${{ secrets.APP_PEM }}
-          APP_ID: ${{ secrets.APP_ID }}
-          TRIGGER_PHRASE: "/preview"
-          INDICATOR_LABEL: "draft build pending"
-        env: # you must supply GITHUB_TOKEN
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          args: jekyll build --baseurl /
+     
+      - name: deploy to netlify
+        if: steps.get_status.outputs.status == 'private'
+        id: py
+        run: | 
+          sudo npm install netlify-cli -g
+          netlify deploy --dir _site | tee _netlify_logs.txt
+          cat _netlify_logs.txt | python _action_files/parse_netlify.py
+          
+      - name: make comment on PR 
+        if: steps.get_status.outputs.status == 'private'
+        run: |
+           MSG="Preview of this branch has been generated at sha: $SHA and can be viewed at: ${URL}"
+           echo $MSG
+           ./_action_files/pr_comment.sh ${MSG}
+        env:
+           URL: ${{ steps.py.outputs.draft_url }}
+           SHA: ${{ github.event.pull_request.head.sha }}
