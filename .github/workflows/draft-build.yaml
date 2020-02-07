@@ -11,6 +11,8 @@ jobs:
 #     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:        
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
       - name: install netlify
         run: sudo npm install netlify-cli -g
           
