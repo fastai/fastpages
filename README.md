@@ -2,7 +2,7 @@
 
 ## :construction: This Repo Is Currently Under Construction :construction:
 
-![](https://github.com/fastai/fastpages/workflows/Notebook%20Build/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
+![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
 
 # Welcome To fastpages 
 
@@ -15,13 +15,16 @@
 
 ## Features
 
-TODO
+- jekyll notes
+- embedded twitter and youtube
+
 
 ## Setup Instructions For This Repo
 
 TODO
 - `_config.yaml`: baseurl
 - setup `SSH_DEPLOY_KEY`
+- change the badges to point to your repo instead of fastai/fastpages
 
 ## Using The GitHub Action
 

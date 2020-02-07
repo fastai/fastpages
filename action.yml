@@ -2,9 +2,6 @@ name: 'Fastpages'
 description: Converts Jupyter Notebooks and Word Docs into Jekyll Blog Posts
 author: Hamel Husain
 inputs:
-  FORMAT:
-    description: Either the value 'word' or 'notebook'.  Specifies whether you are converting a directory of notebooks or word documents.
-    required: true
   BOOL_SAVE_MARKDOWN:
     description: Either 'true' or 'false'.  Whether or not to commit converted markdown files from notebooks and word documents into the _posts directory in your repo.  This is useful for debugging.
     required: false
