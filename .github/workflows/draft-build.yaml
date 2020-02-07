@@ -22,7 +22,7 @@ jobs:
           path: _master_reference
     
       - name: test python
-        run: python _master_reference/action_files/test.py
+        run: python _master_reference/_action_files/test.py
         
 #       - name: setup directories for Jekyll build
 #         run: |
