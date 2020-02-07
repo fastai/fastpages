@@ -19,12 +19,23 @@ jobs:
       - name: checkout master branch for action files
         uses: actions/checkout@v2
         with:
-          path: master_reference
+          path: _master_reference
+          
+      - name: setup directories for Jekyll build
+        run: |
+          rm -rf _site
+          sudo chmod -R 777 .
+          
+      - name: Jekyll build
+        uses: docker://jekyll/jekyll
+        with:
+          args: jekyll build
 
       - name: push draft build
         run: |
           netlify deploy --dir _site > master_reference/_action_files/netlify_logs.txt
           cd master_reference/_action_files/
+          cat netlify_logs.txt
           cat netlify_logs.txt | python parse_netlify.py
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
