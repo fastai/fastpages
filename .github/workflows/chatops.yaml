@@ -75,7 +75,7 @@ jobs:
         run: |
            MSG="Preview of this branch has been generated at sha: $SHA and can be viewed at: ${URL}"
            echo "$MSG"
-           ./_action_files/pr_comment.sh ${MSG}
+           ./_action_files/pr_comment.sh "${MSG}"
         env:
            URL: ${{ steps.py.outputs.draft_url }}
            SHA: ${{ github.event.pull_request.head.sha }}
