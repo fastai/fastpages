@@ -1,0 +1,8 @@
+Deploy path: /home/runner/work/fastpages/fastpages/_site
+Deploying to draft URL...
+
+Logs:           https://app.netlify.com/sites/fastpages/deploys/5e3cc134383dcd17287281b5
+Live Draft URL: https://5e3cc134383dcd17287281b5--fastpages.netlify.com
+
+If everything looks good on your draft URL, take it live with the --prod flag.
+netlify deploy --prod
