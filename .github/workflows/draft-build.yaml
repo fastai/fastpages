@@ -51,8 +51,10 @@ jobs:
           cd _master_reference/_action_files/
           cat netlify_logs.txt
           
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.6'
+          architecture: 'x64'
     
       - name: run parser
         run: | 
