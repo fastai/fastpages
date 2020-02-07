@@ -20,8 +20,8 @@ jobs:
       - name: Copy Repository Contents
         uses: actions/checkout@master
     
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
+#       - name: Setup tmate session
+#         uses: mxschmitt/action-tmate@v1
         
       - name: verify env exists
         id: get_status
