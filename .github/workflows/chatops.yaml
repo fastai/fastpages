@@ -3,7 +3,7 @@ on: [issue_comment]
 
 jobs:
   trigger-chatops:
-    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview') && (github.actor == 'hamelsmu' || github.actor == 'xnutsive' || github.actor == 'sgugger'  || github.actor == 'jph00')
+    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview')
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -71,7 +71,10 @@ jobs:
         if: steps.get_status.outputs.status == 'private'
         with:
           ref: ${{ steps.chatops.outputs.SHA }}
-           
+     
+      - name: convert notebooks and word docs to posts
+        uses: fastai/fastpages@master
+
       - name: setup directories for Jekyll build
         if: steps.get_status.outputs.status == 'private'
         run: |
