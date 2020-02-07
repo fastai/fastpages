@@ -19,7 +19,9 @@ jobs:
     
       - name: Copy Repository Contents
         uses: actions/checkout@master
-    
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
 #       - name: Setup tmate session
 #         uses: mxschmitt/action-tmate@v1
         
