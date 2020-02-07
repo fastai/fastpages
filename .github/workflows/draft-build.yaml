@@ -34,7 +34,7 @@ jobs:
       - name: Jekyll build
         uses: docker://jekyll/jekyll
         with:
-          args: jekyll build
+          args: jekyll build --baseurl /
           
       - name: push draft build
         run: |
