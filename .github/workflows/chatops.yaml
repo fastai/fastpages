@@ -74,7 +74,7 @@ jobs:
         if: steps.get_status.outputs.status == 'private'
         run: |
            MSG="Preview of this branch has been generated at sha: $SHA and can be viewed at: ${URL}"
-           echo $MSG
+           echo "$MSG"
            ./_action_files/pr_comment.sh ${MSG}
         env:
            URL: ${{ steps.py.outputs.draft_url }}
