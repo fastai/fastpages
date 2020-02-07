@@ -6,6 +6,8 @@ layout: home
 ---
 Hello and welcome to this blog. Edit the `index.md` file to change this content. All pages on the blog, including this one, use [Markdown](https://guides.github.com/features/mastering-markdown/). You can include images:
 
+I AM MAKING A CHANGE TO THE HOME PAGE HERE.  We Probably don't want to merge this.
+
 ![Image of fast.ai logo](images/logo.png)
 
 ## This is a title
