@@ -2,7 +2,7 @@
 
 ## :construction: This Repo Is Currently Under Construction :construction:
 
-![](https://github.com/fastai/fastpages/workflows/Notebook%20Build/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
+![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
 
 # Welcome To fastpages 
 

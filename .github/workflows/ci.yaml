@@ -1,14 +1,11 @@
-name: Notebook Build
+name: CI
 on:
   push:
     branches:
       - master
-    # paths:
-    #   - '_notebooks/*.ipynb'
 
 jobs:
   convert-notebook:
-    if: contains(join(github.event.commits.*.message), '/sync')
     runs-on: ubuntu-latest
     steps:
     - name: Copy Repository Contents
@@ -16,11 +13,8 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: convert notebooks and word docs to posts
     - uses: fastai/fastpages@master
-      with:
-        BOOL_SAVE_MARKDOWN: true
-        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-        FORMAT: 'notebook'
 
     - name: setup directories for Jekyll build
       run: |
