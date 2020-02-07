@@ -23,5 +23,15 @@ jobs:
 
       - name: push draft build
         run: |
-          netlify deploy --dir _site > python master_reference/_action_files/parse_netlify.py
+          netlify deploy --dir _site > master_reference/_action_files/netlify_logs.txt
+          cd master_reference/_action_files/
+          cat netlify_logs.txt | python parse_netlify.py
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          
+      - name: make comment on PR
+        run: |
+          echo "Success, TODO: Comment on the PR"
+         
           
