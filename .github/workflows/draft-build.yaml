@@ -36,6 +36,9 @@ jobs:
       
       - name: run it
         run: netlify deploy --dir _site
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         
       - name: push draft build
         run: |
