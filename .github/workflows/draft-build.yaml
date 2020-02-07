@@ -11,7 +11,11 @@ jobs:
 #       - name: install netlify
 #         run: sudo npm install netlify-cli -g
         
-        
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.6'
+          architecture: 'x64'
+
       - name: checkout the branch of the PR
         uses: actions/checkout@master
 #         with:
@@ -57,10 +61,6 @@ jobs:
 #           cd _master_reference/_action_files/
 #           cat netlify_logs.txt
           
-#       - uses: actions/setup-python@v1
-#         with:
-#           python-version: '3.6'
-#           architecture: 'x64'
     
 #       - name: run parser
 #         run: | 
