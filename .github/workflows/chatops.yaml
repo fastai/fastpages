@@ -19,6 +19,9 @@ jobs:
     
       - name: Copy Repository Contents
         uses: actions/checkout@master
+    
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
         
       - name: verify env exists
         id: get_status
@@ -30,6 +33,9 @@ jobs:
         if: steps.get_status.outputs.status == 'public'
         run: |
            ./_action_files/pr_comment.sh "GitHub cannot automatically generate site previews for you for PRs from forks.  TODO: Give git commands"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.pull_request.issue.number }}
            
            
       - name: setup directories for Jekyll build
@@ -61,3 +67,5 @@ jobs:
         env:
            URL: ${{ steps.py.outputs.draft_url }}
            SHA: ${{ github.event.pull_request.head.sha }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           ISSUE_NUMBER: ${{ github.event.pull_request.issue.number }}
