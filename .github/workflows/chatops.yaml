@@ -95,7 +95,7 @@ jobs:
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
         run: |
-           MSG="Preview of this branch has been generated at sha: $SHA and can be viewed at: ${URL}"
+           MSG="Preview of this branch has been generated at SHA: $SHA and can be viewed at: ${URL}"
            echo "$MSG"
            ./_action_files/pr_comment.sh "${MSG}"
         env:
