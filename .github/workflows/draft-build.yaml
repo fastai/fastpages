@@ -21,10 +21,10 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
   
-      - name: checkout master branch for action files
-        uses: actions/checkout@v2
-        with:
-          path: _master_reference
+#       - name: checkout master branch for action files
+#         uses: actions/checkout@v2
+#         with:
+#           path: _master_reference
         
       - name: setup directories for Jekyll build
         run: |
@@ -44,17 +44,17 @@ jobs:
 
       - name: push draft build
         run: |
-          sudo netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
+          sudo netlify deploy --dir _site | tee _action_files/netlify_logs.txt
           
       - name: get url
         id: url
         run: | 
-          cd _master_reference/_action_files/
+          cd _action_files/
           cat netlify_logs.txt | python parse_netlify.py
           
       - name: make comment on PR 
         run: |
-           cd _master_reference/_action_files/
+           cd _action_files/
            MSG="Preview of this branch has been generated at sha: $SHA and can be viewed at: ${URL}"
            echo $MSG
            ./pr_comment.sh $MSG
