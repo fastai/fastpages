@@ -7,7 +7,7 @@ on:
   pull_request: 
 
 jobs:
-  convert-notebook:
+  build-site:
     runs-on: ubuntu-latest
     steps:
     - name: Copy Repository Contents
