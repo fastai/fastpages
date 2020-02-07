@@ -11,6 +11,7 @@ jobs:
 #       - name: install netlify
 #         run: sudo npm install netlify-cli -g
         
+        
       - name: checkout the branch of the PR
         uses: actions/checkout@master
 #         with:
