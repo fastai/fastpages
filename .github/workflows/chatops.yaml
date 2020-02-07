@@ -48,7 +48,7 @@ jobs:
         if: steps.get_status.outputs.status == 'private'
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          labels: "draft buid pending"
+          labels: "draft-build-pending"
           type: add
           
       - name: Copy Repository Contents
@@ -104,5 +104,5 @@ jobs:
         uses: buildsville/add-remove-label@v1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          labels: "draft buid pending"
+          labels: "draft-build-pending"
           type: remove
