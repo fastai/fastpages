@@ -20,7 +20,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: _master_reference
-          
+    
+      - name: test python
+        run: python _master_reference/action_files/test.py
+        
 #       - name: setup directories for Jekyll build
 #         run: |
 #           rm -rf _site
