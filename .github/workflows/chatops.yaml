@@ -80,6 +80,10 @@ jobs:
           SHA: ${{ steps.chatops.outputs.SHA }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v1
+          
       - name: add label
         if: steps.get_status.outputs.status == 'private'
         run: |
