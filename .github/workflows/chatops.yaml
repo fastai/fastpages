@@ -41,7 +41,7 @@ jobs:
 
       - name: add label
         if: steps.get_status.outputs.status == 'private'
-        uses: andymckay/labeler@master
+        uses: andymckay/labeler@1.0.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           add-labels: "draft-build-pending"
@@ -86,7 +86,7 @@ jobs:
            
       - name: remove label
         if: always()
-        uses: andymckay/labeler@master
+        uses: andymckay/labeler@1.0.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           remove-labels: "draft-build-pending"
