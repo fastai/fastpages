@@ -48,10 +48,12 @@ jobs:
           
       - name: See Contents
         run: |
+          cd _master_reference/_action_files/
           cat netlify_logs.txt
     
       - name: run parser
         run: | 
+          cd _master_reference/_action_files/
           cat netlify_logs.txt | python parse_netlify.py
          
           
