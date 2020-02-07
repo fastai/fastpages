@@ -15,8 +15,9 @@ jobs:
         shell: python
         run: |
           import os
+          repo = os.getenv('GITHUB_REPOSITORY')
 
-          headers = {'authorization': f'token {os.getenv('GITHUB_REPOSITORY')}',
+          headers = {'authorization': f'token {repo}',
            'accept': 'application/vnd.github.antiope-preview+json'}
 
           print(headers)
