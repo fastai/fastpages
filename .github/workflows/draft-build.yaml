@@ -1,14 +1,14 @@
 name: Publish Draft Build
-on:
-  pull_request:
-    types: [labeled]
+on: 'push'
+#   pull_request:
+#     types: [labeled]
    
 jobs:
   netlify:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-    if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
+#     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:        
       - uses: actions/setup-python@v1
@@ -26,15 +26,15 @@ jobs:
 #         with:
 #           path: _master_reference
         
-      - name: setup directories for Jekyll build
-        run: |
-          rm -rf _site
-          sudo chmod -R 777 .
+#       - name: setup directories for Jekyll build
+#         run: |
+#           rm -rf _site
+#           sudo chmod -R 777 .
           
-      - name: Jekyll build
-        uses: docker://jekyll/jekyll
-        with:
-          args: jekyll build --baseurl /
+#       - name: Jekyll build
+#         uses: docker://jekyll/jekyll
+#         with:
+#           args: jekyll build --baseurl /
           
       - name: install netlify
         run: sudo npm install netlify-cli -g
