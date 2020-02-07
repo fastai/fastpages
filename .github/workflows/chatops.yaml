@@ -9,6 +9,7 @@ jobs:
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     runs-on: ubuntu-latest
     steps:
+          
       - name: see payload
         run: |
           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
@@ -16,11 +17,6 @@ jobs:
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
           PR_PAYLOAD: ${{ github.event.pull_request }}
-    
-      - name: Copy Repository Contents
-        uses: actions/checkout@master
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
 #       - name: Setup tmate session
 #         uses: mxschmitt/action-tmate@v1
@@ -29,7 +25,6 @@ jobs:
         id: get_status
         run:  |
           if [ -z ${NETLIFY_AUTH_TOKEN} ]; then echo "::set-output name=status::public"; else echo "::set-output name=status::private"; fi
-          
 
       - name: make comment on PR
         if: steps.get_status.outputs.status == 'public'
@@ -38,7 +33,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-           
+
+      - name: add label
+        uses: buildsville/add-remove-label@v1
+        if: steps.get_status.outputs.status == 'private'
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: "draft buid pending"
+          type: add
+          
+      - name: Copy Repository Contents
+        uses: actions/checkout@master
+        if: steps.get_status.outputs.status == 'private'
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
            
       - name: setup directories for Jekyll build
         if: steps.get_status.outputs.status == 'private'
@@ -81,3 +89,11 @@ jobs:
            SHA: ${{ github.event.pull_request.head.sha }}
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
            ISSUE_NUMBER: ${{ github.event.issue.number }}
+           
+      - name: remove label
+        if: always()
+        uses: buildsville/add-remove-label@v1
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: "draft buid pending"
+          type: remove
