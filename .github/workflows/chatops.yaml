@@ -135,7 +135,7 @@ jobs:
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
         run: |
-           MSG="Preview of this branch has been generated at SHA: $SHA and can be viewed at: ${URL}"
+           MSG="A preview build of this branch has been generated for SHA: $SHA and can be viewed **live** at: ${URL}\n The current fastpages site built from master can be viewed for comparison [here](https://fastai.github.io/fastpages/)"
            echo "$MSG"
            ./_action_files/pr_comment.sh "${MSG}"
         env:
@@ -193,10 +193,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CHECK_RUN_ID: ${{ steps.create_check.outputs.id }}
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v1
-        env:
-          SHA: ${{ steps.chatops.outputs.SHA }}
-          WORKFLOW_CONCLUSION: ${{ job.status }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHECK_RUN_ID: ${{ steps.create_check.outputs.id }}  
