@@ -50,7 +50,7 @@ jobs:
       - name: add label
         if: steps.get_status.outputs.status == 'private'
         run: |
-          import os
+          import os, requests
           nwo = os.getenv('GITHUB_REPOSITORY')
           token = os.getenv('GITHUB_TOKEN')
           pr_num = os.getenv('PR_NUM')
@@ -107,7 +107,7 @@ jobs:
       - name: remove label
         if: always()
         run: |
-          import os
+          import os, requests
           nwo = os.getenv('GITHUB_REPOSITORY')
           token = os.getenv('GITHUB_TOKEN')
           pr_num = os.getenv('PR_NUM')
