@@ -39,12 +39,28 @@ jobs:
         env: # you must supply GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
+          
+      - name: install requests
+        run: pip install requests
+      
       - name: add label
         if: steps.get_status.outputs.status == 'private'
-        uses: andymckay/labeler@1.0.2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          add-labels: "draft-build-pending"
+        run: |
+          headers = {'Accept': 'application/vnd.github.symmetra-preview+json',
+                     'Authorization': f'token {token}'}
+          url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels"
+          data = {"labels": ["Draft Build Pending"]}
+          result = requests.post(url=url, headers=headers, json=data)
+          print(result)
+        shell: python
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pr_num: ${{ steps.chatops.outputs.PULL_REQUEST_NUMBER }}
+          nwo: $GITHUB_REPOSITORY
           
       - name: Copy The PR's Branch Repository Contents
         uses: actions/checkout@master
@@ -86,7 +102,14 @@ jobs:
            
       - name: remove label
         if: always()
-        uses: andymckay/labeler@1.0.2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          remove-labels: "draft-build-pending"
+        run: |
+          headers = {'Accept': 'application/vnd.github.symmetra-preview+json',
+                     'Authorization': f'token {token}'}
+          url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels/Draft%20Build%20Pending"
+          result = requests.delete(url=url, headers=headers)
+          print(result)
+        shell: python
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pr_num: ${{ steps.chatops.outputs.PULL_REQUEST_NUMBER }}
+          nwo: $GITHUB_REPOSITORY
