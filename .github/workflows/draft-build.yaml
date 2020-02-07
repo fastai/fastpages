@@ -33,8 +33,8 @@ jobs:
 
       - name: push draft build
         run: |
-          netlify deploy --dir _site > master_reference/_action_files/netlify_logs.txt
-          cd master_reference/_action_files/
+          netlify deploy --dir _site > _master_reference/_action_files/netlify_logs.txt
+          cd _master_reference/_action_files/
           cat netlify_logs.txt
           cat netlify_logs.txt | python parse_netlify.py
         env:
