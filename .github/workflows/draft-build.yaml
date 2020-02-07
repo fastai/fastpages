@@ -53,9 +53,9 @@ jobs:
 #         with:
 #           args: jekyll build --baseurl /
 
-#       - name: push draft build
-#         run: |
-#           sudo netlify deploy --dir _site | tee _action_files/netlify_logs.txt
+      - name: push draft build
+        run: |
+          netlify deploy --dir _site | tee _action_files/netlify_logs.txt
           
 #       - name: get url
 #         id: url
