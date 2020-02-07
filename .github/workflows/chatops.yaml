@@ -7,6 +7,7 @@ jobs:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      CHECK_RUN_NAME: "Draft-Site-Build"
     runs-on: ubuntu-latest
     steps:
           
@@ -46,7 +47,36 @@ jobs:
           
       - name: install requests
         run: pip3 install requests
-      
+
+      - name: add check run
+        if: steps.get_status.outputs.status == 'private'
+        shell: python
+        run: |
+          import os, requests
+
+          sha = os.getenv('SHA')
+          url = f'https://api.github.com/repos/{os.getenv('GITHUB_REPOSITORY')}/check-runs'
+
+          headers = {'authorization': f'token {os.getenv('GITHUB_TOKEN')}',
+           'accept': 'application/vnd.github.antiope-preview+json'}
+
+          payload = {
+            'name': f'{os.getenv('CHECK_RUN_NAME')}',
+            'head_sha': f'{sha}',
+            'status': f'{os.getenv('STATUS')}',
+            'output':{
+                'title': f'Building preview of site for {sha}.',
+                'summary': ' ',
+                'text': ' '
+            },
+          }
+          response = requests.post(url=url, headers=headers, json=payload)
+          print(response)
+        env:
+          SHA: ${{ steps.chatops.outputs.SHA }}
+          STATUS: "in_progress"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: add label
         if: steps.get_status.outputs.status == 'private'
         run: |
@@ -59,6 +89,7 @@ jobs:
           url = f"https://api.github.com/repos/{nwo}/issues/{pr_num}/labels"
           data = {"labels": ["draft build pending"]}
           result = requests.post(url=url, headers=headers, json=data)
+          # assert response.status_code == 201, f"Received status code of {response.status_code}"
           print(result)
         shell: python
         env:
@@ -124,3 +155,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUM: ${{ steps.chatops.outputs.PULL_REQUEST_NUMBER }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
+
+      # defensively clear check run each time
+      - name: clear check run
+        if: always()
+        continue-on-error: true
+        shell: python
+        run: |
+          import os, requests
+
+          sha = os.getenv('SHA')
+          url = f'https://api.github.com/repos/{os.getenv('GITHUB_REPOSITORY')}/check-runs'
+          
+          headers = {'authorization': f'token {os.getenv('GITHUB_TOKEN')}',
+                     'accept': 'application/vnd.github.antiope-preview+json'}
+          
+          data = {
+              'name': f'{os.getenv('CHECK_RUN_NAME')}',
+              'head_sha': f'{sha}',
+              'conclusion': f'{os.getenv('WORKFLOW_CONCLUSION')}',
+          }
+          response = requests.post(url=url, headers=headers, json=data)
+          print(response)
+        env:
+          SHA: ${{ steps.chatops.outputs.SHA }}
+          WORKFLOW_CONCLUSION: ${{ job.status }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
