@@ -8,21 +8,24 @@ jobs:
 #     if: (github.actor == 'fastpages-chatops[bot]') && (contains(join(github.event.pull_request.labels.*.name), 'draft build pending'))
     runs-on: ubuntu-latest
     steps:
-      - name: install netlify
-        run: sudo npm install netlify-cli -g
+#       - name: install netlify
+#         run: sudo npm install netlify-cli -g
         
       - name: checkout the branch of the PR
         uses: actions/checkout@master
         with:
           ref: ${{ github.event.pull_request.head.sha }}
   
-      - name: checkout master branch for action files
-        uses: actions/checkout@v2
-        with:
-          path: _master_reference
+#       - name: checkout master branch for action files
+#         uses: actions/checkout@v2
+#         with:
+#           path: _master_reference
     
       - name: test python
-        run: python _master_reference/_action_files/test.py
+        run: python _action_files/test.py
+        
+      - name: see files
+        run: ls -a
         
 #       - name: setup directories for Jekyll build
 #         run: |
@@ -34,34 +37,33 @@ jobs:
 #         with:
 #           args: jekyll build
           
-      - name: see files
-        run: ls -a
+
         
-      - name: push draft build
-        run: |
-          netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+#       - name: push draft build
+#         run: |
+#           netlify deploy --dir _site | tee _master_reference/_action_files/netlify_logs.txt
+#         env:
+#           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           
-      - name: See Files
-        run: |
-          cd _master_reference/_action_files/
-          ls -a
+#       - name: See Files
+#         run: |
+#           cd _master_reference/_action_files/
+#           ls -a
           
-      - name: See Contents
-        run: |
-          cd _master_reference/_action_files/
-          cat netlify_logs.txt
+#       - name: See Contents
+#         run: |
+#           cd _master_reference/_action_files/
+#           cat netlify_logs.txt
           
-      - uses: actions/setup-python@v1
-        with:
-          python-version: '3.6'
-          architecture: 'x64'
+#       - uses: actions/setup-python@v1
+#         with:
+#           python-version: '3.6'
+#           architecture: 'x64'
     
-      - name: run parser
-        run: | 
-          cd _master_reference/_action_files/
-          cat netlify_logs.txt | python parse_netlify.py
+#       - name: run parser
+#         run: | 
+#           cd _master_reference/_action_files/
+#           cat netlify_logs.txt | python parse_netlify.py
          
           
