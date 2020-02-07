@@ -17,9 +17,6 @@ jobs:
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
           PR_PAYLOAD: ${{ github.event.pull_request }}
-
-#       - name: Setup tmate session
-#         uses: mxschmitt/action-tmate@v1
         
       - name: verify env exists
         id: get_status
@@ -44,7 +41,7 @@ jobs:
 
       - name: add label
         if: steps.get_status.outputs.status == 'private'
-        uses: andymckay/labeler@1.0.0
+        uses: andymckay/labeler@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           add-labels: "draft-build-pending"
@@ -74,16 +71,6 @@ jobs:
           sudo npm install netlify-cli -g
           netlify deploy --dir _site | tee _netlify_logs.txt
           cat _netlify_logs.txt | python _action_files/parse_netlify.py
-  
-  
-#       - name: Setup tmate session
-#         if: steps.get_status.outputs.status == 'private'
-#         uses: mxschmitt/action-tmate@v1
-#         env:
-#           URL: ${{ steps.py.outputs.draft_url }}
-#           SHA: ${{ github.event.pull_request.head.sha }}
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           ISSUE_NUMBER: ${{ github.event.issue.number }}
 
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
@@ -99,7 +86,7 @@ jobs:
            
       - name: remove label
         if: always()
-        uses: andymckay/labeler@1.0.0
+        uses: andymckay/labeler@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           remove-labels: "draft-build-pending"
