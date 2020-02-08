@@ -1,0 +1,38 @@
+name: CI
+on:
+  push:
+    branches:
+      - master # need to filter here so we only deploy when there is a push to master
+  # no filters on pull requests, so intentionally left blank
+  pull_request: 
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+
+    - name: convert notebooks and word docs to posts
+      uses: fastai/fastpages@master
+
+    - name: setup directories for Jekyll build
+      run: |
+        rm -rf _site
+        sudo chmod -R 777 .
+
+    - name: Jekyll build
+      uses: docker://jekyll/jekyll
+      with:
+        args: jekyll build
+
+    # only deploy upon a push to master
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      if: github.event_name == 'push'
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./_site

@@ -1,0 +1,17 @@
+name: GH-Pages Status
+on:
+  page_build
+  
+jobs:
+  see-page-build-payload:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: check status
+        run: |
+          import os
+          status, errormsg = os.getenv('STATUS'), os.getenv('ERROR')
+          assert status == 'built', 'There was an error building the page on GitHub pages.\n\nStatus: {}\n\nError messsage: {}'.format(status, errormsg)
+        shell: python
+        env:
+          STATUS: ${{ github.event.build.status }}
+          ERROR: ${{ github.event.build.error.message }}
