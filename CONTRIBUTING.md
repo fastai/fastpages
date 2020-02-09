@@ -36,7 +36,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 
 ## Do you intend to add a new feature or change an existing one?
 
-* You can suggest your change on the [fastai forums](http://forums.fast.ai/) to see if others are interested or want to help. 
+* You can suggest your change on the [fastai forum](http://forums.fast.ai/) to see if others are interested or want to help. 
 * Once your approach has been discussed and confirmed on the forum, you are welcome to push a PR, including a complete description of the new feature and an example of how it's used. Be sure to document your code in the notabook.
 * Ensure that your code includes tests that exercise not only your feature, but also any other code that might be impacted.
 
