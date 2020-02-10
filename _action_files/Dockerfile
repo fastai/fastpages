@@ -13,4 +13,4 @@ COPY . .
 RUN chmod u+x action_entrypoint.sh
 RUN chmod u+x word2post.sh
 
-ENTRYPOINT [ "/fastpages/action_entrypoint.sh" ]
+CMD [ "/fastpages/action_entrypoint.sh" ]
