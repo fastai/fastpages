@@ -26,7 +26,7 @@ jobs:
     - name: Jekyll build
       uses: docker://jekyll/jekyll
       with:
-        args: bundle update && jekyll build
+        args: jekyll build
 
     # only deploy upon a push to master
     - name: Deploy
