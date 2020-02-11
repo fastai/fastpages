@@ -1,5 +1,5 @@
-name: 'Fastpages'
-description: Converts Jupyter Notebooks and Word Docs into Jekyll Blog Posts
+name: 'fastpages-action'
+description: Converts Jupyter notebooks and Word docs into Jekyll blog posts
 author: Hamel Husain
 inputs:
   BOOL_SAVE_MARKDOWN:
@@ -7,7 +7,7 @@ inputs:
     required: false
     default: false
   SSH_DEPLOY_KEY:
-    description: an ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
+    description: a ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
     required: false
 branding:
   color: 'yellow'
