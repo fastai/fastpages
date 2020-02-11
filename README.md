@@ -6,7 +6,7 @@
 
 # Welcome To fastpages 
 
-> An easy to use blogging platform for data scientists, with support for Jupyter Notebooks and other input formats.
+> An easy to use blogging platform for data scientists, with support for Jupyter notebooks, Word docs, and markdwon.
 
 **[See the demo site](https://fastai.github.io/fastpages/)**
 
