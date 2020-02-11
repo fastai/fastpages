@@ -31,17 +31,22 @@
 // for Jupyter Notebook HTML Code Cells from https://www.fast.ai/public/css/hyde.css
 
 .input_area pre, .input_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
+        margin-bottom:2rem !important;
+        margin-top:1.5rem !important;
         padding-bottom:0 !important;
         padding-top:0 !important;
+        background: #323443 !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: BlinkMacSystemFont,'Segoe UI',Roboto,Ubuntu,'Helvetica Neue', sans-serif;
+        font-family: Menlo, Monaco, "Courier New", monospace;
+        border-radius: 5px;
 }
 .output_area pre, .output_area div {
         margin-bottom:0.1rem !important;
         margin-top:0.1rem !important;
         padding-bottom:0 !important;
         padding-top:0 !important;
-        background-color: white !important;
 }
 .input_area pre {
         border-left: 1px solid lightcoral;
@@ -50,13 +55,51 @@
         border-left: 1px solid grey;
         margin-left: 1rem !important;
 }
-.codecell {
-        border-right: 2px solid lightgrey;
-        margin-bottom:1rem !important;
-        margin-top:1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
+
+
+// Custom Code Highlighting
+
+// strings
+.highlight .s1 {
+        color:rgb(206, 145, 120);
 }
 
-.codecell table { width: auto; }
+// parentheses
+.highlight .p {
+        font-weight: bold;
+        color: rgb(102, 217, 239);
+}
 
+// =, . etc.
+.highlight .o {
+        font-weight: bold;
+        color: rgb(255, 121, 198);
+}
+
+//most of the text
+.highlight .n {
+        color: rgb(255, 255, 255);
+}
+
+//comments
+.highlight .c1 {
+        color: rgb(107, 122, 163);
+}
+
+//numbers
+.highlight .mf {
+        color:  rgb(189, 147, 249);
+}
+
+//
+.highlight .kc {
+        color: rgb(181, 206, 168);;
+}
+
+.code_cell table { width: auto; }
+
+.page-content {
+        -webkit-font-smoothing: antialiased !important;
+        text-rendering: optimizeLegibility !important;
+        font-family: "Segoe UI", "Open Sans", "Helvetica Neue";
+}
