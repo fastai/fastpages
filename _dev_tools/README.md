@@ -57,7 +57,7 @@ Some additional commands that may be helpful.
 
 **`make bash-fastpages`** opens a shell in the environment that executes `nbdev` and `pandoc`
 
-**`make bash-jekyll`** opens a shell in the environment that runs the jekyll webserver
+**`make bash-jekyll`** opens a shell in the environment that runs the jekyll webserver.  Note: the webserver must already be running (via `make run-server`) for this to work!
 
 
 ## Using an IDE / Notebook
