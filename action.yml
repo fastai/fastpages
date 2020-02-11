@@ -1,5 +1,5 @@
 name: 'fastpages-action'
-description: Converts Jupyter Notebooks and Word Docs into Jekyll Blog Posts
+description: Converts Jupyter notebooks and Word docs into Jekyll blog posts
 author: Hamel Husain
 inputs:
   BOOL_SAVE_MARKDOWN:
