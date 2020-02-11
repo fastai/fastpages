@@ -1,4 +1,4 @@
-name: 'fastpages'
+name: 'fastpages-action'
 description: Converts Jupyter Notebooks and Word Docs into Jekyll Blog Posts
 author: Hamel Husain
 inputs:
