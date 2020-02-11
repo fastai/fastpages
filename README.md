@@ -1,6 +1,6 @@
 
 
-![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)  ![](https://img.shields.io/static/v1?label=&message=View%20Demo%20Site&color=inactive&style=plastic)
+![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)  [![](https://img.shields.io/static/v1?label=&message=View%20Demo%20Site&color=inactive&style=plastic)](https://fastai.github.io/fastpages/)
 
 # Welcome To `fastpages`
 
