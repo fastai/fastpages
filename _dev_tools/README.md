@@ -52,7 +52,6 @@ Note: you must re-run this command each time you want to update the conversion o
 
 
 ## Advanced Usage
----
 
 Some additional commands that may be helpful.
 
