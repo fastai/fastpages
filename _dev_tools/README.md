@@ -66,7 +66,7 @@ This repo's directory on your local filesystem is mounted into the Docker contai
 
 This means **you can use your favorite IDE or Jupyter notebooks as you would normally would locally** even if you have these Docker containers running.
 
-## Making a Pull Request
+# Making a Pull Request
 
 Some general rules of thumb that will make your life easier.
 
@@ -75,7 +75,7 @@ Some general rules of thumb that will make your life easier.
 - When you do open a pull request, please request a draft build of your PR by making a **comment with the magic command `/preview` in the pull request.**  This will allow reviewers to see a live-preview of your changes without having to clone your branch.
     - You can do this multiple times, if necessary, to rebuild your preview due to changes.  But please do not abuse this and test locally before doing this.
 
-## Acknowledgements
+# Acknowledgements
 
 These devtools closely imitate [ageron/handson-ml2](https://github.com/ageron/handson-ml2/tree/master/docker).
 

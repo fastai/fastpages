@@ -12,8 +12,8 @@
 
 ### `fastpages` contain **special features for Jupyter Notebooks**, such as:
 
-- Interactive visualiztions made with [Altair](https://altair-viz.github.io/) remain interactive.
-- Ability to hide cells by placing the comment `#hide` at the top of any cell.  (To hide only the input to a cell use the `hide input` [jupyter extension](https://github.com/ipython-contrib/jupyter_contrib_nbextensions)).
+- Interactive visualizations made with [Altair](https://altair-viz.github.io/) remain interactive.
+- Ability to hide cells by placing the comment `#hide` at the top of any cell.  (To hide only the input to a cell use the `hide input` [Jupyter extension](https://github.com/ipython-contrib/jupyter_contrib_nbextensions)).
 - Add jekyll warnings, important or note banners with appropriate block quotes by using special markdown syntax [defined here](https://nbdev.fast.ai/export2html/#add_jekyll_notes).
 
 - Ability to embed twitter cards and youtube videos via the following markdown syntax:
@@ -58,7 +58,7 @@
 
 4. [Follow these instructions to create an ssh-deploy key]((https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)).  Make sure you **select Allow write access** when adding this key to your GitHub account.
 
-5. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encyrpted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.
+5. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.
 
 
 ## Usage
@@ -98,7 +98,20 @@
 
 ## Using The GitHub Action & Your Own Custom Blog
 
-If you already have sufficient familiarity with [Jekyll](https://jekyllrb.com/) and wish to use the automated Jupyter or Word conversion utilities in your own theme,  you can use this GitHub Action by referencing `fastai/fastpages@master` as follows:
+The `fastpages` action allows you to convert notebooks from `/_notebooks` and word documents from `/_word` directories into your rep into [Jekyll](https://jekyllrb.com/) compliant blog post markdown files located in `/_posts`.  **Note: This directory structure is currently inflexible** for this Action, as it is designed to be used with Jekyll.
+
+If you already have sufficient familiarity with [Jekyll](https://jekyllrb.com/) and wish to use this automation in your own theme,  you can use this GitHub Action by referencing `fastai/fastpages@master` as follows:
+
+```yaml
+...
+
+uses: fastai/fastpages@master
+
+...
+```
+An illustrative example of what a complete workflow may look like:
+
+
 
 ```yaml
 jobs:
@@ -125,21 +138,25 @@ jobs:
         PUBLISH_DIR: ./_site
 ```
 
-Note that that this Action **does not have any required inputs, and has no output variables**.  
+Note that this Action **does not have any required inputs, and has no output variables**.  
 
 ### Optional Inputs
 
   - `BOOL_SAVE_MARKDOWN`:  Either 'true' or 'false'.  Whether or not to commit converted markdown files from notebooks and word documents into the _posts directory in your repo.  This is useful for debugging. _default: false_
-  - `SSH_DEPLOY_KEY`: an ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
+  - `SSH_DEPLOY_KEY`: a ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
 
-See the api spec for this action in [action.yml](action.yml)
+See the API spec for this action in [action.yml](action.yml)
 
 Detailed instructions on how to customize this blog are beyond the scope of this README.  ( We invite someone from the community to contribute a blog post on how to do this in this repo! )
 
+# Contributing To Fastpages
 
-## FAQ
+Please see the [development guide](_dev_tools/README.md).
 
-- **Q:** Where are the markdown files in `_posts/` that are generated from my jupyter notebooks or word documents?  **A:** The GitHub Actions workflow in this repo converts your notebook and word documents to markdown on the fly before building your site, but never commits these intermediate markdown files to this repo.  This is in order to save you from the annoyance of your local environment being constantly out of sync with your repository.  You can optionally see these intermediate markdown files by setting the `BOOL_SAVE_MARKDOWN` and `SSH_DEPLOY_KEY` inputs to the fastpages action in your `.github/workflows/ci.yaml` file as follows:
+
+# FAQ
+
+- **Q:** Where are the markdown files in `_posts/` that are generated from my Jupyter notebooks or word documents?  **A:** The GitHub Actions workflow in this repo converts your notebook and word documents to markdown on the fly before building your site, but never commits these intermediate markdown files to this repo.  This is in order to save you from the annoyance of your local environment being constantly out of sync with your repository.  You can optionally see these intermediate markdown files by setting the `BOOL_SAVE_MARKDOWN` and `SSH_DEPLOY_KEY` inputs to the fastpages action in your `.github/workflows/ci.yaml` file as follows:
 
 ```yaml
     ...
