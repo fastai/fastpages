@@ -10,8 +10,8 @@ inputs:
     description: a ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
     required: false
 branding:
-  color: 'yellow'
-  icon: 'bar-chart-2'
+  color: 'blue'
+  icon: 'book'
 runs:
   using: 'docker'
   image: '_action_files/Dockerfile'
