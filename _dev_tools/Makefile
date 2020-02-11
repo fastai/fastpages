@@ -15,7 +15,7 @@ convert:
 	docker-compose -f convert-docker-compose.yaml up
 
 # stop all containers
-stop:
+stop: .FORCE
 	docker stop fastpages-dev || true; docker rm fastpages-dev || true;
 	docker stop jekyll || true; docker rm jekyll || true;
 
@@ -24,11 +24,17 @@ rebuild: stop .FORCE
 	docker-compose -f convert-docker-compose.yaml build --force-rm
 
 # get shell inside fastpages environment
-bash-fastpages:
-	 docker-compose -f convert-docker-compose.yaml run --name fastpages-dev fastpages /bin/bash
+bash-fastpages: .FORCE
+	docker stop fastpages-dev || true; docker rm fastpages-dev || true;
+	docker-compose -f convert-docker-compose.yaml run --name fastpages-dev fastpages /bin/bash
 
 # get shell inside jekyll server
-bash-jekyll:
+bash-jekyll: .FORCE
 	docker-compose exec jekyll bash
+
+# start jupyter notebook inside fastpages environment
+run-notebook: .FORCE
+	docker stop fastpages-dev || true; docker rm fastpages-dev || true;
+	docker-compose -f convert-docker-compose.yaml run --name fastpages-dev fastpages jupyter notebook --ip='0.0.0.0' --port=8888 --no-browser --allow-root
 
 .FORCE:
