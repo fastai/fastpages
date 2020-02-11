@@ -58,4 +58,4 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 * PRs are welcome for this.  For any confusion about the documentation, please feel free to open an issue on this repo.
 
 
-[development guide]: TODO
+[development guide]: ../_dev_tools/README.md
