@@ -1,7 +1,13 @@
+_Adapted from [fastai/nbdev/CONTRIBUTING.md](https://github.com/fastai/nbdev/blob/master/CONTRIBUTING.md)_
+
 # How to contribute to fastpages
 
-First, thanks a lot for wanting to help! Make sure you have read [Jeremy's notes on fastai coding style](
-https://docs.fast.ai/dev/style.html) first. (Note that we don't follow PEP8, but instead follow a coding style designed specifically for numerical and interactive programming.) 
+First, thanks a lot for wanting to help! Some things to keep in mind:
+
+- The jupyter to blog post conversion functionality relies on [fastai/nbdev](https://github.com/fastai/nbdev).  For idiosyncratic uses of nbdev that only apply to blogs that would require a large refactor to nbdev, it might be acceptable to apply a [monkey patch](https://stackoverflow.com/questions/5626193/what-is-monkey-patching) in `fastpages`.  However, it is encouraged to contribute to `nbdev` where possible if there is a change that could unlock a new feature.  If you are unsure, please open an issue in this repo to discucss.
+
+- Please make sure your code runs correctly locally before making a pull request.  See the [development guide] for more information about testing your code locally. 
+
 
 ## Note for new contributors from Jeremy
 
@@ -17,8 +23,8 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 ## Did you find a bug?
 
 * Nobody is perfect, especially not us. But first, please double-check the bug doesn't come from something on your side. The [forum](http://forums.fast.ai/) is a tremendous source for help, and we'd advise to use it as a first step. Be sure to include as much code as you can so that other people can easily help you.
-* Then, ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/fastai/nbdev/issues).
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/fastai/nbdev/issues/new). Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
+* Then, ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/fastai/fastpages/issues).
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/fastai/fastpages/issues/new). Be sure to include a title and clear description, as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
 * Be sure to add the complete error messages.
 
 #### Did you write a patch that fixes a bug?
@@ -26,7 +32,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 * Open a new GitHub pull request with the patch.
 * Ensure that your PR includes a test that fails without your patch, and pass with it.
 * Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
-* Before submitting, please be sure you abide by our [coding style](https://docs.fast.ai/dev/style.html) and [the guide on abbreviations](https://docs.fast.ai/dev/abbr.html) and clean-up your code accordingly.
+* Before submitting, please be sure you abide by our [coding style](https://docs.fast.ai/dev/style.html) (where appropriate) and [the guide on abbreviations](https://docs.fast.ai/dev/abbr.html) and clean-up your code accordingly.
 
 ## Do you intend to add a new feature or change an existing one?
 
@@ -41,6 +47,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 * Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
 * Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
 * If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
+* When you open a pull request, you can generate a live preview build of how the blog site will look by making a comment in the PR that contains this command: `/preview`.  GitHub will build your site and drop a temporary link for everyone to review.  You can do this as multiple times if necessary, however as mentioned previously do not turn an already submitted  PR inot a development playground.
 
 ## Do you have questions about the source code?
 
@@ -49,3 +56,6 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 ## Do you want to contribute to the documentation?
 
 * PRs are welcome for this.  For any confusion about the documentation, please feel free to open an issue on this repo.
+
+
+[development guide]: ../_dev_tools/README.md
