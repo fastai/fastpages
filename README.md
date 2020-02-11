@@ -39,7 +39,8 @@
 
 ## Setup Instructions
 
-1. Fork this repo
+1. Click the [![](https://img.shields.io/static/v1?label=&message=Use%20this%20template&color=brightgreen&style=plastic)](https://github.com/fastai/fastpages/generate) button to create a copy of this repo in your account. 
+
 2. Change the badges on this README to point to your repository instead of this one.  For example, instead of 
 
     `![](https://github.com/fastai/fastpages/workflows/CI/badge.svg)`
