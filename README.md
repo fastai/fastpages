@@ -92,7 +92,7 @@
 
      - If you fail to name your file correctly, `fastpages` will automatically attempt to fix the problem by prepending the last modified date of your file to your generated blog post, however, it is recommended that you name your files properly yourself for more transparency.
 
-4. If you are writing your blog post in markdown, save your `.md` file into the `/_posts` folder with the same file naming convention as mentioned above.
+4. If you are writing your blog post in markdown, save your `.md` file into the `/_posts` folder with the same naming convention as mentioned above.
 
 5. [Commit and push](https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line) your file(s) to GitHub in your repository's master branch.
 
