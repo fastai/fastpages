@@ -4,9 +4,9 @@
 
 ![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
 
-# Welcome To fastpages 
+# Welcome To `fastpages`
 
-> An easy to use blogging platform for data scientists, with support for Jupyter notebooks, Word docs, and markdwon.
+> An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and markdwon.
 
 **[See the demo site](https://fastai.github.io/fastpages/)**
 
