@@ -60,7 +60,7 @@
 
 5. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.
 
-6. Go to your repository settings and enable GitHub Pages on your `gh-pages` branch.  Here are [detailed instructions](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) on how to do this.
+6. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) on your `gh-pages` branch.
 
 
 ## Usage
@@ -98,7 +98,7 @@
 
 6. GitHub will automatically convert your files to blog posts.  You can click on the Actions tab of your repo to view the logs of this process.
 
-7. If you wish you can preview how your blog will look locally before commiting to GitHub.  If you wish to do so, please see the [development guide](_dev_tools/README.md).
+7. If you wish, you can preview how your blog will look locally before commiting to GitHub.  If you wish to do so, please see the [development guide](_dev_tools/README.md).
 
 ## Using The GitHub Action & Your Own Custom Blog
 
