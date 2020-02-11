@@ -1,0 +1,12 @@
+version: "3"
+services:
+  jekyll:
+    working_dir: /data
+    image: jekyll/jekyll
+    container_name: jekyll
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - ../:/data/
+    command: jekyll serve  

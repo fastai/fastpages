@@ -1,0 +1,23 @@
+version: "3"
+services:
+  fastpages:
+    working_dir: /data
+    environment:
+        - INPUT_BOOL_SAVE_MARKDOWN=false
+    build:
+      context: ../_action_files
+      dockerfile: ./Dockerfile
+    container_name: fastpages-dev
+    image: fastpages-dev
+    # restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    stdin_open: true
+    tty: true
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../:/data/
+    command: ./_action_files/action_entrypoint.sh
