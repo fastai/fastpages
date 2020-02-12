@@ -56,47 +56,6 @@
         margin-left: 1rem !important;
 }
 
-
-// Custom Code Highlighting
-// Modeled after https://draculatheme.com/
-
-// strings
-.highlight .s1 {
-        color:rgb(206, 145, 120);
-}
-
-// parentheses
-.highlight .p {
-        font-weight: bold;
-        color: rgb(102, 217, 239);
-}
-
-// =, . etc.
-.highlight .o {
-        font-weight: bold;
-        color: rgb(255, 121, 198);
-}
-
-//most of the text
-.highlight .n {
-        color: rgb(255, 255, 255);
-}
-
-//comments
-.highlight .c1 {
-        color: rgb(107, 122, 163);
-}
-
-//numbers
-.highlight .mf {
-        color:  rgb(189, 147, 249);
-}
-
-//
-.highlight .kc {
-        color: rgb(181, 206, 168);;
-}
-
 .code_cell table { width: auto; }
 
 .page-content {
@@ -126,3 +85,177 @@ h3, h4 {
 
 // make sure the post title doesn't have too much spacing
 .post-title { margin-top: .5rem !important; }
+
+
+/* Dracula Theme v1.2.5
+ *
+ * https://github.com/zenorocha/dracula-theme
+ *
+ * Copyright 2016, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ */
+
+/*
+ * Variables
+ */
+
+ $dt-gray-dark: #282a36;  // Background
+ $dt-gray: #44475a;       // Current Line & Selection
+ $dt-gray-light: #f8f8f2; // Foreground
+ $dt-blue: #6272a4;       // Comment
+ $dt-cyan: #8be9fd;
+ $dt-green: #50fa7b;
+ $dt-orange: #ffb86c;
+ $dt-pink: #ff79c6;
+ $dt-purple: #bd93f9;
+ $dt-red: #ff5555;
+ $dt-yellow: #f1fa8c;
+ $dt-green-light: rgb(172, 229, 145);
+ 
+ /*
+  * Styles
+  */
+ 
+ .highlight {
+//    background: $dt-gray-dark;
+//    color: $dt-gray-light;
+ 
+   .hll,
+   .s,
+   .sa,
+   .sb,
+   .sc,
+   .dl,
+   .sd,
+   .s2,
+   .se,
+   .sh,
+   .si,
+   .sx,
+   .sr,
+   .s1,
+   .ss {
+        color:rgb(231, 153, 122);
+   }
+ 
+   .go {
+     color: $dt-gray;
+   }
+ 
+   .err,
+   .g,
+   .l,
+   .n,
+   .x,
+   .ge,
+   .gr,
+   .gh,
+   .gi,
+   .gp,
+   .gs,
+   .gu,
+   .gt,
+   .ld,
+   .no,
+   .nd,
+   .ni,
+   .ne,
+   .nn,
+   .nx,
+   .py,
+   .w,
+   .bp {
+     color: $dt-gray-light;
+   }
+
+   .p {
+        font-weight: bold;
+        color: rgb(102, 217, 239);
+}
+ 
+//    .gh,
+//    .gi,
+//    .gu {
+//      font-weight: bold;
+//    }
+ 
+   .ge {
+     text-decoration: underline;
+   }
+ 
+   .bp {
+     font-style: italic;
+   }
+ 
+   .c,
+   .ch,
+   .cm,
+   .cpf,
+   .c1,
+   .cs {
+     color: $dt-blue;
+   }
+ 
+   .kd,
+   .kt,
+   .nb,
+   .nl,
+   .nv,
+   .vc,
+   .vg,
+   .vi,
+   .vm {
+     color: $dt-cyan;
+   }
+ 
+   .kd,
+   .nb,
+   .nl,
+   .nv,
+   .vc,
+   .vg,
+   .vi,
+   .vm {
+     font-style: italic;
+   }
+ 
+   .fm,
+   .na,
+   .nc,
+   .nf
+    {
+     color: $dt-green-light;
+   }
+ 
+   .k,
+   .o,
+   .cp,
+   .kc,
+   .kn,
+   .kp,
+   .kr,
+   .nt,
+   .ow {
+     color: $dt-pink;
+   }
+
+   .kc {
+        color: $dt-green-light;   
+   }
+ 
+   .m,
+   .mb,
+   .mf,
+   .mh,
+   .mi,
+   .mo,
+   .il {
+     color: $dt-purple;
+   }
+ 
+   .gd {
+     color: $dt-red;
+   }
+ }
