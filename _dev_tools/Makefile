@@ -35,6 +35,6 @@ bash-jekyll: .FORCE
 # start jupyter notebook inside fastpages environment
 run-notebook: .FORCE
 	docker stop fastpages-dev || true; docker rm fastpages-dev || true;
-	docker-compose -f convert-docker-compose.yaml run --name fastpages-dev fastpages jupyter notebook --ip='0.0.0.0' --port=8888 --no-browser --allow-root
+	docker-compose -f convert-docker-compose.yaml run --p 8888:8888 --name fastpages-dev fastpages jupyter notebook --ip='0.0.0.0' --port=8888 --no-browser --allow-root
 
 .FORCE:
