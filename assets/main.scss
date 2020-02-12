@@ -38,7 +38,7 @@
         background: #323443 !important;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
-        font-family: Consolas, "Lucida Console", Menlo, Monaco, "Courier New", monospace;
+        font-family:  Menlo, Monaco, Consolas, "Lucida Console", monospace;
         border-radius: 5px;
 }
 .output_area pre, .output_area div {
@@ -60,12 +60,12 @@
 .page-content {
         -webkit-font-smoothing: antialiased !important;
         text-rendering: optimizeLegibility !important;
-        font-family: Consolas, "Lucida Console", "Segoe UI", "Open Sans", "Helvetica Neue";
+        font-family: "Segoe UI", "Open Sans",  "Helvetica Neue", Consolas, "Lucida Console";
 }
 
 // make non-headings slightly lighter
 p {
-   font-size: 20px;
+   font-size: 20 px;
    color: #515151;
 }
 
