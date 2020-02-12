@@ -34,3 +34,4 @@ export2html._nb2htmlfname = _nb2htmlfname
 export2html.process_cell.append(add_embedded_links)
 
 export2html.notebook2html(fname='_notebooks/*.ipynb', dest='_posts/', template_file='_action_files/fastpages.tpl')
+
