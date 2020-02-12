@@ -59,8 +59,6 @@ Some additional commands that may be helpful.
 
 **`make bash-jekyll`** opens a shell in the environment that runs the jekyll webserver.  Note: the webserver must already be running (via `make run-server`) for this to work!
 
-**`make run-notebook`** will start a jupyter server inside the fastpages environment that is bound to your local host on port `8888` (http://127.0.0.1:8888).  This may be useful for debugging.
-
 ## Using an IDE / Notebook
 
 This repo's directory on your local filesystem is mounted into the Docker containers so any changes you make to files in this repo in your local environment will instantly be reflected there.  
