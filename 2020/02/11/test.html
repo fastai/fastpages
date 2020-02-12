@@ -80,7 +80,6 @@
 -->
 
 <div class="container" id="notebook-container">
-    
         
 <div class="cell border-box-sizing code_cell rendered">
 
@@ -522,7 +521,12 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Tweetcards">Tweetcards<a class="anchor-link" href="#Tweetcards">&#182;</a></h3><p>Typing <code>&gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20</code> will render this:
-{% include twitter.html content='<code>https://twitter.com/jakevdp/status/1204765621767901185?s=20</code>' %}</p>
+
+<center>
+<div class="jekyll-twitter-plugin"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Altair 4.0 is released! <a href="https://t.co/PCyrIOTcvv">https://t.co/PCyrIOTcvv</a><br />Try it with:<br /><br />  pip install -U altair<br /><br />The full list of changes is at <a href="https://t.co/roXmzcsT58">https://t.co/roXmzcsT58</a> ...read on for some highlights. <a href="https://t.co/vWJ0ZveKbZ">pic.twitter.com/vWJ0ZveKbZ</a></p>&mdash; Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1204765621767901185?ref_src=twsrc%5Etfw">December 11, 2019</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</center></p>
 
 </div>
 </div>
@@ -530,7 +534,10 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Youtube-Videos">Youtube Videos<a class="anchor-link" href="#Youtube-Videos">&#182;</a></h3><p>Typing <code>&gt; youtube: https://youtu.be/XfoYk_Z5AkI</code> will render this:
-{% include youtube.html content='<code>https://youtu.be/XfoYk_Z5AkI</code>' %}</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XfoYk_Z5AkI" frameborder="0" allowfullscreen=""></iframe>
+</center></p>
 
 </div>
 </div>
@@ -538,20 +545,34 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Boxes-/-Callouts">Boxes / Callouts<a class="anchor-link" href="#Boxes-/-Callouts">&#182;</a></h3><p>Typing <code>&gt; Warning: There will be no second warning!</code> will render this:
-{% include warning.html content='There will be no second warning!' %}</p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 000 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 00.01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" /></svg>
+    <strong>Warning: </strong>There will be no second warning!
+</div></p>
 <p>Typing <code>&gt; Important: Pay attention! It's important.</code> will render this:
-{% include important.html content='Pay attention! It&#8217;s important.' %}</p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z" /></svg>
+    <strong>Important: </strong>Pay attention! It&#8217;s important.
+</div></p>
 <p>Typing <code>&gt; Tip: This is my tip.</code> will render this:
-{% include tip.html content='This is my tip.' %}</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z" /></svg>
+    <strong>Tip: </strong>This is my tip.
+</div></p>
 <p>Typing <code>&gt; Note: Take note of this.</code> will render this:
-{% include note.html content='Take note of this.' %}</p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 01-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 01-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z" /></svg>
+    <strong>Note: </strong>Take note of this.
+</div></p>
 <p>Typing <code>&gt; Note: A doc link to [an example website: fast.ai](https://www.fast.ai/) should also work fine.</code> will render in the docs:
-{% include note.html content='A doc link to <a href="https://www.fast.ai/">an example website: fast.ai</a> should also work fine.' %}</p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 01-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 01-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z" /></svg>
+    <strong>Note: </strong>A doc link to <a href="https://www.fast.ai/">an example website: fast.ai</a> should also work fine.
+</div></p>
 
 </div>
 </div>
 </div>
-    
 </div>
 
   </div><a class="u-url" href="/fastpages/2020/02/11/test.html" hidden></a>
