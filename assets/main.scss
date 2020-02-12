@@ -117,7 +117,7 @@ h3, h4 {
    background: $dt-gray-dark;
    color: $dt-gray-light;
  
-   .hll,
+.highlight .hll,
    .s,
    .sa,
    .sb,
@@ -135,11 +135,11 @@ h3, h4 {
         color:rgb(231, 153, 122);
    }
  
-   .go {
+.highlight .go {
      color: $dt-gray;
-   }
+}
  
-   .err,
+.highlight  .err,
    .g,
    .l,
    .n,
@@ -170,11 +170,6 @@ h3, h4 {
         color: rgb(102, 217, 239);
 }
  
-//    .gh,
-//    .gi,
-//    .gu {
-//      font-weight: bold;
-//    }
  
    .ge {
      text-decoration: underline;
@@ -206,7 +201,6 @@ h3, h4 {
    }
  
    .kd,
-   .nb,
    .nl,
    .nv,
    .vc,
