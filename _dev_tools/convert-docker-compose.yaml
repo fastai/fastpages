@@ -9,7 +9,6 @@ services:
       dockerfile: ./Dockerfile
     container_name: fastpages-dev
     image: fastpages-dev
-    # restart: unless-stopped
     logging:
       driver: json-file
       options:
