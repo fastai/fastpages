@@ -21,7 +21,14 @@
     > youtube: https://youtu.be/your-link
     > twitter: https://twitter.com/some-link
     ```
-- Define the Title, Summary and other metadata for your blog post via a special markdown cell at the beginning of your notebook.  See the [Usage](#usage) section below.
+- Define the Title, Summary and other metadata for your blog post via a special markdown cell at the beginning of your notebook as follows:
+    ```markdown
+    # Title
+    > Awesome summary
+    - toc: False
+    - metadata_key1: metadata_value1
+    - metadata_key2: metadata_value2
+    ```
 
 - Notebooks are exported to HTML in a lightweight manner to allow you to customize CSS and styling.  CSS can optionally be modified in [/assets/main.scss](/assets/main.scss).
 - The notebook to blog conversion is powered by `nbdev`, which is under active development.  Check the [nbdev docs](https://nbdev.fast.ai/), particularly the [export2html](https://nbdev.fast.ai/export2html/) section, for a complete list of features that may be useful for notebooks.
