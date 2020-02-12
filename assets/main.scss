@@ -123,3 +123,6 @@ h2 {
 h3, h4 {
     margin-top:1.5rem !important;      
 }
+
+// make sure the post title doesn't have too much spacing
+.post-title { margin-top: .5rem !important; }
