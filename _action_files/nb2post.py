@@ -5,12 +5,22 @@ from pathlib import Path
 from nbdev import export2html
 from nbdev.export2html import Config, Path, _re_digits, _to_html, _re_block_notes
 from fast_template import rename_for_jekyll
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--free_structure", action="store_true", 
+                    default=False,
+                    help="Allow free notebooks which are not necessarily located in _notebooks dir to be converted.")
+parser.add_argument("--force_date", action="store_true", 
+                    default=True,
+                    help="Force the date prefix for the Markdown converted files from the notebooks.")
+args = parser.parse_args()
 
 warnings = set()
     
 # Modify the naming process such that destination files get named properly for Jekyll _posts
 def _nb2htmlfname(nb_path, dest=None): 
-    fname = rename_for_jekyll(nb_path, warnings=warnings, force_date=False)
+    fname = rename_for_jekyll(nb_path, warnings=warnings, force_date=args.force_date)
     if dest is None: dest = Config().doc_path
     return Path(dest)/fname
 
@@ -34,6 +44,9 @@ for original, new in warnings:
 export2html._nb2htmlfname = _nb2htmlfname
 export2html.process_cell.append(add_embedded_links)
 
-notebooks = list(Path(".").rglob("*.ipynb"))
-for notebook_path in notebooks:
-    export2html.notebook2html(fname=notebook_path, dest=os.path.dirname(notebook_path), template_file='/fastpages/fastpages.tpl')
+if args.free_structure:
+    notebooks = list(Path(".").rglob("*.ipynb"))
+    for notebook_path in notebooks:
+        export2html.notebook2html(fname=notebook_path, dest=os.path.dirname(notebook_path), template_file='/fastpages/fastpages.tpl')
+else:
+    export2html.notebook2html(fname='_notebooks/*.ipynb', dest='_posts/', template_file='_action_files/fastpages.tpl')

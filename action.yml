@@ -9,6 +9,14 @@ inputs:
   SSH_DEPLOY_KEY:
     description: a ssh deploy key is required if BOOL_SAVE_MARKDOWN = 'true'
     required: false
+  BOOL_FREE_STRUCTURE:
+    description: Either 'true' or 'false'.  Whether or not to consider all notebooks which are not necessarily located in _notebooks dir to be converted. If set to 'true' the generated markdown files will be located in the same source directory. This is useful for static website generators other than Jekyll.
+    required: false
+    default: false
+  BOOL_FORCE_DATE:
+    description: Either 'true' or 'false'.  Whether or not to force the date prefix for the markdown generated files from the notebooks.
+    required: false
+    default: true
 branding:
   color: 'blue'
   icon: 'book'

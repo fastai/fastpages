@@ -10,8 +10,16 @@ eval "$(ssh-agent -s)"
 /fastpages/word2post.sh
 # notebook converter using nbdev
 cp /fastpages/settings.ini .
-python /fastpages/nb2post.py
+NB2POST_ARGS = ""
+# Get user's email from commit history
+if [[ "$INPUT_BOOL_FREE_STRUCTURE" == "true" ]];then
+    $NB2POST_ARGS = "--free_structure"
+fi
+if [[ "$INPUT_BOOL_FORCE_DATE" == "true" ]];then
+    $NB2POST_ARGS = "$NB2POST_ARGS --force_date"
+fi
 
+python /fastpages/nb2post.py $NB2POST_ARGS
 
 ######## Optionally save files and build GitHub Pages ########
 if [[ "$INPUT_BOOL_SAVE_MARKDOWN" == "true" ]];then
