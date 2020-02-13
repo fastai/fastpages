@@ -10,7 +10,7 @@ warnings = set()
     
 # Modify the naming process such that destination files get named properly for Jekyll _posts
 def _nb2htmlfname(nb_path, dest=None): 
-    fname = nb_path # rename_for_jekyll(nb_path, warnings=warnings)
+    fname = rename_for_jekyll(nb_path, warnings=warnings, force_date=False)
     if dest is None: dest = Config().doc_path
     return Path(dest)/fname
 
@@ -36,6 +36,4 @@ export2html.process_cell.append(add_embedded_links)
 
 notebooks = list(Path(".").rglob("*.ipynb"))
 for notebook_path in notebooks:
-    print(notebook_path)
-    print(os.path.dirname(notebook_path))
     export2html.notebook2html(fname=notebook_path, dest=os.path.dirname(notebook_path), template_file='/fastpages/fastpages.tpl')
