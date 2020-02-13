@@ -12,7 +12,7 @@ parser.add_argument("--free_structure", action="store_true",
                     default=False,
                     help="Allow free notebooks which are not necessarily located in _notebooks dir to be converted.")
 parser.add_argument("--force_date", action="store_true", 
-                    default=True,
+                    default=False,
                     help="Force the date prefix for the Markdown converted files from the notebooks.")
 args = parser.parse_args()
 
