@@ -110,7 +110,7 @@ jobs:
           ref: ${{ steps.chatops.outputs.SHA }}
      
       - name: convert notebooks and word docs to posts
-        uses: fastai/fastpages@master
+        uses: ./ # use the code in this repo to instead of fastai/fastpages@master
 
       - name: setup directories for Jekyll build
         if: steps.get_status.outputs.status == 'private'
