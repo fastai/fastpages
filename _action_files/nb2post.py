@@ -10,7 +10,7 @@ warnings = set()
     
 # Modify the naming process such that destination files get named properly for Jekyll _posts
 def _nb2htmlfname(nb_path, dest=None): 
-    fname = rename_for_jekyll(nb_path, warnings=warnings)
+    fname = nb_path # rename_for_jekyll(nb_path, warnings=warnings)
     if dest is None: dest = Config().doc_path
     return Path(dest)/fname
 
