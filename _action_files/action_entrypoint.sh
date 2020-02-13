@@ -13,10 +13,10 @@ cp /fastpages/settings.ini .
 NB2POST_ARGS = ""
 # Get user's email from commit history
 if [[ "$INPUT_BOOL_FREE_STRUCTURE" == "true" ]];then
-    $NB2POST_ARGS = "--free_structure"
+    NB2POST_ARGS = "--free_structure"
 fi
 if [[ "$INPUT_BOOL_FORCE_DATE" == "true" ]];then
-    $NB2POST_ARGS = "$NB2POST_ARGS --force_date"
+    NB2POST_ARGS = "$NB2POST_ARGS --force_date"
 fi
 
 python /fastpages/nb2post.py $NB2POST_ARGS
