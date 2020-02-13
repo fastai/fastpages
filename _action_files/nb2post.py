@@ -1,6 +1,7 @@
 """Converts Jupyter Notebooks to Jekyll compliant blog posts"""
 from datetime import datetime
 import re, os, logging
+from pathlib import Path
 from nbdev import export2html
 from nbdev.export2html import Config, Path, _re_digits, _to_html, _re_block_notes
 from fast_template import rename_for_jekyll
@@ -33,5 +34,6 @@ for original, new in warnings:
 export2html._nb2htmlfname = _nb2htmlfname
 export2html.process_cell.append(add_embedded_links)
 
-export2html.notebook2html(fname='_notebooks/*.ipynb', dest='_posts/', template_file='/fastpages/fastpages.tpl')
-
+notebooks = list(Path(".").rglob("*.ipynb"))
+for notebook_path in notebooks:
+    export2html.notebook2html(fname=notebook_path, dest=os.path.dirname(notebook_path), template_file='/fastpages/fastpages.tpl')
