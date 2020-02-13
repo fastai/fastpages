@@ -9,9 +9,9 @@ fi
 # Loops through directory of *.docx files and converts to markdown
 # markdown files are saved in _posts, media assets are saved in assets/img/<filename>/media
 for FILENAME in ${GITHUB_WORKSPACE}/_word/*.docx; do
-    [ -e "$filename" ] || continue # skip when glob doesn't match
+    [ -e "$FILENAME" ] || continue # skip when glob doesn't match
     NAME=${FILENAME##*/} # Get filename without the directory
-    NEW_NAME=`python3 "${GITHUB_WORKSPACE}/_action_files/word2post.py" "${FILENAME}"` # clean filename to be Jekyll compliant for posts
+    NEW_NAME=`python3 "/fastpages/word2post.py" "${FILENAME}"` # clean filename to be Jekyll compliant for posts
     BASE_NEW_NAME=${NEW_NAME%.md}  # Strip the file extension
 
     if [ -z "$NEW_NAME" ]; then

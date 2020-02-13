@@ -7,10 +7,10 @@ eval "$(ssh-agent -s)"
 
 ######## Run notebook/word converter ########
 # word converter using pandoc
-./_action_files/word2post.sh
+/fastpages/word2post.sh
 # notebook converter using nbdev
 cp /fastpages/settings.ini .
-python _action_files/nb2post.py
+python /fastpages/nb2post.py
 
 
 ######## Optionally save files and build GitHub Pages ########

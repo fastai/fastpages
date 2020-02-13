@@ -1,4 +1,4 @@
-# This is the title
+# Example Markdown Post
 
 Here's the table of contents:
 
@@ -73,28 +73,6 @@ print(1+1)
 ## Tweetcards
 
 {% twitter https://twitter.com/jakevdp/status/1204765621767901185?s=20 %}
-
-
-## Details
-
-_this section is under construction_
-
-<details open class="details-overlay">
-  <summary class="btn btn-sm">
-  Details
-  </summary>
-  <div class="border p-3 mt-2"> Open by Default.  
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
-</details>
-
-<details class="details-overlay">
-  <summary class="btn btn-sm">
-    Details
-  </summary>
-
-  <div class="border p-3 mt-2"> Closed by Default.  
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
-</details>
 
 
 ## Footnotes

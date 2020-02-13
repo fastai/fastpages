@@ -15,8 +15,6 @@ services:
         max-size: 50m
     stdin_open: true
     tty: true
-    ports:
-      - "8888:8888"
     volumes:
       - ../:/data/
-    command: ./_action_files/action_entrypoint.sh
+    command: /fastpages/action_entrypoint.sh
