@@ -1,4 +1,4 @@
-# This is the title
+# Example Markdown Post
 
 Here's the table of contents:
 
