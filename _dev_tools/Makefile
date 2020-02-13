@@ -4,7 +4,7 @@ help:
 
 # build the conversion service
 build: stop .FORCE
-	docker-compose -f convert-docker-compose.yaml  build
+	docker-compose -f convert-docker-compose.yaml  build --no-cache
 
 # Start Jekyll Server
 run-server:

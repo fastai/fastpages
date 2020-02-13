@@ -259,3 +259,13 @@ h3, h4 {
      color: $dt-red;
    }
  }
+
+//  Code Folding
+
+ details.description[open] summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) summary::after {
+  content: attr(data-close);
+}
