@@ -103,13 +103,13 @@ Create a markdown cell at the beginning of the notebook with the following conte
 
 Additional metadata is optional and allows you to set custom [front matter](https://jekyllrb.com/docs/front-matter/).
 
-#### Configure Title & Summary
+### Configure Title & Summary
   - Replace `Title`, with your desired title, and `Awesome summary` with your desired summary. 
 
-#### Table of Contents
+### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
 
-#### Colab & GitHub Badges
+### Colab & GitHub Badges
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
 
