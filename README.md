@@ -119,6 +119,12 @@ Additional metadata is optional and allows you to set custom [front matter](http
 
 Blog posting is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
 
+To enable comments with [Utterances](https://github.com/utterance/utterances) you will need to do the following:
+
+  - Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
+  - Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
+  - If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
+
 ### Hide Input/Output Cells
 
 Place the comment `#hide` at the beginning of a code cell and it wil **hide both the input and the output** of that cell. If you only want to hide just the input or the output, use the `hide input` [Jupyter Extension](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/hide_input/readme.html)
