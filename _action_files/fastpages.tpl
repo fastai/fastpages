@@ -16,14 +16,17 @@
 -->
 
 <div class="container" id="notebook-container">
-        {% raw %}
+        {% raw -%}
            {% if page.badges == true or page.badges == "True"  or page.badges == "true" or page.badges == nil %}
            <div class="pb-5 d-flex flex-wrap flex-justify-end">
                 {% include notebook_github_link.html %}{% include notebook_colab_link.html %}
            </div>
-           {% else %}
-           {% endif %}
-        {% endraw %}
+           {% endif -%}
+
+           {%- if page.toc == true or page.toc == "True"  or page.toc == "true" %}
+                {% toc %}
+            {% endif %}
+        {%- endraw %}
         {{ super()  }}
 </div>
 {%- endblock body %}
