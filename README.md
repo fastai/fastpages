@@ -117,7 +117,7 @@ Additional metadata is optional and allows you to set custom [front matter](http
 
 ### Enabling Comments
 
-Blog posting is powered by [Utterances](https://github.com/utterance/utterances) which is an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
+Blog posting is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
 
 ### Hide Input/Output Cells
 
