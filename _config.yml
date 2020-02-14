@@ -8,15 +8,16 @@
 
 title: fastpages
 description: An easy to use blogging platform for data scientists, with support for Jupyter Notebooks.
-github_username: jph00
+github_username: fastai
 
 # Email and twitter are optional:
 email: 
-twitter_username: 
+twitter_username: "@fastdotai"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 url: "https://fastai.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "/fastpages" # the subpath of your site, e.g. /blog
+github_repo: # only need  fill out if your repo name is different than your baseurl (for custom domains)
 
 # Set this to true to get LaTeX math equation support
 use_math: 
