@@ -15,7 +15,6 @@
 - Ability to have **collapsable code cells** that are either open or closed by default.
 - Embed **Twitter cards** and **YouTube videos**.
 - Ability to add **[Colab](https://colab.research.google.com/)** and View on **GitHub badges** automatically.
-- Toggle **comments** on/off with [Disqus](https://disqus.com/)
 - Include **banners** such as warnings, tooltips, etc.
 - Define the Title, Summary and other metadata for your blog post via a special markdown cell.
 - The notebook to blog conversion is powered by `nbdev`, which is under active development.  Check the [nbdev docs](https://nbdev.fast.ai/), particularly the [export2html](https://nbdev.fast.ai/export2html/) section, for a complete list of features that may be useful for notebooks.
@@ -26,6 +25,30 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 **[See the demo site](https://fastai.github.io/fastpages/)**
 
 ---
+
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Welcome To `fastpages`](#welcome-to-fastpages)
+	- [Setup Instructions](#setup-instructions)
+	- [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
+      - [Configure Title & Summary](#configure-title-summary)
+      - [Table of Contents](#table-of-contents)
+      - [Colab & GitHub Badges](#colab-github-badges)
+      - [Hide Input/Output Cells](#hide-inputoutput-cells)
+      - [Collapsable Code Cells](#collapsable-code-cells)
+      - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
+      - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
+	- [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
+	- [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
+	- [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
+		- [Optional Inputs](#optional-inputs)
+- [Contributing To Fastpages](#contributing-to-fastpages)
+- [FAQ](#faq)
+- [Acknowledgements](#acknowledgements)
+
+<!-- /TOC -->
+
+
 
 ## Setup Instructions
 
@@ -71,7 +94,6 @@ Create a markdown cell at the beginning of the notebook with the following conte
   > Awesome summary
   - toc: false
   - branch: master
-  - comments: true
   - badges: true
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
@@ -88,9 +110,6 @@ Additional metadata is optional and allows you to set custom [front matter](http
 #### Colab & GitHub Badges
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
-
-#### Enable Comments
-  - If you want to disable comments on your blog via Disqus, set `comments` to `false`.  This defaults to `true`.
 
 ### Hide Input/Output Cells
 
