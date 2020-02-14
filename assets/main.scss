@@ -268,3 +268,7 @@ h3, h4 {
 details.description:not([open]) summary::after {
   content: attr(data-close);
 }
+
+.notebook-badge-image {
+  border:0 !important;
+}
