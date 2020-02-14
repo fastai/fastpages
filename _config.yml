@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: fastpages
-description: An easy to use blogging platform for data scientists, with support for Jupyter Notebooks.
+description: An easy to use blogging platform with support for Jupyter Notebooks.
 github_username: fastai
 
 # Email and twitter are optional:
