@@ -6,6 +6,7 @@
 {%- for k in resources |reject("in", internals) %}
 {{ k }}: {{ resources[k] }}
 {%- endfor %}
+layout: notebook
 ---
 
 <!--
@@ -16,17 +17,6 @@
 -->
 
 <div class="container" id="notebook-container">
-        {% raw -%}
-           {% if page.badges or page.badges == nil %}
-           <div class="pb-5 d-flex flex-wrap flex-justify-end">
-                {% include notebook_github_link.html %}{% include notebook_colab_link.html %}
-           </div>
-           {% endif -%}
-
-           {%- if page.toc %}
-                {% toc %}
-           {% endif %}
-        {%- endraw %}
         {{ super()  }}
 </div>
 {%- endblock body %}
