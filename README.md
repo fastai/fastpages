@@ -237,5 +237,5 @@ Please see the [development guide](_dev_tools/README.md).
 
 # Acknowledgements
 
-- @xnutsive: We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
+- [Nate Gadzhibalaev](https://github.com/xnutsive): We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
 - All the contributors to [nbdev](https://github.com/fastai/nbdev), which powers many of the features in this repo.
