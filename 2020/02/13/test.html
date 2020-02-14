@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/fastpages/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Example Fastpages Notebook | fastpages</title>
+<title>Fastpages Notebook Blog Post | fastpages</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Example Fastpages Notebook" />
+<meta property="og:title" content="Fastpages Notebook Blog Post" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="&lt;!–" />
-<meta property="og:description" content="&lt;!–" />
-<link rel="canonical" href="https://fastai.github.io/fastpages/2020/02/12/test.html" />
-<meta property="og:url" content="https://fastai.github.io/fastpages/2020/02/12/test.html" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://fastai.github.io/fastpages/2020/02/13/test.html" />
+<meta property="og:url" content="https://fastai.github.io/fastpages/2020/02/13/test.html" />
 <meta property="og:site_name" content="fastpages" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-12T00:00:00-06:00" />
+<meta property="article:published_time" content="2020-02-13T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"&lt;!–","@type":"BlogPosting","headline":"Example Fastpages Notebook","dateModified":"2020-02-12T00:00:00-06:00","datePublished":"2020-02-12T00:00:00-06:00","url":"https://fastai.github.io/fastpages/2020/02/12/test.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastai.github.io/fastpages/2020/02/12/test.html"},"@context":"https://schema.org"}</script>
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"BlogPosting","url":"https://fastai.github.io/fastpages/2020/02/13/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-13T00:00:00-06:00","datePublished":"2020-02-13T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastai.github.io/fastpages/2020/02/13/test.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/fastpages/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/fastpages/about/">About Me</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -64,27 +64,87 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Example Fastpages Notebook</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Fastpages Notebook Blog Post</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2020-02-12T00:00:00-06:00" itemprop="datePublished">Feb 12, 2020
+      <time class="dt-published" datetime="2020-02-13T00:00:00-06:00" itemprop="datePublished">Feb 13, 2020
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    
+<div class="pb-5 d-flex flex-wrap flex-justify-end">
+     <div class="px-2">
+<a href="https://github.com/fastai/fastpages/tree/master/_notebooks/test.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div><div class="px-2">
+    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/test.ipynb">
+        <img class="notebook-badge-image" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+    </a>
+</div>
+</div>
 
+<ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#About">About¶</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Front-Matter">Front Matter¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Markdown-Shortcuts">Markdown Shortcuts¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Example-1:-DropDown">Example 1: DropDown¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Example-2:-Tooltips">Example 2: Tooltips¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Example-3:-More-Tooltips">Example 3: More Tooltips¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Other-Elements">Other Elements¶</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Tweetcards">Tweetcards¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Youtube-Videos">Youtube Videos¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Boxes-/-Callouts">Boxes / Callouts¶</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
 # file to edit: _notebooks/test.ipynb
-# command to build the docs after a change: nbdev_build_docs
-
 -->
 
 <div class="container" id="notebook-container">
         
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="About">About<a class="anchor-link" href="#About">&#182;</a></h1><p>This notebook is a demonstration of some of capabilities of <code>fastpages</code> with notebooks.</p>
+<p>With <code>fastpages</code> you can save your jupyter notebooks into the <code>_notebooks</code> folder at the root of your repository, and they will be automatically be converted to Jekyll compliant blog posts!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Front-Matter">Front Matter<a class="anchor-link" href="#Front-Matter">&#182;</a></h2><p>Front Matter is a markdown cell at the beginning of your notebook that allows you to inject metadata into your notebook. For example:</p>
+<ul>
+<li>Setting <code>toc: true</code> will automatically generate a table of contents</li>
+<li>Setting <code>badges: true</code> will automatically include GitHub and Google Colab links to your notebook.</li>
+</ul>
+<p>More details and options for front matter can be viewed on the notebook section of the <a href="https://github.com/fastai/fastpages#Writing-Blog-Posts-With-Jupyter">README</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Markdown-Shortcuts">Markdown Shortcuts<a class="anchor-link" href="#Markdown-Shortcuts">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -524,7 +584,8 @@
 </div>
 </div>
 
-  </div><a class="u-url" href="/fastpages/2020/02/12/test.html" hidden></a>
+
+  </div><a class="u-url" href="/fastpages/2020/02/13/test.html" hidden></a>
 </article>
 
       </div>
@@ -542,11 +603,11 @@
       </div>
 
       <div class="footer-col footer-col-2"><ul class="social-media-list">
-  <li><a href="https://github.com/fastai"><svg class="svg-icon"><use xlink:href="/fastpages/assets/minima-social-icons.svg#github"></use></svg> <span class="username">fastai</span></a></li></ul>
+  <li><a href="https://github.com/fastai"><svg class="svg-icon"><use xlink:href="/fastpages/assets/minima-social-icons.svg#github"></use></svg> <span class="username">fastai</span></a></li><li><a href="https://www.twitter.com/%40fastdotai"><svg class="svg-icon"><use xlink:href="/fastpages/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">@fastdotai</span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>An easy to use blogging platform for data scientists, with support for Jupyter Notebooks.</p>
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
       </div>
     </div>
 
