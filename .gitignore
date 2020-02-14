@@ -9,3 +9,4 @@ vendor
 _notebooks/.ipynb_checkpoints
 # Local Netlify folder
 .netlify
+__pycache__

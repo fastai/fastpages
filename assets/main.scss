@@ -64,7 +64,7 @@
 }
 
 // make non-headings slightly lighter
-p {
+.post-content p {
    font-size: 20px;
    color: #515151;
 }
@@ -267,4 +267,15 @@ h3, h4 {
 
 details.description:not([open]) summary::after {
   content: attr(data-close);
+}
+
+.notebook-badge-image {
+  border:0 !important;
+}
+
+.footnotes {
+  font-size: 12px !important;
+  p{
+    font-size: 12px !important;
+ }
 }

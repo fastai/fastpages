@@ -3,7 +3,8 @@ help:
 	cat Makefile
 
 # build the conversion service
-build: stop .FORCE
+build:
+	docker stop fastpages-dev || true; docker rm fastpages-dev || true;
 	docker-compose -f convert-docker-compose.yaml  build --no-cache
 
 # Start Jekyll Server
