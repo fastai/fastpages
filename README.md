@@ -34,6 +34,7 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
       - [Configure Title & Summary](#configure-title-summary)
       - [Table of Contents](#table-of-contents)
       - [Colab & GitHub Badges](#colab-github-badges)
+      - [Enabling Comments](#enabling-comments)
       - [Hide Input/Output Cells](#hide-inputoutput-cells)
       - [Collapsable Code Cells](#collapsable-code-cells)
       - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
@@ -97,6 +98,7 @@ Create a markdown cell at the beginning of the notebook with the following conte
   - toc: false
   - branch: master
   - badges: true
+  - comments: true
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
   ```
@@ -112,6 +114,16 @@ Additional metadata is optional and allows you to set custom [front matter](http
 ### Colab & GitHub Badges
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
+
+### Enabling Comments
+
+Blog posting is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
+
+To enable comments with [Utterances](https://github.com/utterance/utterances) you will need to do the following:
+
+  - Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
+  - Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
+  - If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
 
 ### Hide Input/Output Cells
 
