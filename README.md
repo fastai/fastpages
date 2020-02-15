@@ -81,6 +81,8 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 5. Read through `_config.yaml` carefully as there may be other options that must be set.  The comments in this file will provide instructions. 
 
+6. [Create a branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) named `gh-pages`.
+
 6. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
 
 7. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
