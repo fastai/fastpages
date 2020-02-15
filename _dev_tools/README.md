@@ -2,13 +2,13 @@
 
 ## Background
 
-This directory has various scripts that make it easier for your to contribute to `fastpages`, by enabling you to test and preview changes locally.  These dev tools heavily rely on Docker, since `fastpages` uses these depdenciences:
+This directory has various scripts that make it easier for your to contribute to `fastpages`, by enabling you to test and preview changes locally.  These dev tools heavily rely on Docker, since `fastpages` uses these dependencies:
 
 - [fastai/nbdev](https://github.com/fastai/nbdev): used to convert notebooks to blog posts.  `nbdev` serves as a wrapper around [jupyter/nbconvert](https://github.com/jupyter/nbconvert) that provides additional features that are useful for blogging.
 - [pandoc](https://pandoc.org/index.html): used to convert Microsoft Word documents (*.docx) into blog posts.
 - [Jekyll](https://jekyllrb.com/): a static site generator that is popular for docs and blogs.
 
-Additionally, when you develop locally **it is important to ensure these depdenencies are exactly the same as those used in the [Actions Workflow](../.github/workflows/ci.yaml)** that is used to automate the conversion process of word docs & jupyter notebooks and build the blog site.  In order to accomplish this with minimal effort, we make use of [Docker](https://www.docker.com/).  For those that are unfamiliar with Docker, [here is a gentle tutorial](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5).  However, **familiarity with Docker is not strictly required in order to use these dev tools**.
+Additionally, when you develop locally **it is important to ensure these dependencies are exactly the same as those used in the [Actions Workflow](../.github/workflows/ci.yaml)** that is used to automate the conversion process of word docs & jupyter notebooks and build the blog site.  In order to accomplish this with minimal effort, we make use of [Docker](https://www.docker.com/).  For those that are unfamiliar with Docker, [here is a gentle tutorial](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5).  However, **familiarity with Docker is not strictly required in order to use these dev tools**.
 
 
 ## Commands & Usage
