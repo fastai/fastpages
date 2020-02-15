@@ -247,6 +247,8 @@ Please see the [development guide](_dev_tools/README.md).
     ...
 ```
 
+- **Q:** Can I use `fastpages` for Jekyll docs sites or for things that are not Jekyll blog posts?  **A:** At the moment, `fastpages` is a highly opinionated solution that works only for Jekyll blog posts.  If you want to write documentation for your module or library with Jupyter notebooks, we suggest you use [fastai/nbdev](https://github.com/fastai/nbdev) which is expressly built for this purpose.
+
 # Acknowledgements
 
 - [Nate Gadzhibalaev](https://github.com/xnutsive): We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
