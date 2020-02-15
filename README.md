@@ -162,7 +162,7 @@ In a markdown cell in your notebook, use the following markdown shortcuts to emb
 
 2. [Commit and push](https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line) your file(s) to GitHub in your repository's master branch.
 
-3. GitHub will automatically convert your files to blog posts.  You can click on the Actions tab of your repo to view the logs of this process.
+3. GitHub will automatically convert your files to blog posts.  **It will take ~5 minutes for the conversion process to take place**.  You can click on the Actions tab of your repo to view the logs of this process. There will be two workflows that are triggered with each push you make to your master branch: (1) "CI" and (2) "GH Pages Status".  Both workflows must complete with a green checkmark for your latest commit before your site is updated.
 
 4. If you wish, you can preview how your blog will look locally before commiting to GitHub.  If you wish to do so, please see the [development guide](_dev_tools/README.md).
 
