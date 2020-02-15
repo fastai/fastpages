@@ -1,4 +1,4 @@
-name: 'fastpages: An easy to use blogging platform, with support for Jupyter Notebooks.'
+name: 'fastpages: An easy to use blogging platform with support for Jupyter Notebooks.'
 description: Converts Jupyter notebooks and Word docs into Jekyll blog posts.
 author: Hamel Husain
 inputs:
