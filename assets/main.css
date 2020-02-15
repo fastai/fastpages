@@ -199,8 +199,6 @@ table td { border: 1px solid #e8e8e8; }
 
 .post figcaption { text-align: center; font-size: .8rem; font-style: italic; color: light-grey; }
 
-.language-python { border-left: 1px solid lightcoral; }
-
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
 .language-python + .language-plaintext code { background-color: white !important; }
