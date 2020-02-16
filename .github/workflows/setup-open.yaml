@@ -6,6 +6,7 @@ on:
 
 jobs:
   setup-open:
+    if: github.event.issue.author_association == "OWNER" # and github.event
     runs-on: ubuntu-latest
     steps:
       - name: see payload
@@ -13,3 +14,12 @@ jobs:
           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
+      - name: print variable
+        run: |
+          echo "event_name: ${PAYLOAD}"
+        env:
+          PAYLOAD: ${{ github.event_name }}
+
+# Notes
+
+# github.event.issue.body  contains the message

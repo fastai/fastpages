@@ -3,6 +3,7 @@ on: issue_comment
 
 jobs:
   setup:
+    if: github.event.comment.author_association == 'OWNER'
     runs-on: ubuntu-latest
     steps:
       - name: see payload
@@ -10,3 +11,6 @@ jobs:
           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
+
+
+# comment is contained in #comment.body
