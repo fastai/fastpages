@@ -1,0 +1,15 @@
+name: Setup
+on: 
+  issues:
+    types: [opened]
+
+
+jobs:
+  setup-open:
+    runs-on: ubuntu-latest
+    steps:
+      - name: see payload
+        run: |
+          echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+        env:
+          PAYLOAD: ${{ toJSON(github.event) }}
