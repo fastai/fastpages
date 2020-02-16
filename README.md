@@ -1,4 +1,10 @@
-![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) ![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)  [![](https://img.shields.io/static/v1?label=&message=View%20Demo%20Site&color=2f363d&style=plastic&logo=github&logoColor=959da5)](https://fastai.github.io/fastpages/)
+[//]: # (BADGES SECTION: change `fastai` with your GitHub username and `fastpages` with the name of your repo)
+
+![](https://github.com/fastai/fastpages/workflows/CI/badge.svg)
+![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
+[![](https://img.shields.io/static/v1?label=&message=View%20Demo%20Site&color=2f363d&style=plastic&logo=github&logoColor=959da5)](https://fastai.github.io/fastpages/)
+
+[//]: # (END OF BADGES SECTION)
 
 # Welcome To `fastpages`
 
