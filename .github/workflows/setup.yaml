@@ -1,16 +1,41 @@
 name: Setup
-on: issue_comment
+on: 
+  issues:
+    types: [opened]
+  issue_comment:
 
 jobs:
   setup:
-    if: github.event.comment.author_association == 'OWNER'
+    if: github.event.issue.author_association == 'OWNER' && ( (github.event.comment.author_association == 'OWNER') || (github.event_name == 'issues') )
     runs-on: ubuntu-latest
     steps:
-      - name: see payload
+      - name: parse-metadata-on-open
+        if: contains(github.event.issue.body, '/setup')) || contains(github.event.comment.body, '/setup'))
         run: |
-          echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-        env:
-          PAYLOAD: ${{ toJSON(github.event) }}
+          echo "Triggered"
 
 
 # comment is contained in #comment.body
+
+
+# name: Setup-Open
+# on: 
+#   issues:
+#     types: [opened]
+
+
+# jobs:
+#   setup-open:
+#     if: github.event.issue.author_association == 'OWNER' # and github.event
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: see payload
+#         run: |
+#           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+#         env:
+#           PAYLOAD: ${{ toJSON(github.event) }}
+#       - name: print variable
+#         run: |
+#           echo "event_name: ${PAYLOAD}"
+#         env:
+#           PAYLOAD: ${{ github.event_name }}

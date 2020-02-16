@@ -23,3 +23,4 @@ jobs:
 # Notes
 
 # github.event.issue.body  contains the message
+# github.event == 'issues'
