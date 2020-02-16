@@ -2,8 +2,7 @@ name: Setup
 on: issue_comment
 
 jobs:
-  setuo:
-    env:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: see payload
