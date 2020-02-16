@@ -61,11 +61,11 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 1. Click the [![](https://img.shields.io/static/v1?label=&message=Use%20this%20template&color=brightgreen&style=plastic)](https://github.com/fastai/fastpages/generate) button to create a copy of this repo in your account. 
 
-2. Change the badges on this README to point to your repository instead of this one.  For example, instead of 
+2. In the badges section at the beginning of this README point the badges to your repository instead of this one.  To do so, in each of the links in the section change `fastai` with your GitHub username and `fastpages` with the name of your repository. For example, this 
 
     `![](https://github.com/fastai/fastpages/workflows/CI/badge.svg)`
 
-    this would be
+    would be changed to
 
     `![](https://github.com/your-username/your-repo-name/workflows/CI/badge.svg)`
 
