@@ -1,4 +1,4 @@
-name: Setup
+name: Setup-Open
 on: 
   issues:
     types: [opened]
