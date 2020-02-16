@@ -1,0 +1,13 @@
+name: Setup
+on: issue_comment
+
+jobs:
+  setuo:
+    env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: see payload
+        run: |
+          echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+        env:
+          PAYLOAD: ${{ toJSON(github.event) }}
