@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: parse-metadata-on-open
-        if: contains(github.event.issue.body, '/setup')) || contains(github.event.comment.body, '/setup'))
+        if: contains(github.event.issue.body, '/setup') || contains(github.event.comment.body, '/setup')
         run: |
           echo "Triggered"
 
