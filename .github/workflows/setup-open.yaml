@@ -6,7 +6,7 @@ on:
 
 jobs:
   setup-open:
-    if: github.event.issue.author_association == "OWNER" # and github.event
+    if: github.event.issue.author_association == 'OWNER' # and github.event
     runs-on: ubuntu-latest
     steps:
       - name: see payload
