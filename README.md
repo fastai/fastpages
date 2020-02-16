@@ -78,7 +78,7 @@ For example, this
 
     `baseurl: "/your-repo-name"`
 
-4. Similarly, change the `url:` parameter in `_config.yaml` to the url your blog will be served on.  For exmaple, instead of
+4. Similarly, change the `url:` parameter in `_config.yaml` to the url your blog will be served on.  For example, instead of
 
     `url: "https://fastai.github.io"`
 
