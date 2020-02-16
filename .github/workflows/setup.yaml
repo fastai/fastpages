@@ -8,8 +8,8 @@ jobs:
   setup:
     # The issue must be created by the issue owner, and if the comment is made in subsequent comment that must also be
     # if: github.event.issue.author_association == 'OWNER' && ( (github.event_name == 'issue_comment' && github.event.comment.author_association == 'OWNER') || (github.event_name == 'issues') )
-    # runs-on: ubuntu-latest
-    # steps:
+    runs-on: ubuntu-latest
+    steps:
     #   - name: parse-metadata-on-open
     #     if: contains(github.event.issue.body, '/setup') || contains(github.event.comment.body, '/setup')
     #     run: |
