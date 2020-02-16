@@ -253,3 +253,5 @@ details.description:not([open]) summary::after { content: attr(data-close); }
 
 .footnotes { font-size: 12px !important; }
 .footnotes p { font-size: 12px !important; }
+
+.social.svg-icon { width: 21px !important; }
