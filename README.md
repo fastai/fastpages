@@ -88,11 +88,13 @@ For example, this
 
 5. Read through `_config.yaml` carefully as there may be other options that must be set.  The comments in this file will provide instructions. 
 
-6. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
+6. [Create a branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) named `gh-pages`.
 
-7. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.
+7. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
 
-8. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) on your `gh-pages` branch.
+8. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
+
+9. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) on your `gh-pages` branch.
 
 
 ## Writing Blog Posts With Jupyter
@@ -167,7 +169,7 @@ In a markdown cell in your notebook, use the following markdown shortcuts to emb
 
 2. [Commit and push](https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line) your file(s) to GitHub in your repository's master branch.
 
-3. GitHub will automatically convert your files to blog posts.  You can click on the Actions tab of your repo to view the logs of this process.
+3. GitHub will automatically convert your files to blog posts.  **It will take ~5 minutes for the conversion process to take place**.  You can click on the Actions tab of your repo to view the logs of this process. There will be two workflows that are triggered with each push you make to your master branch: (1) "CI" and (2) "GH Pages Status".  Both workflows must complete with a green checkmark for your latest commit before your site is updated.
 
 4. If you wish, you can preview how your blog will look locally before commiting to GitHub.  If you wish to do so, please see the [development guide](_dev_tools/README.md).
 
@@ -253,6 +255,8 @@ Please see the [development guide](_dev_tools/README.md).
 
     ...
 ```
+
+- **Q:** Can I use `fastpages` for Jekyll docs sites or for things that are not Jekyll blog posts?  **A:** At the moment, `fastpages` is a highly opinionated solution that works only for Jekyll blog posts.  If you want to write documentation for your module or library with Jupyter notebooks, we suggest you use [fastai/nbdev](https://github.com/fastai/nbdev) which is expressly built for this purpose.
 
 # Acknowledgements
 

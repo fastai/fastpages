@@ -1,5 +1,5 @@
-name: 'fastpages: Blogging With Jupyter Notebooks & Word Docs for GitHub Pages'
-description: Converts Jupyter notebooks and Word docs into Jekyll blog posts
+name: 'fastpages: An easy to use blogging platform with support for Jupyter Notebooks.'
+description: Converts Jupyter notebooks and Word docs into Jekyll blog posts.
 author: Hamel Husain
 inputs:
   BOOL_SAVE_MARKDOWN:
