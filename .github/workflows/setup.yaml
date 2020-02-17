@@ -4,7 +4,6 @@ on: push
 jobs:
   setup:
     # The issue must be created by the repository's owner to trigger this workflow
-    if: github.event.issue.author_association == 'OWNER' && contains(github.event.issue.body, '/setup') 
     runs-on: ubuntu-latest
     steps:
 
