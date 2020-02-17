@@ -41,10 +41,12 @@ jobs:
       
     - name: see config
       run: |
-        cat _config.yaml
+        cd ${GITHUB_WORKSPACE}
+        cat /_config.yaml
 
     - name: see README
       run: |
+        cd ${GITHUB_WORKSPACE}
         head -n7 README.md
 
     - name: Note
