@@ -10,6 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Enable GitHub Pages on the gh-pages branch
+      uses: actions/github-script@0.5.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.enablePagesSite({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            source: { branch: 'gh-pages' },
+          })
+
     - name: see payload
       run: |
         echo "FULL PAYLOAD:\n${PAYLOAD}\n"
@@ -69,9 +80,16 @@ jobs:
 
     - name: see README
       run: |
-        head -n7 README.md
+        cat README.md
 
-    - name: Note
+    - name: commit changes
+      run: |
+        git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _diagram.png
+        git rm .github/workflows/chatops.yaml
+        git add _config.yml README.md
+        git commit -m'setup repo'
+
+    - name: push changes to GitHub
       run: echo "TODO Commit Changes Here"
 
     - name: create ssh deploy key
