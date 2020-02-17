@@ -21,6 +21,7 @@ jobs:
     - name: modify _config and README
       run: |
         import re, os
+        from pathlib import Path
 
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
