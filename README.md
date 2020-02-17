@@ -96,7 +96,9 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 8. Read through `_config.yaml` carefully as there may be other options that must be set.  The comments in this file will provide instructions. 
 
-9. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) with the `gh-pages` branch you created earlier.
+9. Delete the `CNAME` file from the root of your `master` branch (or change it if you are using a custom domain)
+
+10. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) with the `gh-pages` branch you created earlier.
 
 ## Writing Blog Posts With Jupyter
 
