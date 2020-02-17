@@ -7,16 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    # - name: Enable GitHub Pages on the gh-pages branch
-    #   uses: actions/github-script@0.5.0
-    #   with:
-    #     github-token: ${{secrets.GITHUB_TOKEN}}
-    #     script: |
-    #       github.repos.enablePagesSite({
-    #         owner: context.repo.owner,
-    #         repo: context.repo.repo,
-    #       })
-
     - name: Get public key for deploy key encryption
       uses: actions/github-script@0.5.0
       id: pk
