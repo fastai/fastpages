@@ -62,6 +62,7 @@ jobs:
     - name: copy CNAME file into _site
       if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
+        sudo chmod -R 777 _site/
         cp CNAME _site/
 
     # only deploy upon a push to master
