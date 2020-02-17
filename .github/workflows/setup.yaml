@@ -1,7 +1,5 @@
 name: Setup
-on: 
-  issues:
-    types: [opened] # DO NOT CHANGE THIS
+on: push
 
 jobs:
   setup:
