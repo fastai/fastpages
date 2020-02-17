@@ -13,15 +13,12 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          async function pk(){
-            const response = await github.actions.getPublicKey({
-                                      owner: context.repo.owner,
-                                      repo: context.repo.repo,
-                                      })
-            const key = response.data
-            console.log(key)
-           }
-           pk()
+          const { Octokit } = require("@octokit/rest");
+          const octokit = new Octokit({
+                      auth: `process.env.GITHUB_TOKEN`
+                });
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: see pk
       run: echo ${PK}
