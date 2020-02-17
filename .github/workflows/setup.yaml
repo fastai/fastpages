@@ -45,7 +45,6 @@ jobs:
         with open(config_path, 'w') as f:
             f.write(cfg)
       shell: python
-    #   working-directory: $GITHUB_WORKSPACE
       
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v1
@@ -68,11 +67,15 @@ jobs:
     - name: install pynacl
       run: pip3 install pynacl
 
-    # from https://developer.github.com/v3/actions/secrets/
-    - name: test deps
+    # modified from https://developer.github.com/v3/actions/secrets/
+    - name: upload ssh deploy key
       run: |
         from base64 import b64encode
         from nacl import encoding, public
+        from pathlib import Path
+
+        secret_key_path = Path('.deployKey')
+        assert secret_key_path.exists(), 'Did not find the .deployKey in the current directory!'
         
         def encrypt(public_key: str, secret_value: str) -> str:
             """Encrypt a Unicode string using the public key."""
@@ -80,4 +83,9 @@ jobs:
             sealed_box = public.SealedBox(public_key)
             encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
             return b64encode(encrypted).decode("utf-8")
+
+        with open(readme_path, 'r') as f:
+            secret = f.read()
+        
+        # encrypted_secret = encrypt(public_key=public_key, secret_value=secret)
       shell: python
