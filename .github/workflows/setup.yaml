@@ -20,8 +20,8 @@ jobs:
                                       })
             const key = response.data
             console.log(key)
-        }
-        pk()
+           }
+           pk()
 
     - name: see pk
       run: echo ${PK}
