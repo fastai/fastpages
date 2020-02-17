@@ -13,10 +13,15 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          github.actions.getPublicKey({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-          })
+          async function pk(){
+            const response = await github.actions.getPublicKey({
+                                      owner: context.repo.owner,
+                                      repo: context.repo.repo,
+                                      })
+            const key = response.data
+            console.log(key)
+        }
+        pk()
 
     - name: see pk
       run: echo ${PK}
