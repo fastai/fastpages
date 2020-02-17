@@ -28,10 +28,10 @@ jobs:
             repo: context.repo.repo,
           })
 
-     - name: see pk
-       run: echo ${PK}
-       env:
-         PK: ${{ steps.pk.outputs.results }}
+    - name: see pk
+      run: echo ${PK}
+      env:
+        PK: ${{ steps.pk.outputs.results }}
       
 
     - name: see payload
