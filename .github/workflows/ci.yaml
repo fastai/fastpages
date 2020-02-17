@@ -1,5 +1,5 @@
 name: CI
-on: gollum
+on: push
   # push:
   #   branches:
   #     - master # need to filter here so we only deploy when there is a push to master
