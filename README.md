@@ -60,9 +60,17 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 ## Setup Instructions
 
-1. Click the [![](https://img.shields.io/static/v1?label=&message=Use%20this%20template&color=brightgreen&style=plastic)](https://github.com/fastai/fastpages/generate) button to create a copy of this repo in your account. 
+**Follow these instructions in order** to avoid confusing error messages.
 
-2. Change the badges on this README to point to **your** repository instead of `fastai/fastpages`.  Badges are organized in a section at the beginning of this README.  For example, you should replace `fastai` and `fastpages` in the below url:
+1. Click the [![](https://img.shields.io/static/v1?label=&message=Use%20this%20template&color=brightgreen&style=flat)](https://github.com/fastai/fastpages/generate) button to create a copy of this repo in your account.
+
+2. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
+
+3. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
+
+4. [Create a branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) named `gh-pages`.
+
+5. Change the badges on this README to point to **your** repository instead of `fastai/fastpages`.  Badges are organized in a section at the beginning of this README.  For example, you should replace `fastai` and `fastpages` in the below url:
 
     `![](https://github.com/fastai/fastpages/workflows/CI/badge.svg)`
 
@@ -70,7 +78,7 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
     `![](https://github.com/{your-username}/{your-repo-name}/workflows/CI/badge.svg)`
 
-3. Change `baseurl:` in `_config.yaml` to the name of your repository. For example, instead of 
+6. Change `baseurl:` in `_config.yaml` to the name of your repository. For example, instead of 
 
     `baseurl: "/fastpages"`
 
@@ -78,7 +86,7 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
     `baseurl: "/your-repo-name"`
 
-4. Similarly, change the `url:` parameter in `_config.yaml` to the url your blog will be served on.  For example, instead of
+7. Similarly, change the `url:` parameter in `_config.yaml` to the url your blog will be served on.  For example, instead of
 
     `url: "https://fastai.github.io"`
 
@@ -86,15 +94,9 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
     `url: "https://<your-user-name>.github.io"`
 
-5. Read through `_config.yaml` carefully as there may be other options that must be set.  The comments in this file will provide instructions. 
+8. Read through `_config.yaml` carefully as there may be other options that must be set.  The comments in this file will provide instructions. 
 
-6. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
-
-7. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
-
-8. [Create a branch](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) named `gh-pages`.
-
-9. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) with the `gh-pages` branch you just created.
+9. Go to your [repository settings and enable GitHub Pages](https://help.github.com/en/enterprise/2.13/user/articles/configuring-a-publishing-source-for-github-pages) with the `gh-pages` branch you created earlier.
 
 ## Writing Blog Posts With Jupyter
 
