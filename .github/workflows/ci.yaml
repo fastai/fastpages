@@ -6,12 +6,13 @@ on:
   # no filters on pull requests, so intentionally left blank
   pull_request: 
 
-jobs:
-  filter-template-commits:
-    if: github.event_name == 'push'
+jobs:     
+  build-site:
     runs-on: ubuntu-latest
     steps:
+    
     - name: Check if this is a template commit
+      if: github.event_name == 'push'
       uses: actions/github-script@0.5.0
       id: gh
       with:
@@ -33,36 +34,27 @@ jobs:
       env:
          COMMIT_MSG: ${{ github.event.commits[0].message }}
 
-    - name: test template condition
-      run: | 
-        import os
-        tbool = os.getenv('TEMPLATE')
-        assert tbool == 'false', 'This is the initial commit GitHub makes when creating a repo from a template. Not running the build on this commit.'
-      env:
-        TEMPLATE: ${{ steps.gh.outputs.template_bool }}
-      shell: python
-      
-  build-site:
-    needs: filter-template-commits
-    runs-on: ubuntu-latest
-    steps:
     - name: Copy Repository Contents
+      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: actions/checkout@master
       with:
         persist-credentials: false
 
     - name: convert notebooks and word docs to posts
+      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: ./ # use the code in this repo instead of fastai/fastpages@master, for testing.
       with:
         BOOL_SAVE_MARKDOWN: false
         SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
 
     - name: setup directories for Jekyll build
+      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
         rm -rf _site
         sudo chmod -R 777 .
 
     - name: Jekyll build
+      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: docker://jekyll/jekyll
       with:
         args: jekyll build -V
@@ -70,7 +62,7 @@ jobs:
     # only deploy upon a push to master
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
-      if: github.event_name == 'push'
+      if: (github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
