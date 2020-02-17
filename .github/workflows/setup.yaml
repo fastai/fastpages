@@ -6,7 +6,11 @@ jobs:
     # The issue must be created by the repository's owner to trigger this workflow
     runs-on: ubuntu-latest
     steps:
-
+   - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+  
     - name: get pk
       run: |
         import requests, os
@@ -39,11 +43,6 @@ jobs:
 
     - name: Copy Repository Contents
       uses: actions/checkout@master
-
-    - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
  
     - name: modify _config and README
       run: |
