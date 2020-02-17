@@ -42,7 +42,7 @@ jobs:
             cfg = re.sub(r'^(url: "https://)(fastai)(\.github\.io")', r'\1{}\3'.format(username), cfg, flags=re.MULTILINE)
             f.write(cfg)
       shell: python
-      working-directory: $GITHUB_WORKSPACE
+    #   working-directory: $GITHUB_WORKSPACE
       
     - name: see config
       run: |
