@@ -12,7 +12,7 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          github.enablePagesSite({
+          github.repos.enablePagesSite({
             owner: context.repo.owner,
             repo: context.repo.repo,
             source: { branch: 'gh-pages' },
