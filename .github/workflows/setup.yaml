@@ -1,48 +1,72 @@
 name: Setup
 on: 
   issues:
-    types: [opened, edited]
-  issue_comment:
+    types: [opened] # DO NOT CHANGE THIS
 
 jobs:
   setup:
-    # The issue must be created by the issue owner, and if the comment is made in subsequent comment that must also be
-    # if: github.event.issue.author_association == 'OWNER' && ( (github.event_name == 'issue_comment' && github.event.comment.author_association == 'OWNER') || (github.event_name == 'issues') )
+    # The issue must be created by the repository's owner to trigger this workflow
+    if: github.event.issue.author_association == 'OWNER' && contains(github.event.issue.body, '/setup') 
     runs-on: ubuntu-latest
     steps:
-    #   - name: parse-metadata-on-open
-    #     if: contains(github.event.issue.body, '/setup') || contains(github.event.comment.body, '/setup')
-    #     run: |
-    #       echo "Triggered"
 
-    - name: see payload
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+ 
+    - name: modify _config and README
       run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-      env:
-        PAYLOAD: ${{ toJSON(github.event) }}
+        import re, os
 
+        nwo = os.getenv('GITHUB_REPOSITORY')
+        username, repo_name = nwo.split('/')
 
-# comment is contained in #comment.body
+        with open('README.md', 'rw') as f:
+            readme = f.read()
+            readme_fix = re.sub(r'(https://github.com/)(fastai/fastpages)(/workflows)', r'\1{}\3'.format(nwo), readme)
+            f.write(readme_fix)
+        
+        with open('_config.yml', 'rw') as f:
+            cfg = f.read()
+            cfg = re.sub(r'^(github_username: )(fastai)', r'\1{}'.format(username), cfg, flags=re.MULTILINE)
+            cfg = re.sub(r'^(baseurl: "/)(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
+            cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
+            cfg = re.sub(r'^(url: "https://)(fastai)(\.github\.io")', r'\1{}\3'.format(username), cfg, flags=re.MULTILINE)
+            f.write(cfg)
+      shell: python
+      
+    - name: see config
+      run: |
+        cat _config.yaml
 
+    - name: see README
+      run: |
+        head -n7 README.md
 
-# name: Setup-Open
-# on: 
-#   issues:
-#     types: [opened]
+    - name: Note
+      run: echo "TODO Commit Changes Here"
 
+    - name: create ssh deploy key
+      run: |
+        ssh-keygen -t rsa -b 4096 -f .deployKey -q -N ""
 
-# jobs:
-#   setup-open:
-#     if: github.event.issue.author_association == 'OWNER' # and github.event
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: see payload
-#         run: |
-#           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-#         env:
-#           PAYLOAD: ${{ toJSON(github.event) }}
-#       - name: print variable
-#         run: |
-#           echo "event_name: ${PAYLOAD}"
-#         env:
-#           PAYLOAD: ${{ github.event_name }}
+    - name: install pynacl
+      run: pip3 install pynacl
+
+    # from https://developer.github.com/v3/actions/secrets/
+    - name: test deps
+      run: |
+        from base64 import b64encode
+        from nacl import encoding, public
+        
+        def encrypt(public_key: str, secret_value: str) -> str:
+            """Encrypt a Unicode string using the public key."""
+            public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
+            sealed_box = public.SealedBox(public_key)
+            encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
+            return b64encode(encrypted).decode("utf-8")
+      shell: python
