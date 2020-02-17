@@ -6,29 +6,7 @@ jobs:
     # The issue must be created by the repository's owner to trigger this workflow
     runs-on: ubuntu-latest
     steps:
-
-    - name: install octokit
-      run: npm install @octokit/rest --save
-
-    - name: Get public key for deploy key encryption
-      uses: actions/github-script@0.5.0
-      id: pk
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          const { Octokit } = require("@octokit/rest");
-          const octokit = new Octokit({
-                      auth: `process.env.GITHUB_TOKEN`
-                });
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-    - name: see pk
-      run: echo ${PK}
-      env:
-        PK: ${{ steps.pk.outputs.results }}
       
-
     - name: see payload
       run: |
         echo "FULL PAYLOAD:\n${PAYLOAD}\n"
