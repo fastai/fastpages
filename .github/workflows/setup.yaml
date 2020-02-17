@@ -40,15 +40,18 @@ jobs:
 
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
+        readme_template_path = Path('README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
-        assert readme_path.exists(), 'Did not find README.md in current directory!'
-        assert config_path.exists(), 'Did not find _config.yml in current directory!'
+        assert readme_template_path.exists(), 'Did not find README_TEMPLATE.md in the current directory!'
+        assert readme_path.exists(), 'Did not find README.md in the current directory!'
+        assert config_path.exists(), 'Did not find _config.yml in the current directory!'
 
-        readme = readme_path.read_text()
-        readme = re.sub(r'(https://github.com/)(fastai/fastpages)(/workflows)', r'\1{}\3'.format(nwo), readme)
+        # replace content of README with template
+        readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
         readme_path.write_text(readme)
         
+        # update _config.yml
         cfg = config_path.read_text()
         cfg = re.sub(r'^(github_username: )(fastai)', r'\1{}'.format(username), cfg, flags=re.MULTILINE)
         cfg = re.sub(r'^(baseurl: "/)(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
