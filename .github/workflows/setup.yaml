@@ -6,6 +6,21 @@ jobs:
     # The issue must be created by the repository's owner to trigger this workflow
     runs-on: ubuntu-latest
     steps:
+
+    - name: get pk
+      run: |
+        import requests, os
+        nwo = os.getenv('GITHUB_REPOSITORY')
+        token = os.getenv('GITHUB_TOKEN')
+        headers = {'Accept': 'application/vnd.github.v3+json',
+           'Authorization': f'token {token}'}
+
+        url = f"https://api.github.com/repos/{nwo}/actions/secrets/public-key"
+        result = requests.post(url=url, headers=headers)
+        print(result)
+      shell: python
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       
     - name: see payload
       run: |
