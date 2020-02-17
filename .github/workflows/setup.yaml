@@ -45,6 +45,9 @@ jobs:
       shell: python
     #   working-directory: $GITHUB_WORKSPACE
       
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v1
+      
     - name: see config
       run: |
         cat _config.yaml
