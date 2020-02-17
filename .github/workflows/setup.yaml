@@ -13,7 +13,7 @@ jobs:
       env:
         PAYLOAD: ${{ toJSON(github.event) }}
 
-    - run: cat $ARTIFACT > artifact.txt
+    - run: echo $ARTIFACT > artifact.txt
       env:
         ARTIFACT: ${{ secrets.GITHUB_TOKEN }} 
 
