@@ -15,7 +15,6 @@ jobs:
           github.repos.enablePagesSite({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            source: { 'branch': 'gh-pages' },
           })
 
     - name: see payload
