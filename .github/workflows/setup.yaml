@@ -47,13 +47,13 @@ jobs:
       
     - name: see config
       run: |
+        cd $GITHUB_WORKSPACE
         cat _config.yaml
-      working-directory: $GITHUB_WORKSPACE
 
     - name: see README
       run: |
+        cd $GITHUB_WORKSPACE
         head -n7 README.md
-      working-directory: $GITHUB_WORKSPACE
 
     - name: Note
       run: echo "TODO Commit Changes Here"
