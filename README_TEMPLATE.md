@@ -10,4 +10,3 @@ https://{_username_}.github.io/{_repo_name_}/
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
-
