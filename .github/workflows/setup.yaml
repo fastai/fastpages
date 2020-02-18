@@ -50,12 +50,12 @@ jobs:
         readme_template_path = Path('README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
-        pr_msg_path = Path('SETUP_PR_TEMPLATE.md')
+        pr_msg_path = Path('_setup_pr_template.md')
 
         assert readme_template_path.exists(), 'Did not find README_TEMPLATE.md in the current directory!'
         assert readme_path.exists(), 'Did not find README.md in the current directory!'
         assert config_path.exists(), 'Did not find _config.yml in the current directory!'
-        assert pr_msg_path.exists(), 'Did not find SETUP_PR_TEMPLATE.md in the current directory!'
+        assert pr_msg_path.exists(), 'Did not find _setup_pr_template.md in the current directory!'
 
         # replace content of README with template
         readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
@@ -82,7 +82,7 @@ jobs:
         git checkout -B fastpages-automated-setup
         git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _diagram.png
         git rm .github/workflows/chatops.yaml
-        git add _config.yml README.md
+        git add _config.yml README.md _setup_pr_template.md
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
