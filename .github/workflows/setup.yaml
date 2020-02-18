@@ -96,7 +96,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           var fs = require('fs');
-          var contents = fs.readFileSync('SETUP_PR_TEMPLATE.md', 'utf8');
+          var contents = fs.readFileSync('_setup_pr_template.md', 'utf8');
           github.pulls.create({
                         owner: context.repo.owner,
                         repo: context.repo.repo,
