@@ -74,11 +74,16 @@ jobs:
 
     - name: commit changes
       run: |
+        git config --global user.email "${GH_EMAIL}"
+        git config --global user.name "${GH_USERNAME}"
         git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _diagram.png
         git rm .github/workflows/chatops.yaml
         git add _config.yml README.md
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
+      env: 
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: push changes to GitHub
       run: echo "TODO Commit Changes Here"
