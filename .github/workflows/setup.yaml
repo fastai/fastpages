@@ -22,7 +22,7 @@ jobs:
            'Authorization': f'token {token}'}
 
         url = f"https://api.github.com/repos/{nwo}/actions/secrets/public-key"
-        result = requests.post(url=url, headers=headers)
+        result = requests.get(url=url, headers=headers)
         print(result)
       shell: python
       env:
