@@ -2,9 +2,8 @@ name: Setup
 on: push
 
 jobs:
-  if: github.event.commits[0].message == 'Initial commit'
   setup:
-    # The issue must be created by the repository's owner to trigger this workflow
+    if: github.event.commits[0].message == 'Initial commit'
     runs-on: ubuntu-latest
     steps:
 
