@@ -8,61 +8,58 @@ on:
 
 jobs:     
   build-site:
+    if: github.event.commits[0].message != 'Initial commit'
     runs-on: ubuntu-latest
     steps:
     
-    - name: Check if this is a template commit
-      if: github.event_name == 'push'
-      uses: actions/github-script@0.5.0
-      id: gh
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          async function numcommits(){
-             // Get number of commits in the first pagination
-             const commits = await github.repos.listCommits({
-                                  owner: context.repo.owner,
-                                  repo: context.repo.repo,
-                                 })
-             const n = commits.data.length
-             console.log(`${n} commits`)
-             console.log(`msg: ${process.env.COMMIT_MSG }`)
-             // Evidence of a template commit is the first commit in a repo with the message 'Initial commit'
-             const template_bool = (process.env.COMMIT_MSG == 'Initial commit') && (n == 1)
-             // Emit output
-             console.log(`::set-output name=template_bool::${template_bool}`)
-          }
-          numcommits()
-      env:
-         COMMIT_MSG: ${{ github.event.commits[0].message }}
+#     - name: Check if this is a template commit
+#       if: github.event_name == 'push'
+#       uses: actions/github-script@0.5.0
+#       id: gh
+#       with:
+#         github-token: ${{secrets.GITHUB_TOKEN}}
+#         script: |
+#           async function numcommits(){
+#              // Get number of commits in the first pagination
+#              const commits = await github.repos.listCommits({
+#                                   owner: context.repo.owner,
+#                                   repo: context.repo.repo,
+#                                  })
+#              const n = commits.data.length
+#              console.log(`${n} commits`)
+#              console.log(`msg: ${process.env.COMMIT_MSG }`)
+#              // Evidence of a template commit is the first commit in a repo with the message 'Initial commit'
+#              const template_bool = (process.env.COMMIT_MSG == 'Initial commit') && (n == 1)
+#              // Emit output
+#              console.log(`::set-output name=template_bool::${template_bool}`)
+#           }
+#           numcommits()
+#       env:
+#          COMMIT_MSG: ${{ github.event.commits[0].message }}
 
     - name: Copy Repository Contents
-      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
+#       if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: actions/checkout@master
       with:
         persist-credentials: false
 
     - name: convert notebooks and word docs to posts
-      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: fastai/fastpages@master # use the code in this repo instead of fastai/fastpages@master, for testing.
       with:
         BOOL_SAVE_MARKDOWN: false
         SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
 
     - name: setup directories for Jekyll build
-      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
         rm -rf _site
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       uses: docker://jekyll/jekyll
       with:
         args: jekyll build -V
         
     - name: copy CNAME file into _site if CNAME exists
-      if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
         sudo chmod -R 777 _site/
         cp CNAME _site/ 2>/dev/null || :
@@ -70,7 +67,7 @@ jobs:
     # only deploy upon a push to master
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
-      if: (github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')
+#       if: (github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
