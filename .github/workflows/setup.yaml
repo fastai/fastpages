@@ -10,23 +10,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
-
-    - run: pip3 install requests
-  
-    - name: get pk
-      run: |
-        import requests, os
-        nwo = os.getenv('GITHUB_REPOSITORY')
-        token = os.getenv('GITHUB_TOKEN')
-        headers = {'Accept': 'application/vnd.github.v3+json',
-           'Authorization': f'token {token}'}
-
-        url = f"https://api.github.com/repos/{nwo}/actions/secrets/public-key"
-        result = requests.get(url=url, headers=headers)
-        print(result)
-      shell: python
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       
     - name: see payload
       run: |
@@ -44,7 +27,11 @@ jobs:
         path: ./
 
     - name: Copy Repository Contents
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
+
+    - name: checkout new branch
+      run: |
+        git checkout -B fastpages-automated-setup
  
     - name: modify _config and README
       run: |
@@ -73,16 +60,17 @@ jobs:
         config_path.write_text(cfg)
       shell: python
       
+
     # - name: Setup tmate session
     #   uses: mxschmitt/action-tmate@v1
 
-    - name: see config
-      run: |
-        cat _config.yml
+    # - name: see config
+    #   run: |
+    #     cat _config.yml
 
-    - name: see README
-      run: |
-        cat README.md
+    # - name: see README
+    #   run: |
+    #     cat README.md
 
     - name: commit changes
       run: |
@@ -90,43 +78,55 @@ jobs:
         git rm .github/workflows/chatops.yaml
         git add _config.yml README.md
         git commit -m'setup repo'
+        git push -f --set-upstream origin fastpages-automated-setup
 
     - name: push changes to GitHub
       run: echo "TODO Commit Changes Here"
 
-    - name: create ssh deploy key
-      run: |
-        ssh-keygen -t rsa -b 4096 -f .deployKey -q -N ""
+    - name: Open a PR
+      uses: actions/github-script@0.5.0
+      id: gh
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.pulls.create({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        title: 'Test Octokit PR',
+                        head: 'fastpages-automated-setup',
+                        base: 'master',
+                        })
+    # - name: create ssh deploy key
+    #   run: |
+    #     ssh-keygen -t rsa -b 4096 -f .deployKey -q -N ""
 
-    - name: install pynacl
-      run: pip3 install pynacl
+    # - name: install pynacl
+    #   run: pip3 install pynacl
 
-    # modified from https://developer.github.com/v3/actions/secrets/
-    - name: upload ssh deploy key
-      run: |
-        from base64 import b64encode
-        from nacl import encoding, public
-        from pathlib import Path
+    # # modified from https://developer.github.com/v3/actions/secrets/
+    # - name: upload ssh deploy key
+    #   run: |
+    #     from base64 import b64encode
+    #     from nacl import encoding, public
+    #     from pathlib import Path
 
-        secret_key_path = Path('.deployKey')
-        assert secret_key_path.exists(), 'Did not find the .deployKey in the current directory!'
+    #     secret_key_path = Path('.deployKey')
+    #     assert secret_key_path.exists(), 'Did not find the .deployKey in the current directory!'
         
-        def encrypt(public_key: str, secret_value: str) -> str:
-            """Encrypt a Unicode string using the public key."""
-            public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
-            sealed_box = public.SealedBox(public_key)
-            encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
-            return b64encode(encrypted).decode("utf-8")
+    #     def encrypt(public_key: str, secret_value: str) -> str:
+    #         """Encrypt a Unicode string using the public key."""
+    #         public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
+    #         sealed_box = public.SealedBox(public_key)
+    #         encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
+    #         return b64encode(encrypted).decode("utf-8")
 
-        with open(readme_path, 'r') as f:
-            secret = f.read()
+    #     with open(readme_path, 'r') as f:
+    #         secret = f.read()
         
-        # encrypted_secret = encrypt(public_key=public_key, secret_value=secret)
-      shell: python
+    #     # encrypted_secret = encrypt(public_key=public_key, secret_value=secret)
+    #   shell: python
 
-    - name: force creation of a gh-pages branch
-      run: |
-        git checkout -B gh-pages
-        git push -f --set-upstream origin gh-pages
-
-    
+    # - name: force creation of a gh-pages branch
+    #   run: |
+    #     git checkout -B gh-pages
+    #     git push -f --set-upstream origin gh-pages
