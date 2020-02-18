@@ -25,6 +25,8 @@ jobs:
                                   repo: context.repo.repo,
                                  })
              const n = commits.data.length
+             console.log(`${n} commits`)
+             console.log(`msg: ${process.env.COMMIT_MSG }`)
              // Evidence of a template commit is the first commit in a repo with the message 'Initial commit'
              const template_bool = (process.env.COMMIT_MSG == 'Initial commit') && (n == 1)
              // Emit output
@@ -63,7 +65,7 @@ jobs:
       if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
         sudo chmod -R 777 _site/
-        [[ -e CNAME ]] && cp CNAME _site/
+        cp CNAME _site/ 2>/dev/null || :
 
     # only deploy upon a push to master
     - name: Deploy
