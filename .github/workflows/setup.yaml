@@ -92,7 +92,6 @@ jobs:
     - name: Open a PR
       if: steps.gh.outputs.template_bool == 'false'
       uses: actions/github-script@0.5.0
-      id: gh
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
