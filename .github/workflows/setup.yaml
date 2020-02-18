@@ -43,9 +43,12 @@ jobs:
         readme_template_path = Path('README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
+        pr_msg_path = Path('SETUP_PR_TEMPLATE.md')
+
         assert readme_template_path.exists(), 'Did not find README_TEMPLATE.md in the current directory!'
         assert readme_path.exists(), 'Did not find README.md in the current directory!'
         assert config_path.exists(), 'Did not find _config.yml in the current directory!'
+        assert pr_msg_path.exists(), 'Did not find SETUP_PR_TEMPLATE.md in the current directory!'
 
         # replace content of README with template
         readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
@@ -58,19 +61,11 @@ jobs:
         cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
         cfg = re.sub(r'^(url: "https://)(fastai)(\.github\.io")', r'\1{}\3'.format(username), cfg, flags=re.MULTILINE)
         config_path.write_text(cfg)
+
+        # prepare the pr message
+        pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        pr_msg_path.write_text(pr)
       shell: python
-      
-
-    # - name: Setup tmate session
-    #   uses: mxschmitt/action-tmate@v1
-
-    # - name: see config
-    #   run: |
-    #     cat _config.yml
-
-    # - name: see README
-    #   run: |
-    #     cat README.md
 
     - name: commit changes
       run: |
@@ -94,44 +89,13 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
+          var fs = require('fs');
+          var contents = fs.readFileSync('SETUP_PR_TEMPLATE.md', 'utf8');
           github.pulls.create({
                         owner: context.repo.owner,
                         repo: context.repo.repo,
                         title: 'Test Octokit PR',
                         head: 'fastpages-automated-setup',
                         base: 'master',
+                        body: `${contents}`
                         })
-    # - name: create ssh deploy key
-    #   run: |
-    #     ssh-keygen -t rsa -b 4096 -f .deployKey -q -N ""
-
-    # - name: install pynacl
-    #   run: pip3 install pynacl
-
-    # # modified from https://developer.github.com/v3/actions/secrets/
-    # - name: upload ssh deploy key
-    #   run: |
-    #     from base64 import b64encode
-    #     from nacl import encoding, public
-    #     from pathlib import Path
-
-    #     secret_key_path = Path('.deployKey')
-    #     assert secret_key_path.exists(), 'Did not find the .deployKey in the current directory!'
-        
-    #     def encrypt(public_key: str, secret_value: str) -> str:
-    #         """Encrypt a Unicode string using the public key."""
-    #         public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
-    #         sealed_box = public.SealedBox(public_key)
-    #         encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
-    #         return b64encode(encrypted).decode("utf-8")
-
-    #     with open(readme_path, 'r') as f:
-    #         secret = f.read()
-        
-    #     # encrypted_secret = encrypt(public_key=public_key, secret_value=secret)
-    #   shell: python
-
-    # - name: force creation of a gh-pages branch
-    #   run: |
-    #     git checkout -B gh-pages
-    #     git push -f --set-upstream origin gh-pages
