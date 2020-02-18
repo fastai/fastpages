@@ -1,8 +1,6 @@
-Hello :wave: {_username_}!  Thank you for using fastpages!  
+Hello :wave: @{_username_}!  Thank you for using fastpages!  
 
 ## Before you merge this PR
-
-Please complete the following steps:
 
 1. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
 
