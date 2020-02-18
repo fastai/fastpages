@@ -135,7 +135,7 @@ jobs:
       - name: make comment on PR 
         if: steps.get_status.outputs.status == 'private'
         run: |
-           MSG="A preview build of this branch has been generated for SHA: $SHA and can be viewed **live** at: ${URL}\n\nThe current fastpages site built from master can be viewed for comparison [here](https://fastai.github.io/fastpages/)"
+           MSG="A preview build of this branch has been generated for SHA: $SHA and can be viewed **live** at: ${URL}\n\nThe current fastpages site built from master can be viewed for comparison [here](https://fastpages.fast.ai/)"
            echo "$MSG"
            ./_action_files/pr_comment.sh "${MSG}"
         env:
