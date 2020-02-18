@@ -9,8 +9,8 @@ Hello :wave: @{_username_}!  Thank you for using fastpages!
 
 ## Summary of changes made in this PR
 
-- Customized `README.md`: changed badge URLs to reflect this repository & removed fastpages instructions.
-- Customized `_config.yml`: corrected the `github_username`, `baseurl`, `github_repo`, and `url` parameters to reflect this repository.
+- `README.md`: changed badge URLs to reflect this repository & removed fastpages instructions.
+- `_config.yml`: corrected the `github_username`, `baseurl`, `github_repo`, and `url` parameters to reflect this repository.
 - Removed extreanous files that are used for the maintenance of fastpages and not useful for this repo.
 - Saved the instructions in this PR to `_setup_pr_template.md` in the root of your repository for easy reference at a later time.
 
