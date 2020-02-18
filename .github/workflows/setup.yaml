@@ -30,17 +30,17 @@ jobs:
          COMMIT_MSG: ${{ github.event.commits[0].message }}
 
     - name: Set up Python
-      if: steps.gh.outputs.template_bool == 'false'
+      if: steps.gh.outputs.template_bool == 'true'
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
 
     - name: Copy Repository Contents
-      if: steps.gh.outputs.template_bool == 'false'
+      if: steps.gh.outputs.template_bool == 'true'
       uses: actions/checkout@v2
         
     - name: modify files
-      if: steps.gh.outputs.template_bool == 'false'
+      if: steps.gh.outputs.template_bool == 'true'
       run: |
         import re, os
         from pathlib import Path
@@ -75,7 +75,7 @@ jobs:
       shell: python
 
     - name: commit changes
-      if: steps.gh.outputs.template_bool == 'false'
+      if: steps.gh.outputs.template_bool == 'true'
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
@@ -90,7 +90,7 @@ jobs:
         GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: Open a PR
-      if: steps.gh.outputs.template_bool == 'false'
+      if: steps.gh.outputs.template_bool == 'true'
       uses: actions/github-script@0.5.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
