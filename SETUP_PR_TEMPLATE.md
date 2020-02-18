@@ -8,12 +8,6 @@ Please complete the following steps:
 
 2. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
 
-**Common mistakes to avoid:**
-
-- Make sure you upload your **private key** ( NOT the key that ends with *.pub )
-- Make sure you name your key `SSH_DEPLOY_KEY`.
-
-
 ## What to Expect After Mering This PR
 
 - GitHub Actions will build your blog, which will take 3-4 minutes to complete.  **This will happen anytime you push changes to the master branch of your repository.**  You can monitor the logs of this if you like on the [Actions tab of your repo](https://github.com/{_username_}/fastpages/{_repo_name_}).
@@ -23,7 +17,7 @@ Please complete the following steps:
 If you are not using a custom domain, your website will appear at https://{_username_}.github.io/{_repo_name_}.
 
 
-## Optional: Using a Cusotm Domain
+## Optional: Using a Custom Domain
 
 1. After merging this PR, add a file named `CNAME` at the root of your repo.  For example, we are hosting `fastpages` at `https://fastpages.fast.ai`, and  [this is the contents of our `CNAME`](https://github.com/fastai/fastpages/blob/master/CNAME): 
         
