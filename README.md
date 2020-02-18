@@ -60,9 +60,9 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 ## Setup Instructions
 
-1. Click the [![](https://img.shields.io/static/v1?label=&message=Use%20this%20template&color=brightgreen&style=flat)](https://github.com/fastai/fastpages/generate) button to create a copy of this repo in your account.
+1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate).
 
-2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after setting it up from the template.  Follow the instructions in that PR to continue.
+2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
 
 ## Writing Blog Posts With Jupyter
