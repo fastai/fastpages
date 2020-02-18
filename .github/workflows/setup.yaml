@@ -39,7 +39,7 @@ jobs:
       if: steps.gh.outputs.template_bool == 'false'
       uses: actions/checkout@v2
         
-    - name: modify _config and README
+    - name: modify files
       if: steps.gh.outputs.template_bool == 'false'
       run: |
         import re, os
