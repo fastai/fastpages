@@ -10,16 +10,18 @@ Please complete the following steps:
 
 ## What to Expect After Mering This PR
 
-- GitHub Actions will build your blog, which will take 3-4 minutes to complete.  **This will happen anytime you push changes to the master branch of your repository.**  You can monitor the logs of this if you like on the [Actions tab of your repo](https://github.com/{_username_}/fastpages/{_repo_name_}).
+- GitHub Actions will build your blog, which will take 3-4 minutes to complete.  **This will happen anytime you push changes to the master branch of your repository.**  You can monitor the logs of this if you like on the [Actions tab of your repo](https://github.com/{_username_}/{_repo_name_}/actions).
 - Your GH-Pages Status badge on your README will eventually turn green, indicating your first sucessfull build.
-- You can monitor the status of your site in your [repository settings](https://github.com/{_username_}/{_repo_name_}/settings) in the GitHub Pages section.
+- You can monitor the status of your site in the GitHub Pages section of your [repository settings](https://github.com/{_username_}/{_repo_name_}/settings).
 
-If you are not using a custom domain, your website will appear at https://{_username_}.github.io/{_repo_name_}.
+If you are not using a custom domain, your website will appear at: 
+
+#### https://{_username_}.github.io/{_repo_name_}
 
 
 ## Optional: Using a Custom Domain
 
-1. After merging this PR, add a file named `CNAME` at the root of your repo.  For example, we are hosting `fastpages` at `https://fastpages.fast.ai`, and  [this is the contents of our `CNAME`](https://github.com/fastai/fastpages/blob/master/CNAME): 
+1. After merging this PR, add a file named `CNAME` at the root of your repo.  For example, we are hosting `fastpages` at `https://fastpages.fast.ai`, and  [these are the contents of our `CNAME`](https://github.com/fastai/fastpages/blob/master/CNAME): 
         
     >`fastpages.fast.ai`
 
