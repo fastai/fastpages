@@ -2,38 +2,46 @@ name: Setup
 on: push
 
 jobs:
+  if: github.event.commits[0].message == 'Initial commit'
   setup:
     # The issue must be created by the repository's owner to trigger this workflow
     runs-on: ubuntu-latest
     steps:
+
+    - name: Check if this is a template commit
+      uses: actions/github-script@0.5.0
+      id: gh
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          async function numcommits(){
+             // Get number of commits in the first pagination
+             const commits = await github.repos.listCommits({
+                                  owner: context.repo.owner,
+                                  repo: context.repo.repo,
+                                 })
+             const n = commits.data.length
+             // Evidence of a template commit is the first commit in a repo with the message 'Initial commit'
+             const template_bool = (process.env.COMMIT_MSG == 'Initial commit') && (n == 1)
+             // Emit output
+             console.log(`::set-output name=template_bool::${template_bool}`)
+          }
+          numcommits()
+      env:
+         COMMIT_MSG: ${{ github.event.commits[0].message }}
+
     - name: Set up Python
+      if: steps.gh.outputs.template_bool == 'false'
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
-      
-    - name: see payload
-      run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-      env:
-        PAYLOAD: ${{ toJSON(github.event) }}
-
-    - run: echo $ARTIFACT > artifact.txt
-      env:
-        ARTIFACT: ${{ secrets.GITHUB_TOKEN }} 
-
-    - uses: actions/upload-artifact@v1
-      with:
-        name: artifact.txt
-        path: ./
 
     - name: Copy Repository Contents
+      if: steps.gh.outputs.template_bool == 'false'
       uses: actions/checkout@v2
-
-    - name: checkout new branch
-      run: |
-        git checkout -B fastpages-automated-setup
- 
+        
     - name: modify _config and README
+      if: steps.gh.outputs.template_bool == 'false'
       run: |
         import re, os
         from pathlib import Path
@@ -68,9 +76,11 @@ jobs:
       shell: python
 
     - name: commit changes
+      if: steps.gh.outputs.template_bool == 'false'
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
+        git checkout -B fastpages-automated-setup
         git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _diagram.png
         git rm .github/workflows/chatops.yaml
         git add _config.yml README.md
@@ -80,10 +90,8 @@ jobs:
         GH_EMAIL: ${{ github.event.commits[0].author.email }}
         GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
-    - name: push changes to GitHub
-      run: echo "TODO Commit Changes Here"
-
     - name: Open a PR
+      if: steps.gh.outputs.template_bool == 'false'
       uses: actions/github-script@0.5.0
       id: gh
       with:
@@ -94,7 +102,7 @@ jobs:
           github.pulls.create({
                         owner: context.repo.owner,
                         repo: context.repo.repo,
-                        title: 'Test Octokit PR',
+                        title: 'Initial Setup',
                         head: 'fastpages-automated-setup',
                         base: 'master',
                         body: `${contents}`
