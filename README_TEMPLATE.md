@@ -10,17 +10,3 @@ https://{_username_}.github.io/{_repo_name_}/
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
-
-
-## What To Do Next?
-
-Great!  You have setup your repo.  Now its time to start writing content.  Some helpful links:
-
-- [Writing Blogs With Jupyter](https://github.com/fastai/fastpages#writing-blog-posts-with-jupyter)
-
-- [Writing Blogs With Markdown](https://github.com/fastai/fastpages#writing-blog-posts-with-markdown)
-
-- [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
-
-
-Please use the [nbdev & blogging channel](https://forums.fast.ai/c/fastai-users/nbdev/48) in the fastai forums for any questions or feature requests.
