@@ -1,7 +1,6 @@
 name: GH-Pages Status
-on: gollum
-# on:
-#   page_build
+on:
+  page_build
   
 jobs:
   see-page-build-payload:
