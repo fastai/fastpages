@@ -2,17 +2,12 @@ Hello :wave: @{_username_}!  Thank you for using fastpages!
 
 ## Before you merge this PR
 
-1. [Follow these instructions to create an ssh-deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).  Make sure you **select Allow write access** when adding this key to your GitHub account.
+1. Create an ssh key-pair.  Open <a href="https://8gwifi.org/sshfunctions.jsp" target="_blank">this utility</a>. Select: `RSA` and `4096` and leave `Passphrase` blank.  Click the blue button `Generate-SSH-Keys`.
 
-2. [Follow these instructions to upload your deploy key](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) as an encrypted secret on GitHub.  Make sure you name your key `SSH_DEPLOY_KEY`.  Note: The deploy key secret is your **private key** (NOT the public key).
+2. Navigate to <a href="https://github.com/{_username_}/{_repo_name_}/settings/secrets" target="_blank">this link</a> and click `Add a new secret`.  Copy and paste the **Private Key** into the `Value` field. In the `Name` field, name the secret `SSH_DEPLOY_KEY`.  Finally, make sure you click the checkbox next to `Allow write access` and click `Add key` to save the key.  
 
+3. Navigate to <a href="https://github.com/{_username_}/{_repo_name_}/settings/keys" target="_blank">this link</a> and click the `Add deploy key` button.  Paste your **Public Key** from step 1 into the `Key` box.  In the `Title`, name the key anything you want, for example `fastpages-key`.
 
-### Summary of changes made in this PR
-
-- `README.md`: changed badge URLs to reflect this repository & removed fastpages instructions.
-- `_config.yml`: corrected the `github_username`, `baseurl`, `github_repo`, and `url` parameters to reflect this repository.
-- Removed extreanous files that are used for the maintenance of fastpages and not useful for this repo.
-- Saved the instructions in this PR to `_setup_pr_template.md` in the root of your repository for easy reference at a later time.
 
 ### What to Expect After Merging This PR
 
