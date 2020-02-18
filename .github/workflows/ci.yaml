@@ -63,7 +63,7 @@ jobs:
       if: ((github.event_name == 'push') && (steps.gh.outputs.template_bool == 'false')) || (github.event_name == 'pull_request')
       run: |
         sudo chmod -R 777 _site/
-        [[ -e f.txt ]] && cp CNAME _site/
+        [[ -e CNAME ]] && cp CNAME _site/
 
     # only deploy upon a push to master
     - name: Deploy
