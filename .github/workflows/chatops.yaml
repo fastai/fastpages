@@ -1,5 +1,5 @@
 name: Chatops
-on: [gollum]
+on: [issue_comment]
 
 jobs:
   trigger-chatops:
