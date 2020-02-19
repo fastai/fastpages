@@ -26,15 +26,17 @@ layout: default
       {%- endif -%}
     • {%- include reading_time.html -%}
     </p>
-    {% if (page.badges or page.badges == nil) and (page.layout == 'notebook') %}
-      <div class="pb-5 d-flex flex-wrap flex-justify-end">
-        {% include notebook_github_link.html %}{% include notebook_colab_link.html %}
-      </div>
+    {% if page.layout == 'notebook' %}
+      {% if page.badges or page.badges == nil %}
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          {% include notebook_github_link.html %}{% include notebook_colab_link.html %}
+        </div>
+      {% endif -%}
     {% endif -%}
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    {{ content | toc }}
+    {{ content | toc  }}
   </div>
   {%- if page.comments -%}
     {%- include utterances.html -%}
