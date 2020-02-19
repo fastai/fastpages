@@ -17,7 +17,8 @@
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <script src="https://kit.fontawesome.com/4f6d78d8ce.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" />
 
   <script>
   function wrap_img(fn) {
@@ -41,8 +42,13 @@
   window.onload = wrap_img;
   </script>
 
-</head>
-<body><header class="site-header" role="banner">
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="far fa-link fa-xs"></i>'));
+    });
+  </script>
+</head><body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
