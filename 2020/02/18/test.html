@@ -46,8 +46,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
       var elem = document.querySelectorAll(".anchor-link")
       elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
     });
   </script>
 </head><body><header class="site-header" role="banner">
@@ -80,8 +84,9 @@
     
 </span></p>
     
-      <div class="pb-5 d-flex flex-wrap flex-justify-end">
-        <div class="px-2">
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
 <a href="https://github.com/fastai/fastpages/tree/master/_notebooks/test.ipynb" role="button">
     <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
 </a>
@@ -90,8 +95,8 @@
         <img class="notebook-badge-image" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
     </a>
 </div>
-      </div>
-    </header>
+        </div>
+      </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
