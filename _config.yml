@@ -26,7 +26,7 @@ use_math:
 # Add your Google Analytics ID here if you have one and want to use it
 google_analytics:
 
-# Everything below here can be ignored, unless you want to change the theme entirely
+# Everything below here should be left alone. Modifications may break fastpages
 theme: minima
 plugins:
   - jekyll-feed
