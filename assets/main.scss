@@ -284,6 +284,8 @@ details.description:not([open]) summary::after {
 
 .anchor-link {
   opacity: 0;
+  padding-left: 0.375em;
+  \-webkit-text-stroke: 1.75px white;
   \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
   \-moz-transition: opacity 0.2s ease-in-out 0.1s;
   \-ms-transition: opacity 0.2s ease-in-out 0.1s;
