@@ -281,3 +281,19 @@ details.description:not([open]) summary::after {
 .social.svg-icon {
   width: 21px !important;
 }
+
+.anchor-link {
+  opacity: 0;
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  opacity: 1;
+}
