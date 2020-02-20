@@ -9,13 +9,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
 <meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<link rel="canonical" href="https://fastpages.fast.ai/2020/02/18/test.html" />
-<meta property="og:url" content="https://fastpages.fast.ai/2020/02/18/test.html" />
+<link rel="canonical" href="https://fastpages.fast.ai/2020/02/19/test.html" />
+<meta property="og:url" content="https://fastpages.fast.ai/2020/02/19/test.html" />
 <meta property="og:site_name" content="fastpages" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-18T00:00:00-06:00" />
+<meta property="article:published_time" content="2020-02-19T00:00:00-06:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/2020/02/18/test.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/2020/02/18/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-18T00:00:00-06:00","datePublished":"2020-02-18T00:00:00-06:00","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/2020/02/19/test.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/2020/02/19/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-19T00:00:00-06:00","datePublished":"2020-02-19T00:00:00-06:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -75,8 +75,8 @@
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Fastpages Notebook Blog Post</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2020-02-18T00:00:00-06:00" itemprop="datePublished">
-        Feb 18, 2020
+    <p class="post-meta"><time class="dt-published" datetime="2020-02-19T00:00:00-06:00" itemprop="datePublished">
+        Feb 19, 2020
       </time>•<span class="read-time" title="Estimated read time">
     
     
@@ -111,13 +111,21 @@
 <li class="toc-entry toc-h3"><a href="#Example-3:-More-Tooltips">Example 3: More Tooltips¶</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#Other-Elements">Other Elements¶</a>
+<li class="toc-entry toc-h2"><a href="#Data-Tables">Data Tables¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Images">Images¶</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#Tweetcards">Tweetcards¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Youtube-Videos">Youtube Videos¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Boxes-/-Callouts">Boxes / Callouts¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Local-Images">Local Images¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Remote-Images">Remote Images¶</a></li>
+<li class="toc-entry toc-h3"><a href="#Animated-Gifs">Animated Gifs¶</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Other-Elements">Other Elements¶</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Tweetcards">Tweetcards¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Youtube-Videos">Youtube Videos¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Boxes-/-Callouts">Boxes / Callouts¶</a></li>
 </ul>
 </li>
 </ul><!--
@@ -590,18 +598,197 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Other-Elements">
-<a class="anchor" href="#Other-Elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Elements<a class="anchor-link" href="#Other-Elements">¶</a>
+<h2 id="Data-Tables">
+<a class="anchor" href="#Data-Tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Tables<a class="anchor-link" href="#Data-Tables">¶</a>
 </h2>
+<p>You can display tables per the usual way in your blog:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/movies.json'</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
+<span class="c1"># display table with pandas</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
+    <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>Worldwide_Gross</th>
+      <th>Production_Budget</th>
+      <th>IMDB_Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Land Girls</td>
+      <td>146083.0</td>
+      <td>8000000.0</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First Love, Last Rites</td>
+      <td>10876.0</td>
+      <td>300000.0</td>
+      <td>6.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I Married a Strange Person</td>
+      <td>203134.0</td>
+      <td>250000.0</td>
+      <td>6.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Let's Talk About Sex</td>
+      <td>373615.0</td>
+      <td>300000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Slam</td>
+      <td>1087521.0</td>
+      <td>1000000.0</td>
+      <td>3.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Images">
+<a class="anchor" href="#Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images<a class="anchor-link" href="#Images">¶</a>
+</h2>
+<h3 id="Local-Images">
+<a class="anchor" href="#Local-Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local Images<a class="anchor-link" href="#Local-Images">¶</a>
+</h3>
+<p>You can reference local images and they will be copied and rendered on your blog automatically.  You can include these with the following markdown syntax:</p>
+<p><code>![](images/fastai_logo.png)</code></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tweetcards">
-<a class="anchor" href="#Tweetcards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tweetcards<a class="anchor-link" href="#Tweetcards">¶</a>
+<p><img src="/assets/images/fastai_logo.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Remote-Images">
+<a class="anchor" href="#Remote-Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Remote Images<a class="anchor-link" href="#Remote-Images">¶</a>
 </h3>
+<p>Remote images can be included with the following markdown syntax:</p>
+<p><code>![](https://image.flaticon.com/icons/svg/36/36686.svg)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://image.flaticon.com/icons/svg/36/36686.svg" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Animated-Gifs">
+<a class="anchor" href="#Animated-Gifs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Animated Gifs<a class="anchor-link" href="#Animated-Gifs">¶</a>
+</h3>
+<p>Animated Gifs work, too!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>![](https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Other-Elements">
+<a class="anchor" href="#Other-Elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Elements<a class="anchor-link" href="#Other-Elements">¶</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tweetcards">
+<a class="anchor" href="#Tweetcards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tweetcards<a class="anchor-link" href="#Tweetcards">¶</a>
+</h2>
 <p>Typing <code>&gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20</code> will render this:
 
 </p>
@@ -620,9 +807,9 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Youtube-Videos">
+<h2 id="Youtube-Videos">
 <a class="anchor" href="#Youtube-Videos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Youtube Videos<a class="anchor-link" href="#Youtube-Videos">¶</a>
-</h3>
+</h2>
 <p>Typing <code>&gt; youtube: https://youtu.be/XfoYk_Z5AkI</code> will render this:
 
 </p>
@@ -636,9 +823,9 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Boxes-/-Callouts">
+<h2 id="Boxes-/-Callouts">
 <a class="anchor" href="#Boxes-/-Callouts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxes / Callouts<a class="anchor-link" href="#Boxes-/-Callouts">¶</a>
-</h3>
+</h2>
 <p>Typing <code>&gt; Warning: There will be no second warning!</code> will render this:
 </p>
 <div class="flash flash-error">
@@ -684,7 +871,7 @@
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/2020/02/18/test.html" hidden></a>
+</script><a class="u-url" href="/2020/02/19/test.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
