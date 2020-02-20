@@ -6,7 +6,7 @@
 
 .post img {
         display: block;
-        border:1px solid #021a40;
+        // border:1px solid #021a40;
         vertical-align: top;
         margin-left: auto;
         margin-right: auto;
@@ -23,6 +23,14 @@
         border-left: 1px solid grey;
         margin-left: 1rem !important;
 }
+
+// ensure dark background for code
+[class^="language-"]:not(.language-plaintext) pre,
+[class^="language-"]:not(.language-plaintext) code
+{
+  background-color: #323443 !important;
+}
+
 .language-python + .language-plaintext code { background-color: white !important; }
 .language-python + .language-plaintext pre  { background-color: white !important; }
 
@@ -157,6 +165,7 @@ h3, h4 {
    .ld,
    .no,
    .nd,
+   .pi,
    .ni,
    .ne,
    .nn,
