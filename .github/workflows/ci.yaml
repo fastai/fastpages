@@ -40,11 +40,19 @@ jobs:
         sudo chmod -R 777 _site/
         cp CNAME _site/ 2>/dev/null || :
 
-    # only deploy upon a push to master
+
     - name: Deploy
       if: github.event_name	== 'push'
-      uses: peaceiris/actions-gh-pages@v2
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./_site
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+        publish_dir: ./_site
+
+#     # only deploy upon a push to master
+#     - name: Deploy
+#       if: github.event_name	== 'push'
+#       uses: peaceiris/actions-gh-pages@v2
+#       env:
+#         ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+#         PUBLISH_BRANCH: gh-pages
+#         PUBLISH_DIR: ./_site
