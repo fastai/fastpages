@@ -17,7 +17,7 @@ jobs:
       with:
         persist-credentials: false
 
-    - name: fastpages - convert notebooks and word docs to posts
+    - name: fastpages repo only - convert notebooks and word docs to posts
       if: github.repository == 'fastai/fastpages'
       uses: ./ # use code in this repo instead of fastai/fastpages@master, for testing.
 
