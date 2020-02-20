@@ -17,11 +17,13 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: fastpages - convert notebooks and word docs to posts
+      if: github.repository == 'fastai/fastpages'
+      uses: ./ # use code in this repo instead of fastai/fastpages@master, for testing.
+
     - name: convert notebooks and word docs to posts
-      uses: fastai/fastpages@master # use the code in this repo instead of fastai/fastpages@master, for testing.
-      with:
-        BOOL_SAVE_MARKDOWN: false
-        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      if: github.repository != 'fastai/fastpages'
+      uses: fastai/fastpages@master # templates will use what is in fastai/fastpages
 
     - name: setup directories for Jekyll build
       run: |
