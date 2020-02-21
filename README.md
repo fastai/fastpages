@@ -11,7 +11,7 @@
 
 > An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and Markdown.
 
-![](_diagram.png)
+![](images/diagram.png)
 
 `fastpages` uses [GitHub Actions](https://github.com/features/actions) to simplify the process of of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) from a variety of input formats.
 
