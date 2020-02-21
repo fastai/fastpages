@@ -11,22 +11,24 @@
 
 > An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and Markdown.
 
-![](_diagram.png)
+![](images/diagram.png)
 
 `fastpages` uses [GitHub Actions](https://github.com/features/actions) to simplify the process of of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) from a variety of input formats.
 
 ### `fastpages` contain **special features for Jupyter Notebooks**, such as:
 
 - Interactive visualizations made with [Altair](https://altair-viz.github.io/) remain interactive.
-- Ability to **hide cells** (input, output or both).
-- Ability to have **collapsable code cells** that are either open or closed by default.
-- Embed **Twitter cards** and **YouTube videos**.
-- Ability to add **[Colab](https://colab.research.google.com/)** and View on **GitHub badges** automatically.
-- Include **banners** such as warnings, tooltips, etc.
-- Define the Title, Summary and other metadata for your blog post via a special markdown cell.
+- Ability to hide cells (input, output or both).
+- Ability to have collapsable code cells that are either open or closed by default.
+- Embed Twitter cards and YouTube videos.
+- Define the Title, Summary and other metadata via a special markdown cells.
+- Support for local and remote images, including image captions with markdown.
+- Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
 - The notebook to blog conversion is powered by `nbdev`, which is under active development.  Check the [nbdev docs](https://nbdev.fast.ai/), particularly the [export2html](https://nbdev.fast.ai/export2html/) section, for a complete list of features that may be useful for notebooks.
 
 _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details on how to configure these features._
+
+[fastpages](https://github.com/fastai/fastpages) also supports writing blog posts with **Microsoft Word documents and Markdown** (see below for more details).
 
 
 **[See the demo site](https://fastpages.fast.ai/)**
