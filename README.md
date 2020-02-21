@@ -184,12 +184,12 @@ jobs:
         args: jekyll build
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2
+      uses: peaceiris/actions-gh-pages@v3
       if: github.event_name == 'push'
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./_site
+      with:
+        deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+        publish_branch: gh-pages
+        publish_dir: ./_site
 ```
 
 Note that this Action **does not have any required inputs, and has no output variables**.  
