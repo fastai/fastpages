@@ -4,7 +4,7 @@
                     "raw_mimetypes", "global_content_filter"] -%}
 ---
 {%- for k in resources |reject("in", internals) %}
-{{ k }}: {{ resources[k] |replace(':', '') }}
+{% if k == "summary" and "description" not in resources %}description{% else %}{{ k }}{% endif %}: {{ resources[k] |replace(':', '') }}
 {%- endfor %}
 layout: notebook
 ---
