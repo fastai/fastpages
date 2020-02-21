@@ -17,7 +17,7 @@ This site is built with [fastpages](https://github.com/fastai/fastpages), An eas
 - Embed Twitter cards and YouTube videos.
 - Define the Title, Summary and other metadata via a special markdown cells.
 - Support for local and remote images, including image captions with markdown.
-- Ability to add [Colab](https://colab.research.google.com/) and View on GitHub badges automatically.
+- Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
 - And [more](https://github.com/fastai/fastpages).
 - Learn more about how to use these features [with this quick tutorial](https://fastpages.fast.ai/2020/02/20/test.html).
 
