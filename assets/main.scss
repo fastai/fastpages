@@ -324,3 +324,24 @@ h6:hover .anchor-link {
   color: #585858;
   font-size: 110%;
 }
+
+// category tags
+.category-tags {
+  margin-top: .25rem !important;
+  margin-bottom: .25rem !important;
+}
+
+.post-meta-title{
+  margin-top: .25em;
+  margin-bottom: .25em;
+}
+
+.category-tags-icon {
+  font-size: 75% !important;
+  padding-left: 0.375em;
+  opacity: 35%;
+}
+.category-tags-link {
+  color:rgb(187, 129, 129) !important;
+  font-size: 9px !important;
+}

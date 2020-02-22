@@ -8,7 +8,7 @@ layout: default
     {%- if page.description -%}
     <p class="page-description">{{ page.description | escape }}</p>
     {%- endif -%}
-    <p class="post-meta">
+    <p class="post-meta post-meta-title">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
@@ -29,6 +29,16 @@ layout: default
       {%- endif -%}
     • {%- include reading_time.html -%}
     </p>
+
+    {% if page.categories.size > 0 and site.show_tags %}
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      {% for category in  page.categories  %}
+        <a class="category-tags-link" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+      </p>
+    {% endif %}
+
     {% if page.layout == 'notebook' %}
       {% if page.badges or page.badges == nil %}
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
