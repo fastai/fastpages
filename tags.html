@@ -1,0 +1,30 @@
+---
+layout: tags
+permalink: /categories/
+title: Tags
+toc: true
+---
+
+<h2>Contents</h2>
+
+{% if site.categories.size > 0 %}
+<ul>
+{% for category in site.categories %}
+  {% capture category_name %}{{ category | first }}{% endcapture %}
+  <li><a href="#{{ category_name }}">{{ category_name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% for category in site.categories %}
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+
+    <h3 id ="{{ category_name }}"><i class="fas fa-tags category-tags-icon"></i></i> {{ category_name }}</h3>
+    <a name="{{ category_name | slugize }}"></a>
+    {% for post in site.categories[category_name] %}
+    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+    <article class="archive-item">
+      <p class="post-meta post-meta-title"><a class="page-meta" href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>  • {{ post.date | date: date_format }}</p>
+    </article>
+    {% endfor %}
+{% endfor %}
