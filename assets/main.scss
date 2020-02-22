@@ -84,13 +84,24 @@ h2 {
     margin-top:2rem !important;      
 }
 
-h3, h4 {
+h3, h4{
     margin-top:1.5rem !important;      
 }
 
 // make sure the post title doesn't have too much spacing
 .post-title { margin-top: .5rem !important; }
 
+li {
+  h3, h4 {
+  margin-top:.05rem !important;
+  margin-bottom:.05rem !important;
+  }
+  .post-meta-description {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    margin-bottom:.05rem !important;
+  }
+}
 
 /* Dracula Theme v1.2.5
  *
