@@ -70,7 +70,7 @@
 }
 
 // make non-headings slightly lighter
-.post-content p {
+.post-content p, .post-content li {
    font-size: 20px;
    color: #515151;
 }
@@ -91,6 +91,17 @@ h3, h4 {
 // make sure the post title doesn't have too much spacing
 .post-title { margin-top: .5rem !important; }
 
+li {
+  h3, h4 {
+  margin-top:.05rem !important;
+  margin-bottom:.05rem !important;
+  }
+  .post-meta-description {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    margin-bottom:.05rem !important;
+  }
+}
 
 /* Dracula Theme v1.2.5
  *

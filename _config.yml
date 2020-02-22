@@ -23,6 +23,9 @@ twitter_username: "@fastdotai"
 # Set this to true to get LaTeX math equation support
 use_math: 
 
+# Set this to true to display the summary of your blog post under your title on the Home page.
+show_description: true
+
 # Add your Google Analytics ID here if you have one and want to use it
 google_analytics:
 
