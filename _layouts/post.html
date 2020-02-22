@@ -26,8 +26,8 @@ layout: default
             <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
-      {%- endif -%}
-    • {%- include reading_time.html -%}
+      {%- endif %}
+       • {% include reading_time.html -%}
     </p>
     {% if page.layout == 'notebook' %}
       {% if page.badges or page.badges == nil %}
