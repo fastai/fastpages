@@ -219,7 +219,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif; }
 
-.post-content p { font-size: 20px; color: #515151; }
+.post-content p, .post-content li { font-size: 20px; color: #515151; }
 
 h1 { margin-top: 2.5rem !important; }
 
@@ -228,6 +228,9 @@ h2 { margin-top: 2rem !important; }
 h3, h4 { margin-top: 1.5rem !important; }
 
 .post-title { margin-top: .5rem !important; }
+
+li h3, li h4 { margin-top: .05rem !important; margin-bottom: .05rem !important; }
+li .post-meta-description { color: #585858; font-size: 15px; margin-bottom: .05rem !important; }
 
 /* Dracula Theme v1.2.5  https://github.com/zenorocha/dracula-theme  Copyright 2016, All rights reserved  Code licensed under the MIT license  */
 /* Variables */
