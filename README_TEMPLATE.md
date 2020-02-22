@@ -22,6 +22,6 @@ Great!  You have setup your repo.  Now its time to start writing content.  Some 
 
 - [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
 
-Note: you may want to delete the contents of the `_posts` and `_notebooks` folder (but leave them empty, don't delete these folders) if you don't want these blog posts in your site.
+Note: you may want to delete the contents of the `_posts` and `_notebooks` folder (but leave them empty, don't delete these folders) if you don't want these blog posts in your site.  We left several files here intentionally as examples.
 
 Please use the [nbdev & blogging channel](https://forums.fast.ai/c/fastai-users/nbdev/48) in the fastai forums for any questions or feature requests.
