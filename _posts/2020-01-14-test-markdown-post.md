@@ -1,5 +1,6 @@
 ---
 toc: true
+description: A minimal example of using markdown with fastpages.
 ---
 # Example Markdown Post
 
@@ -60,6 +61,7 @@ print(1+1)
 ```
 
     2
+
 
 ## Tables
 
