@@ -15,7 +15,7 @@
 
 `fastpages` uses [GitHub Actions](https://github.com/features/actions) to simplify the process of of creating [Jekyll blog posts](https://jekyllrb.com/) on [GitHub Pages](https://pages.github.com/) from a variety of input formats.
 
-### `fastpages` contain **special features for Jupyter Notebooks**, such as:
+### `fastpages` provides the following features:
 
 - Create posts containing code, outputs of code (which can be interactive), formatted text, etc directly from [Jupyter Notebooks](https://jupyter.org/); Notebook posts support features such as:
     - Interactive visualizations made with [Altair](https://altair-viz.github.io/) remain interactive.
