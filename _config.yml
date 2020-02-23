@@ -35,6 +35,12 @@ show_tags: true
 # Add your Google Analytics ID here if you have one and want to use it
 google_analytics:
 
+exclude:
+  - CONTRIBUTING.md
+  - settings.ini
+  - docker-compose.yml
+  - action.yml
+
 # Everything below here should be left alone. Modifications may break fastpages
 theme: minima
 plugins:
