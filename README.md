@@ -123,8 +123,8 @@ This option works for **notebooks only**
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
 
     ` - categories: [fastpages, jupyter]`
-  
-  
+
+
   You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
 
 
@@ -153,6 +153,24 @@ On social media sites like Twitter, an image preview can be automatically shown 
 
 Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
 
+## Running the blog locally
+
+FastPages provides a docker environment for you to run your blog locally and preview how it'll look when deployed.
+Assuming you have docker installed, here's how to get it up and running: 
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+This command will: 
+1. Launch a watcher that will automatically convert your Jupyter Notebooks and Word documents to posts when you edit them.
+2. A Jekyll server. 
+
+You can then see your blog on [localhost:4000](http://localhost:4000), and [edit posts in Jupyter Notebooks locally](https://localhost:8888) 
+_(you might need the auth token from the console output to log into jupyter)._
+
+You can launch just the jekyll server with `docker-compose up jekyll`, or convert your posts one time with `docker-compose up converter`.
 
 ## Writing Blog Posts With Jupyter
 
@@ -285,4 +303,5 @@ Please see the [development guide](_dev_tools/README.md).
 # Acknowledgements
 
 - [Nate Gadzhibalaev](https://github.com/xnutsive): We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
+- docker-compose file closely imitates [ageron/handson-ml2](https://github.com/ageron/handson-ml2/tree/master/docker).
 - All the contributors to [nbdev](https://github.com/fastai/nbdev), which powers many of the features in this repo.

@@ -8,7 +8,6 @@ First, thanks a lot for wanting to help! Some things to keep in mind:
 
 - Please make sure your code runs correctly locally before making a pull request.  See the [development guide] for more information about testing your code locally. 
 
-
 ## Note for new contributors from Jeremy
 
 It can be tempting to jump into a new project by questioning the stylistic decisions that have been made, such as naming, formatting, and so forth. This can be especially so for python programmers contributing to this project, which is unusual in following a number of conventions that are common in other programming communities, but not in Python. However, please don’t do this, for (amongst others) the following reasons:
@@ -41,6 +40,12 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 * Ensure that your code includes tests that exercise not only your feature, but also any other code that might be impacted.
 
 ## PR submission guidelines
+
+Some general rules of thumb that will make your life easier.
+
+* Test the blog locally before opening a pull request. 
+* When you do open a pull request, please request a draft build of your PR by making a **comment with the magic command `/preview` in the pull request.**  This will allow reviewers to see a live-preview of your changes without having to clone your branch.
+    * You can do this multiple times, if necessary, to rebuild your preview due to changes.  But please do not abuse this and test locally before doing this.
 
 * Keep each PR focused. While it's more convenient, do not combine several unrelated fixes together. Create as many branches as needing to keep each PR focused.
 * Do not mix style changes/fixes with "functional" changes. It's very difficult to review such PRs and it most likely get rejected.
