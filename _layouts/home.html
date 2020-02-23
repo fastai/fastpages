@@ -34,6 +34,9 @@ layout: default
         <p class="post-meta-description">{{ post.description }}</p>
         {%- endif -%}
           <p class="post-meta">{{ post.date | date: date_format }}</p>
+        {%- if site.show_image and post.image  -%}
+          <img class="image-preview" src="{{ post.image | relative_url }}" />
+        {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>
