@@ -44,6 +44,7 @@ See below for a more detailed list of features.
       - [Table of Contents](#table-of-contents)
       - [Categories](#categories)
       - [Enabling Comments](#enabling-comments)
+      - [Setting an Image For Social Media](#setting-an-image-for-social-media)
       - [Colab & GitHub Badges](#colab-and-github-badges) (Notebooks Only)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)    
       - [Hide Input/Output Cells](#hide-inputoutput-cells)
@@ -81,6 +82,7 @@ In a notebook, [front matter](https://jekyllrb.com/docs/front-matter/) is define
   - badges: true
   - comments: true
   - categories: [fastpages, jupyter]
+  - image: images/some_folder/your_image.png
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
   ```
@@ -95,6 +97,7 @@ Similarly, in a markdown document the same front matter would be defined like th
   - branch: master
   - badges: true
   - comments: true
+  - image: images/some_folder/your_image.png
   - categories: [fastpages, jupyter]
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
@@ -141,6 +144,15 @@ To enable comments with [Utterances](https://github.com/utterance/utterances) yo
   - Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
   - Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
   - If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
+
+### Setting an Image For Social Media
+
+On social media sites like Twitter, an image preview can be automatically shown with your URL.  Specifying the front matter `image` provides this metadata to social media sites to render this image for you.  You can set this value as follows:
+
+`- image: images/diagram.png` 
+
+Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
+
 
 ## Writing Blog Posts With Jupyter
 
