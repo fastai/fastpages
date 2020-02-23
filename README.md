@@ -39,19 +39,21 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 
 - [Welcome To `fastpages`](#welcome-to-fastpages)
 	- [Setup Instructions](#setup-instructions)
-	- [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
+	- [Front-Matter related options](#front-matter-related-options)
       - [Configure Title & Summary](#configure-title-summary)
       - [Table of Contents](#table-of-contents)
-      - [Colab & GitHub Badges](#colab-github-badges)
+      - [Categories](#categories)
       - [Enabling Comments](#enabling-comments)
+      - [Colab & GitHub Badges](#colab-and-github-badges) (Notebooks Only)
+  - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)    
       - [Hide Input/Output Cells](#hide-inputoutput-cells)
       - [Collapsable Code Cells](#collapsable-code-cells)
       - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
       - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
-	- [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
-	- [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
-	- [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
-		- [Optional Inputs](#optional-inputs)
+  - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
+  - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
+ - [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
+	- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [FAQ](#faq)
 - [Acknowledgements](#acknowledgements)
@@ -67,9 +69,9 @@ _See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details
 2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
 
-## Writing Blog Posts With Jupyter
+## Front-Matter related options
 
-Create a markdown cell at the beginning of the notebook with the following contents:
+In a notebook, [front matter](https://jekyllrb.com/docs/front-matter/) is defined as a markdown cell at the beginning of the notebook with the following contents:
 
   ```markdown
   # Title
@@ -78,8 +80,25 @@ Create a markdown cell at the beginning of the notebook with the following conte
   - branch: master
   - badges: true
   - comments: true
+  - categories: [fastpages, jupyter]
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
+  ```
+
+Similarly, in a markdown document the same front matter would be defined like this at the beginning of the document:
+
+  ```yaml
+  ---
+  - title: My Title
+  - summary: Awesome summary
+  - toc: false
+  - branch: master
+  - badges: true
+  - comments: true
+  - categories: [fastpages, jupyter]
+  - metadata_key1: metadata_value1
+  - metadata_key2: metadata_value2
+  ---
   ```
 
 Additional metadata is optional and allows you to set custom [front matter](https://jekyllrb.com/docs/front-matter/).
@@ -90,9 +109,21 @@ Additional metadata is optional and allows you to set custom [front matter](http
 ### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
 
-### Colab & GitHub Badges
+### Colab And GitHub Badges
+
+This option works for **notebooks only**
+
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
+
+### Categories
+  - You can have a comma seperated list of categories for a blog post, which will make the post visible on the tags page of your blog's site.  You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
+  - You can choose to display or hide tags on each post, by setting `show_tags` to `true` or `false` in `_config.yml`:
+
+```yaml
+# Set this to true to display tags on each post
+show_tags: true
+```
 
 ### Enabling Comments
 
@@ -103,6 +134,8 @@ To enable comments with [Utterances](https://github.com/utterance/utterances) yo
   - Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.
   - Make sure the [utterances app](https://github.com/apps/utterances) is installed on the repo, otherwise users will not be able to post comments.
   - If your repo is a fork, navigate to it's settings tab and confirm the issues feature is turned on.
+
+## Writing Blog Posts With Jupyter
 
 ### Hide Input/Output Cells
 
