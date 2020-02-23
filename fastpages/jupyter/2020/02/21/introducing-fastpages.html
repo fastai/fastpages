@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Introducing fastpages | fastpages</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Introducing fastpages" />
+<meta name="author" content="Jeremy Howard & Hamel Husain" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with extra features for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with extra features for Jupyter Notebooks." />
+<link rel="canonical" href="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html" />
+<meta property="og:url" content="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/https//raw.githubusercontent.com/fastai/fastpages/master/images/diagram.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html"},"author":{"@type":"Person","name":"Jeremy Howard & Hamel Husain"},"description":"An easy to use blogging platform with extra features for Jupyter Notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html","image":"https://fastpages.fast.ai/https//raw.githubusercontent.com/fastai/fastpages/master/images/diagram.png","headline":"Introducing fastpages","dateModified":"2020-02-21T00:00:00-06:00","datePublished":"2020-02-21T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" />
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Introducing fastpages</h1><p class="page-description">An easy to use blogging platform with extra features for Jupyter Notebooks.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-21T00:00:00-06:00" itemprop="datePublished">
+        Feb 21, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Jeremy Howard & Hamel Husain</span></span>
+    •<span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+<a href="https://github.com/fastai/fastpages/tree/master/_notebooks/2020-02-21-introducing-fastpages.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div><div class="px-2">
+    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-02-21-introducing-fastpages.ipynb">
+        <img class="notebook-badge-image" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Setting-Up-Fastpages">Setting Up Fastpages¶</a></li>
+<li class="toc-entry toc-h1"><a href="#Jupyter-Notebooks-&-Fastpages">Jupyter Notebooks &amp; Fastpages¶</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Options-via-FrontMatter">Options via FrontMatter¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Code-Folding">Code Folding¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Tables">Data Tables¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Images-w/Captions">Images w/Captions¶</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Tweetcards">Tweetcards¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Youtube-Videos">Youtube Videos¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Boxes-/-Callouts">Boxes / Callouts¶</a></li>
+<li class="toc-entry toc-h2"><a href="#More-Examples">More Examples¶</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#How-fastpages-Converts-Notebooks-to-Blog-Posts">How fastpages Converts Notebooks to Blog Posts¶</a></li>
+<li class="toc-entry toc-h1"><a href="#Resources-&-Next-Steps">Resources &amp; Next Steps¶</a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-02-21-introducing-fastpages.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://github.com/fastai/fastpages/raw/master/images/diagram.png" alt="" title="https://github.com/fastai/fastpages"></p>
+<p>We are very pleased to announce the immediate availability of <a href="https://github.com/fastai/fastpages">fastpages</a>. <code>fastpages</code> is a platform which allows you to create and host a blog for free, with no ads and many useful features, such as:</p>
+<ul>
+<li>Create posts containing code, outputs of code (which can be interactive), formatted text, etc directly from <a href="https://jupyter.org/">Jupyter Notebooks</a>; for instance see this great <a href="https://drscotthawley.github.io/devblog3/2019/02/08/My-1st-NN-Part-3-Multi-Layer-and-Backprop.html">example post</a> from Scott Hawley.  Notebook posts support features such as:<ul>
+<li>Interactive visualizations made with <a href="https://altair-viz.github.io/">Altair</a> remain interactive.</li>
+<li>Hide or show cell input and output.</li>
+<li>Collapsable code cells that are either open or closed by default.</li>
+<li>Define the Title, Summary and other metadata via a special markdown cells</li>
+<li>Ability to add links to <a href="https://colab.research.google.com/">Colab</a> and GitHub automatically.</li>
+</ul>
+</li>
+<li>Create posts, including formatting and images, directly from Microsoft Word documents.</li>
+<li>Create and edit <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a> posts entirely online using GitHub's built-in markdown editor.</li>
+<li>Embed Twitter cards and YouTube videos.</li>
+<li>Categorization of blog posts by user-supplied tags for discoverability.</li>
+<li>... and <a href="https://github.com/fastai/fastpages">much more</a>
+</li>
+</ul>
+<p><a href="https://github.com/fastai/fastpages">fastpages</a> relies on Github pages for hosting, and <a href="https://github.com/features/actions">Github Actions</a> to automate the creation of your blog. The setup takes around three minutes, and does not require any technical knowledge or expertise. Due to built-in automation of fastpages, you don't have to fuss with conversion scripts.  All you have to do is save your Jupyter notebook, Word document or markdown file into a specified directory and the rest happens automatically. Infact, this blog post is written in a Jupyter notebook, which you can see with the "View on GitHub" link above.</p>
+<p><a href="https://www.fast.ai/">fast.ai</a> have previously released a similar project called <a href="https://www.fast.ai/2020/01/16/fast_template/">fast_template</a>, which is even easier to set up, but does not support automatic creation of posts from Microsoft Word or Jupyter notebooks, including many of the features outlined above.</p>
+<p><strong>Because <code>fastpages</code> is more flexible and extensible, we recommend using it where possible.</strong> <code>fast_template</code> may be a better option for getting folks blogging who have no technical expertise at all, and will only be creating posts using Github's integrated online editor.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Setting-Up-Fastpages">
+<a class="anchor" href="#Setting-Up-Fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting Up Fastpages<a class="anchor-link" href="#Setting-Up-Fastpages">¶</a>
+</h1>
+<p><a href="https://github.com/fastai/fastpages#setup-instructions">The setup process</a> of fastpages is automated with GitHub Actions, too!  Upon creating a repo from the fastpages template, a pull request will automatically be opened (after ~ 30 seconds) configuring your blog so it can start working.  The automated pull request will greet you with instructions like this:</p>
+<p><img src="https://i.imgur.com/JhkIip8.png" alt="Imgur"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All you have to do is follow the instructions in this PR and your new blogging site will be up and running!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Jupyter-Notebooks-&amp;-Fastpages">
+<a class="anchor" href="#Jupyter-Notebooks-&amp;-Fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupyter Notebooks &amp; Fastpages<a class="anchor-link" href="#Jupyter-Notebooks-&amp;-Fastpages">¶</a>
+</h1>
+<p>In this post, we will cover special features that fastpages has for Jupyter notebooks.  You can also write your blog posts with Word documents or markdown in fastpages, which operate the same as fast_template, discussed <a href="https://www.fast.ai/2020/01/16/fast_template/">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Options-via-FrontMatter">
+<a class="anchor" href="#Options-via-FrontMatter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options via FrontMatter<a class="anchor-link" href="#Options-via-FrontMatter">¶</a>
+</h2>
+<p>The first cell in your Jupyter Notebook or markdown blog post contains front matter.  Which is metadata that can turn on/off options in your Notebook.  It is formatted like this:</p>
+
+<pre><code># Title
+&gt; Awesome summary
+- toc: true- branch: master- badges: true
+- comments: true
+- author: Hamel Husain, Jeremy Howard
+- categories: [fastpages, jupyter]</code></pre>
+<ul>
+<li>the summary field (preceeded by <code>&gt;</code>) will be displayed under your title, and will also be used by social media to display as the description of your page.</li>
+<li>
+<code>toc</code>: setting this to <code>true</code> will automatically generate a table of contents</li>
+<li>
+<code>badges</code>: setting this to <code>true</code> will display Google Colab and GitHub links on your blog post.</li>
+<li>
+<code>comments</code>: setting this to <code>true</code> will enable comments.  See <a href="https://github.com/fastai/fastpages#enabling-comments">these instructions</a> for more details.</li>
+<li>
+<code>author</code> this will display the authors names. </li>
+<li>
+<code>categories</code> will allow your post to be categorized on a "Tags" page, where readers can browse your post by categories.</li>
+</ul>
+<p>All of these settings are enabled in this blog post, so you can see what they look like live!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Code-Folding">
+<a class="anchor" href="#Code-Folding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Folding<a class="anchor-link" href="#Code-Folding">¶</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>put a <code>#collapse_show</code> flag at the top of any cell if you want to <strong>show</strong> that cell by default, but give the reader the option to hide it:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>put a <code>#collapse_show</code> flag at the top of any cell if you want to <strong>show</strong> that cell by default, but give the reader the option to hide it:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse_show</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/cars.json'</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/movies.json'</span>
+<span class="n">sp500</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/sp500.csv'</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/stocks.csv'</span>
+<span class="n">flights</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/flights-5k.json'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to completely hide cells (not just collapse them), <a href="https://github.com/fastai/fastpages#hide-inputoutput-cells">read these instructions</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Interactive-Charts-With-Altair">
+<a class="anchor" href="#Interactive-Charts-With-Altair" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interactive Charts With Altair<a class="anchor-link" href="#Interactive-Charts-With-Altair">¶</a>
+</h2>
+<p>Interactive visualizations made with <a href="https://altair-viz.github.io/">Altair</a> remain interactive!</p>
+<p>We leave this below cell unhidden so you can enjoy a preview of syntax highlighting in fastpages, which uses the <a href="https://draculatheme.com/">Dracula theme</a> by default.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># select a point for which to provide details-on-demand</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span>
+    <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">],</span> <span class="c1"># limit selection to x-axis value</span>
+    <span class="n">on</span><span class="o">=</span><span class="s1">'mouseover'</span><span class="p">,</span>  <span class="c1"># select on mouseover events</span>
+    <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># select data point nearest the cursor</span>
+    <span class="n">empty</span><span class="o">=</span><span class="s1">'none'</span>     <span class="c1"># empty selection includes no data points</span>
+<span class="p">)</span>
+
+<span class="c1"># define our base line chart of stock prices</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">'date:T'</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'price:Q'</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">'log'</span><span class="p">)),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">'symbol:N'</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span>
+    <span class="n">base</span><span class="p">,</span> <span class="c1"># base line chart</span>
+    
+    <span class="c1"># add a rule mark to serve as a guide line</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">mark_rule</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">'#aaa'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s1">'date:T'</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+    
+    <span class="c1"># add circle marks for selected time points, hide unselected points</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+
+    <span class="c1"># add white stroked text to provide a legible background for labels</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">stroke</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s1">'price:Q'</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+
+    <span class="c1"># add text labels for stock prices</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dy</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s1">'price:Q'</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+    
+    <span class="n">data</span><span class="o">=</span><span class="n">stocks</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-d4de765266df4fb784411ec59a78b779"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    const outputDiv = document.getElementById("altair-viz-d4de765266df4fb784411ec59a78b779");
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector001"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector001": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json"}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Tables">
+<a class="anchor" href="#Data-Tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Tables<a class="anchor-link" href="#Data-Tables">¶</a>
+</h2>
+<p>You can display tables per the usual way in your blog:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/movies.json'</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
+<span class="c1"># display table with pandas</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
+    <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>Worldwide_Gross</th>
+      <th>Production_Budget</th>
+      <th>IMDB_Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>The Land Girls</td>
+      <td>146083.0</td>
+      <td>8000000.0</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First Love, Last Rites</td>
+      <td>10876.0</td>
+      <td>300000.0</td>
+      <td>6.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>I Married a Strange Person</td>
+      <td>203134.0</td>
+      <td>250000.0</td>
+      <td>6.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Let's Talk About Sex</td>
+      <td>373615.0</td>
+      <td>300000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Slam</td>
+      <td>1087521.0</td>
+      <td>1000000.0</td>
+      <td>3.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Images-w/Captions">
+<a class="anchor" href="#Images-w/Captions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images w/Captions<a class="anchor-link" href="#Images-w/Captions">¶</a>
+</h1>
+<p>You can include markdown images with captions like this:</p>
+
+<pre><code>![](https://www.fast.ai/images/fastai_paper/show_batch.png "Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/")</code></pre>
+<p><img src="https://www.fast.ai/images/fastai_paper/show_batch.png" alt="" title="Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/"></p>
+<p>Of course, the caption is optional.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tweetcards">
+<a class="anchor" href="#Tweetcards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tweetcards<a class="anchor-link" href="#Tweetcards">¶</a>
+</h2>
+<p>Typing <code>&gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20</code> will render this:
+
+</p>
+<center>
+<div class="jekyll-twitter-plugin">
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">Altair 4.0 is released! <a href="https://t.co/PCyrIOTcvv">https://t.co/PCyrIOTcvv</a><br>Try it with:<br><br>  pip install -U altair<br><br>The full list of changes is at <a href="https://t.co/roXmzcsT58">https://t.co/roXmzcsT58</a> ...read on for some highlights. <a href="https://t.co/vWJ0ZveKbZ">pic.twitter.com/vWJ0ZveKbZ</a></p>— Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1204765621767901185?ref_src=twsrc%5Etfw">December 11, 2019</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Youtube-Videos">
+<a class="anchor" href="#Youtube-Videos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Youtube Videos<a class="anchor-link" href="#Youtube-Videos">¶</a>
+</h2>
+<p>Typing <code>&gt; youtube: https://youtu.be/XfoYk_Z5AkI</code> will render this:
+
+</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XfoYk_Z5AkI" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boxes-/-Callouts">
+<a class="anchor" href="#Boxes-/-Callouts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxes / Callouts<a class="anchor-link" href="#Boxes-/-Callouts">¶</a>
+</h2>
+<p>Typing <code>&gt; Warning: There will be no second warning!</code> will render this:
+</p>
+<div class="flash flash-error">
+    <svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 000 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 00.01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <strong>Warning: </strong>There will be no second warning!
+</div>
+<p>Typing <code>&gt; Important: Pay attention! It's important.</code> will render this:
+</p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap" viewbox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z"></path></svg>
+    <strong>Important: </strong>Pay attention! It’s important.
+</div>
+<p>Typing <code>&gt; Tip: This is my tip.</code> will render this:
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+    <strong>Tip: </strong>This is my tip.
+</div>
+<p>Typing <code>&gt; Note: Take note of this.</code> will render this:
+</p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 01-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 01-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg>
+    <strong>Note: </strong>Take note of this.
+</div>
+<p>Typing <code>&gt; Note: A doc link to [an example website: fast.ai](https://www.fast.ai/) should also work fine.</code> will render in the docs:
+</p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info" viewbox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 01-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 01-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg>
+    <strong>Note: </strong>A doc link to <a href="https://www.fast.ai/">an example website: fast.ai</a> should also work fine.
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="More-Examples">
+<a class="anchor" href="#More-Examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Examples<a class="anchor-link" href="#More-Examples">¶</a>
+</h2>
+<p>This <a href="https://fastpages.fast.ai/2020/02/20/test.html">tutorial</a> contains more examples of what you can do with notebooks.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-fastpages-Converts-Notebooks-to-Blog-Posts">
+<a class="anchor" href="#How-fastpages-Converts-Notebooks-to-Blog-Posts" aria-hidden="true"><span class="octicon octicon-link"></span></a>How fastpages Converts Notebooks to Blog Posts<a class="anchor-link" href="#How-fastpages-Converts-Notebooks-to-Blog-Posts">¶</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fastpages uses <a href="https://nbdev.fast.ai/index.html">nbdev</a> to power the conversion process of Jupyter Notebooks to blog posts.  When you save a notebook into the <code>/_notebooks</code> folder of your repository, GitHub Actions applies <code>nbdev</code> against those notebooks automatically.  The same process occurs when you save Word documents or markdown files into the <code>_word</code> or <code>_posts</code> directory, respectively.</p>
+<p>We will discuss how GitHub Actions work in a follow up blog post.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources-&amp;-Next-Steps">
+<a class="anchor" href="#Resources-&amp;-Next-Steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources &amp; Next Steps<a class="anchor-link" href="#Resources-&amp;-Next-Steps">¶</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We highly encourage you to start blogging with <code>fastpages</code>!  Some resources that may be helpful:</p>
+<ul>
+<li>
+<a href="https://github.com/fastai/fastpages">fastpages repo</a> - this is where you can go to create your own fastpages blog!</li>
+<li>Fastai forums - <a href="https://forums.fast.ai/c/fastai-users/nbdev/">nbdev &amp; blogging category</a>.  You can ask questions about fastpages here, as well as suggest new features.</li>
+<li>
+<a href="https://github.com/fastai/nbdev">nbdev</a>: this project powers the conversion of Jupyter notebooks to blog posts.</li>
+</ul>
+<p>If you end up writing a blog post using fastpages, please let us know on Twitter: <a href="https://twitter.com/jeremyphoward">@jeremyphoward</a>, <a href="https://twitter.com/hamelhusain">@HamelHusain</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fastai/fastpages"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fastpages/jupyter/2020/02/21/introducing-fastpages.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">fastpages</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">fastpages</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  <li><a href="https://github.com/fastai"><svg class="social svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">fastai</span></a></li><li><a href="https://www.twitter.com/%40fastdotai"><svg class="social svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">@fastdotai</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
