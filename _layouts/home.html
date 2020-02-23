@@ -24,7 +24,16 @@ layout: default
     <ul class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
-      <li>
+        {%- if site.show_image  -%}
+          <div class="box-shadow-large p-3">
+        {%- endif -%}
+
+        {%- if site.show_image and post.image  -%}
+        <div class="Subhead flex-justify-center">
+          <img class="image-preview" src="{{ post.image | relative_url }}" />
+        </div>
+        {%- endif -%}
+      <li >
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
@@ -34,10 +43,11 @@ layout: default
         <p class="post-meta-description">{{ post.description }}</p>
         {%- endif -%}
           <p class="post-meta">{{ post.date | date: date_format }}</p>
-        {%- if site.show_image and post.image  -%}
-          <img class="image-preview" src="{{ post.image | relative_url }}" />
-        {%- endif -%}
       </li>
+    {%- if site.show_image  -%}
+    </div>
+    <br><br>
+    {%- endif -%}
       {%- endfor -%}
     </ul>
 
