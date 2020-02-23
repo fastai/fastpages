@@ -17,18 +17,18 @@
 
 ### `fastpages` contain **special features for Jupyter Notebooks**, such as:
 
-- Interactive visualizations made with [Altair](https://altair-viz.github.io/) remain interactive.
-- Ability to hide cells (input, output or both).
-- Ability to have collapsable code cells that are either open or closed by default.
+- Create posts containing code, outputs of code (which can be interactive), formatted text, etc directly from [Jupyter Notebooks](https://jupyter.org/); Notebook posts support features such as:
+    - Interactive visualizations made with [Altair](https://altair-viz.github.io/) remain interactive.
+    - Hide or show cell input and output.
+    - Collapsable code cells that are either open or closed by default.
+    - Define the Title, Summary and other metadata via a special markdown cells
+    - Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
+- Create posts, including formatting and images, directly from Microsoft Word documents.
+- Create and edit [Markdown](https://guides.github.com/features/mastering-markdown/) posts entirely online using GitHub's built-in markdown editor.
 - Embed Twitter cards and YouTube videos.
-- Define the Title, Summary and other metadata via a special markdown cells.
-- Support for local and remote images, including image captions with markdown.
-- Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
-- The notebook to blog conversion is powered by `nbdev`, which is under active development.  Check the [nbdev docs](https://nbdev.fast.ai/), particularly the [export2html](https://nbdev.fast.ai/export2html/) section, for a complete list of features that may be useful for notebooks.
+- Categorization of blog posts by user-supplied tags for discoverability.
 
-_See the [this section](#Writing-Blog-Posts-With-Jupyter) below for more details on how to configure these features._
-
-[fastpages](https://github.com/fastai/fastpages) also supports writing blog posts with **Microsoft Word documents and Markdown** (see below for more details).
+See below for a more detailed list of features.
 
 
 **[See the demo site](https://fastpages.fast.ai/)**
