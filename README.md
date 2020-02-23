@@ -125,7 +125,7 @@ This option works for **notebooks only**
   You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
 
 
-  - You can choose to display or hide tags on each post, by setting `show_tags` to `true` or `false` in `_config.yml`:
+  - You can toggle the display of tags on/off by setting `show_tags` to `true` or `false` in `_config.yml`:
 
 ```yaml
 # Set this to true to display tags on each post
