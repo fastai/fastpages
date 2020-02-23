@@ -117,7 +117,14 @@ This option works for **notebooks only**
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
 
 ### Categories
-  - You can have a comma seperated list of categories for a blog post, which will make the post visible on the tags page of your blog's site.  You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
+  - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
+
+    ` - categories: [fastpages, jupyter]`
+  
+  
+  You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
+
+
   - You can choose to display or hide tags on each post, by setting `show_tags` to `true` or `false` in `_config.yml`:
 
 ```yaml
