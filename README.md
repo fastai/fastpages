@@ -104,7 +104,13 @@ Similarly, in a markdown document the same front matter would be defined like th
   ---
   ```
 
-Additional metadata is optional and allows you to set custom [front matter](https://jekyllrb.com/docs/front-matter/).
+Additional metadata is optional and allows you to set custom [front matter](https://jekyllrb.com/docs/front-matter/).  
+
+Note that anything defined in front matter must be valid YAML.  **Failure to provide valid YAML could result in your page not rendering** in your blog.  For example, if you want a colon in your title you must escape it with double quotes like this:
+
+` - title: "Deep learning: A tutorial"`
+
+See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/) for more information.
 
 ### Configure Title & Summary
   - Replace `Title`, with your desired title, and `Awesome summary` with your desired summary.
