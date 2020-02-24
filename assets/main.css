@@ -274,3 +274,17 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 .category-tags-icon { font-size: 75% !important; padding-left: 0.375em; opacity: 35%; }
 
 .category-tags-link { color: #bb8181 !important; font-size: 13px !important; }
+
+#lunrsearchresults { padding-top: 0.2rem; }
+
+.lunrsearchresult { padding-bottom: 1rem; }
+
+.lunrsearchresult .title { color: #d9230f; }
+
+.lunrsearchresult .url { color: silver; }
+
+.lunrsearchresult a { display: block; color: #777; }
+
+.lunrsearchresult a:hover, .lunrsearchresult a:focus { text-decoration: none; }
+
+.lunrsearchresult a:hover .title { text-decoration: underline; }
