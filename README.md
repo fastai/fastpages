@@ -75,8 +75,8 @@ See below for a more detailed list of features.
 In a notebook, [front matter](https://jekyllrb.com/docs/front-matter/) is defined as a markdown cell at the beginning of the notebook with the following contents:
 
   ```markdown
-  # Title
-  > Awesome summary
+  # "Title"
+  > "Awesome summary"
   - toc: false
   - branch: master
   - badges: true
@@ -91,8 +91,8 @@ Similarly, in a markdown document the same front matter would be defined like th
 
   ```yaml
   ---
-  - title: My Title
-  - summary: Awesome summary
+  - title: "My Title"
+  - summary: "Awesome summary"
   - toc: false
   - branch: master
   - badges: true
@@ -114,6 +114,8 @@ See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you
 
 ### Configure Title & Summary
   - Replace `Title`, with your desired title, and `Awesome summary` with your desired summary.
+
+**Note:** It is recommended to enclose these values in double quotes, so that you can escape colons and other characters that may break the YAML parser.
 
 ### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
