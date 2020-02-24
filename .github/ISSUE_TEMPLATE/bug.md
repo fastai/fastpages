@@ -3,6 +3,8 @@ name: Bug
 about: Use this template for filing bugs
 title: "[DATE]: [FEATURE NAME]"
 labels: bug
+assignees: ''
+
 ---
 
 ## Prerequisites for filing a bug
