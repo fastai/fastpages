@@ -37,6 +37,7 @@ google_analytics:
 
 exclude:
   - CONTRIBUTING.md
+  - DEVELOPMENT.md
   - settings.ini
   - docker-compose.yml
   - action.yml

@@ -42,7 +42,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 
 Some general rules of thumb that will make your life easier.
 
-* Test locally before opening a pull request. See [README.md](README.md#running-the-blog-on-your-local-machine) for instructions on how to run fastpages on your local machine.
+* Test locally before opening a pull request. See [the development guide](DEVELOPMENT.md) for instructions on how to run fastpages on your local machine.
 * When you do open a pull request, please request a draft build of your PR by making a **comment with the magic command `/preview` in the pull request.**  This will allow reviewers to see a live-preview of your changes without having to clone your branch.
     * You can do this multiple times, if necessary, to rebuild your preview due to changes.  But please do not abuse this and test locally before doing this.
 
