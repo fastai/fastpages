@@ -23,6 +23,7 @@
     - Collapsable code cells that are either open or closed by default.
     - Define the Title, Summary and other metadata via a special markdown cells
     - Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
+- Write posts on your local machine and [preview them with live reload](#running-the-blog-on-your-local-machine).
 - Create posts, including formatting and images, directly from Microsoft Word documents.
 - Create and edit [Markdown](https://guides.github.com/features/mastering-markdown/) posts entirely online using GitHub's built-in markdown editor.
 - Embed Twitter cards and YouTube videos.
@@ -123,8 +124,8 @@ This option works for **notebooks only**
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
 
     ` - categories: [fastpages, jupyter]`
-  
-  
+
+
   You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
 
 
@@ -152,6 +153,95 @@ On social media sites like Twitter, an image preview can be automatically shown 
 `- image: images/diagram.png` 
 
 Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
+
+## Running the blog on your local machine
+
+You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
+The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
+
+### Basic usage: viewing your blog
+
+All of the commands in this block assume that you're in your blog root directory.
+To run the blog with live preview:
+
+```bash
+docker-compose up
+```
+
+When you run this command for the first time, it'll build the required Docker images, and the process might take a couple minutes.
+
+This command will build all the necessary containers and run the following services:
+1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
+2. A Jupyter Notebook that will run on https://127.0.0.1:8888 — use this to write and edit your posts.
+3. A Jekyll server on `https://127.0.0.1:4000` — use this to preview your blog.
+
+The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop. 
+If you want to run the services in the background:
+
+```bash
+# run all services in the background
+docker-compose up -d 
+
+# stop the services
+docker-compose down
+```
+
+If you need to restart just the Jekyll server, and it's running in the background — you can do `docker-compose restart jekyll`.
+
+_Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
+
+### Converting the pages locally
+
+If you just want to convert your notebooks and word documents to `.md` posts in `_posts`, this command will do it for you:
+
+```bash
+docker-compose up converter
+```
+
+You can launch just the jekyll server with `docker-compose up jekyll`.
+
+### Visual Studio Code integration
+
+If you're using VSCode with the Docker extension, you can run three containers from the sidebar: `fastpages_jupyter_1`,`fastpages_watcher_1`, and `fastpages_jekyll_1`.
+The containers will only show up in the list after you run or build them for the first time. So if they're not in the list — try `docker-compose build` in the console.
+
+### Advanced usage
+
+#### Rebuild all the containers
+If you changed files in `_action_files` directory, you might need to rebuild the containers manually, without cache. 
+
+```bash
+docker-compose build --force-rm --no-cache
+```
+
+#### Removing all the containers
+Want to start from scratch and remove all the containers? 
+
+```
+# make sure the containers are stopped: 
+docker-compose stop
+
+# remove stopped containers
+docker-compose rm
+```
+
+#### Attaching a shell in a services / container
+You can attach a terminal to a running service: 
+
+```bash
+
+# If the container is already running:
+
+# attach to a bash shell in the jekyll service
+docker-compose exec jekyll /bin/bash 
+
+# attach to a bash shell in the jupyter / watcher service. 
+# they're essentially running the same software inside. 
+docker-compose exec watcher /bin/bash
+```
+
+_Note: you can use `docker-compose run` instead of `docker-compose exec` to start a service and then attach to it. 
+Or you can run all your services in the background,`docker-compose up -d`, and then use `docker-compose exec`as in the example above._ 
 
 
 ## Writing Blog Posts With Jupyter
@@ -193,7 +283,7 @@ In a markdown cell in your notebook, use the following markdown shortcuts to emb
 
 3. GitHub will automatically convert your files to blog posts.  **It will take ~5 minutes for the conversion process to take place**.  You can click on the Actions tab of your repo to view the logs of this process. There will be two workflows that are triggered with each push you make to your master branch: (1) "CI" and (2) "GH Pages Status".  Both workflows must complete with a green checkmark for your latest commit before your site is updated.
 
-4. If you wish, you can preview how your blog will look locally before commiting to GitHub.  If you wish to do so, please see the [development guide](_dev_tools/README.md).
+4. If you wish, you can preview how your blog will look locally before commiting to GitHub. See [this section](#running-the-blog-on-your-local-machine) for a detailed guide on running the preview locally.
 
 
 ## Writing Blog Posts With Markdown
@@ -259,7 +349,7 @@ Detailed instructions on how to customize this blog are beyond the scope of this
 
 # Contributing To Fastpages
 
-Please see the [development guide](_dev_tools/README.md).
+Please see the [contributing guide in CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 # FAQ
@@ -285,4 +375,5 @@ Please see the [development guide](_dev_tools/README.md).
 # Acknowledgements
 
 - [Nate Gadzhibalaev](https://github.com/xnutsive): We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
+- docker-compose file closely imitates [ageron/handson-ml2](https://github.com/ageron/handson-ml2/tree/master/docker).
 - All the contributors to [nbdev](https://github.com/fastai/nbdev), which powers many of the features in this repo.
