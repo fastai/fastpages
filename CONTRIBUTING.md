@@ -6,7 +6,6 @@ First, thanks a lot for wanting to help! Some things to keep in mind:
 
 - The jupyter to blog post conversion functionality relies on [fastai/nbdev](https://github.com/fastai/nbdev).  For idiosyncratic uses of nbdev that only apply to blogs that would require a large refactor to nbdev, it might be acceptable to apply a [monkey patch](https://stackoverflow.com/questions/5626193/what-is-monkey-patching) in `fastpages`.  However, it is encouraged to contribute to `nbdev` where possible if there is a change that could unlock a new feature.  If you are unsure, please open an issue in this repo to discucss.
 
-- Please make sure your code runs correctly locally before making a pull request.  See the [development guide] for more information about testing your code locally. 
 
 ## Note for new contributors from Jeremy
 
@@ -43,7 +42,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 
 Some general rules of thumb that will make your life easier.
 
-* Test the blog locally before opening a pull request. 
+* Test locally before opening a pull request. See [README.md](README.md#running-the-blog-on-your-local-machine) for instructions on how to run fastpages on your local machine.
 * When you do open a pull request, please request a draft build of your PR by making a **comment with the magic command `/preview` in the pull request.**  This will allow reviewers to see a live-preview of your changes without having to clone your branch.
     * You can do this multiple times, if necessary, to rebuild your preview due to changes.  But please do not abuse this and test locally before doing this.
 
@@ -62,5 +61,3 @@ Some general rules of thumb that will make your life easier.
 
 * PRs are welcome for this.  For any confusion about the documentation, please feel free to open an issue on this repo.
 
-
-[development guide]: ../_dev_tools/README.md
