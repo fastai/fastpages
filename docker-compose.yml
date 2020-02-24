@@ -1,0 +1,42 @@
+version: "3"
+services:
+  fastpages: &fastpages
+    working_dir: /data
+    environment:
+        - INPUT_BOOL_SAVE_MARKDOWN=false
+    build:
+      context: ./_action_files
+      dockerfile: ./Dockerfile
+    image: fastpages-dev
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/data/
+
+  converter:
+    <<: *fastpages
+    command: /fastpages/action_entrypoint.sh
+
+  watcher:
+    <<: *fastpages
+    command: watchmedo shell-command --command /fastpages/action_entrypoint.sh --pattern *.ipynb --recursive --drop
+
+  jupyter:
+    <<: *fastpages
+    ports:
+      - "8888:8888"
+    command: jupyter notebook ./_notebooks --no-browser --allow-root --ip=0.0.0.0 --port=8888
+
+  jekyll:
+    working_dir: /data
+    image: jekyll/jekyll
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/data/
+    command: jekyll serve

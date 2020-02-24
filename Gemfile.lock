@@ -188,6 +188,9 @@ GEM
       jekyll-seo-tag (~> 2.0)
     jekyll-titles-from-headings (0.5.3)
       jekyll (>= 3.3, < 5.0)
+    jekyll-toc (0.13.1)
+      jekyll (>= 3.7)
+      nokogiri (~> 1.9)
     jekyll-twitter-plugin (2.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
@@ -258,6 +261,7 @@ DEPENDENCIES
   jekyll-octicons
   jekyll-relative-links
   jekyll-seo-tag
+  jekyll-toc
   jekyll-twitter-plugin
   minima (~> 2.5)
   tzinfo (~> 1.2)
