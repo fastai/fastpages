@@ -1,0 +1,18 @@
+---
+layout: default
+permalink: /search/
+title: Search
+search: exclude
+---
+
+<!-- adapted from https://jekyllcodex.org/without-plugin/search-lunr/ -->
+
+<script src="/assets/js/vendor/lunr.min.js"></script>
+<script src="/assets/js/search.js"></script>
+
+<form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <p><input type="text" class="form-control input-block form-control" id="lunrsearch" name="q" maxlength="500" value="" placeholder="Search" /></p>
+</form>
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
