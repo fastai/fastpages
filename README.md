@@ -1,8 +1,8 @@
 [//]: # (BADGES SECTION: change `fastai` with your GitHub username and `fastpages` with the name of your repo)
 
-![](https://github.com/fastai/fastpages/workflows/CI/badge.svg) 
-![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg) 
-[![](https://img.shields.io/static/v1?label=fastai&message=nbdev&color=57aeac&labelColor=black&style=flat&logo=data:image/png;base64,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)](https://github.com/fastai/nbdev) 
+![](https://github.com/fastai/fastpages/workflows/CI/badge.svg)
+![](https://github.com/fastai/fastpages/workflows/GH-Pages%20Status/badge.svg)
+[![](https://img.shields.io/static/v1?label=fastai&message=nbdev&color=57aeac&labelColor=black&style=flat&logo=data:image/png;base64,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)](https://github.com/fastai/nbdev)
 [![](https://img.shields.io/static/v1?label=View%20Demo%20Site&message=link&labelColor=2f363d&color=blue&style=flat&logo=github&logoColor=959da5)](https://fastpages.fast.ai/)
 
 [//]: # (END OF BADGES SECTION)
@@ -41,27 +41,26 @@ See below for a more detailed list of features.
 - [Welcome To `fastpages`](#welcome-to-fastpages)
 	- [Setup Instructions](#setup-instructions)
 	- [Front-Matter related options](#front-matter-related-options)
-      - [Configure Title & Summary](#configure-title-summary)
-      - [Table of Contents](#table-of-contents)
-      - [Categories](#categories)
-      - [Enabling Comments](#enabling-comments)
-      - [Setting an Image For Social Media](#setting-an-image-for-social-media)
-      - [Colab & GitHub Badges](#colab-and-github-badges) (Notebooks Only)
-  - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)    
-      - [Hide Input/Output Cells](#hide-inputoutput-cells)
-      - [Collapsable Code Cells](#collapsable-code-cells)
-      - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
-      - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
-  - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
-  - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
- - [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
-	- [Optional Inputs](#optional-inputs)
+		- [Configure Title & Summary](#configure-title-summary)
+		- [Table of Contents](#table-of-contents)
+		- [Colab And GitHub Badges](#colab-and-github-badges)
+		- [Tags](#categories)
+		- [Enabling Comments](#enabling-comments)
+		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
+	- [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
+		- [Hide Input/Output Cells](#hide-inputoutput-cells)
+		- [Collapsable Code Cells](#collapsable-code-cells)
+		- [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
+		- [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
+	- [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
+	- [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
+- [Running the blog on your local machine](#running-the-blog-on-your-local-machine)
+- [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
+		- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [FAQ](#faq)
-- [Acknowledgements](#acknowledgements)
 
 <!-- /TOC -->
-
 
 
 ## Setup Instructions
@@ -108,7 +107,7 @@ Similarly, in a markdown document the same front matter would be defined like th
 Additional metadata is optional and allows you to set custom [front matter](https://jekyllrb.com/docs/front-matter/).
 
 ### Configure Title & Summary
-  - Replace `Title`, with your desired title, and `Awesome summary` with your desired summary. 
+  - Replace `Title`, with your desired title, and `Awesome summary` with your desired summary.
 
 ### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
@@ -150,98 +149,9 @@ To enable comments with [Utterances](https://github.com/utterance/utterances) yo
 
 On social media sites like Twitter, an image preview can be automatically shown with your URL.  Specifying the front matter `image` provides this metadata to social media sites to render this image for you.  You can set this value as follows:
 
-`- image: images/diagram.png` 
+`- image: images/diagram.png`
 
 Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
-
-## Running the blog on your local machine
-
-You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
-The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
-
-### Basic usage: viewing your blog
-
-All of the commands in this block assume that you're in your blog root directory.
-To run the blog with live preview:
-
-```bash
-docker-compose up
-```
-
-When you run this command for the first time, it'll build the required Docker images, and the process might take a couple minutes.
-
-This command will build all the necessary containers and run the following services:
-1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
-2. A Jupyter Notebook that will run on https://127.0.0.1:8888 — use this to write and edit your posts.
-3. A Jekyll server on `https://127.0.0.1:4000` — use this to preview your blog.
-
-The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop. 
-If you want to run the services in the background:
-
-```bash
-# run all services in the background
-docker-compose up -d 
-
-# stop the services
-docker-compose down
-```
-
-If you need to restart just the Jekyll server, and it's running in the background — you can do `docker-compose restart jekyll`.
-
-_Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
-
-### Converting the pages locally
-
-If you just want to convert your notebooks and word documents to `.md` posts in `_posts`, this command will do it for you:
-
-```bash
-docker-compose up converter
-```
-
-You can launch just the jekyll server with `docker-compose up jekyll`.
-
-### Visual Studio Code integration
-
-If you're using VSCode with the Docker extension, you can run three containers from the sidebar: `fastpages_jupyter_1`,`fastpages_watcher_1`, and `fastpages_jekyll_1`.
-The containers will only show up in the list after you run or build them for the first time. So if they're not in the list — try `docker-compose build` in the console.
-
-### Advanced usage
-
-#### Rebuild all the containers
-If you changed files in `_action_files` directory, you might need to rebuild the containers manually, without cache. 
-
-```bash
-docker-compose build --force-rm --no-cache
-```
-
-#### Removing all the containers
-Want to start from scratch and remove all the containers? 
-
-```
-# make sure the containers are stopped: 
-docker-compose stop
-
-# remove stopped containers
-docker-compose rm
-```
-
-#### Attaching a shell in a services / container
-You can attach a terminal to a running service: 
-
-```bash
-
-# If the container is already running:
-
-# attach to a bash shell in the jekyll service
-docker-compose exec jekyll /bin/bash 
-
-# attach to a bash shell in the jupyter / watcher service. 
-# they're essentially running the same software inside. 
-docker-compose exec watcher /bin/bash
-```
-
-_Note: you can use `docker-compose run` instead of `docker-compose exec` to start a service and then attach to it. 
-Or you can run all your services in the background,`docker-compose up -d`, and then use `docker-compose exec`as in the example above._ 
 
 
 ## Writing Blog Posts With Jupyter
@@ -294,7 +204,12 @@ If you are writing your blog post in markdown, save your `.md` file into the `/_
 
 Save your Microsoft Word documents into the `/_word` folder with the same naming convention (`YYYY-MM-DD-*.docx`) specified for notebooks.
 
-## Using The GitHub Action & Your Own Custom Blog
+# Running the blog on your local machine
+
+See the [development guide](DEVELOPMENT.md).
+
+
+# Using The GitHub Action & Your Own Custom Blog
 
 The `fastpages` action allows you to convert notebooks from `/_notebooks` and word documents from `/_word` directories in your repo into [Jekyll](https://jekyllrb.com/) compliant blog post markdown files located in `/_posts`.  **Note: This directory structure is currently inflexible** for this Action, as it is designed to be used with Jekyll.
 
@@ -349,7 +264,7 @@ Detailed instructions on how to customize this blog are beyond the scope of this
 
 # Contributing To Fastpages
 
-Please see the [contributing guide in CONTRIBUTING.md](CONTRIBUTING.md).
+Please see the [contributing guide](CONTRIBUTING.md).
 
 
 # FAQ
@@ -372,8 +287,3 @@ Please see the [contributing guide in CONTRIBUTING.md](CONTRIBUTING.md).
 
 - **Q:** What is the difference between [fast_template](https://github.com/fastai/fast_template) and fastpages?  Which one should I use?  **A:** Because `fastpages` is more flexible and extensible, we recommend using it where possible. `fast_template` may be a better option for getting folks blogging who have no technical expertise at all, and will only be creating posts using Github's integrated online editor.
 
-# Acknowledgements
-
-- [Nate Gadzhibalaev](https://github.com/xnutsive): We ported his excellent work on [#14](https://github.com/fastai/fast_template/pull/14) from [fast_template](https://github.com/fastai/fast_template) to this repo, which enabled many features.
-- docker-compose file closely imitates [ageron/handson-ml2](https://github.com/ageron/handson-ml2/tree/master/docker).
-- All the contributors to [nbdev](https://github.com/fastai/nbdev), which powers many of the features in this repo.
