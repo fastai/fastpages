@@ -3,20 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Fastpages Notebook Blog Post | fastpages</title>
+<title>Introducing fastpages | fastpages</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Fastpages Notebook Blog Post" />
+<meta property="og:title" content="Introducing fastpages" />
+<meta name="author" content="Jeremy Howard & Hamel Husain" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A tutorial of fastpages for Jupyter notebooks." />
-<meta property="og:description" content="A tutorial of fastpages for Jupyter notebooks." />
-<link rel="canonical" href="https://fastpages.fast.ai/fastpages/jupyter/2020/02/20/test.html" />
-<meta property="og:url" content="https://fastpages.fast.ai/fastpages/jupyter/2020/02/20/test.html" />
+<meta name="description" content="An easy to use blogging platform with extra features for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with extra features for Jupyter Notebooks." />
+<link rel="canonical" href="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html" />
+<meta property="og:url" content="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html" />
 <meta property="og:site_name" content="fastpages" />
-<meta property="og:image" content="https://fastpages.fast.ai/images/chart-preview.png" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/diagram.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-02-20T00:00:00-06:00" />
+<meta property="article:published_time" content="2020-02-21T00:00:00-06:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/20/test.html","image":"https://fastpages.fast.ai/images/chart-preview.png","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","datePublished":"2020-02-20T00:00:00-06:00","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html"},"author":{"@type":"Person","name":"Jeremy Howard & Hamel Husain"},"description":"An easy to use blogging platform with extra features for Jupyter Notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html","image":"https://fastpages.fast.ai/images/diagram.png","headline":"Introducing fastpages","dateModified":"2020-02-21T00:00:00-06:00","datePublished":"2020-02-21T00:00:00-06:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -75,13 +76,15 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Fastpages Notebook Blog Post</h1><p class="page-description">A tutorial of fastpages for Jupyter notebooks.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-20T00:00:00-06:00" itemprop="datePublished">
-        Feb 20, 2020
-      </time>
+    <h1 class="post-title p-name" itemprop="name headline">Introducing fastpages</h1><p class="page-description">An easy to use blogging platform with extra features for Jupyter Notebooks.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-21T00:00:00-06:00" itemprop="datePublished">
+        Feb 21, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Jeremy Howard & Hamel Husain</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      7 min read
     
 </span></p>
 
@@ -101,11 +104,11 @@
       
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
-<a href="https://github.com/fastai/fastpages/tree/master/_notebooks/2020-02-20-test.ipynb" role="button">
+<a href="https://github.com/fastai/fastpages/tree/master/_notebooks/2020-02-21-introducing-fastpages.ipynb" role="button">
     <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
 </a>
 </div><div class="px-2">
-    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-02-20-test.ipynb">
+    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-02-21-introducing-fastpages.ipynb">
         <img class="notebook-badge-image" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -114,40 +117,30 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#About">About¶</a>
+<li class="toc-entry toc-h1"><a href="#Setting-Up-Fastpages">Setting Up Fastpages¶</a></li>
+<li class="toc-entry toc-h1"><a href="#Jupyter-Notebooks-&-Fastpages">Jupyter Notebooks &amp; Fastpages¶</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#Front-Matter">Front Matter¶</a></li>
-<li class="toc-entry toc-h2"><a href="#Markdown-Shortcuts">Markdown Shortcuts¶</a></li>
-<li class="toc-entry toc-h2"><a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair¶</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#Example-1:-DropDown">Example 1: DropDown¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Example-2:-Tooltips">Example 2: Tooltips¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Example-3:-More-Tooltips">Example 3: More Tooltips¶</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#Options-via-FrontMatter">Options via FrontMatter¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Code-Folding">Code Folding¶</a></li>
+<li class="toc-entry toc-h2"><a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair¶</a></li>
 <li class="toc-entry toc-h2"><a href="#Data-Tables">Data Tables¶</a></li>
-<li class="toc-entry toc-h2"><a href="#Images">Images¶</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#Local-Images">Local Images¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Remote-Images">Remote Images¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Animated-Gifs">Animated Gifs¶</a></li>
-<li class="toc-entry toc-h3"><a href="#Captions">Captions¶</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#Other-Elements">Other Elements¶</a>
+<li class="toc-entry toc-h1"><a href="#Images-w/Captions">Images w/Captions¶</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Tweetcards">Tweetcards¶</a></li>
 <li class="toc-entry toc-h2"><a href="#Youtube-Videos">Youtube Videos¶</a></li>
 <li class="toc-entry toc-h2"><a href="#Boxes-/-Callouts">Boxes / Callouts¶</a></li>
+<li class="toc-entry toc-h2"><a href="#More-Examples">More Examples¶</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h1"><a href="#How-fastpages-Converts-Notebooks-to-Blog-Posts">How fastpages Converts Notebooks to Blog Posts¶</a></li>
+<li class="toc-entry toc-h1"><a href="#Resources-&-Next-Steps">Resources &amp; Next Steps¶</a></li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-02-20-test.ipynb
+# file to edit: _notebooks/2020-02-21-introducing-fastpages.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -162,28 +155,27 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="About">
-<a class="anchor" href="#About" aria-hidden="true"><span class="octicon octicon-link"></span></a>About<a class="anchor-link" href="#About">¶</a>
-</h1>
-<p>This notebook is a demonstration of some of capabilities of <a href="https://github.com/fastai/fastpages">fastpages</a> with notebooks.</p>
-<p>With <code>fastpages</code> you can save your jupyter notebooks into the <code>_notebooks</code> folder at the root of your repository, and they will be automatically be converted to Jekyll compliant blog posts!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Front-Matter">
-<a class="anchor" href="#Front-Matter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front Matter<a class="anchor-link" href="#Front-Matter">¶</a>
-</h2>
-<p>Front Matter is a markdown cell at the beginning of your notebook that allows you to inject metadata into your notebook. For example:</p>
+<p><img src="https://github.com/fastai/fastpages/raw/master/images/diagram.png" alt="" title="https://github.com/fastai/fastpages"></p>
+<p>We are very pleased to announce the immediate availability of <a href="https://github.com/fastai/fastpages">fastpages</a>. <code>fastpages</code> is a platform which allows you to create and host a blog for free, with no ads and many useful features, such as:</p>
 <ul>
-<li>Setting <code>toc: true</code> will automatically generate a table of contents</li>
-<li>Setting <code>badges: true</code> will automatically include GitHub and Google Colab links to your notebook.</li>
-<li>Setting <code>comments: true</code> will enable commenting on your blog post, powered by <a href="https://github.com/utterance/utterances">utterances</a>.</li>
+<li>Create posts containing code, outputs of code (which can be interactive), formatted text, etc directly from <a href="https://jupyter.org/">Jupyter Notebooks</a>; for instance see this great <a href="https://drscotthawley.github.io/devblog3/2019/02/08/My-1st-NN-Part-3-Multi-Layer-and-Backprop.html">example post</a> from Scott Hawley.  Notebook posts support features such as:<ul>
+<li>Interactive visualizations made with <a href="https://altair-viz.github.io/">Altair</a> remain interactive.</li>
+<li>Hide or show cell input and output.</li>
+<li>Collapsable code cells that are either open or closed by default.</li>
+<li>Define the Title, Summary and other metadata via a special markdown cells</li>
+<li>Ability to add links to <a href="https://colab.research.google.com/">Colab</a> and GitHub automatically.</li>
 </ul>
-<p>More details and options for front matter can be viewed on the <a href="https://github.com/fastai/fastpages#front-matter-related-options">front matter section</a> of the README.</p>
+</li>
+<li>Create posts, including formatting and images, directly from Microsoft Word documents.</li>
+<li>Create and edit <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a> posts entirely online using GitHub's built-in markdown editor.</li>
+<li>Embed Twitter cards and YouTube videos.</li>
+<li>Categorization of blog posts by user-supplied tags for discoverability.</li>
+<li>... and <a href="https://github.com/fastai/fastpages">much more</a>
+</li>
+</ul>
+<p><a href="https://github.com/fastai/fastpages">fastpages</a> relies on Github pages for hosting, and <a href="https://github.com/features/actions">Github Actions</a> to automate the creation of your blog. The setup takes around three minutes, and does not require any technical knowledge or expertise. Due to built-in automation of fastpages, you don't have to fuss with conversion scripts.  All you have to do is save your Jupyter notebook, Word document or markdown file into a specified directory and the rest happens automatically. Infact, this blog post is written in a Jupyter notebook, which you can see with the "View on GitHub" link above.</p>
+<p><a href="https://www.fast.ai/">fast.ai</a> have previously released a similar project called <a href="https://www.fast.ai/2020/01/16/fast_template/">fast_template</a>, which is even easier to set up, but does not support automatic creation of posts from Microsoft Word or Jupyter notebooks, including many of the features outlined above.</p>
+<p><strong>Because <code>fastpages</code> is more flexible and extensible, we recommend using it where possible.</strong> <code>fast_template</code> may be a better option for getting folks blogging who have no technical expertise at all, and will only be creating posts using Github's integrated online editor.</p>
 
 </div>
 </div>
@@ -191,8 +183,72 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Markdown-Shortcuts">
-<a class="anchor" href="#Markdown-Shortcuts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown Shortcuts<a class="anchor-link" href="#Markdown-Shortcuts">¶</a>
+<h1 id="Setting-Up-Fastpages">
+<a class="anchor" href="#Setting-Up-Fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting Up Fastpages<a class="anchor-link" href="#Setting-Up-Fastpages">¶</a>
+</h1>
+<p><a href="https://github.com/fastai/fastpages#setup-instructions">The setup process</a> of fastpages is automated with GitHub Actions, too!  Upon creating a repo from the fastpages template, a pull request will automatically be opened (after ~ 30 seconds) configuring your blog so it can start working.  The automated pull request will greet you with instructions like this:</p>
+<p><img src="https://i.imgur.com/JhkIip8.png" alt="Imgur"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All you have to do is follow these instructions (in the  PR you receive) and your new blogging site will be up and running!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Jupyter-Notebooks-&amp;-Fastpages">
+<a class="anchor" href="#Jupyter-Notebooks-&amp;-Fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jupyter Notebooks &amp; Fastpages<a class="anchor-link" href="#Jupyter-Notebooks-&amp;-Fastpages">¶</a>
+</h1>
+<p>In this post, we will cover special features that fastpages provides has for Jupyter notebooks.  You can also write your blog posts with Word documents or markdown in fastpages, which contain many, but not all the same features.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Options-via-FrontMatter">
+<a class="anchor" href="#Options-via-FrontMatter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options via FrontMatter<a class="anchor-link" href="#Options-via-FrontMatter">¶</a>
+</h2>
+<p>The first cell in your Jupyter Notebook or markdown blog post contains front matter.  Front matter is metadata that can turn on/off options in your Notebook.  It is formatted like this:</p>
+
+<pre><code># Title
+&gt; Awesome summary
+- toc: true- branch: master- badges: true
+- comments: true
+- author: Hamel Husain &amp; Jeremy Howard
+- categories: [fastpages, jupyter]</code></pre>
+<p><strong>All of the above settings are enabled in this post, so you can see what they look like!</strong></p>
+<ul>
+<li>the summary field (preceeded by <code>&gt;</code>) will be displayed under your title, and will also be used by social media to display as the description of your page.</li>
+<li>
+<code>toc</code>: setting this to <code>true</code> will automatically generate a table of contents</li>
+<li>
+<code>badges</code>: setting this to <code>true</code> will display Google Colab and GitHub links on your blog post.</li>
+<li>
+<code>comments</code>: setting this to <code>true</code> will enable comments.  See <a href="https://github.com/fastai/fastpages#enabling-comments">these instructions</a> for more details.</li>
+<li>
+<code>author</code> this will display the authors names. </li>
+<li>
+<code>categories</code> will allow your post to be categorized on a "Tags" page, where readers can browse your post by categories.</li>
+</ul>
+<p><em>Markdown front matter is formatted similarly to notebooks.  The differences between the two can be <a href="https://github.com/fastai/fastpages#front-matter-related-options">viewed on the fastpages README</a>.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Code-Folding">
+<a class="anchor" href="#Code-Folding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Folding<a class="anchor-link" href="#Code-Folding">¶</a>
 </h2>
 </div>
 </div>
@@ -200,15 +256,7 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>put a <code>#hide</code> flag at the top of any cell you want to completely hide in the docs</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>put a <code>#collapse</code> flag at the top of any cell if you want to hide that cell by default, but stil have it be visible to the reader:</p>
+<p>put a <code>#collapse_show</code> flag at the top of any cell if you want to <strong>show</strong> that cell by default, but give the reader the option to hide it:</p>
 
 </div>
 </div>
@@ -273,220 +321,20 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to completely hide cells (not just collapse them), <a href="https://github.com/fastai/fastpages#hide-inputoutput-cells">read these instructions</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Interactive-Charts-With-Altair">
 <a class="anchor" href="#Interactive-Charts-With-Altair" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interactive Charts With Altair<a class="anchor-link" href="#Interactive-Charts-With-Altair">¶</a>
 </h2>
-<p>Charts made with Altair remain interactive.  Example charts taken from <a href="https://github.com/uwdata/visualization-curriculum">this repo</a>, specifically <a href="https://github.com/uwdata/visualization-curriculum/blob/master/altair_interaction.ipynb">this notebook</a>.</p>
+<p>Interactive visualizations made with <a href="https://altair-viz.github.io/">Altair</a> remain interactive!</p>
+<p>We leave this below cell unhidden so you can enjoy a preview of syntax highlighting in fastpages, which uses the <a href="https://draculatheme.com/">Dracula theme</a>.</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-1:-DropDown">
-<a class="anchor" href="#Example-1:-DropDown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1: DropDown<a class="anchor-link" href="#Example-1:-DropDown">¶</a>
-</h3>
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># single-value selection over [Major_Genre, MPAA_Rating] pairs</span>
-<span class="c1"># use specific hard-wired values as the initial selected values</span>
-<span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">'Select'</span><span class="p">,</span>
-    <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">'Major_Genre'</span><span class="p">,</span> <span class="s1">'MPAA_Rating'</span><span class="p">],</span>
-    <span class="n">init</span><span class="o">=</span><span class="p">{</span><span class="s1">'Major_Genre'</span><span class="p">:</span> <span class="s1">'Drama'</span><span class="p">,</span> <span class="s1">'MPAA_Rating'</span><span class="p">:</span> <span class="s1">'R'</span><span class="p">},</span>
-    <span class="n">bind</span><span class="o">=</span><span class="p">{</span><span class="s1">'Major_Genre'</span><span class="p">:</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">genres</span><span class="p">),</span> <span class="s1">'MPAA_Rating'</span><span class="p">:</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_radio</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">mpaa</span><span class="p">)}</span>
-<span class="p">)</span>
-  
-<span class="c1"># scatter plot, modify opacity based on selection</span>
-<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
-    <span class="n">selection</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">'Rotten_Tomatoes_Rating:Q'</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">'IMDB_Rating:Q'</span><span class="p">,</span>
-    <span class="n">tooltip</span><span class="o">=</span><span class="s1">'Title:N'</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span><span class="n">selection</span><span class="p">,</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-<div id="altair-viz-1a49e83878ce4d678d7b162f3d6b510f"></div>
-<script type="text/javascript">
-  (function(spec, embedOpt){
-    const outputDiv = document.getElementById("altair-viz-1a49e83878ce4d678d7b162f3d6b510f");
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
-    };
-
-    function loadScript(lib) {
-      return new Promise(function(resolve, reject) {
-        var s = document.createElement('script');
-        s.src = paths[lib];
-        s.async = true;
-        s.onload = () => resolve(paths[lib]);
-        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-        document.getElementsByTagName("head")[0].appendChild(s);
-      });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else if (typeof vegaEmbed === "function") {
-      displayChart(vegaEmbed);
-    } else {
-      loadScript("vega")
-        .then(() => loadScript("vega-lite"))
-        .then(() => loadScript("vega-embed"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "circle", "encoding": {"opacity": {"condition": {"value": 0.75, "selection": "Select"}, "value": 0.05}, "tooltip": {"type": "nominal", "field": "Title"}, "x": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}, "y": {"type": "quantitative", "field": "IMDB_Rating"}}, "selection": {"Select": {"type": "single", "fields": ["Major_Genre", "MPAA_Rating"], "init": {"Major_Genre": "Drama", "MPAA_Rating": "R"}, "bind": {"Major_Genre": {"input": "select", "options": ["Action", "Adventure", "Black Comedy", "Comedy", "Concert/Performance", "Documentary", "Drama", "Horror", "Musical", "Romantic Comedy", "Thriller/Suspense", "Western"]}, "MPAA_Rating": {"input": "radio", "options": ["G", "PG", "PG-13", "R", "NC-17", "Not Rated"]}}}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json"}, {"mode": "vega-lite"});
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-2:-Tooltips">
-<a class="anchor" href="#Example-2:-Tooltips" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2: Tooltips<a class="anchor-link" href="#Example-2:-Tooltips">¶</a>
-</h3>
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">add_selection</span><span class="p">(</span>
-    <span class="n">alt</span><span class="o">.</span><span class="n">selection_interval</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="s1">'scales'</span><span class="p">,</span> <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])</span>
-<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">'Rotten_Tomatoes_Rating:Q'</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">'IMDB_Rating:Q'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">minExtent</span><span class="o">=</span><span class="mi">30</span><span class="p">)),</span> <span class="c1"># use min extent to stabilize axis title placement</span>
-    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">'Title:N'</span><span class="p">,</span> <span class="s1">'Release_Date:N'</span><span class="p">,</span> <span class="s1">'IMDB_Rating:Q'</span><span class="p">,</span> <span class="s1">'Rotten_Tomatoes_Rating:Q'</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
-<span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-<div id="altair-viz-c022b476f4fb482ca6f609bf6ed082d2"></div>
-<script type="text/javascript">
-  (function(spec, embedOpt){
-    const outputDiv = document.getElementById("altair-viz-c022b476f4fb482ca6f609bf6ed082d2");
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
-    };
-
-    function loadScript(lib) {
-      return new Promise(function(resolve, reject) {
-        var s = document.createElement('script');
-        s.src = paths[lib];
-        s.async = true;
-        s.onload = () => resolve(paths[lib]);
-        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-        document.getElementsByTagName("head")[0].appendChild(s);
-      });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else if (typeof vegaEmbed === "function") {
-      displayChart(vegaEmbed);
-    } else {
-      loadScript("vega")
-        .then(() => loadScript("vega-lite"))
-        .then(() => loadScript("vega-embed"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://vega.github.io/vega-datasets/data/movies.json"}, "mark": "circle", "encoding": {"tooltip": [{"type": "nominal", "field": "Title"}, {"type": "nominal", "field": "Release_Date"}, {"type": "quantitative", "field": "IMDB_Rating"}, {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}], "x": {"type": "quantitative", "field": "Rotten_Tomatoes_Rating"}, "y": {"type": "quantitative", "axis": {"minExtent": 30}, "field": "IMDB_Rating"}}, "height": 400, "selection": {"selector001": {"type": "interval", "bind": "scales", "encodings": ["x"]}}, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.2.json"}, {"mode": "vega-lite"});
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-3:-More-Tooltips">
-<a class="anchor" href="#Example-3:-More-Tooltips" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 3: More Tooltips<a class="anchor-link" href="#Example-3:-More-Tooltips">¶</a>
-</h3>
 </div>
 </div>
 </div>
@@ -554,10 +402,10 @@
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-9283d3681fd24aafa3d1e2f9ad193ecf"></div>
+<div id="altair-viz-f9891c10f7fa4bcd80a749e3e62e065a"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
-    const outputDiv = document.getElementById("altair-viz-9283d3681fd24aafa3d1e2f9ad193ecf");
+    const outputDiv = document.getElementById("altair-viz-f9891c10f7fa4bcd80a749e3e62e065a");
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
       "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
@@ -722,86 +570,15 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Images">
-<a class="anchor" href="#Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images<a class="anchor-link" href="#Images">¶</a>
-</h2>
-<h3 id="Local-Images">
-<a class="anchor" href="#Local-Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local Images<a class="anchor-link" href="#Local-Images">¶</a>
-</h3>
-<p>You can reference local images and they will be copied and rendered on your blog automatically.  You can include these with the following markdown syntax:</p>
-<p><code>![](my_icons/fastai_logo.png)</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/images/copied_from_nb/my_icons/fastai_logo.png" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Remote-Images">
-<a class="anchor" href="#Remote-Images" aria-hidden="true"><span class="octicon octicon-link"></span></a>Remote Images<a class="anchor-link" href="#Remote-Images">¶</a>
-</h3>
-<p>Remote images can be included with the following markdown syntax:</p>
-<p><code>![](https://image.flaticon.com/icons/svg/36/36686.svg)</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://image.flaticon.com/icons/svg/36/36686.svg" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Animated-Gifs">
-<a class="anchor" href="#Animated-Gifs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Animated Gifs<a class="anchor-link" href="#Animated-Gifs">¶</a>
-</h3>
-<p>Animated Gifs work, too!</p>
-<p><code>![](https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif)</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif" alt=""></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Captions">
-<a class="anchor" href="#Captions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Captions<a class="anchor-link" href="#Captions">¶</a>
-</h3>
-<p>You can include captions with markdown images like this:</p>
+<h1 id="Images-w/Captions">
+<a class="anchor" href="#Images-w/Captions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Images w/Captions<a class="anchor-link" href="#Images-w/Captions">¶</a>
+</h1>
+<p>You can include markdown images with captions like this:</p>
 
 <pre><code>![](https://www.fast.ai/images/fastai_paper/show_batch.png "Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/")</code></pre>
 <p><img src="https://www.fast.ai/images/fastai_paper/show_batch.png" alt="" title="Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/"></p>
+<p>Of course, the caption is optional.</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Other-Elements">
-<a class="anchor" href="#Other-Elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Elements<a class="anchor-link" href="#Other-Elements">¶</a>
-</h1>
 </div>
 </div>
 </div>
@@ -882,6 +659,60 @@
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="More-Examples">
+<a class="anchor" href="#More-Examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Examples<a class="anchor-link" href="#More-Examples">¶</a>
+</h2>
+<p>This <a href="https://fastpages.fast.ai/2020/02/20/test.html">tutorial</a> contains more examples of what you can do with notebooks.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-fastpages-Converts-Notebooks-to-Blog-Posts">
+<a class="anchor" href="#How-fastpages-Converts-Notebooks-to-Blog-Posts" aria-hidden="true"><span class="octicon octicon-link"></span></a>How fastpages Converts Notebooks to Blog Posts<a class="anchor-link" href="#How-fastpages-Converts-Notebooks-to-Blog-Posts">¶</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fastpages uses <a href="https://nbdev.fast.ai/index.html">nbdev</a> to power the conversion process of Jupyter Notebooks to blog posts.  When you save a notebook into the <code>/_notebooks</code> folder of your repository, GitHub Actions applies <code>nbdev</code> against those notebooks automatically.  The same process occurs when you save Word documents or markdown files into the <code>_word</code> or <code>_posts</code> directory, respectively.</p>
+<p>We will discuss how GitHub Actions work in a follow up blog post.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources-&amp;-Next-Steps">
+<a class="anchor" href="#Resources-&amp;-Next-Steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources &amp; Next Steps<a class="anchor-link" href="#Resources-&amp;-Next-Steps">¶</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We highly encourage you to start blogging with <code>fastpages</code>!  Some resources that may be helpful:</p>
+<ul>
+<li>
+<a href="https://github.com/fastai/fastpages">fastpages repo</a> - this is where you can go to create your own fastpages blog!</li>
+<li>Fastai forums - <a href="https://forums.fast.ai/c/fastai-users/nbdev/">nbdev &amp; blogging category</a>.  You can ask questions about fastpages here, as well as suggest new features.</li>
+<li>
+<a href="https://github.com/fastai/nbdev">nbdev</a>: this project powers the conversion of Jupyter notebooks to blog posts.</li>
+</ul>
+<p>If you end up writing a blog post using fastpages, please let us know on Twitter: <a href="https://twitter.com/jeremyphoward">@jeremyphoward</a>, <a href="https://twitter.com/hamelhusain">@HamelHusain</a>.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
@@ -893,7 +724,7 @@
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/fastpages/jupyter/2020/02/20/test.html" hidden></a>
+</script><a class="u-url" href="/fastpages/jupyter/2020/02/21/introducing-fastpages.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
