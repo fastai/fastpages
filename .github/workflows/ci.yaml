@@ -19,11 +19,11 @@ jobs:
 
     - name: fastpages repo only - convert notebooks and word docs to posts
       if: github.repository == 'fastai/fastpages'
-      uses: ./ # use code in this repo instead of fastai/fastpages@master, for testing.
+      uses: ./ # use code in this repo instead of a pinned version, for testing.
 
     - name: convert notebooks and word docs to posts
       if: github.repository != 'fastai/fastpages'
-      uses: fastai/fastpages@master # TODO use a pinned version
+      uses: fastai/fastpages@v2.1.2 # use a pinned version
 
     - name: setup directories for Jekyll build
       run: |
