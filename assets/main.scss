@@ -345,3 +345,12 @@ h6:hover .anchor-link {
   color:rgb(187, 129, 129) !important;
   font-size: 13px !important;
 }
+
+// lunr search styles
+#lunrsearchresults {padding-top: 0.2rem;}
+.lunrsearchresult {padding-bottom: 1rem;}
+.lunrsearchresult .title {color: #d9230f;}
+.lunrsearchresult .url {color: silver;}
+.lunrsearchresult a {display: block; color: #777;}
+.lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+.lunrsearchresult a:hover .title {text-decoration: underline;}
