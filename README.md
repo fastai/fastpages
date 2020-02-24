@@ -188,7 +188,7 @@ docker-compose down
 
 If you need to restart just the Jekyll server, and it's running in the background — you can do `docker-compose restart jekyll`.
 
-_Note that the blog won't autoreload on change, you'll have to hit refresh manually._
+_Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
 
 ### Converting the pages locally
 
