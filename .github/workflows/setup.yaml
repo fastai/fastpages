@@ -56,6 +56,7 @@ jobs:
         git checkout -B fastpages-automated-setup
         git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _checkbox.png
         git rm .github/workflows/chatops.yaml
+        git rm -rf .github/ISSUE_TEMPLATE
         git add _config.yml README.md _setup_pr_template.md
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
