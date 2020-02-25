@@ -1,5 +1,5 @@
 # Development Guide
-  - [Seeing All Options From the Terminal]
+  - [Seeing All Options From the Terminal](#seeing-all-commands-in-the-terminal)
   - [Basic usage: viewing your blog](#basic-usage-viewing-your-blog)
   - [Converting the pages locally](#converting-the-pages-locally)
   - [Visual Studio Code integration](#visual-studio-code-integration)
@@ -12,7 +12,7 @@
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
 
-## Seeing all commands in the terminal
+## Seeing All Commands In The Terminal
 
 There are many different `docker-compose` commands that are necessary to manage the lifecycle of the fastpages Docker containers.  To make this easier, we aliased common commands in a [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html).  
 
