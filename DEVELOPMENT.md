@@ -6,7 +6,7 @@
   - [Advanced usage](#advanced-usage)
     - [Rebuild all the containers](#rebuild-all-the-containers)
     - [Removing all the containers](#removing-all-the-containers)
-    - [Attaching a shell in a services / container](#attaching-a-shell-in-a-services-container)
+    - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
   
 
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
@@ -34,7 +34,7 @@ When you run this command for the first time, it'll build the required Docker im
 This command will build all the necessary containers and run the following services:
 1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
 2. A Jupyter Notebook server — use this to write and edit your posts.  **You must see your terminal logs to find the link**, which will start with `https://127.0.0.1:8888`
-3. A Jekyll server on `https://127.0.0.1:4000` — use this to preview your blog.
+3. A Jekyll server on https://127.0.0.1:4000 — use this to preview your blog.
 
 The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop.
 If you want to run the services in the background:
@@ -50,6 +50,18 @@ make stop
 If you need to restart just the Jekyll server, and it's running in the background — you can do `restart-jekyll`.
 
 _Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
+
+**If containers won't start**: try `make build` first, this would rebuild all the containers from scratch, This might fix the majority of update problems.
+
+**To get the Jupyter Notebook Token**: look for the Jupyter Notebook link in the output log of `make server` command, it'll post the link with the token param in it. If you're running containers in background, you can get the token by running the following command: 
+
+```bash
+# assuming you're running containers in background with docker-compose up -d
+# attach to bash in jupyter container
+make bash-nb
+# get notebook list & token
+jupyter notebook list
+```
 
 ## Converting the pages locally
 
@@ -82,7 +94,7 @@ Want to start from scratch and remove all the containers?
 make remove
 ```
 
-### Attaching a shell in a services / container
+### Attaching a shell to a container
 You can attach a terminal to a running service:
 
 ```bash
@@ -98,4 +110,4 @@ make bash-nb
 ```
 
 _Note: you can use `docker-compose run` instead of `make bash-nb` or `make bash-jekyll` to start a service and then attach to it.
-Or you can run all your services in the background, `docker-compose up -d`, and then use `make bash-*` as in the example above._
+Or you can run all your services in the background, `make server-detached`, and then use `make bash-nb` or `make bash-jekyll` as in the examples above._
