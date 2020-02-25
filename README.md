@@ -41,7 +41,7 @@ See below for a more detailed list of features.
 - [Welcome To `fastpages`](#welcome-to-fastpages)
 	- [Setup Instructions](#setup-instructions)
 	- [Front-Matter related options](#front-matter-related-options)
-		- [Configure Title & Summary](#configure-title-summary)
+		- [Configure Title & Summary](#configure-title--summary)
 		- [Table of Contents](#table-of-contents)
 		- [Colab And GitHub Badges](#colab-and-github-badges)
 		- [Tags](#categories)
