@@ -7,7 +7,7 @@
     - [Rebuild all the containers](#rebuild-all-the-containers)
     - [Removing all the containers](#removing-all-the-containers)
     - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
-  
+
 
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
@@ -59,6 +59,7 @@ _Note that the blog won't autoreload on change, you'll have to refresh your brow
 # assuming you're running containers in background with docker-compose up -d
 # attach to bash in jupyter container
 make bash-nb
+
 # get notebook list & token
 jupyter notebook list
 ```
@@ -111,3 +112,4 @@ make bash-nb
 
 _Note: you can use `docker-compose run` instead of `make bash-nb` or `make bash-jekyll` to start a service and then attach to it.
 Or you can run all your services in the background, `make server-detached`, and then use `make bash-nb` or `make bash-jekyll` as in the examples above._
+
