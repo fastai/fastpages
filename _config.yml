@@ -42,6 +42,7 @@ exclude:
   - docker-compose.yml
   - action.yml
   - README_TEMPLATE.md
+  - Makefile
 
 # Everything below here should be left alone. Modifications may break fastpages
 theme: minima

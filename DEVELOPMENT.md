@@ -1,5 +1,5 @@
 # Development Guide
-
+  - [Seeing All Options From the Terminal](#seeing-all-commands-in-the-terminal)
   - [Basic usage: viewing your blog](#basic-usage-viewing-your-blog)
   - [Converting the pages locally](#converting-the-pages-locally)
   - [Visual Studio Code integration](#visual-studio-code-integration)
@@ -8,8 +8,17 @@
     - [Removing all the containers](#removing-all-the-containers)
     - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
 
+
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
+
+## Seeing All Commands In The Terminal
+
+There are many different `docker-compose` commands that are necessary to manage the lifecycle of the fastpages Docker containers.  To make this easier, we aliased common commands in a [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html).  
+
+You can quickly see all available commands by running this command in the root of your repository:
+
+`make`
 
 ## Basic usage: viewing your blog
 
@@ -17,14 +26,14 @@ All of the commands in this block assume that you're in your blog root directory
 To run the blog with live preview:
 
 ```bash
-docker-compose up
+make server
 ```
 
 When you run this command for the first time, it'll build the required Docker images, and the process might take a couple minutes.
 
 This command will build all the necessary containers and run the following services:
 1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
-2. A Jupyter Notebook that will run on https://127.0.0.1:8888 — use this to write and edit your posts.
+2. A Jupyter Notebook server — use this to write and edit your posts.  **You must see your terminal logs to find the link**, which will start with `https://127.0.0.1:8888`
 3. A Jekyll server on https://127.0.0.1:4000 — use this to preview your blog.
 
 The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop.
@@ -32,25 +41,24 @@ If you want to run the services in the background:
 
 ```bash
 # run all services in the background
-docker-compose up -d
+make server-detached
 
 # stop the services
-docker-compose down
+make stop
 ```
 
-If you need to restart just the Jekyll server, and it's running in the background — you can do `docker-compose restart jekyll`.
+If you need to restart just the Jekyll server, and it's running in the background — you can do `restart-jekyll`.
 
 _Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
 
-**If containers won't start**: try `docker-compose build --force-rm --no-cache` first, this would rebuild all the containers from scratch, This might fix the majority of update problems.
+**If containers won't start**: try `make build` first, this would rebuild all the containers from scratch, This might fix the majority of update problems.
 
-**To get the Jupyter Notebook Token**: look for the Jupyter Notebook link in the output log of `docker-compose up` command, it'll post the link with the token param in it. If you're running containers in background, you can get the token by running the following command: 
+**To get the Jupyter Notebook Token**: look for the Jupyter Notebook link in the output log of `make server` command, it'll post the link with the token param in it. If you're running containers in background, you can get the token by running the following command: 
 
 ```bash
 # assuming you're running containers in background with docker-compose up -d
-
 # attach to bash in jupyter container
-docker-compose exec jupyter /bin/bash
+make bash-nb
 
 # get notebook list & token
 jupyter notebook list
@@ -61,15 +69,15 @@ jupyter notebook list
 If you just want to convert your notebooks and word documents to `.md` posts in `_posts`, this command will do it for you:
 
 ```bash
-docker-compose up converter
+make convert
 ```
 
-You can launch just the jekyll server with `docker-compose up jekyll`.
+You can launch just the jekyll server with `make server`.
 
 ## Visual Studio Code integration
 
 If you're using VSCode with the Docker extension, you can run three containers from the sidebar: `fastpages_jupyter_1`,`fastpages_watcher_1`, and `fastpages_jekyll_1`.
-The containers will only show up in the list after you run or build them for the first time. So if they're not in the list — try `docker-compose build` in the console.
+The containers will only show up in the list after you run or build them for the first time. So if they're not in the list — try `make build` in the console.
 
 ## Advanced usage
 
@@ -77,18 +85,14 @@ The containers will only show up in the list after you run or build them for the
 If you changed files in `_action_files` directory, you might need to rebuild the containers manually, without cache.
 
 ```bash
-docker-compose build --force-rm --no-cache
+make build
 ```
 
 ### Removing all the containers
 Want to start from scratch and remove all the containers?
 
 ```
-# make sure the containers are stopped:
-docker-compose stop
-
-# remove stopped containers
-docker-compose rm
+make remove
 ```
 
 ### Attaching a shell to a container
@@ -99,12 +103,13 @@ You can attach a terminal to a running service:
 # If the container is already running:
 
 # attach to a bash shell in the jekyll service
-docker-compose exec jekyll /bin/bash
+make bash-jekyll
 
 # attach to a bash shell in the jupyter / watcher service.
 # they're essentially running the same software inside.
-docker-compose exec watcher /bin/bash
+make bash-nb
 ```
 
-_Note: you can use `docker-compose run` instead of `docker-compose exec` to start a service and then attach to it.
-Or you can run all your services in the background, `docker-compose up -d`, and then use `docker-compose exec` as in the example above._
+_Note: you can use `docker-compose run` instead of `make bash-nb` or `make bash-jekyll` to start a service and then attach to it.
+Or you can run all your services in the background, `make server-detached`, and then use `make bash-nb` or `make bash-jekyll` as in the examples above._
+
