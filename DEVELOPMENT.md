@@ -47,7 +47,7 @@ make server-detached
 make stop
 ```
 
-If you need to restart just the Jekyll server, and it's running in the background — you can do `restart-jekyll`.
+If you need to restart just the Jekyll server, and it's running in the background — you can do `make restart-jekyll`.
 
 _Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
 
