@@ -6,7 +6,7 @@
   - [Advanced usage](#advanced-usage)
     - [Rebuild all the containers](#rebuild-all-the-containers)
     - [Removing all the containers](#removing-all-the-containers)
-    - [Attaching a shell in a services / container](#attaching-a-shell-in-a-services-container)
+    - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
 
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
@@ -25,7 +25,7 @@ When you run this command for the first time, it'll build the required Docker im
 This command will build all the necessary containers and run the following services:
 1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
 2. A Jupyter Notebook that will run on https://127.0.0.1:8888 — use this to write and edit your posts.
-3. A Jekyll server on `https://127.0.0.1:4000` — use this to preview your blog.
+3. A Jekyll server on https://127.0.0.1:4000 — use this to preview your blog.
 
 The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop.
 If you want to run the services in the background:
@@ -41,6 +41,20 @@ docker-compose down
 If you need to restart just the Jekyll server, and it's running in the background — you can do `docker-compose restart jekyll`.
 
 _Note that the blog won't autoreload on change, you'll have to refresh your browser manually._
+
+**If containers won't start**: try `docker-compose build --force-rm --no-cache` first, this would rebuild all the containers from scratch, This might fix the majority of update problems.
+
+**To get the Jupyter Notebook Token**: look for the Jupyter Notebook link in the output log of `docker-compose up` command, it'll post the link with the token param in it. If you're running containers in background, you can get the token by running the following command: 
+
+```bash
+# assuming you're running containers in background with docker-compose up -d
+
+# attach to bash in jupyter container
+docker-compose exec jupyter /bin/bash
+
+# get notebook list & token
+jupyter notebook list
+```
 
 ## Converting the pages locally
 
@@ -77,7 +91,7 @@ docker-compose stop
 docker-compose rm
 ```
 
-### Attaching a shell in a services / container
+### Attaching a shell to a container
 You can attach a terminal to a running service:
 
 ```bash
