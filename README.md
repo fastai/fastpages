@@ -69,6 +69,8 @@ See below for a more detailed list of features.
 
 2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
+For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
+
 
 ## Front-Matter related options
 
