@@ -45,6 +45,7 @@ exclude:
   - Makefile
 
 # Everything below here should be left alone. Modifications may break fastpages
+future: true
 theme: minima
 plugins:
   - jekyll-feed
