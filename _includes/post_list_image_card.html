@@ -1,0 +1,16 @@
+<div class="Box box-shadow-medium rounded-1 col-12">
+    {%- if post.image -%}
+    <div class="col-4 d-table-cell p-3 v-align-middle">
+        <img class="image-preview " src="{{ post.image | relative_url }}" />
+      </div>
+    {%- endif -%}
+    <div class="col-8 d-table-cell p-3">
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        <p class="post-meta-description">{{ post.description }}</p>
+          <p class="post-meta">{{ post.date | date: date_format }}</p>
+      </div>
+  </div>
