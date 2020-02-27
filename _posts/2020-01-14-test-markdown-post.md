@@ -1,7 +1,7 @@
 ---
 toc: true
 description: A minimal example of using markdown with fastpages.
-categories: [fastpages, markdown]
+categories: [markdown]
 ---
 # Example Markdown Post
 
