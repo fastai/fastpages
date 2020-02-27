@@ -23,7 +23,7 @@ jobs:
 
     - name: convert notebooks and word docs to posts
       if: github.repository != 'fastai/fastpages'
-      uses: fastai/fastpages@v2 # use a pinned version for templates
+      uses: fastai/fastpages@v2.1.2 # use a pinned version for templates
 
     - name: setup directories for Jekyll build
       run: |
