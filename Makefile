@@ -2,27 +2,27 @@ help:
 	cat Makefile
 
 # start (or restart) the services
-server:
+server: .FORCE
 	docker-compose down || true;
 	docker-compose up
 
 # start (or restart) the services in detached mode
-server-detached:
+server-detached: .FORCE
 	docker-compose down || true;
 	docker-compose up -d
 
 # build or rebuild the services WITHOUT cache
-build:
+build: .FORCE
 	docker-compose stop || true; docker-compose rm || true;
 	docker-compose build --force-rm --no-cache
 
 # rebuild the services WITH cache
-quick-build:
+quick-build: .FORCE
 	docker-compose stop || true;
 	docker-compose build 
 
 # convert word & nb without Jekyll services
-convert:
+convert: .FORCE
 	docker-compose up converter
 
 # stop all containers
