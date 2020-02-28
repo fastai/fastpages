@@ -32,7 +32,7 @@ url: "https://fastpages.fast.ai" # the base hostname & protocol for your site, e
 #            "/blog/site"  is valid
 #            "blog/site"   is invalid  ( because doesn't begin with a /)
 #
-# 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here.
+# 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
 baseurl: "" # the subpath of your site, e.g. "/blog".
 
