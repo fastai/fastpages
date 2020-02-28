@@ -17,12 +17,7 @@ jobs:
       with:
         persist-credentials: false
 
-#     - name: fastpages repo only - convert notebooks and word docs to posts
-#       if: github.repository == 'fastai/fastpages'
-#       uses: ./ # use code in this repo instead of a pinned version, for testing.
-
     - name: convert notebooks and word docs to posts
-#       if: github.repository != 'fastai/fastpages'
       uses: ./_action_files
 
     - name: setup directories for Jekyll build
