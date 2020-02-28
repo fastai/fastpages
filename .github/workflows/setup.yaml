@@ -38,7 +38,7 @@ jobs:
         
         # edit settings.ini file to inject baseurl
         config.read(settings)
-        config['DEFAULT']['baseurl'] = repo_name
+        config['DEFAULT']['baseurl'] = f'/{repo_name}'
         with open('_action_files/settings.ini', 'w') as configfile:
           config.write(configfile)
 
