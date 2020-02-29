@@ -216,7 +216,7 @@ Save your Microsoft Word documents into the `/_word` folder with the same naming
 
 # Running the blog on your local machine
 
-See the [development guide](DEVELOPMENT.md).
+See the [development guide](_fastpages_docs/DEVELOPMENT.md).
 
 
 # Using The GitHub Action & Your Own Custom Blog
@@ -274,7 +274,7 @@ Detailed instructions on how to customize this blog are beyond the scope of this
 
 # Contributing To Fastpages
 
-Please see the [contributing guide](CONTRIBUTING.md).
+Please see the [contributing guide](_fastpages_docs/CONTRIBUTING.md).
 
 
 # FAQ

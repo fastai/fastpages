@@ -22,7 +22,7 @@ Great!  You have setup your repo.  Now its time to start writing content.  Some 
 
 - [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
 
-- [(Optional) Preview Your Blog Locally](DEVELOPMENT.md)
+- [(Optional) Preview Your Blog Locally](_fastpages_docs/DEVELOPMENT.md)
 
 Note: you may want to remove example blog posts from the `_posts`,  `_notebooks` or `_word` folders (but leave them empty, don't delete these folders) if you don't want these blog posts to appear on your site.
 

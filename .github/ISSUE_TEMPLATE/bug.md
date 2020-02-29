@@ -9,7 +9,7 @@ assignees: ''
 
 ## Prerequisites for filing a bug
 
-- [ ] Did you run the local development server as indicated in the [development guide](https://github.com/fastai/fastpages/blob/master/DEVELOPMENT.md)?  
+- [ ] Did you run the local development server as indicated in the [development guide](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/DEVELOPMENT.md)?  
   - Please include any useful logs or error messages from that
 - [ ] Have you searched opened / closed issues on this repo for a similar problem?
 - [ ] Have you searched the [fastai forums](https://forums.fast.ai/) for a similar problem?

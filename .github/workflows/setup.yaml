@@ -24,16 +24,16 @@ jobs:
 
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
-        readme_template_path = Path('README_TEMPLATE.md')
+        readme_template_path = Path('_fastpages_docs/README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
-        pr_msg_path = Path('_setup_pr_template.md')
+        pr_msg_path = Path('_fastpages_docs/_setup_pr_template.md')
         settings = Path('_action_files/settings.ini')
 
-        assert readme_template_path.exists(), 'Did not find README_TEMPLATE.md in the current directory!'
+        assert readme_template_path.exists(), 'Did not find _fastpages_docs/README_TEMPLATE.md in the current directory!'
         assert readme_path.exists(), 'Did not find README.md in the current directory!'
         assert config_path.exists(), 'Did not find _config.yml in the current directory!'
-        assert pr_msg_path.exists(), 'Did not find _setup_pr_template.md in the current directory!'
+        assert pr_msg_path.exists(), 'Did not find _fastpages_docs/_setup_pr_template.md in the current directory!'
         assert settings.exists(), 'Did not find _action_files/settings.ini in the current directory!'
         
         # edit settings.ini file to inject baseurl
@@ -64,11 +64,11 @@ jobs:
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
         git checkout -B fastpages-automated-setup
-        git rm README_TEMPLATE.md CONTRIBUTING.md CNAME action.yml _checkbox.png
+        git rm CNAME action.yml
         git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
         git rm .github/workflows/chatops.yaml
         git rm -rf .github/ISSUE_TEMPLATE
-        git add _config.yml README.md _setup_pr_template.md _action_files/settings.ini
+        git add _config.yml README.md _action_files/settings.ini
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
@@ -81,7 +81,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           var fs = require('fs');
-          var contents = fs.readFileSync('_setup_pr_template.md', 'utf8');
+          var contents = fs.readFileSync('_fastpages_docs/_setup_pr_template.md', 'utf8');
           github.pulls.create({
                         owner: context.repo.owner,
                         repo: context.repo.repo,
