@@ -29,4 +29,3 @@ for FILENAME in ${GITHUB_WORKSPACE}/_word/*.docx; do
     # Remove intermediate files
     rm _posts/*.bak
 done
-
