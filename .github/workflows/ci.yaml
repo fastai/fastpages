@@ -41,3 +41,27 @@ jobs:
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
         publish_dir: ./_site
+
+  build-site-windows:
+    if: ( github.event.commits[0].message != 'Initial commit' ) || github.run_number > 1
+    runs-on: windows-latest
+    steps:
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+
+    - name: convert notebooks and word docs to posts
+      uses: ./_action_files
+
+    - name: setup directories for Jekyll build
+      run: |
+        rm -rf _site
+        sudo chmod -R 777 .
+      shell: bash
+        
+    - name: Jekyll build
+      uses: docker://jekyll/jekyll
+      with:
+        args: jekyll build -V
