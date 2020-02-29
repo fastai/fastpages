@@ -93,16 +93,16 @@ Similarly, in a markdown document the same front matter would be defined like th
 
   ```yaml
   ---
-  - title: "My Title"
-  - summary: "Awesome summary"
-  - toc: false
-  - branch: master
-  - badges: true
-  - comments: true
-  - image: images/some_folder/your_image.png
-  - categories: [fastpages, jupyter]
-  - metadata_key1: metadata_value1
-  - metadata_key2: metadata_value2
+  title: "My Title"
+  summary: "Awesome summary"
+  toc: false
+  branch: master
+  badges: true
+  comments: true
+  image: images/some_folder/your_image.png
+  categories: [fastpages, jupyter]
+  metadata_key1: metadata_value1
+  metadata_key2: metadata_value2
   ---
   ```
 
