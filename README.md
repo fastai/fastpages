@@ -40,23 +40,24 @@ See below for a more detailed list of features.
 
 - [Welcome To `fastpages`](#welcome-to-fastpages)
 	- [Setup Instructions](#setup-instructions)
-	- [Front-Matter related options](#front-matter-related-options)
+	- [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
 		- [Configure Title & Summary](#configure-title--summary)
 		- [Table of Contents](#table-of-contents)
 		- [Colab And GitHub Badges](#colab-and-github-badges)
 		- [Tags](#categories)
 		- [Enabling Comments](#enabling-comments)
 		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
-	- [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
-		- [Hide Input/Output Cells](#hide-inputoutput-cells)
-		- [Collapsable Code Cells](#collapsable-code-cells)
-		- [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
-		- [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
-	- [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
-	- [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
+  - [Site Wide Configuration Options](#site-wide-configuration-options)
+  - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
+	  - [Hide Input/Output Cells](#hide-inputoutput-cells)
+	  - [Collapsable Code Cells](#collapsable-code-cells)
+	  - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
+	  - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
+  - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
+  - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
 - [Running the blog on your local machine](#running-the-blog-on-your-local-machine)
 - [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
-		- [Optional Inputs](#optional-inputs)
+	- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [FAQ](#faq)
 
@@ -72,9 +73,11 @@ See below for a more detailed list of features.
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
 
-## Front-Matter related options
+## Customizing Blog Posts With Front Matter
 
-In a notebook, [front matter](https://jekyllrb.com/docs/front-matter/) is defined as a markdown cell at the beginning of the notebook with the following contents:
+[Front matter](https://jekyllrb.com/docs/front-matter/) allows you to toggle various options on/off for each blog post, as well as pass metadata to various features of fastpages.
+
+In a notebook, front matter is defined as a markdown cell at the beginning of the notebook with the following contents:
 
   ```markdown
   # "Title"
@@ -132,8 +135,21 @@ This option works for **notebooks only**
 ### Categories
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
 
-    ` - categories: [fastpages, jupyter]`
+    In a notebook:
+    
+    ```
+    # "My Title"
+    - categories: [fastpages, jupyter]
+    ```
 
+    In a markdown document:
+
+    ```
+    ---
+    title: "My Title"
+    categories: [fastpages, jupyter]
+    ---
+    ```
 
   You can see a preview of what this looks like [here](https://fastpages.fast.ai/categories/).
 
@@ -163,12 +179,40 @@ On social media sites like Twitter, an image preview can be automatically shown 
 
 Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
 
+## Site Wide Configuration Options
+
+**It is recommended that everyone personalizes their blogging site by setting site-wide configration options**. These options can be found in `/_config.yml`.  Below is a description of various options that are available.
+
+- `title`: this is the title that appears on the upper left hand corner on the header of all your pages.  
+- `description`: this description will show up in various places when a preview for your site is generated (for example, on social media).
+- `github_username`: this allows your site to display a link to your GitHub page in the foooter.
+- `github_repo`: this allows your site to render links back to your repository for various features such as links to GitHub and Colab for notebooks.
+- `url`: This does not need to be changed unless you have a custom domain.  **Note: leave out the trailing / from this value.**
+- `baseurl`: See the comments in `/_config.yml` for instructions ( "Special Instructions for baseurl" on setting this value properly.  If you do not have a custom domain, then you can likely ignore this option.
+- `email`: this is currently unused.  Ignore.
+- `twitter_username`: creates a link in your footer to your twitter page.
+- `use_math`: Set this to `true` to get LaTeX math equation support.  This is off by default as it otherwhise loads javascript into each page that may not be used.
+- `show_description`: This shows a description under the title of your blog posts on your homepage that contains a list of your blog posts.  Set to `true` by default.
+- `google_analytics`: Optionally use a [Google Analytics](http://www.google.com/analytics/) ID for tracking if desired. 
+- `show_image`: If set to true, this uses the `image` parameter in the front matter of your blog posts to render a preview of your blogs as shown below.  This is set to `false` by default.
+  When show_image is set to `true` your homepage will look like this:
+
+  ![home page](/_fastpages_docs/_show_image_true.png)
+
+- `show_tags`: You can toggle the display of tags on your blog posts on or off by setting this value to `false`.  This is set to `true` by default, which which renders the following links for tags on your blog posts like this:
+
+![tags](_fastpages_docs/_post_tags.png)
+
 
 ## Writing Blog Posts With Jupyter
 
 ### Hide Input/Output Cells
 
-Place the comment `#hide` at the beginning of a code cell and it wil **hide both the input and the output** of that cell. If you only want to hide just the input or the output, use the `hide input` [Jupyter Extension](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/hide_input/readme.html)
+Place the comment `#hide` at the beginning of a code cell and it wil **hide both the input and the output** of that cell. 
+
+A `#hide_input` comment at the top of any cell will **only hide the input**.
+
+Furthermore, the `hide input` [Jupyter Extension](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/hide_input/readme.html) can be used to hide cell inputs or outputs, which will be respected by fastpages.
 
 ### Collapsable Code Cells
 
