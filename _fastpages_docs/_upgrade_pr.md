@@ -1,6 +1,6 @@
 Hello :wave: @{_username_}! 
 
-This PR pulls the most recent files from [fastpages](https://github.com/fastai/fastpages), and attempts to replace relevant files in your repository, without changing the content of your blog posts.  This allows you to receive bug fixes and extra features of fastpages.
+This PR pulls the most recent files from [fastpages](https://github.com/fastai/fastpages), and attempts to replace relevant files in your repository, without changing the content of your blog posts.  This allows you to receive bug fixes and feature updates.
 
 ## Warning
 
