@@ -41,3 +41,15 @@ jobs:
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
         publish_dir: ./_site
+  
+  test-windows-dev-environment:
+    if: github.repository == 'fastai/fastpages'
+    runs-on: windows-latest
+    steps:
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@master
+
+    - name: build development environment
+      run: make build
+      shell: bash
