@@ -1,4 +1,9 @@
-{% assign base_url = include.content | remove: "<code>" | remove: "</code>" |  split: "/" | last %}
+{% if include.content contains  "<code>" %}
+    {% assign base_url = include.content | remove: "<code>" | remove: "</code>" |  split: "/" | last %}
+{% else %}
+    {% assign url = include.content | remove: "</a>" | split: ">" | last %}
+    {% assign base_url = url |  split: "/" | last %}
+{% endif %}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{base_url}}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{base_url}}" frameborder="0" allowfullscreen></iframe>
 </center>
