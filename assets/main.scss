@@ -279,7 +279,6 @@ li {
  }
 
 //  Code Folding
-
  details.description[open] summary::after {
   content: attr(data-open);
 }
@@ -288,10 +287,12 @@ details.description:not([open]) summary::after {
   content: attr(data-close);
 }
 
+// Notebook badges
 .notebook-badge-image {
   border:0 !important;
 }
 
+// Adjust font size for footnotes.
 .footnotes {
   font-size: 12px !important;
   p{
@@ -299,9 +300,12 @@ details.description:not([open]) summary::after {
  }
 }
 
+// Adjust with of social media icons were getting cut off
 .social.svg-icon {
   width: 21px !important;
 }
+
+// Make Anchor Links Appear Only on Hover
 
 .anchor-link {
   opacity: 0;
@@ -321,10 +325,6 @@ h6:hover .anchor-link {
   opacity: 1;
 }
 
-.page-description {
-  color: #585858;
-  font-size: 110%;
-}
 
 // category tags
 .category-tags {
@@ -332,11 +332,18 @@ h6:hover .anchor-link {
   margin-bottom: .25rem !important;
 }
 
+// Custom styling for homepage post previews
 .post-meta-title{
   margin-top: .25em;
   margin-bottom: .25em;
 }
 
+.page-description {
+  color: #585858;
+  font-size: 110%;
+}
+
+// Custom styling for category tags
 .category-tags-icon {
   font-size: 75% !important;
   padding-left: 0.375em;
