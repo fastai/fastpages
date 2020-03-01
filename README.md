@@ -179,7 +179,7 @@ Note: for this setting **you can only reference image files and folders in the `
 
 ## Site Wide Configuration Options
 
-**It is recommended that everyone personalizes their blogging site by setting site-wide configration options**. These are options present in `/_config.yml`.  Below is a description of various options that are available.
+**It is recommended that everyone personalizes their blogging site by setting site-wide configration options**. These options can be found in `/_config.yml`.  Below is a description of various options that are available.
 
 - `title`: this is the title that appears on the upper left hand corner on the header of all your pages.  
 - `description`: this description will show up in various places when a preview for your site is generated (for example, on social media).
