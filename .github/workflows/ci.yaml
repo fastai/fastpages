@@ -51,7 +51,7 @@ jobs:
       uses: actions/checkout@master
       
     - name: configure docker
-      run: $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchLinuxEngine
+      run: ProgramFiles\Docker\Docker\DockerCli.exe -SwitchLinuxEngine
       
     - name: build development environment
       run: make build
