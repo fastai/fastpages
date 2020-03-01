@@ -202,7 +202,7 @@ Note: for this setting **you can only reference image files and folders in the `
 ![tags](_fastpages_docs/_post_tags.png)
 
 
-## Writing Blog Poss With Jupyter
+## Writing Blog Posts With Jupyter
 
 ### Hide Input/Output Cells
 
