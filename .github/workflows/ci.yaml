@@ -49,7 +49,10 @@ jobs:
 
     - name: Copy Repository Contents
       uses: actions/checkout@master
-
+      
+    - name: configure docker
+      run: $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchLinuxEngine
+      
     - name: build development environment
       run: make build
       shell: bash
