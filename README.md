@@ -40,7 +40,7 @@ See below for a more detailed list of features.
 
 - [Welcome To `fastpages`](#welcome-to-fastpages)
 	- [Setup Instructions](#setup-instructions)
-	- [Front-Matter related options](#front-matter-related-options)
+	- [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
 		- [Configure Title & Summary](#configure-title--summary)
 		- [Table of Contents](#table-of-contents)
 		- [Colab And GitHub Badges](#colab-and-github-badges)
@@ -73,9 +73,11 @@ See below for a more detailed list of features.
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
 
-## Front-Matter related options
+## Customizing Blog Posts With Front Matter
 
-In a notebook, [front matter](https://jekyllrb.com/docs/front-matter/) is defined as a markdown cell at the beginning of the notebook with the following contents:
+[Front matter](https://jekyllrb.com/docs/front-matter/) allows you to toggle various options on/off for each blog post, as well as pass metadata to various features of fastpages.
+
+In a notebook, front matter is defined as a markdown cell at the beginning of the notebook with the following contents:
 
   ```markdown
   # "Title"
