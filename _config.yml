@@ -56,12 +56,8 @@ show_tags: true
 google_analytics:
 
 exclude:
-  - CONTRIBUTING.md
-  - DEVELOPMENT.md
-  - settings.ini
   - docker-compose.yml
   - action.yml
-  - README_TEMPLATE.md
   - Makefile
 
 # this setting allows you to keep pages organized in the _pages folder
