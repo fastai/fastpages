@@ -355,10 +355,27 @@ h6:hover .anchor-link {
 }
 
 // lunr search styles
-#lunrsearchresults {padding-top: 0.2rem;}
-.lunrsearchresult {padding-bottom: 1rem;}
+#lunrsearchresults {padding-top: 0.2rem}
+.lunrsearchresult {
+  padding-bottom: 1rem;
+}
+.lunrsearchresult{
+  p.title{
+    padding-bottom: 0rem;
+    margin-bottom: .2rem;
+  }
+  .description{
+    color: black;
+  }
+}
 .lunrsearchresult .title {color: #d9230f;}
 .lunrsearchresult .url {color: silver;}
 .lunrsearchresult a {display: block; color: #777;}
 .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
 .lunrsearchresult a:hover .title {text-decoration: underline;}
+
+.page-search .list-search .hint {
+  // font-size: inherit;
+  font-weight: bold;
+  color: hsl(290, 96%, 11%);
+}

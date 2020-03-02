@@ -1,0 +1,9 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<ul>
+  {%- for post in site.posts %}
+  <li>{{ post.content | replace: '. ', ' . ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip }}</li>
+  {%- endfor %}
+</ul>

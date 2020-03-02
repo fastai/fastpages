@@ -4,15 +4,22 @@ permalink: /search/
 title: Search
 search: exclude
 ---
+<!-- Adapted from https://github.com/TMaize/tmaize-blog -->
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+<script>window.blog={baseurl:"{{site.baseurl}}", buildAt:"{{buildAt}}"}</script>
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/blog.js?t={{ buildAt }}"></script>
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/search.js?t={{ buildAt }}"></script>
 
-<!-- adapted from https://jekyllcodex.org/without-plugin/search-lunr/ -->
-
-<script src="/assets/js/vendor/lunr.min.js"></script>
-<script src="/assets/js/search.js"></script>
-
-<form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);" onInput="return lunr_search(document.getElementById('lunrsearch').value);" autocomplete="off">
-    <p><input type="text" class="form-control input-block form-control" id="lunrsearch" name="q" maxlength="500" value="" placeholder="Search" /></p>
-</form>
-<div id="lunrsearchresults">
-    <ul></ul>
+<div class="page page-search">
+    <p><input id="search-input" type="text" class="form-control input-block form-control" placeholder="Search"></input></p>
+        <ul class="list-search">
+        {%- for post in site.posts  %}
+            <li class="lunrsearchresult" hidden>
+                <a href="{{site.baseurl}}{{ post.url }}">
+                    <p class="title">{{ post.date | date: "%Y/%m/%d" }} - {{ post.title }}</p>
+                    <p class="content"></p>
+                </a>
+            </li>
+        {%- endfor %}
+        </ul>
 </div>
