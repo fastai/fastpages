@@ -15,7 +15,7 @@ assignees: ''
 
 ## Please include the following information
 
-**Failure to provide this information or going through these steps will result in automatic closing of the issue **
+**Failure to provide this information or going through these steps will result in automatic closing of the issue**
 
 1. Steps to reproduce the problem
 2. A link to the notebook or markdown file where the error is occuring
