@@ -6,6 +6,7 @@ search: exclude
 ---
 <!-- Adapted from https://github.com/TMaize/tmaize-blog -->
 {%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 <script>window.blog={baseurl:"{{site.baseurl}}", buildAt:"{{buildAt}}"}</script>
 <script type="text/javascript" src="{{site.baseurl}}/assets/js/blog.js?t={{ buildAt }}"></script>
 <script type="text/javascript" src="{{site.baseurl}}/assets/js/search.js?t={{ buildAt }}"></script>
@@ -16,7 +17,8 @@ search: exclude
         {%- for post in site.posts  %}
             <li class="lunrsearchresult" hidden>
                 <a href="{{site.baseurl}}{{ post.url }}">
-                    <p class="title">{{ post.date | date: "%Y/%m/%d" }} - {{ post.title }}</p>
+                    <p class="title post-search-title">{{ post.title }}</p>
+                    <span class="post-search-meta"> •  {{ post.date | date: date_format }}</span>
                     <p class="content"></p>
                 </a>
             </li>
@@ -24,7 +26,7 @@ search: exclude
         {% for page in site.pages %}
             <li class="lunrsearchresult" hidden>
                 <a href="{{site.baseurl}}{{ post.url }}">
-                    <p class="title">{{ page.title }}</p>
+                    <p class="title">{{ page.title | escape }}</p>
                     <p class="content"></p>
                 </a>
             </li>

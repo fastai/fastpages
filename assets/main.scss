@@ -119,6 +119,16 @@ li {
     font-size: 15px;
     margin-bottom:.05rem !important;
   }
+  .post-search-meta {
+    color: rgb(109, 120, 138);
+    font-size: 14px;
+    margin-top:.02rem !important;
+    margin-bottom:.02rem !important;
+  }
+
+  .post-search-title {
+    display:inline;
+  }
 }
 
 /* Dracula Theme v1.2.5
@@ -368,7 +378,10 @@ h6:hover .anchor-link {
     color: black;
   }
 }
-.lunrsearchresult .title {color: #d9230f;}
+.lunrsearchresult .title {
+  color: #d9230f;
+  font-size: 18px;
+}
 .lunrsearchresult .url {color: silver;}
 .lunrsearchresult a {display: block; color: #777;}
 .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
