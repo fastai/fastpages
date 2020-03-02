@@ -69,7 +69,7 @@ jobs:
         git rm .github/workflows/chatops.yaml
         git rm .github/ISSUE_TEMPLATE/bug.md
         git rm .github/ISSUE_TEMPLATE/feature_request.md
-        git add _config.yml README.md _fastpages_docs/_setup_pr_template.md _action_files/settings.ini
+        git add _config.yml README.md _fastpages_docs/ _action_files/settings.ini
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
