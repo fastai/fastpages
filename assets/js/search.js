@@ -1,53 +1,300 @@
 ---
 ---
-{% assign counter = 0 %}
-var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' or page.search == 'exclude' %}{% else %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endif %}{% endfor %}{% for page in site.without-plugin %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}{% for page in site.posts %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
+// from https://github.com/pmarsceill/just-the-docs/blob/master/assets/js/just-the-docs.js#L47
 
-var idx = lunr(function () {
-    this.ref('id')
-    this.field('title')
-    this.field('body')
-    this.metadataWhitelist = ['position']
+(function (jtd, undefined) {
 
-    documents.forEach(function (doc) {
-        this.add(doc)
-    }, this)
-});
-function lunr_search(term) {
-    document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
-    if(term) {
-        document.getElementById('lunrsearchresults').innerHTML = "<p>Search results for '" + term + "'</p>" + document.getElementById('lunrsearchresults').innerHTML;
-        //put results on the screen.
-        var results = idx.search(term);
-        if(results.length>0){
-            //console.log(idx.search(term));
-            //if results
-            for (var i = 0; i < results.length; i++) {
-                // more statements
-                var ref = results[i]['ref'];
-                var url = documents[ref]['url'];
-                var title = documents[ref]['title'];
-                var body = documents[ref]['body'].substring(0,160)+'...';
-                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='body'>"+ body +"</span><br /><span class='url'>"+ url +"</span></a></li>";
-            }
-        } else {
-            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>No results found...</li>";
-        }
-    }
-    return false;
+// Event handling
+
+jtd.addEvent = function(el, type, handler) {
+  if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
 }
+jtd.removeEvent = function(el, type, handler) {
+  if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+}
+jtd.onReady = function(ready) {
+  // in case the document is already rendered
+  if (document.readyState!='loading') ready();
+  // modern browsers
+  else if (document.addEventListener) document.addEventListener('DOMContentLoaded', ready);
+  // IE <= 8
+  else document.attachEvent('onreadystatechange', function(){
+      if (document.readyState=='complete') ready();
+  });
+}
+
+// Show/hide mobile menu
+
+// function initNav() {
+//     const mainNav = document.querySelector('.js-main-nav');
+//     const pageHeader = document.querySelector('.js-page-header');
+//     const navTrigger = document.querySelector('.js-main-nav-trigger');
+  
+//     jtd.addEvent(navTrigger, 'click', function(e){
+//       e.preventDefault();
+//       var text = navTrigger.innerText;
+//       var textToggle = navTrigger.getAttribute('data-text-toggle');
+  
+//       mainNav.classList.toggle('nav-open');
+//       pageHeader.classList.toggle('nav-open');
+//       navTrigger.classList.toggle('nav-open');
+//       navTrigger.innerText = textToggle;
+//       navTrigger.setAttribute('data-text-toggle', text);
+//       textToggle = text;
+//     })
+//   }
+
+
+// Site search
+
+function initSearch() {
+    var request = new XMLHttpRequest();
+    request.open('GET', '{{ "assets/js/search-data.json" | relative_url }}', true);
+  
+    request.onload = function(){
+      if (request.status >= 200 && request.status < 400) {
+        // Success!
+        var data = JSON.parse(request.responseText);
+        
+        {% if site.search_tokenizer_separator != nil %}
+        lunr.tokenizer.separator = {{ site.search_tokenizer_separator }}
+        {% else %}
+        lunr.tokenizer.separator = /[\s\-/]+/
+        {% endif %}
+        
+        var index = lunr(function () {
+          this.ref('id');
+          this.field('title', { boost: 200 });
+          this.field('content', { boost: 2 });
+          this.field('url');
+          this.metadataWhitelist = ['position']
+  
+          for (var i in data) {
+            this.add({
+              id: i,
+              title: data[i].title,
+              content: data[i].content,
+              url: data[i].url
+            });
+          }
+        });
+  
+        searchResults(index, data);
+      } else {
+        // We reached our target server, but it returned an error
+        console.log('Error loading ajax request. Request status:' + request.status);
+      }
+    };
+  
+    request.onerror = function(){
+      // There was a connection error of some sort
+      console.log('There was a connection error');
+    };
+  
+    request.send();
+  
+    function searchResults(index, data) {
+      var index = index;
+      var docs = data;
+      var searchInput = document.querySelector('.js-search-input');
+      var searchResults = document.querySelector('.js-search-results');
+  
+      function hideResults() {
+        searchResults.innerHTML = '';
+        searchResults.classList.remove('active');
+      }
+  
+      jtd.addEvent(searchInput, 'keydown', function(e){
+        switch (e.keyCode) {
+          case 38: // arrow up
+            e.preventDefault();
+            var active = document.querySelector('.search-result.active');
+            if (active) {
+              active.classList.remove('active');
+              if (active.parentElement.previousSibling) {
+                var previous = active.parentElement.previousSibling.querySelector('.search-result');
+                previous.classList.add('active');
+              }
+            }
+            return;
+          case 40: // arrow down
+            e.preventDefault();
+            var active = document.querySelector('.search-result.active');
+            if (active) {
+              if (active.parentElement.nextSibling) {
+                var next = active.parentElement.nextSibling.querySelector('.search-result');
+                active.classList.remove('active');
+                next.classList.add('active');
+              }
+            } else {
+              var next = document.querySelector('.search-result');
+              if (next) {
+                next.classList.add('active');
+              }
+            }
+            return;
+          case 13: // enter
+            e.preventDefault();
+            var active = document.querySelector('.search-result.active');
+            if (active) {
+              active.click();
+            } else {
+              var first = document.querySelector('.search-result');
+              if (first) {
+                first.click();
+              }
+            }
+            return;
+        }
+      });
+  
+      jtd.addEvent(searchInput, 'keyup', function(e){
+        switch (e.keyCode) {
+          case 27: // When esc key is pressed, hide the results and clear the field
+            hideResults();
+            searchInput.value = '';
+            return;
+          case 38: // arrow up
+          case 40: // arrow down
+          case 13: // enter
+            e.preventDefault();
+            return;
+        }
+  
+        hideResults();
+  
+        var input = this.value;
+        if (input === '') {
+          return;
+        }
+  
+        var results = index.query(function (query) {
+          var tokens = lunr.tokenizer(input)
+          query.term(tokens, {
+            boost: 10
+          });
+          query.term(tokens, {
+            wildcard: lunr.Query.wildcard.TRAILING
+          });
+        });
+  
+        if (results.length > 0) {
+          searchResults.classList.add('active');
+          var resultsList = document.createElement('ul');
+          resultsList.classList.add('search-results-list');
+          searchResults.appendChild(resultsList);
+  
+          for (var i in results) {
+            var result = results[i];
+            var doc = docs[result.ref];
+  
+            var resultsListItem = document.createElement('li');
+            resultsListItem.classList.add('search-results-list-item');
+            resultsList.appendChild(resultsListItem);
+  
+            var resultLink = document.createElement('a');
+            resultLink.classList.add('search-result');
+            resultLink.setAttribute('href', doc.url);
+            resultsListItem.appendChild(resultLink);
+  
+            var resultTitle = document.createElement('div');
+            resultTitle.classList.add('search-result-title');
+            resultTitle.innerText = doc.title;
+            resultLink.appendChild(resultTitle);
+  
+            var resultRelUrl = document.createElement('span');
+            resultRelUrl.classList.add('search-result-rel-date');
+            resultRelUrl.innerText = doc.date;
+            resultTitle.appendChild(resultRelUrl);
+  
+            var metadata = result.matchData.metadata;
+            var contentFound = false;
+            for (var j in metadata) {
+              if (metadata[j].title) {
+                var position = metadata[j].title.position[0];
+                var start = position[0];
+                var end = position[0] + position[1];
+                resultTitle.innerHTML = doc.title.substring(0, start) + '<span class="search-result-highlight">' + doc.title.substring(start, end) + '</span>' + doc.title.substring(end, doc.title.length)+'<span class="search-result-rel-date">'+doc.date+'</span>';
+  
+              } else if (metadata[j].content && !contentFound) {
+                contentFound = true;
+  
+                var position = metadata[j].content.position[0];
+                var start = position[0];
+                var end = position[0] + position[1];
+                var previewStart = start;
+                var previewEnd = end;
+                var ellipsesBefore = true;
+                var ellipsesAfter = true;
+                for (var k = 0; k < 3; k++) {
+                  var nextSpace = doc.content.lastIndexOf(' ', previewStart - 2);
+                  var nextDot = doc.content.lastIndexOf('.', previewStart - 2);
+                  if ((nextDot > 0) && (nextDot > nextSpace)) {
+                    previewStart = nextDot + 1;
+                    ellipsesBefore = false;
+                    break;
+                  }
+                  if (nextSpace < 0) {
+                    previewStart = 0;
+                    ellipsesBefore = false;
+                    break;
+                  }
+                  previewStart = nextSpace + 1;
+                }
+                for (var k = 0; k < 10; k++) {
+                  var nextSpace = doc.content.indexOf(' ', previewEnd + 1);
+                  var nextDot = doc.content.indexOf('.', previewEnd + 1);
+                  if ((nextDot > 0) && (nextDot < nextSpace)) {
+                    previewEnd = nextDot;
+                    ellipsesAfter = false;
+                    break;
+                  }
+                  if (nextSpace < 0) {
+                    previewEnd = doc.content.length;
+                    ellipsesAfter = false;
+                    break;
+                  }
+                  previewEnd = nextSpace;
+                }
+                var preview = doc.content.substring(previewStart, start);
+                if (ellipsesBefore) {
+                  preview = '... ' + preview;
+                }
+                preview += '<span class="search-result-highlight">' + doc.content.substring(start, end) + '</span>';
+                preview += doc.content.substring(end, previewEnd);
+                if (ellipsesAfter) {
+                  preview += ' ...';
+                }
+  
+                var resultPreview = document.createElement('div');
+                resultPreview.classList.add('search-result-preview');
+                resultPreview.innerHTML = preview;
+                resultLink.appendChild(resultPreview);
+              }
+            }
+          }
+        }
+      });
+  
+      // jtd.addEvent(searchInput, 'blur', function(){
+      //   setTimeout(function(){ hideResults() }, 300);
+      // });
+    }
+  }
+  
+//   function pageFocus() {
+//     var mainContent = document.querySelector('.js-main-content');
+//     mainContent.focus();
+//   }
+  
+  // Document ready
+  
+  jtd.onReady(function(){
+    // initNav();
+    // pageFocus();
+    if (typeof lunr !== 'undefined') {
+      initSearch();
+    }
+  });
+  
+  })(window.jtd = window.jtd || {});

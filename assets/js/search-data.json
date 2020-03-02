@@ -1,0 +1,32 @@
+---
+---
+{
+  {% assign comma = false %}
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {% for post in site.posts %}
+    {% if post.search_exclude != true %}
+        {% if comma == true%},{% endif %}"post{{ forloop.index0 }}": {
+            "title": "{{ post.title | replace: '&amp;', '&' }}",
+            "content": "{{ post.content | markdownify | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '</ul', ' . </ul' | replace: '</tr', ' . </tr' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | strip_html | escape_once | remove: 'Table of contents' | remove: '```'  | remove: '---' | replace: '\', ' ' | replace: ' .  .  . ', ' . ' | replace: ' .  . ', ' . ' | normalize_whitespace }}",
+            "url": "{{ post.url | absolute_url }}",
+            "relUrl": "{{ post.url }}",
+            "date": " • {{ post.date | date: date_format }}"
+        }
+        {% assign comma = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% for page in site.pages %}
+  {% if page.url contains '.xml' or page.url contains 'assets'%}
+  {% elsif page.search_exclude != true %}
+      {% if comma == true%},{% endif %}"page{{ forloop.index0 }}": {
+          "title": "{{ page.title | replace: '&amp;', '&' }}",
+          "content": "{{ page.content | markdownify | replace: '</h', ' . </h' | replace: '<hr', ' . <hr' | replace: '</p', ' . </p' | replace: '</ul', ' . </ul' | replace: '</tr', ' . </tr' | replace: '</li', ' | </li' | replace: '</td', ' | </td' | strip_html | escape_once | remove: 'Table of contents' | remove: '```'  | remove: '---' | replace: '\', ' ' | replace: ' .  .  . ', ' . ' | replace: ' .  . ', ' . ' | normalize_whitespace }}",
+          "url": "{{ page.url | absolute_url }}",
+          "relUrl": "{{ page.url }}",
+          "date": ""
+      }
+      {% assign comma = true %}
+  {% endif %}
+{% endfor %}
+}
