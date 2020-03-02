@@ -60,6 +60,10 @@ exclude:
   - action.yml
   - Makefile
 
+# this setting allows you to keep pages organized in the _pages folder
+include:
+  - _pages
+
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima

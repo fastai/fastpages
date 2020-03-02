@@ -4,6 +4,23 @@
 
 @import "{{ site.theme }}";
 
+/*
+ * Variables
+ */
+
+ $dt-gray-dark: #282a36;  // Background
+ $dt-gray: #44475a;       // Current Line & Selection
+ $dt-gray-light: #f8f8f2; // Foreground
+ $dt-blue: #6272a4;       // Comment
+ $dt-cyan: #8be9fd;
+ $dt-green: #50fa7b;
+ $dt-orange: #ffb86c;
+ $dt-pink: #ff79c6;
+ $dt-purple: #bd93f9;
+ $dt-red: #ff5555;
+ $dt-yellow: #f1fa8c;
+ $dt-green-light: rgb(172, 229, 145);
+
 .post img {
         display: block;
         // border:1px solid #021a40;
@@ -29,6 +46,7 @@
 [class^="language-"]:not(.language-plaintext) code
 {
   background-color: #323443 !important;
+  color: $dt-gray-light;
 }
 
 .language-python + .language-plaintext code { background-color: white !important; }
@@ -48,8 +66,8 @@
         border-radius: 5px;
 }
 .output_area pre, .output_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
+        margin-bottom:1rem !important;
+        margin-top:1rem !important;
         padding-bottom:0 !important;
         padding-top:0 !important;
 }
@@ -112,23 +130,6 @@ li {
  * Code licensed under the MIT license
  *
  */
-
-/*
- * Variables
- */
-
- $dt-gray-dark: #282a36;  // Background
- $dt-gray: #44475a;       // Current Line & Selection
- $dt-gray-light: #f8f8f2; // Foreground
- $dt-blue: #6272a4;       // Comment
- $dt-cyan: #8be9fd;
- $dt-green: #50fa7b;
- $dt-orange: #ffb86c;
- $dt-pink: #ff79c6;
- $dt-purple: #bd93f9;
- $dt-red: #ff5555;
- $dt-yellow: #f1fa8c;
- $dt-green-light: rgb(172, 229, 145);
  
  /*
   * Styles
@@ -278,7 +279,6 @@ li {
  }
 
 //  Code Folding
-
  details.description[open] summary::after {
   content: attr(data-open);
 }
@@ -287,10 +287,12 @@ details.description:not([open]) summary::after {
   content: attr(data-close);
 }
 
+// Notebook badges
 .notebook-badge-image {
   border:0 !important;
 }
 
+// Adjust font size for footnotes.
 .footnotes {
   font-size: 12px !important;
   p{
@@ -298,9 +300,12 @@ details.description:not([open]) summary::after {
  }
 }
 
+// Adjust with of social media icons were getting cut off
 .social.svg-icon {
   width: 21px !important;
 }
+
+// Make Anchor Links Appear Only on Hover
 
 .anchor-link {
   opacity: 0;
@@ -320,10 +325,6 @@ h6:hover .anchor-link {
   opacity: 1;
 }
 
-.page-description {
-  color: #585858;
-  font-size: 110%;
-}
 
 // category tags
 .category-tags {
@@ -331,11 +332,18 @@ h6:hover .anchor-link {
   margin-bottom: .25rem !important;
 }
 
+// Custom styling for homepage post previews
 .post-meta-title{
   margin-top: .25em;
   margin-bottom: .25em;
 }
 
+.page-description {
+  color: #585858;
+  font-size: 110%;
+}
+
+// Custom styling for category tags
 .category-tags-icon {
   font-size: 75% !important;
   padding-left: 0.375em;
