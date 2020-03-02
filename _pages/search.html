@@ -21,5 +21,13 @@ search: exclude
                 </a>
             </li>
         {%- endfor %}
+        {% for page in site.pages %}
+            <li class="lunrsearchresult" hidden>
+                <a href="{{site.baseurl}}{{ post.url }}">
+                    <p class="title">{{ page.title }}</p>
+                    <p class="content"></p>
+                </a>
+            </li>
+        {%- endfor %}
         </ul>
 </div>

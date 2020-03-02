@@ -6,4 +6,10 @@ layout: null
   {%- for post in site.posts %}
   <li>{{ post.content | replace: '. ', ' . ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip }}</li>
   {%- endfor %}
+  {% for page in site.pages %}
+    {% if page.url contains '.xml' or page.url contains 'assets' or page.search == 'exclude' %}
+    {% else %}
+      <li>{{ page.content | replace: '. ', ' . ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip }}</li>
+    {% endif %}
+  {% endfor %}
 </ul>
