@@ -215,7 +215,6 @@
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The comment #hide_input was used to hide the code that produced this.
-
 </pre>
 </div>
 </div>
@@ -653,7 +652,7 @@
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
 <span class="c1"># display table with pandas</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
-    <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'Distributor'</span><span class="p">,</span> <span class="s1">'MPAA_Rating'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">,</span> <span class="s1">'Rotten_Tomatoes_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -688,7 +687,10 @@
       <th>Title</th>
       <th>Worldwide_Gross</th>
       <th>Production_Budget</th>
+      <th>Distributor</th>
+      <th>MPAA_Rating</th>
       <th>IMDB_Rating</th>
+      <th>Rotten_Tomatoes_Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -697,35 +699,50 @@
       <td>The Land Girls</td>
       <td>146083.0</td>
       <td>8000000.0</td>
+      <td>Gramercy</td>
+      <td>R</td>
       <td>6.1</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
       <td>First Love, Last Rites</td>
       <td>10876.0</td>
       <td>300000.0</td>
+      <td>Strand</td>
+      <td>R</td>
       <td>6.9</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
       <td>I Married a Strange Person</td>
       <td>203134.0</td>
       <td>250000.0</td>
+      <td>Lionsgate</td>
+      <td>None</td>
       <td>6.8</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Let's Talk About Sex</td>
       <td>373615.0</td>
       <td>300000.0</td>
+      <td>Fine Line</td>
+      <td>None</td>
       <td>NaN</td>
+      <td>13.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Slam</td>
       <td>1087521.0</td>
       <td>1000000.0</td>
+      <td>Trimark</td>
+      <td>R</td>
       <td>3.4</td>
+      <td>62.0</td>
     </tr>
   </tbody>
 </table>
