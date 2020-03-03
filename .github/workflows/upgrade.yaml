@@ -60,7 +60,6 @@ jobs:
         cp assets/main.scss ../current_files/assets
         cp -r assets/js ../current_files/assets
         cp -r assets/badges ../current_files/assets
-        cp -r assets/icons ../current_files/assets
         
         # copy action workflows
         cp -r .github ../current_files
