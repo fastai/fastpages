@@ -1,0 +1,193 @@
+name: Upgrade fastpages
+on: 
+  issues:
+    types: [opened]
+
+jobs:     
+  upgrade:
+    if: |
+      (github.repository != 'fastai/fastpages') &&
+      (github.event.issue.title == '[fastpages] Automated Upgrade') &&
+      (github.event.issue.author_association == 'OWNER')
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+        
+    - name: see payload
+      run: |
+        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
+      env:
+        PAYLOAD: ${{ toJSON(github.event) }}
+        PR_PAYLOAD: ${{ github.event.pull_request }}
+    
+    - name: checkout latest fastpages
+      uses: actions/checkout@v2
+      with:
+        repository: 'fastai/fastpages'
+        path: 'new_files'
+        persist-credentials: false
+        
+    - name: copy this repo's contents
+      uses: actions/checkout@v2
+      with:
+        path: 'current_files'
+        persist-credentials: false
+
+    - name: copy new files
+      run: |
+        # remove files you don't want to copy from current version of fastpages
+        cd new_files        
+        rm -rf _posts _notebooks _word images
+        rm *.md CNAME action.yml _config.yml LICENSE
+        rm .github/workflows/chatops.yaml
+        rm .github/ISSUE_TEMPLATE/bug.md .github/ISSUE_TEMPLATE/feature_request.md
+        
+        # copy new files from fastpages into your repo
+        for file in $(ls | egrep -v "(assets)"); do 
+          if [[ -f "$file" ]] || [[ -d "$file" ]] 
+          then
+            echo "copying $file"; 
+            cp -r $file ../current_files;
+          fi
+        done
+        
+        # copy select files in assets
+        cp assets/main.scss ../current_files/assets
+        cp -r assets/js ../current_files/assets
+        cp -r assets/badges ../current_files/assets
+        cp -r assets/icons ../current_files/assets
+        
+        # copy action workflows
+        cp -r .github ../current_files
+        
+        # install dependencies
+        pip3 install pyyaml
+
+    - name: sync baseurl
+      run: |
+        import re, os, yaml
+        from pathlib import Path
+        from configparser import ConfigParser
+        settings = ConfigParser()
+        
+        # specify location of config files
+        nwo = os.getenv('GITHUB_REPOSITORY')
+        username, repo_name = nwo.split('/')
+        settings_path = Path('current_files/_action_files/settings.ini')
+        config_path = Path('current_files/_config.yml')
+        setup_pr_path = Path('current_files/_fastpages_docs/_setup_pr_template.md')
+        upgrade_pr_path = Path('current_files/_fastpages_docs/_upgrade_pr.md')
+        
+        assert settings_path.exists(), 'Did not find _action_files/settings.ini in your repository!'
+        assert config_path.exists(), 'Did not find _config.yml in your repository!'
+        assert setup_pr_path.exists(), 'Did not find_fastpages_docs/_setup_pr_template.md in the current directory!'
+        assert upgrade_pr_path.exists(), 'Did not find _fastpages_docs/_upgrade_pr.md in your repository!'
+        
+        # read data from config files
+        settings.read(settings_path)
+        with open(config_path, 'r') as cfg:
+          config = yaml.load(cfg)
+        
+        # sync value for baseurl b/w config.yml and settings.ini
+        settings['DEFAULT']['baseurl'] = config['baseurl']
+        with open(settings_path, 'w') as stg:
+          settings.write(stg)
+          
+        # update PR templates
+        setup_pr = setup_pr_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        setup_pr_path.write_text(setup_pr)
+        upgrade_pr = upgrade_pr_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        upgrade_pr_path.write_text(upgrade_pr)
+      shell: python
+
+    - uses: webfactory/ssh-agent@v0.2.0
+      with:
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+                        
+    - name: push changes to branch
+      run: |
+        # commit changes
+        cd current_files
+        git config --global user.email "${GH_USERNAME}@users.noreply.github.com"
+        git config --global user.name "${GH_USERNAME}"
+        git remote remove origin
+        git remote add origin "git@github.com:${GITHUB_REPOSITORY}.git"
+        
+        git add _action_files/settings.ini
+        git checkout -b fastpages-automated-upgrade
+        git add -A
+        git commit -m'upgrade fastpages'
+        git push -f --set-upstream origin fastpages-automated-upgrade master
+      env: 
+        GH_USERNAME: ${{ github.event.issue.user.login }}
+
+    - name: Open a PR
+      id: pr
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var fs = require('fs');
+          var contents = fs.readFileSync('current_files/_fastpages_docs/_upgrade_pr.md', 'utf8');
+          github.pulls.create({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        title: '[fastpages] Update repo with changes from fastpages',
+                        head: 'fastpages-automated-upgrade',
+                        base: 'master',
+                        body: `${contents}`
+                        })
+                      .then(result => console.log(`::set-output name=pr_num::${result.data.number}`))
+  
+    - name: Comment on issue if failure
+      if: failure()     
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var pr_num = process.env.PR_NUM;
+          var repo = process.env.REPO
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `An error occurred when attempting to open a PR to update fastpages. See the [Actions tab of your repo](https://github.com/${repo}/actions) for more details.`
+          })
+      env:
+        PR_NUM: ${{ steps.pr.outputs.pr_num }}
+        REPO: ${{ github.repository }} 
+
+    - name: Comment on issue     
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var pr_num = process.env.PR_NUM;
+          var repo = process.env.REPO
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `Opened PR https://github.com/${repo}/pull/${pr_num} to assist with updating fastpages.`
+          })
+      env:
+        PR_NUM: ${{ steps.pr.outputs.pr_num }}
+        REPO: ${{ github.repository }}
+          
+    - name: Close Issue
+      if: always()
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.issues.update({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'closed'
+          })
