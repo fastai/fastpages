@@ -69,17 +69,18 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <!-- adapted from https://jekyllcodex.org/without-plugin/search-lunr/ -->
+        <!-- adapted from https://github.com/pmarsceill/just-the-docs -->
+<script type="text/javascript" src="/assets/js/search.js"></script>
+<script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
 
-<script src="/assets/js/vendor/lunr.min.js"></script>
-<script src="/assets/js/search.js"></script>
-
-<form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);" onInput="return lunr_search(document.getElementById('lunrsearch').value);" autocomplete="off">
-    <p><input type="text" class="form-control input-block form-control" id="lunrsearch" name="q" maxlength="500" value="" placeholder="Search" /></p>
-</form>
-<div id="lunrsearchresults">
-    <ul></ul>
+<div class="search">
+    <div class="search-input-wrap">
+    <input type="text" class="js-search-input search-input input-block form-control" tabindex="0" placeholder="Search fastpages" aria-label="Search fastpages" autocomplete="off">
+    </div>
+    <br>
+    <div class="js-search-results search-results-wrap"></div>
 </div>
+
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>

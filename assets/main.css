@@ -275,16 +275,22 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 
 .category-tags-link { color: #bb8181 !important; font-size: 13px !important; }
 
-#lunrsearchresults { padding-top: 0.2rem; }
+.js-search-results { padding-top: 0.2rem; }
 
-.lunrsearchresult { padding-bottom: 1rem; }
+.search-results-list-item { padding-bottom: 1rem; }
 
-.lunrsearchresult .title { color: #d9230f; }
+.search-results-list-item .search-result-title { font-size: 16px; color: #d9230f; }
 
-.lunrsearchresult .url { color: silver; }
+.search-result-rel-url { color: silver; }
 
-.lunrsearchresult a { display: block; color: #777; }
+.search-results-list-item a { display: block; color: #777; }
 
-.lunrsearchresult a:hover, .lunrsearchresult a:focus { text-decoration: none; }
+.search-results-list-item a:hover, .search-results-list-item a:focus { text-decoration: none; }
 
-.lunrsearchresult a:hover .title { text-decoration: underline; }
+.search-results-list-item a:hover .search-result-title { text-decoration: underline; }
+
+.search-result-rel-date { color: #6d788a; font-size: 14px; }
+
+.search-result-preview { color: #777; font-size: 16px; margin-top: .02rem !important; margin-bottom: .02rem !important; }
+
+.search-result-highlight { color: #2e0137; font-weight: bold; }
