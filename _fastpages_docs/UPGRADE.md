@@ -8,8 +8,9 @@
     - [Step 3: A Link to Pull Request Will Appaer](#step-3-a-link-to-pull-request-will-appaer)
     - [Step 4: Review & Merge PR](#step-4-review-merge-pr)
 - [Manual Upgrade](#manual-upgrade)
-- [Another Way To Manually Upgrade](#another-way-to-manually-upgrade)
-- [Additional Resources](#additoinal-resources)
+    - [Easy Way (Recommended)](#easy-way-recommended)
+    - [Advanced](#advanced)
+- [Additional Resources](#additional-resources)
 <!-- /TOC -->
 
 There are two ways to upgrade fastpages.  One is an automated way that assumes you have made no changes to the styling or HTML of your site. Alternatively, you may [upgrade manually](#manual-upgrade) and determine which changes to accept or reject.  For most people we recommend upgrading fastpages automatically.
@@ -52,14 +53,17 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
 
 ## Manual Upgrade
 
+### Easy Way (Recommended)
+
+Create a new repo with the current `fastpages` template using following the [setup instructions](https://github.com/fastai/fastpages#setup-instructions) in the README, and copy all of your blog posts from `_notebooks`, `_word`, and `_posts` into the new template.  This is extremely similar to what the automated process is doing.
+
+### Advanced
+
 - This method is appropriate for those who made customizations to the HTML or styling of fastpages.  
 - You must proceed with caution, as new versions of fastpages may not be compatible with your customizations.
 - You can use git to perform the upgrade by [following this approach](https://stackoverflow.com/questions/56577184/github-pull-changes-from-a-template-repository/56577320) instead.  A step-by-step companion to this stack overflow post with screenshots is [written up here](https://github.com/fastai/fastpages/issues/163#issuecomment-593766189).
+- Be careful to not duplicate files, as files in fastpages have been reorganized several times.
 
-
-## Another Way To Manually Upgrade
-
-You can also create a new repo with the current `fastpages` template, and copy all of your blog posts from `_notebooks`, `_word`, and `_posts` into the new template.  This is extremely similar to what the automated process is doing.
 
 ## Additional Resources
 
