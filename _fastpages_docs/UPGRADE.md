@@ -55,7 +55,7 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
 
 ### Easy Way (Recommended)
 
-Create a new repo with the current `fastpages` template using following the [setup instructions](https://github.com/fastai/fastpages#setup-instructions) in the README, and copy all of your blog posts from `_notebooks`, `_word`, and `_posts` into the new template.  This is extremely similar to what the automated process is doing.
+Create a new repo with the current `fastpages` template by following the [setup instructions](https://github.com/fastai/fastpages#setup-instructions) in the README, and copy all of your blog posts from `_notebooks`, `_word`, and `_posts` into the new template.  This is very similar to what the automated process is doing.
 
 ### Advanced
 
