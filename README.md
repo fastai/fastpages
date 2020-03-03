@@ -59,6 +59,7 @@ See below for a more detailed list of features.
 - [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
 	- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
+- [Upgrading Fastpages](#upgrading-fastpages)
 - [FAQ](#faq)
 
 <!-- /TOC -->
@@ -320,6 +321,9 @@ Detailed instructions on how to customize this blog are beyond the scope of this
 
 Please see the [contributing guide](_fastpages_docs/CONTRIBUTING.md).
 
+# Upgrading Fastpages
+
+Please see the [upgrading guide](_fastpages_docs/UPGRADE.md).
 
 # FAQ
 
