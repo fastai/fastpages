@@ -49,15 +49,12 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
 ### Step 4: Review & Merge PR
 
 - Ensure that you read the instructions in the PR carefully.  Furthermore, carefully review which files will be changed to determine if this interferes with any customizations you have mades to your site.  When ready, select `Merge pull request`.  
-
 - If the PR is making undesired changes to files you can use the manual upgrade approach instead.
 
 ## Manual Upgrade
 
 - This method is appropriate for those who made customizations to the HTML or styling of fastpages.  
-
 - You must proceed with caution, as new versions of fastpages may not be compatible with your customizations.
-
 - You can use git to perform the upgrade by [following this approach](https://stackoverflow.com/questions/56577184/github-pull-changes-from-a-template-repository/56577320) instead.  A step-by-step companion to this stack overflow post with screenshots is [written up here](https://github.com/fastai/fastpages/issues/163#issuecomment-593766189).
 
 
