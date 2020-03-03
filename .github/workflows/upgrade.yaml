@@ -43,12 +43,12 @@ jobs:
         # remove files you don't want to copy from current version of fastpages
         cd new_files        
         rm -rf _posts _notebooks _word images
-        rm *.md CNAME action.yml _config.yml LICENSE favicon.ico
+        rm *.md CNAME action.yml _config.yml LICENSE
         rm .github/workflows/chatops.yaml
         rm .github/ISSUE_TEMPLATE/bug.md .github/ISSUE_TEMPLATE/feature_request.md
         
         # copy new files from fastpages into your repo
-        for file in $(ls | egrep -v "(assets|search.html|tags.html)"); do 
+        for file in $(ls | egrep -v "(assets)"); do 
           if [[ -f "$file" ]] || [[ -d "$file" ]] 
           then
             echo "copying $file"; 
