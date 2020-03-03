@@ -13,7 +13,7 @@
 
 # Upgrading fastpages
 
-There are two ways to upgrade fastpages.  One is an automated way that assumes you have made no changes to the styling or HTML of your site. Alternatively, you may [upgrade manually](#manual-upgrade) and determine which changes to accept or reject.  For most people we recommend [upgrading fastpages automatically](#automated-upgrade).
+There are two ways to upgrade fastpages.  One is an automated way that assumes you have made no changes to the styling or HTML of your site. Alternatively, you may [upgrade manually](#manual-upgrade) and determine which changes to accept or reject.  For most people we recommend upgrading fastpages automatically.
 
 ## Automated Upgrade
 
@@ -50,7 +50,7 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
 
 - Ensure that you read the instructions in the PR carefully.  Furthermore, carefully review which files will be changed to determine if this interferes with any customizations you have mades to your site.  When ready, select `Merge pull request`.  
 
-- If the PR is making undesired changes to files you can use the [manual upgrade](#manual-upgrade) approach instead.
+- If the PR is making undesired changes to files you can use the manual upgrade approach instead.
 
 ## Manual Upgrade
 
