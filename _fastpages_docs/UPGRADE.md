@@ -1,17 +1,16 @@
+# Upgrading fastpages
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Upgrading fastpages](#upgrading-fastpages)
-	- [Automated Upgrade](#automated-upgrade)
-		- [Step 1: Open An Issue With The Upgrade Template.](#step-1-open-an-issue-with-the-upgrade-template)
-		- [Step 2: Click `Submit new issue`](#step-2-click-submit-new-issue)
-		- [Step 3: A Link to Pull Request Will Appaer](#step-3-a-link-to-pull-request-will-appaer)
-		- [Step 4: Review & Merge PR](#step-4-review-merge-pr)
-	- [Manual Upgrade](#manual-upgrade)
-	- [Another Way To Manually Upgrade](#another-way-to-manually-upgrade)
+- [Automated Upgrade](#automated-upgrade)
+    - [Step 1: Open An Issue With The Upgrade Template.](#step-1-open-an-issue-with-the-upgrade-template)
+    - [Step 2: Click `Submit new issue`](#step-2-click-submit-new-issue)
+    - [Step 3: A Link to Pull Request Will Appaer](#step-3-a-link-to-pull-request-will-appaer)
+    - [Step 4: Review & Merge PR](#step-4-review-merge-pr)
+- [Manual Upgrade](#manual-upgrade)
+- [Another Way To Manually Upgrade](#another-way-to-manually-upgrade)
 - [Additional Resources](#additoinal-resources)
 <!-- /TOC -->
-
-# Upgrading fastpages
 
 There are two ways to upgrade fastpages.  One is an automated way that assumes you have made no changes to the styling or HTML of your site. Alternatively, you may [upgrade manually](#manual-upgrade) and determine which changes to accept or reject.  For most people we recommend upgrading fastpages automatically.
 
@@ -62,7 +61,7 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
 
 You can also create a new repo with the current `fastpages` template, and copy all of your blog posts from `_notebooks`, `_word`, and `_posts` into the new template.  This is extremely similar to what the automated process is doing.
 
-# Additional Resources
+## Additional Resources
 
 - [This Actions workflow](/.github/workflows/upgrade.yaml) defines the automated upgrade process.
 - You can get more help with upgrading in the [fastai forums - nbdev & blogging category](https://forums.fast.ai/c/fastai-users/nbdev/48).
