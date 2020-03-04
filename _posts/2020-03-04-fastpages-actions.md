@@ -52,8 +52,8 @@ The [Usage](https://github.com/pypa/gh-action-pypi-publish#usage) section descri
 
 ```yaml
 - name: Publish a Python distribution to PyPI
-uses: pypa/gh-action-pypi-publish@master
-with:
+  uses: pypa/gh-action-pypi-publish@master
+  with:
     user: __token__
     password: ${{ secrets.pypi_password }}
 ```
@@ -163,7 +163,7 @@ Below are the first two steps [in our workflow](https://github.com/fastai/fastpa
       uses: ./_action_files
 ```
 
-The first step checkouts a copy of your repository into the Actions file system, with the help of the utility [action/checkout](https://github.com/actions/checkout).  This utility only fetches the last commit by default, and saves files into a directory (whose path is stored in the environment variable [GITHUB_WORKSPACE](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables) that is accessible by subsequent steps in your job.  The second step runs the [fastai/fastpages](https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog) Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax: 
+The first step creates a copy of your repository in the Actions file system, with the help of the utility [action/checkout](https://github.com/actions/checkout).  This utility only fetches the last commit by default, and saves files into a directory (whose path is stored in the environment variable [GITHUB_WORKSPACE](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables) that is accessible by subsequent steps in your job.  The second step runs the [fastai/fastpages](https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog) Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax: 
 
 ```yaml
 uses: ./_action_files
