@@ -421,3 +421,11 @@ table {
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
+.range-track {
+  positoin: relative;
+}
+.range-track-zone{
+  position: absolute;
+  top: -15px;
+}

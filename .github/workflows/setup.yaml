@@ -66,6 +66,7 @@ jobs:
         git checkout -B fastpages-automated-setup
         git rm CNAME action.yml
         git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
+        git rm _notebooks/2020-02-19-Observable.ipynb
         git rm .github/workflows/chatops.yaml
         git rm .github/ISSUE_TEMPLATE/bug.md
         git rm .github/ISSUE_TEMPLATE/feature_request.md
