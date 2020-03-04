@@ -7,7 +7,7 @@
     - [Rebuild all the containers](#rebuild-all-the-containers)
     - [Removing all the containers](#removing-all-the-containers)
     - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
-
+  - [Running a Jupyter Server](#running-a-jupyter-server)
 
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
@@ -33,8 +33,7 @@ When you run this command for the first time, it'll build the required Docker im
 
 This command will build all the necessary containers and run the following services:
 1. A service that monitors any changes in `./_notebooks/*.ipynb/` and `./_word/*.docx;*.doc` and rebuild the blog on change.
-2. A Jupyter Notebook server — use this to write and edit your posts.  **You must see your terminal logs to find the link**, which will start with `https://127.0.0.1:8888`
-3. A Jekyll server on https://127.0.0.1:4000 — use this to preview your blog.
+2. A Jekyll server on https://127.0.0.1:4000 — use this to preview your blog.
 
 The services will output to your terminal. If you close the terminal or hit `Ctrl-C`, the services will stop.
 If you want to run the services in the background:
@@ -53,17 +52,6 @@ _Note that the blog won't autoreload on change, you'll have to refresh your brow
 
 **If containers won't start**: try `make build` first, this would rebuild all the containers from scratch, This might fix the majority of update problems.
 
-**To get the Jupyter Notebook Token**: look for the Jupyter Notebook link in the output log of `make server` command, it'll post the link with the token param in it. If you're running containers in background, you can get the token by running the following command: 
-
-```bash
-# assuming you're running containers in background with docker-compose up -d
-# attach to bash in jupyter container
-make bash-nb
-
-# get notebook list & token
-jupyter notebook list
-```
-
 ## Converting the pages locally
 
 If you just want to convert your notebooks and word documents to `.md` posts in `_posts`, this command will do it for you:
@@ -76,7 +64,7 @@ You can launch just the jekyll server with `make server`.
 
 ## Visual Studio Code integration
 
-If you're using VSCode with the Docker extension, you can run three containers from the sidebar: `fastpages_jupyter_1`,`fastpages_watcher_1`, and `fastpages_jekyll_1`.
+If you're using VSCode with the Docker extension, you can run these containers from the sidebar: `fastpages_watcher_1` and `fastpages_jekyll_1`.
 The containers will only show up in the list after you run or build them for the first time. So if they're not in the list — try `make build` in the console.
 
 ## Advanced usage
@@ -105,11 +93,16 @@ You can attach a terminal to a running service:
 # attach to a bash shell in the jekyll service
 make bash-jekyll
 
-# attach to a bash shell in the jupyter / watcher service.
-# they're essentially running the same software inside.
+# attach to a bash shell in the watcher service.
 make bash-nb
 ```
 
 _Note: you can use `docker-compose run` instead of `make bash-nb` or `make bash-jekyll` to start a service and then attach to it.
 Or you can run all your services in the background, `make server-detached`, and then use `make bash-nb` or `make bash-jekyll` as in the examples above._
 
+## Running A Jupyter Server
+
+The fastpages development enviornment does not provide a Jupyter server for you.  This is intentional so that you are free to run Jupyter Notebooks or Jupyter Lab in a manner that is familiar to you, and manage dependencies (requirements.txt, conda, etc) in the way you wish.  Some tips that may make your life easier:
+
+- Provide instructions in your README and your blog posts on how to install the dependencies required to run your notebooks.  This will make it eaiser for your audience to reproduce your notebooks.
+- Do not edit the Dockerfile in `/_action_files`, as that may interfere with the blogging environment.  Furthermore, any changes you make to these files may get lost in future upgrades, if [upgrading automatically](UGPRADE.md).  Instead, if you wish to manage your Jupyter server with Docker, we recommend that you maintain a seperate Dockerfile at the root of your repository.
