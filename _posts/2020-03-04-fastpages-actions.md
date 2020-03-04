@@ -198,7 +198,7 @@ The final step in our workflow is defined below:
 
 ```yaml
   - name: Deploy
-      if: github.event_name	== 'push'
+      if: github.event_name == 'push'
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
@@ -209,7 +209,7 @@ The final step in our workflow is defined below:
 
 The statement
 ```yaml
-if: github.event_name	== 'push'
+if: github.event_name == 'push'
 ```
 uses the variable [github.event_name](https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context) to ensure this step only runs when a push event ( in this case only pushes to the master branch trigger this workflow) occur.  
 
