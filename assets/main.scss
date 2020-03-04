@@ -9,6 +9,7 @@
  */
 
  $dt-gray-dark: #282a36;  // Background
+ $dt-code-cell-background: #323443;
  $dt-gray: #44475a;       // Current Line & Selection
  $dt-gray-light: #f8f8f2; // Foreground
  $dt-blue: #6272a4;       // Comment
@@ -138,7 +139,7 @@ li {
  .highlight {
 //    background: $dt-gray-dark;
 //    color: $dt-gray-light;
- 
+  
    .hll,
    .s,
    .sa,
@@ -186,6 +187,7 @@ li {
    .w,
    .bp {
      color: $dt-gray-light;
+     background-color: $dt-code-cell-background !important;
    }
 
    .p {
