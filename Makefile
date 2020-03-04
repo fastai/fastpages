@@ -33,7 +33,7 @@ stop: .FORCE
 remove: .FORCE
 	docker-compose stop  || true; docker-compose rm || true;
 
-# get shell inside the notebook service (Must already be running)
+# get shell inside the notebook converter service (Must already be running)
 bash-nb: .FORCE
 	docker-compose exec watcher /bin/bash
 
