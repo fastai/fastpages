@@ -5,6 +5,7 @@ toc: true
 comments: true
 categories: [actions, markdown]
 image: images/diagram.png
+author: Hamel Husain
 ---
 
 # How fastpages uses GitHub Actions
