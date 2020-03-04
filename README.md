@@ -100,8 +100,6 @@ Similarly, in a markdown document the same front matter would be defined like th
   title: "My Title"
   summary: "Awesome summary"
   toc: false
-  branch: master
-  badges: true
   comments: true
   image: images/some_folder/your_image.png
   categories: [fastpages, jupyter]
