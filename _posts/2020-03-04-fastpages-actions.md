@@ -1,5 +1,5 @@
 ---
-title: How fastpages uses GitHub Actions
+title: How fastpages Uses GitHub Actions
 summary: A tutorial of how fastpages uses GitHub Actions for automation.
 toc: true
 comments: true
@@ -8,9 +8,9 @@ image: images/diagram.png
 author: Hamel Husain
 ---
 
-# How fastpages uses GitHub Actions
+# How fastpages Uses GitHub Actions
 
-## What are GitHub Actions?
+## What Are GitHub Actions?
 
 [GitHub Actions](https://github.com/features/actions) allow you to run arbitrary code in response to [events](https://help.github.com/en/actions/reference/events-that-trigger-workflows).  Events are activities that happen on GitHub such as:
 
