@@ -26,9 +26,9 @@ jobs:
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      uses: docker://jekyll/jekyll
+      uses: docker://jekyll/jekyll:4.0.0
       with:
-        args: jekyll build -V
+        args: bash -c "gem install bundler && jekyll build -V"
         
     - name: copy CNAME file into _site if CNAME exists
       run: |

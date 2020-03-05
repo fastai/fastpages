@@ -3,7 +3,7 @@ help:
 
 # start (or restart) the services
 server: .FORCE
-	docker-compose down || true;
+	docker-compose down --remove-orphans || true;
 	docker-compose up
 
 # start (or restart) the services in detached mode

@@ -1,26 +1,16 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-
-@import "{{ site.theme }}";
-
-/*
- * Variables
- */
-
- $dt-gray-dark: #282a36;  // Background
- $dt-code-cell-background: #323443;
- $dt-gray: #44475a;       // Current Line & Selection
- $dt-gray-light: #f8f8f2; // Foreground
- $dt-blue: #6272a4;       // Comment
- $dt-cyan: #8be9fd;
- $dt-green: #50fa7b;
- $dt-orange: #ffb86c;
- $dt-pink: #ff79c6;
- $dt-purple: #bd93f9;
- $dt-red: #ff5555;
- $dt-yellow: #f1fa8c;
- $dt-green-light: rgb(172, 229, 145);
+$dt-gray-dark: #282a36;  // Background
+$dt-code-cell-background: #323443;
+$dt-gray: #44475a;       // Current Line & Selection
+$dt-gray-light: #f8f8f2; // Foreground
+$dt-blue: #6272a4;       // Comment
+$dt-cyan: #8be9fd;
+$dt-green: #50fa7b;
+$dt-orange: #ffb86c;
+$dt-pink: #ff79c6;
+$dt-purple: #bd93f9;
+$dt-red: #ff5555;
+$dt-yellow: #f1fa8c;
+$dt-green-light: rgb(172, 229, 145);
 
 .post img {
         display: block;
@@ -303,8 +293,11 @@ details.description:not([open]) summary::after {
 }
 
 // Adjust with of social media icons were getting cut off
-.social.svg-icon {
-  width: 21px !important;
+.social-media-list{
+  .svg-icon {
+    width: 25px !important;
+    height: 23px !important;
+  }
 }
 
 // Make Anchor Links Appear Only on Hover

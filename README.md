@@ -60,6 +60,7 @@ See below for a more detailed list of features.
 	- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [Upgrading Fastpages](#upgrading-fastpages)
+- [Customizing Fastpages](#customizing-fastpages)
 - [FAQ](#faq)
 
 <!-- /TOC -->
@@ -343,3 +344,8 @@ Please see the [upgrading guide](_fastpages_docs/UPGRADE.md).
 
 - **Q:** What is the difference between [fast_template](https://github.com/fastai/fast_template) and fastpages?  Which one should I use?  **A:** Because `fastpages` is more flexible and extensible, we recommend using it where possible. `fast_template` may be a better option for getting folks blogging who have no technical expertise at all, and will only be creating posts using Github's integrated online editor.
 
+# Customizing Fastpages
+
+fastpages builds upon the [minima theme](https://github.com/jekyll/minima).  If you want to customize the styling or layout of fastpages, you can find instructions [in minima's README](https://github.com/jekyll/minima/blob/master/README.md).  It is a good idea to read the full contents of the README to understand the directory structure.  Furthermore, it is a good idea to have a basic understanding of Jekyll before customizing your theme.  For those new to Jekyll, [the official docs](https://jekyllrb.com/docs/) are a good place to start.  
+
+**If you choose to make customizations to fastpages, you are doing so at your own risk.**  It is possible that customizations you make could collide with current or future versions of fastpages (but it can be done safely if done carefully).
