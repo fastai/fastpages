@@ -29,6 +29,8 @@ jobs:
       uses: docker://jekyll/jekyll
       with:
         args: jekyll build -V
+      env:
+        JEKYLL_ENV: 'production'
         
     - name: copy CNAME file into _site if CNAME exists
       run: |
