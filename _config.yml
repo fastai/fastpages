@@ -36,9 +36,11 @@ url: "https://fastpages.fast.ai" # the base hostname & protocol for your site, e
 #
 baseurl: "" # the subpath of your site, e.g. "/blog".
 
-# Email and twitter are optional:
-email: 
-twitter_username: "fastdotai"
+# Github and twitter are optional:
+minima:
+  social_links:
+    twitter: fastdotai
+    github: fastai
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -71,11 +73,13 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-octicons
-  - jekyll-github-metadata
   - jekyll-toc
   - jekyll-twitter-plugin
   - jekyll-relative-links
   - jekyll-seo-tag
+  - jekyll-remote-theme
+
+remote_theme: jekyll/minima
 
 titles_from_headings:
   enabled:     true
