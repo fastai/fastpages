@@ -1,0 +1,418 @@
+$dt-gray-dark: #282a36;  // Background
+$dt-code-cell-background: #323443;
+$dt-gray: #44475a;       // Current Line & Selection
+$dt-gray-light: #f8f8f2; // Foreground
+$dt-blue: #6272a4;       // Comment
+$dt-cyan: #8be9fd;
+$dt-green: #50fa7b;
+$dt-orange: #ffb86c;
+$dt-pink: #ff79c6;
+$dt-purple: #bd93f9;
+$dt-red: #ff5555;
+$dt-yellow: #f1fa8c;
+$dt-green-light: rgb(172, 229, 145);
+
+.post img {
+        display: block;
+        // border:1px solid #021a40;
+        vertical-align: top;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.post figcaption {
+  text-align: center;
+  font-size: .8rem;
+  font-style: italic;
+  color: light-grey;
+}
+
+.language-python + .language-plaintext {
+        border-left: 1px solid grey;
+        margin-left: 1rem !important;
+}
+
+// ensure dark background for code
+[class^="language-"]:not(.language-plaintext) pre,
+[class^="language-"]:not(.language-plaintext) code
+{
+  background-color: #323443 !important;
+  color: $dt-gray-light;
+}
+
+.language-python + .language-plaintext code { background-color: white !important; }
+.language-python + .language-plaintext pre  { background-color: white !important; }
+
+// for Jupyter Notebook HTML Code Cells modified from https://www.fast.ai/public/css/hyde.css
+
+.input_area pre, .input_area div {
+        margin-bottom:2rem !important;
+        margin-top:1.5rem !important;
+        padding-bottom:0 !important;
+        padding-top:0 !important;
+        background: #323443 !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace;
+        border-radius: 5px;
+}
+.output_area pre, .output_area div {
+        margin-bottom:1rem !important;
+        margin-top:1rem !important;
+        padding-bottom:0 !important;
+        padding-top:0 !important;
+}
+.input_area pre {
+        border-left: 1px solid lightcoral;
+}
+.output_area pre {
+        border-left: 1px solid grey;
+        margin-left: 1rem !important;
+}
+
+.code_cell table { width: auto; }
+
+.page-content {
+        -webkit-font-smoothing: antialiased !important;
+        text-rendering: optimizeLegibility !important;
+        font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif;
+}
+
+// make non-headings slightly lighter
+.post-content p, .post-content li {
+   font-size: 20px;
+   color: #515151;
+}
+
+// change padding of headings
+h1 {
+    margin-top:2.5rem !important;      
+}
+
+h2 {
+    margin-top:2rem !important;      
+}
+
+h3, h4 {
+    margin-top:1.5rem !important;      
+}
+
+// make sure the post title doesn't have too much spacing
+.post-title { margin-top: .5rem !important; }
+
+li {
+  h3, h4 {
+  margin-top:.05rem !important;
+  margin-bottom:.05rem !important;
+  }
+  .post-meta-description {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    margin-bottom:.05rem !important;
+  }
+}
+
+/* Dracula Theme v1.2.5
+ *
+ * https://github.com/zenorocha/dracula-theme
+ *
+ * Copyright 2016, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ */
+ 
+ /*
+  * Styles
+  */
+ 
+ .highlight {
+//    background: $dt-gray-dark;
+//    color: $dt-gray-light;
+  
+   .hll,
+   .s,
+   .sa,
+   .sb,
+   .sc,
+   .dl,
+   .sd,
+   .s2,
+   .se,
+   .sh,
+   .si,
+   .sx,
+   .sr,
+   .s1,
+   .ss {
+        color:rgb(231, 153, 122);
+   }
+ 
+   .go {
+     color: $dt-gray;
+   }
+ 
+   .err,
+   .g,
+   .l,
+   .n,
+   .x,
+   .ge,
+   .gr,
+   .gh,
+   .gi,
+   .gp,
+   .gs,
+   .gu,
+   .gt,
+   .ld,
+   .no,
+   .nd,
+   .pi,
+   .ni,
+   .ne,
+   .nn,
+   .nx,
+   .py,
+   .w,
+   .bp {
+     color: $dt-gray-light;
+     background-color: $dt-code-cell-background !important;
+   }
+
+   .p {
+        font-weight: bold;
+        color: rgb(102, 217, 239);
+}
+ 
+//    .gh,
+//    .gi,
+//    .gu {
+//      font-weight: bold;
+//    }
+ 
+   .ge {
+     text-decoration: underline;
+   }
+ 
+   .bp {
+     font-style: italic;
+   }
+ 
+   .c,
+   .ch,
+   .cm,
+   .cpf,
+   .c1,
+   .cs {
+     color: $dt-blue;
+   }
+ 
+   .kd,
+   .kt,
+   .nb,
+   .nl,
+   .nv,
+   .vc,
+   .vg,
+   .vi,
+   .vm {
+     color: $dt-cyan;
+   }
+ 
+   .kd,
+   .nb,
+   .nl,
+   .nv,
+   .vc,
+   .vg,
+   .vi,
+   .vm {
+     font-style: italic;
+   }
+ 
+   .fm,
+   .na,
+   .nc,
+   .nf
+    {
+     color: $dt-green-light;
+   }
+ 
+   .k,
+   .o,
+   .cp,
+   .kc,
+   .kn,
+   .kp,
+   .kr,
+   .nt,
+   .ow {
+     color: $dt-pink;
+   }
+
+   .kc {
+        color: $dt-green-light;   
+   }
+ 
+   .m,
+   .mb,
+   .mf,
+   .mh,
+   .mi,
+   .mo,
+   .il {
+     color: $dt-purple;
+   }
+ 
+   .gd {
+     color: $dt-red;
+   }
+ }
+
+//  Code Folding
+ details.description[open] summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) summary::after {
+  content: attr(data-close);
+}
+
+// Notebook badges
+.notebook-badge-image {
+  border:0 !important;
+}
+
+// Adjust font size for footnotes.
+.footnotes {
+  font-size: 12px !important;
+  p{
+    font-size: 12px !important;
+ }
+}
+
+// Adjust with of social media icons were getting cut off
+.social-media-list{
+  .svg-icon {
+    width: 25px !important;
+    height: 23px !important;
+  }
+}
+
+// Make Anchor Links Appear Only on Hover
+
+.anchor-link {
+  opacity: 0;
+  padding-left: 0.375em;
+  \-webkit-text-stroke: 1.75px white;
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  opacity: 1;
+}
+
+
+// category tags
+.category-tags {
+  margin-top: .25rem !important;
+  margin-bottom: .25rem !important;
+}
+
+// Custom styling for homepage post previews
+.post-meta-title{
+  margin-top: .25em;
+  margin-bottom: .25em;
+}
+
+.page-description {
+  color: #585858;
+  font-size: 110%;
+}
+
+// Custom styling for category tags
+.category-tags-icon {
+  font-size: 75% !important;
+  padding-left: 0.375em;
+  opacity: 35%;
+}
+.category-tags-link {
+  color:rgb(187, 129, 129) !important;
+  font-size: 13px !important;
+}
+
+// Search Page Styles
+.js-search-results {padding-top: 0.2rem;}
+.search-results-list-item {padding-bottom: 1rem;}
+.search-results-list-item .search-result-title {
+  font-size: 16px;
+  color: #d9230f;
+}
+.search-result-rel-url {color: silver;}
+.search-results-list-item a {display: block; color: #777;}
+.search-results-list-item a:hover, .search-results-list-item a:focus {text-decoration: none;}
+.search-results-list-item a:hover .search-result-title {text-decoration: underline;}
+
+.search-result-rel-date {
+  color: rgb(109, 120, 138);
+  font-size: 14px;
+}
+
+.search-result-preview {
+  color: #777;
+  font-size: 16px;
+  margin-top:.02rem !important;
+  margin-bottom:.02rem !important;
+}
+.search-result-highlight {
+  color: #2e0137;
+  font-weight:bold;
+}
+
+// Handle Overflow With Table Output
+
+table {
+  display: block !important;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 75%;
+  border:none;
+  th{
+    text-align: center! important;
+  }
+  td{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    max-width: 15em;
+  }
+}
+
+// customize scrollbars
+::-webkit-scrollbar {
+  width: 14px;
+  height: 18px;
+}
+::-webkit-scrollbar-thumb {
+  height: 6px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 7px;
+  background-color: #9D9D9D;
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
