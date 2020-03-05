@@ -120,7 +120,7 @@ jobs:
           
       - name: Jekyll build with baseurl as root for netifly
         if: steps.get_status.outputs.status == 'private'
-        uses: docker://jekyll/jekyll:4.0.0
+        uses: docker://hamelsmu/fastpages-jekyll
         with:
           args: bash -c "gem install bundler && jekyll build"
      

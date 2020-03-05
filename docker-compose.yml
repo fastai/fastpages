@@ -27,7 +27,8 @@ services:
 
   jekyll:
     working_dir: /data
-    image: jekyll/jekyll:4.0.0
+    image: hamelsmu/fastpages-jekyll
+    # image: jekyll/jekyll:4.0.0
     restart: unless-stopped
     ports:
       - "4000:4000"
