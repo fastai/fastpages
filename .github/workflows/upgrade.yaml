@@ -45,6 +45,8 @@ jobs:
         rm -rf _posts _notebooks _word images
         rm *.md CNAME action.yml _config.yml LICENSE
         rm .github/workflows/chatops.yaml
+        rm .github/workflows/docker-nbdev.yaml
+        rm .github/workflows/docker.yaml
         rm .github/ISSUE_TEMPLATE/bug.md .github/ISSUE_TEMPLATE/feature_request.md
         
         # copy new files from fastpages into your repo
