@@ -13,7 +13,7 @@ author: Hamel Husain & Jeremy Howard
 
 Hi, I'm [Hamel Husain](https://twitter.com/HamelHusain).  I'm a machine learning engineer at GitHub.  Recently, GitHub released a new product called [GitHub Actions](https://github.com/features/actions), which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.  
 
-Over the past 3 months, I've been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superowers as a Data Scientist.  Here are two projects I recently built with Actions that show off its potential:
+Recently, I've been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superowers as a Data Scientist.  Here are two projects I recently built with Actions that show off its potential:
 
 ## fastpages
 
