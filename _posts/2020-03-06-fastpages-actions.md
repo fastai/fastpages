@@ -35,7 +35,11 @@ A more in-depth explanation about the above project can be viewed in this video:
 
 {% include youtube.html content="https://youtu.be/Ll50l3fsoYs" %}
 
-Additionally, you can create a GitHub Action for other people to use and host it on GitHub, so other people can use parts of your workflow without having to re-creating your steps.  I provide examples of this below.
+Using GitHub Actions for machine learnging workflows is starting to catch on.  [Julien Chaumond](https://twitter.com/julien_c), CTO of [Hugging Face](https://huggingface.co/), says:
+
+> GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPU not on CPU), on our own infra! [^1]
+
+Additionally, you can host a GitHub Action for other people to use so others can use parts of your workflow without having to re-create your steps.  I provide examples of this below.
 
 # A Gentle Introduction To GitHub Actions
 
@@ -225,7 +229,7 @@ The next three steps in our workflow are defined below:
 
 The step named `setup directories for Jekyll build` executes shell commands that remove the `_site` folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps. 
 
-The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll/jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see [this tutorial](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The name of this container is called `hamelsmu/fastpages-jekyll` because I'm adding some additional dependencies to `jekyll/jekyll` and hosting those on my DockerHub account for faster build times[^1].  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).  Finally, the `env` parameter allows me to pass an environment variable into the Docker container. 
+The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll/jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see [this tutorial](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The name of this container is called `hamelsmu/fastpages-jekyll` because I'm adding some additional dependencies to `jekyll/jekyll` and hosting those on my DockerHub account for faster build times[^2].  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).  Finally, the `env` parameter allows me to pass an environment variable into the Docker container. 
 
 The final command above copies a `CNAME` file into the _site folder, which we need for the custom domain [https://fastpages.fast.ai](https://fastpages.fast.ai/). Setting up custom domains are outside the scope of this article.
 
@@ -277,4 +281,5 @@ Please feel free to get in touch with us on Twitter:
 ___
 ##### Footnotes
 
-[^1]: These additional dependencies are [defined here](https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile), which uses the "jekyll build" command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow [defined here](https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml).
+[^1]: You can see some of Hugging Face's Actions workflows for machine learning [on GitHub](https://github.com/huggingface/transformers/tree/master/.github/workflows)
+[^2]: These additional dependencies are [defined here](https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile), which uses the "jekyll build" command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow [defined here](https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml).
