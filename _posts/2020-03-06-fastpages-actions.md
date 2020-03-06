@@ -37,9 +37,9 @@ A more in-depth explanation about the above project can be viewed in this video:
 
 Using GitHub Actions for machine learnging workflows is starting to catch on.  [Julien Chaumond](https://twitter.com/julien_c), CTO of [Hugging Face](https://huggingface.co/), says:
 
-> GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPU not on CPU), on our own infra! [^1]
+> GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPUs not on CPUs), on our own infra! [^1]
 
-Additionally, you can host a GitHub Action for other people to use so others can use parts of your workflow without having to re-create your steps.  I provide examples of this below.
+Additionally, you can host a GitHub Action for other people so others can use parts of your workflow without having to re-create your steps.  I provide examples of this below.
 
 # A Gentle Introduction To GitHub Actions
 
