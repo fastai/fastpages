@@ -1,16 +1,16 @@
 name: Build-Docker
 on:
     push:
-        # paths:
-        #     - Gemfile*
-        # branches:
-        #     - master
-    # pull_request:
-    #     # paths:
-    #     #     - Gemfile*
+        paths:
+            - Gemfile*
+        branches:
+            - master
+    pull_request:
+        paths:
+            - Gemfile*
 
 jobs:
-    docker:
+    jekyll-fastpages:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
@@ -27,6 +27,3 @@ jobs:
               env:
                 USERNAME: ${{ secrets.DOCKER_USERNAME }}
                 PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-
-
