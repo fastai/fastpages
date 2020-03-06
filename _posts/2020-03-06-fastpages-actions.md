@@ -13,17 +13,17 @@ author: Hamel Husain & Jeremy Howard
 
 Hi, I'm [Hamel Husain](https://twitter.com/HamelHusain).  I'm a machine learning engineer at GitHub.  Recently, GitHub released a new product called [GitHub Actions](https://github.com/features/actions), which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.  
 
-Recently, I've been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superowers as a Data Scientist.  Here are two projects I recently built with Actions that show off its potential:
+Recently, I've been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superpowers as a Data Scientist.  Here are two projects I recently built with Actions that show off its potential:
 
 ## fastpages
 
-[fastpages](https://github.com/fastai/fastpages) is an automated, open source blogging platform with enhanced support for Jupyter notebooks.  You save your notebooks, markdown, or word docs into a directory on GitHub, and they automatically become blog posts. Read the announcement below:
+[fastpages](https://github.com/fastai/fastpages) is an automated, open-source blogging platform with enhanced support for Jupyter notebooks.  You save your notebooks, markdown, or Word docs into a directory on GitHub, and they automatically become blog posts. Read the announcement below:
 
 <center>{% twitter https://twitter.com/jeremyphoward/status/1232059428238581760?s=20 %}</center>
 
 ## Machine Learning Ops
 
-Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give a you a rich report back in a pull request so that everyone could see the results?  You can with GitHub Actions!
+Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give you a rich report back in a pull request so that everyone could see the results?  You can with GitHub Actions!
 
 Consider the below annotated screenshot of [this Pull Request](https://github.com/machine-learning-apps/actions-ml-cicd/pull/34):
 
@@ -34,7 +34,7 @@ A more in-depth explanation about the above project can be viewed in this video:
 
 {% include youtube.html content="https://youtu.be/Ll50l3fsoYs" %}
 
-Using GitHub Actions for machine learnging workflows is starting to catch on.  [Julien Chaumond](https://twitter.com/julien_c), CTO of [Hugging Face](https://huggingface.co/), says:
+Using GitHub Actions for machine learning workflows is starting to catch on.  [Julien Chaumond](https://twitter.com/julien_c), CTO of [Hugging Face](https://huggingface.co/), says:
 
 > GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPUs not on CPUs), on our own infra! [^1]
 
@@ -90,11 +90,11 @@ The [Usage](https://github.com/pypa/gh-action-pypi-publish#usage) section descri
     password: ${{ secrets.pypi_password }}
 ```
 
-This Action expects two inputs: `user` and a `password`.  You will notice that the password is referencing a variable called `secrets`, which is a variable that contains an [encrypted secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) that you can upload to your GitHub repository.  There are thousands of Actions (that are free) for a wide variety of tasks which can be discovered on the [GitHub Marketplace](https://github.com/marketplace?type=actions).  The ability to inherit ready-made Actions in your workflow allows you to accomplish complex tasks without implementing all of the logic yourself.  Some useful Actions for those getting started are:
+This Action expects two inputs: `user` and a `password`.  You will notice that the password is referencing a variable called `secrets`, which is a variable that contains an [encrypted secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) that you can upload to your GitHub repository.  There are thousands of Actions (that are free) for a wide variety of tasks that can be discovered on the [GitHub Marketplace](https://github.com/marketplace?type=actions).  The ability to inherit ready-made Actions in your workflow allows you to accomplish complex tasks without implementing all of the logic yourself.  Some useful Actions for those getting started are:
 
 - [actions/checkout](https://github.com/actions/checkout):  Allows you to quickly clone the contents of your repository into your environment, which you often want to do.  This does a number of other things such as automatically mount your repository’s files into downstream Docker containers.
-- [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate): very useful for debugging actions interactively.  This uses port forwarding to give you a terminal in the browser that is connected to your Actions runner.   Be careful not to expose sensitive information if you use this.
-- [actions/github-script](https://github.com/actions/github-script):  Gives you a pre-authenticated [ocotokit.js](https://octokit.github.io/rest.js/) client that allows you to interact with the GitHub api to accomplish almost any task on GitHub automatically.  Only [these endpoints](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token#permissions-for-the-github_token) are supported (for example, the [secrets endpoint](https://developer.github.com/v3/actions/secrets/) is not in that list).
+- [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate): Proivdes a way to debug Actions interactively.  This uses port forwarding to give you a terminal in the browser that is connected to your Actions runner.   Be careful not to expose sensitive information if you use this.
+- [actions/github-script](https://github.com/actions/github-script):  Gives you a pre-authenticated [ocotokit.js](https://octokit.github.io/rest.js/) client that allows you to interact with the GitHub API to accomplish almost any task on GitHub automatically.  Only [these endpoints](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token#permissions-for-the-github_token) are supported (for example, the [secrets endpoint](https://developer.github.com/v3/actions/secrets/) is not in that list).
 
 In addition to the aforementioned Actions, it is helpful to go peruse the official [GitHub Actions docs](https://help.github.com/en/actions) before diving in.
 
@@ -197,7 +197,7 @@ Below are the first two steps [in our workflow](https://github.com/fastai/fastpa
       uses: ./_action_files
 ```
 
-The first step creates a copy of your repository in the Actions file system, with the help of the utility [action/checkout](https://github.com/actions/checkout).  This utility only fetches the last commit by default, and saves files into a directory (whose path is stored in the environment variable [GITHUB_WORKSPACE](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables) that is accessible by subsequent steps in your job.  The second step runs the [fastai/fastpages](https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog) Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax: 
+The first step creates a copy of your repository in the Actions file system, with the help of the utility [action/checkout](https://github.com/actions/checkout).  This utility only fetches the last commit by default and saves files into a directory (whose path is stored in the environment variable [GITHUB_WORKSPACE](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables) that is accessible by subsequent steps in your job.  The second step runs the [fastai/fastpages](https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog) Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax: 
 
 ```yaml
 uses: ./_action_files
@@ -251,7 +251,7 @@ if: github.event_name == 'push'
 ```
 uses the variable [github.event_name](https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context) to ensure this step only runs when a push event ( in this case only pushes to the master branch trigger this workflow) occur.  
 
-This step deploys the fastpages website by copying contents of the `_site` folder to the root of the `gh-pages` branch, which [GitHub Pages](https://pages.github.com/) uses for hosting.  This step uses the [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) Action, pinned at version 3.  [Their README](https://github.com/peaceiris/actions-gh-pages) describes various options and inputs for this Action.
+This step deploys the fastpages website by copying the contents of the `_site` folder to the root of the `gh-pages` branch, which [GitHub Pages](https://pages.github.com/) uses for hosting.  This step uses the [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) Action, pinned at version 3.  [Their README](https://github.com/peaceiris/actions-gh-pages) describes various options and inputs for this Action.
 
 # Conclusion
 
@@ -268,7 +268,7 @@ Still confused about how GitHub Actions could be used for Data Science?  Here ar
 - GitHub Actions official [documentation](https://help.github.com/en/actions)
 - [Hello world Docker Action](https://github.com/actions/hello-world-docker-action): A template to demonstrate how to build a Docker Action for other people to use.
 - [Awesome Actions](https://github.com/sdras/awesome-actions): A curated list of interesting GitHub Actions by topic.
-- [A tutorial on Docker](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee) for Data Sciientists.
+- [A tutorial on Docker](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee) for Data Scientists.
 
 ### Getting In Touch
 
