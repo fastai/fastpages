@@ -4,6 +4,7 @@ description: "A Tutorial on GitHub Actions For Data Scientists"
 toc: true
 comments: true
 layout: post
+post_path: _posts/2020-03-06-fastpages-actions.md
 categories: [actions, markdown]
 image: images/fastpages_posts/actions/actions_logo.png
 author: Hamel Husain & Jeremy Howard
