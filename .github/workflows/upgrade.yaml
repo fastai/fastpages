@@ -50,7 +50,7 @@ jobs:
           new_num = new_version.read_text().strip()
           print(f'Old version: {old_num}')
           print(f'New version: {new_num}')
-          if old_version == new_num:
+          if old_num == new_num:
             print('::set-output name=vbump::false')
           else:
             print('::set-output name=vbump::true')
@@ -202,9 +202,9 @@ jobs:
             repo: context.repo.repo,
             body: `Opened PR https://github.com/${repo}/pull/${pr_num} to assist with updating fastpages.`
           })
-        env:
-          PR_NUM: ${{ steps.pr.outputs.pr_num }}
-          REPO: ${{ github.repository }}
+      env:
+        PR_NUM: ${{ steps.pr.outputs.pr_num }}
+        REPO: ${{ github.repository }}
 
     - name: Comment on issue if version has not changed
       if: steps.check_version.outputs.vbump == 'false'    
