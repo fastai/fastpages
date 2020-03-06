@@ -3,7 +3,7 @@ on: [issue_comment]
 
 jobs:
   trigger-chatops:
-    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview')
+    if: (github.event.issue.pull_request != null) &&  contains(github.event.comment.body, '/preview') && (github.repository == 'fastai/fastpages')
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -120,9 +120,9 @@ jobs:
           
       - name: Jekyll build with baseurl as root for netifly
         if: steps.get_status.outputs.status == 'private'
-        uses: docker://jekyll/jekyll
+        uses: docker://hamelsmu/fastpages-jekyll
         with:
-          args: jekyll build
+          args: bash -c "gem install bundler && jekyll build"
      
       - name: deploy to netlify
         if: steps.get_status.outputs.status == 'private'

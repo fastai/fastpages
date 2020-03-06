@@ -1,0 +1,23 @@
+name: Build-Nbdev-Docker
+on:
+    schedule:
+      - cron:  '0 */12 * * *'
+
+jobs:
+    nbdev-docker-fastpages:
+        if: github.repository == 'fastai/fastpages'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            
+            - name: build container
+              run: |
+                docker build -t hamelsmu/fastpages-nbdev -f _action_files/fastpages-nbdev.Dockerfile ./_action_files
+
+            - name: push container
+              run: |
+                echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
+                docker push hamelsmu/fastpages-nbdev
+              env:
+                USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

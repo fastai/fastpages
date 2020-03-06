@@ -67,6 +67,8 @@ jobs:
         git rm CNAME action.yml
         git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
         git rm .github/workflows/chatops.yaml
+        git rm .github/workflows/docker.yaml
+        git rm .github/workflows/docker-nbdev.yaml
         git rm .github/ISSUE_TEMPLATE/bug.md
         git rm .github/ISSUE_TEMPLATE/feature_request.md
         git add _config.yml README.md _fastpages_docs/ _action_files/settings.ini

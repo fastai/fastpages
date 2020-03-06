@@ -1,0 +1,30 @@
+name: Build-Docker
+on:
+    push:
+        paths:
+            - Gemfile*
+        branches:
+            - master
+    pull_request:
+        paths:
+            - Gemfile*
+
+jobs:
+    jekyll-fastpages:
+        if: github.repository == 'fastai/fastpages'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            
+            - name: build container
+              run: |
+                docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
+
+            - name: push container
+              if: github.event == 'push'
+              run: |
+                echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
+                docker push hamelsmu/fastpages-jekyll
+              env:
+                USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

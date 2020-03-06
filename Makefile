@@ -3,7 +3,7 @@ help:
 
 # start (or restart) the services
 server: .FORCE
-	docker-compose down || true;
+	docker-compose down --remove-orphans || true;
 	docker-compose up
 
 # start (or restart) the services in detached mode
@@ -33,7 +33,7 @@ stop: .FORCE
 remove: .FORCE
 	docker-compose stop  || true; docker-compose rm || true;
 
-# get shell inside the notebook service (Must already be running)
+# get shell inside the notebook converter service (Must already be running)
 bash-nb: .FORCE
 	docker-compose exec watcher /bin/bash
 

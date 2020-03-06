@@ -26,9 +26,11 @@ jobs:
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      uses: docker://jekyll/jekyll
+      uses: docker://hamelsmu/fastpages-jekyll
       with:
-        args: jekyll build -V
+        args: bash -c "gem install bundler && jekyll build -V"
+      env:
+        JEKYLL_ENV: 'production'
         
     - name: copy CNAME file into _site if CNAME exists
       run: |
