@@ -50,7 +50,7 @@ jobs:
           new_num = new_version.read_text().strip()
           print(f'Old version: {old_num}')
           print(f'New version: {new_num}')
-          if old_version == new_num:
+          if old_num == new_num:
             print('::set-output name=vbump::false')
           else:
             print('::set-output name=vbump::true')
