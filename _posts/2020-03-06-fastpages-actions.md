@@ -236,11 +236,11 @@ The final step in our workflow is defined below:
 
 ```yaml
   - name: Deploy
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
-        publish_dir: ./_site
+    if: github.event_name == 'push'
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+      publish_dir: ./_site
 ```
 
 {% endraw %}
