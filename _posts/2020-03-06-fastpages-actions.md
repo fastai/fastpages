@@ -1,6 +1,6 @@
 ---
 title: "GitHub Actions: Providing Data Scientists With New Superpowers"
-summary: A tutorial of how fastpages uses GitHub Actions for automation.
+description: "A Tutorial with Examples on How GitHub Actions can give Data Scientists New Superpowers"
 toc: true
 comments: true
 layout: post
