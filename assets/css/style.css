@@ -379,6 +379,10 @@ li .post-meta-description { color: #585858; font-size: 15px; margin-top: .05rem 
 
 /* Dracula Theme v1.2.5 https://github.com/zenorocha/dracula-theme Copyright 2016, All rights reserved Code licensed under the MIT license */
 /* Styles */
+.highlight { background: #323443 !important; color: #f8f8f2 !important; }
+
+.highlight pre, .highlight code { background: #323443; color: #f8f8f2; }
+
 .highlight .hll, .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #e7997a; }
 
 .highlight .go { color: #44475a; }
