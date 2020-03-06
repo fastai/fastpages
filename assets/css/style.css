@@ -343,7 +343,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .language-python + .language-plaintext pre { background-color: white !important; }
 
-.input_area pre, .input_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; }
+.input_area pre, .input_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; font-size: 100%; }
 
 .output_area pre, .output_area div { margin-bottom: 1rem !important; margin-top: 1rem !important; padding-bottom: 0 !important; padding-top: 0 !important; }
 
@@ -353,9 +353,11 @@ table td { border: 1px solid #e8e8e8; }
 
 .code_cell table { width: auto; }
 
-.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif; }
+.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important; }
 
 .post-content p, .post-content li { font-size: 20px; color: #515151; }
+
+.post-link { font-weight: normal; }
 
 h1 { margin-top: 2.5rem !important; }
 
@@ -363,11 +365,17 @@ h2 { margin-top: 2rem !important; }
 
 h3, h4 { margin-top: 1.5rem !important; }
 
+p { margin-top: 1rem !important; margin-bottom: 1rem !important; }
+
+h1, h2, h3, h4 { font-weight: normal !important; margin-bottom: 0.5rem !important; }
+
+pre { margin-bottom: 1.5rem !important; }
+
 .post-title { margin-top: .5rem !important; }
 
 li h3, li h4 { margin-top: .05rem !important; margin-bottom: .05rem !important; }
 
-li .post-meta-description { color: #585858; font-size: 15px; margin-bottom: .05rem !important; }
+li .post-meta-description { color: #585858; font-size: 15px; margin-top: .05rem !important; margin-bottom: .05rem !important; }
 
 /* Dracula Theme v1.2.5 https://github.com/zenorocha/dracula-theme Copyright 2016, All rights reserved Code licensed under the MIT license */
 /* Styles */
@@ -415,11 +423,11 @@ details.description:not([open]) summary::after { content: attr(data-close); }
 
 h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .anchor-link, h5:hover .anchor-link, h6:hover .anchor-link { opacity: 1; }
 
-.category-tags { margin-top: .25rem !important; margin-bottom: .25rem !important; }
+.category-tags { margin-top: .25rem !important; margin-bottom: .25rem !important; font-size: 105%; }
 
-.post-meta-title { margin-top: .25em; margin-bottom: .25em; }
+.post-meta-title, .post-meta { margin-top: .25em !important; margin-bottom: .25em !important; font-size: 105%; }
 
-.page-description { color: #585858; font-size: 110%; }
+.page-description { margin-top: .5rem !important; margin-bottom: .5rem !important; color: #585858; font-size: 115%; }
 
 .category-tags-icon { font-size: 75% !important; padding-left: 0.375em; opacity: 35%; }
 
