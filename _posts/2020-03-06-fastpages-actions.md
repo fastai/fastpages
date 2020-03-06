@@ -6,7 +6,7 @@ comments: true
 layout: post
 categories: [actions, markdown]
 image: images/diagram.png
-author: Hamel Husain
+author: Hamel Husain & Jeremy Howard
 ---
 
 # What Superpowers?
