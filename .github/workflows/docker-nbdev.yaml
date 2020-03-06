@@ -5,6 +5,7 @@ on:
 
 jobs:
     nbdev-docker-fastpages:
+        if: github.repository == 'fastai/fastpages'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
