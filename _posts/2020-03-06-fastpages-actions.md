@@ -27,8 +27,8 @@ Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test you
 
 Here is a screenshot of [this Pull Request](https://github.com/machine-learning-apps/actions-ml-cicd/pull/34):
 
-![](/images/actions_post/pr_1.png)
-![](/images/actions_post/pr_2.png)
+![](/images/fastpages_posts/actions/pr_1.png)
+![](/images/fastpages_posts/actions/pr_2.png)
 
 A more in-depth explanation about the above project can be viewed in this video:
 
