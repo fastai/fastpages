@@ -47,8 +47,10 @@ jobs:
 
         if old_version.exists():
           old_num = old_version.read_text().strip()
-          new_version = new_version.read_text().strip()
-          if old_version == new_version:
+          new_num = new_version.read_text().strip()
+          print(f'Old version: {old_num}')
+          print(f'New version: {new_num}')
+          if old_version == new_num:
             print('::set-output name=vbump::false')
           else:
             print('::set-output name=vbump::true')
@@ -191,7 +193,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `Opened PR https://github.com/${repo}/pull/${pr_num} to assist with updating fastpages.`
+            body: `Opened PR https://github.com/${context.repo.repo}/pull/${pr_num} to assist with updating fastpages.`
           })
 
     - name: Comment on issue if version has not changed
