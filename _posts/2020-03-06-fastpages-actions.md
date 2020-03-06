@@ -1,6 +1,6 @@
 ---
 title: "GitHub Actions: Providing Data Scientists With New Superpowers"
-description: "A Tutorial on How GitHub Actions Give Data Scientists New Superpowers"
+description: "A Tutorial on GitHub Actions For Data Scientists"
 toc: true
 comments: true
 layout: post
