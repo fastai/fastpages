@@ -23,9 +23,9 @@ Over the past 3 months, I've been able to use GitHub Actions to build some very 
 
 ## Machine Learning Ops
 
-Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give a you a rich report back in a pull request so that everyone could see the results?  
+Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give a you a rich report back in a pull request so that everyone could see the results?  You can with GitHub Actions!
 
-Here is a screenshot of [this Pull Request](https://github.com/machine-learning-apps/actions-ml-cicd/pull/34):
+Consider the below annotated screenshot of [this Pull Request](https://github.com/machine-learning-apps/actions-ml-cicd/pull/34):
 
 ![](/images/fastpages_posts/actions/pr_1.png)
 ![](/images/fastpages_posts/actions/pr_2.png)
@@ -264,6 +264,13 @@ Still confused about how GitHub Actions could be used for Data Science?  Here ar
 - GitHub Actions official [documentation](https://help.github.com/en/actions)
 - [Hello world Docker Action](https://github.com/actions/hello-world-docker-action): A template to demonstrate how to build a Docker Action for other people to use.
 - [Awesome Actions](https://github.com/sdras/awesome-actions): A curated list of interesting GitHub Actions by topic.
+
+### Getting In Touch
+
+Please feel free to get in touch with us on Twitter:
+
+- Hamel Husain [@HamelHusain](https://twitter.com/HamelHusain)
+- Jeremy Howard [@jeremyphoward](https://twitter.com/jeremyphoward)
 
 ___
 ##### Footnotes
