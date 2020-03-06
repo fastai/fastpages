@@ -174,17 +174,12 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          var pr_num = process.env.PR_NUM;
-          var repo = process.env.REPO
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: `An error occurred when attempting to open a PR to update fastpages. See the [Actions tab of your repo](https://github.com/${repo}/actions) for more details.`
           })
-      env:
-        PR_NUM: ${{ steps.pr.outputs.pr_num }}
-        REPO: ${{ github.repository }} 
 
     - name: Comment on issue 
       if: steps.check_version.outputs.vbump == 'true'    
@@ -192,17 +187,12 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          var pr_num = process.env.PR_NUM;
-          var repo = process.env.REPO
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: `Opened PR https://github.com/${repo}/pull/${pr_num} to assist with updating fastpages.`
           })
-      env:
-        PR_NUM: ${{ steps.pr.outputs.pr_num }}
-        REPO: ${{ github.repository }}
 
     - name: Comment on issue if version has not changed
       if: steps.check_version.outputs.vbump == 'false'    
@@ -210,17 +200,12 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          var pr_num = process.env.PR_NUM;
-          var repo = process.env.REPO
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: `Your version of fastpages is up to date.  There is nothing to change.`
           })
-      env:
-        PR_NUM: ${{ steps.pr.outputs.pr_num }}
-        REPO: ${{ github.repository }}
           
     - name: Close Issue
       if: always()
