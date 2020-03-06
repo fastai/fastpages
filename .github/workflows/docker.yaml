@@ -3,6 +3,8 @@ on:
     push:
         paths:
             - Gemfile*
+        # branches:
+        #     - master
     pull_request:
         # paths:
         #     - Gemfile*
@@ -20,11 +22,11 @@ jobs:
             - name: push container
               if: github.event == 'push'
               run: |
-                  echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
-                  docker push hamelsmu/fastpages-jekyll
-                env:
-                  USERNAME: ${{ secrets.DOCKER_USERNAME }}
-                  PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+                echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
+                docker push hamelsmu/fastpages-jekyll
+              env:
+                USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 
 
