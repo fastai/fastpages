@@ -46,16 +46,6 @@ layout: default
         </div>
       {% endif -%}
     {% endif -%}
-
-    {% if page.layout == 'post' %}
-    {% if page.badges or page.badges == nil %}
-      {% if page.post_path %}
-      <div class="pb-5 d-flex flex-wrap flex-justify-end">
-        {% include notebook_github_link.html %}
-      </div>
-      {% endif -%}
-    {% endif -%}
-  {% endif -%}
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
