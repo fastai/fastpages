@@ -1,14 +1,42 @@
 ---
-title: How fastpages Uses GitHub Actions
+title: "GitHub Actions: Providing Data Scientists With New Superpowers"
 summary: A tutorial of how fastpages uses GitHub Actions for automation.
 toc: true
 comments: true
+layout: post
 categories: [actions, markdown]
 image: images/diagram.png
 author: Hamel Husain
 ---
 
-# How fastpages Uses GitHub Actions
+# What Superpowers?
+
+Hi, I'm [Hamel Husain](https://twitter.com/HamelHusain).  I'm a machine learning engineer at GitHub.  Recently, GitHub released a new product called [GitHub Actions](https://github.com/features/actions), which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.  
+
+Over the past 3 months, I've been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superowers as a Data Scientist.  Here are two projects that I recently built with Actions that show off its potential:
+
+## fastpages
+
+[fastpages](https://github.com/fastai/fastpages) is an automated, open source blogging platform with enhanced support for Jupyter notebooks.  You save your notebooks, markdown, or word docs into a directory on GitHub, and they automatically become blog posts. Read the announcement below:
+
+<center>{% twitter https://twitter.com/jeremyphoward/status/1232059428238581760?s=20 %}</center>
+
+## Machine Learning Ops
+
+Wouldn't it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give a you a rich report back in a pull request so that everyone could see the results?  
+
+Here is a screenshot of [this Pull Request](https://github.com/machine-learning-apps/actions-ml-cicd/pull/34):
+
+![](/images/actions_post/pr_1.png)
+![](/images/actions_post/pr_2.png)
+
+A more in-depth explanation about the above project can be viewed in this video:
+
+{% include youtube.html content="https://youtu.be/Ll50l3fsoYs" %}
+
+Additionally, you can create a GitHub Action for other people to use and host it on GitHub, so other people can use parts of your workflow without having to re-creating your steps.  I provide examples of this below.
+
+# A Gentle Introduction To GitHub Actions
 
 ## What Are GitHub Actions?
 
@@ -68,9 +96,11 @@ In addition to the aforementioned Actions, it is helpful to go peruse the offici
 
 ## Example: A fastpages Action Workflow
 
+The best to way familiarize yourself with Actions is by studying examples.  Let’s take a look at the Action workflow that automates the build of [fastpages](https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html) (the platform used to write this blog post).
+
 ### Part 1: Define Workflow Triggers
 
-The best to way learn Actions is by studying examples.  Let’s take a look at the Action workflow that automates the build of the fastpages blog, [defined in ci.yaml](https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml).  Like all Actions workflows, this is YAML file is located in the .github/workflows directory of the GitHub repo.
+ blog, [defined in ci.yaml](https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml).  Like all Actions workflows, this is YAML file is located in the .github/workflows directory of the GitHub repo.
 
 The top of this YAML file looks like this:
 
@@ -180,9 +210,11 @@ The next three steps in our workflow are defined below:
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      uses: docker://jekyll/jekyll
+      uses: docker://hamelsmu/fastpages-jekyll
       with:
-        args: jekyll build -V
+        args: bash -c "gem install bundler && jekyll build -V"
+      env:
+        JEKYLL_ENV: 'production'
   
     - name: copy CNAME file into _site if CNAME exists
       run: |
@@ -190,7 +222,9 @@ The next three steps in our workflow are defined below:
         cp CNAME _site/ 2>/dev/null || :
 ```
 
-The step named `setup directories for Jekyll build` executes shell commands that remove the `_site` folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps. The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see this [gentle introduction](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).
+The step named `setup directories for Jekyll build` executes shell commands that remove the `_site` folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps. 
+
+The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see this [gentle introduction](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The name of this container is called `hamelsmu/fastpages-jekyll` because I'm adding some additional dependencies to `jekyll/jekyll` and hosting those on my DockerHub account for faster build times[^1].  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).  Finally, the `env` parameter allows me to pass an environment variable into the Docker container. 
 
 The final command above copies a `CNAME` file into the _site folder, which we need for the custom domain [https://fastpages.fast.ai](https://fastpages.fast.ai/). Setting up custom domains are outside the scope of this article.
 
@@ -215,14 +249,23 @@ uses the variable [github.event_name](https://help.github.com/en/actions/referen
 
 This step deploys the fastpages website by copying contents of the `_site` folder to the root of the `gh-pages` branch, which [GitHub Pages](https://pages.github.com/) uses for hosting.  This step uses the [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) Action, pinned at version 3.  [Their README](https://github.com/peaceiris/actions-gh-pages) describes various options and inputs for this Action.
 
-## Conclusion
+# Conclusion
 
 We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the [other workflows](https://github.com/fastai/fastpages/tree/master/.github/workflows) in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to build your own Action for other people, but you can [start with these docs](https://help.github.com/en/actions/building-actions) to learn more. 
 
-We hope you enjoy the automation provided by fastpages, and we encourage you to get started by creating a repo from [our template](https://github.com/fastai/fastpages/generate), as well as reading the documentation in [our repo](https://github.com/fastai/fastpages).
+Still confused about how GitHub Actions could be used for Data Science?  Here are some additoinal ideas of things you can build to get you started:
 
-# Related Materials
+- Jupyter Widgets that trigger GitHub Actions to perform various tasks on GitHub via the [repository dispatch event](https://help.github.com/en/actions/reference/events-that-trigger-workflows#external-events-repository_dispatch)
+- Integration with [Pachyderm](https://www.pachyderm.com/) for data versioning.
+- Integration with your favorite cloud machine learning services, such [Sagemaker](https://aws.amazon.com/sagemaker/), [Azure ML](https://azure.microsoft.com/en-us/free/machine-learning/) or GCP's [AI Platform](https://cloud.google.com/ai-platform).
+
+## Related Materials
 
 - GitHub Actions official [documentation](https://help.github.com/en/actions)
 - [Hello world Docker Action](https://github.com/actions/hello-world-docker-action): A template to demonstrate how to build a Docker Action for other people to use.
-- [MLOps w/ GitHub Actions](https://youtu.be/Ll50l3fsoYs): A demonstration of how Actions can be used for machine learning workflows.
+- [Awesome Actions](https://github.com/sdras/awesome-actions): A curated list of interesting GitHub Actions by topic.
+
+___
+##### Footnotes
+
+[^1]: These additional dependencies are [defined here](https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile), which uses the "jekyll build" command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow [defined here](https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml).
