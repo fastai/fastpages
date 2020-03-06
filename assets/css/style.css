@@ -419,7 +419,7 @@ details.description:not([open]) summary::after { content: attr(data-close); }
 
 .footnotes { font-size: 12px !important; }
 
-.footnotes p { font-size: 12px !important; }
+.footnotes p, .footnotes li { font-size: 12px !important; }
 
 .social-media-list .svg-icon, .pagination .svg-icon { width: 25px !important; height: 23px !important; }
 

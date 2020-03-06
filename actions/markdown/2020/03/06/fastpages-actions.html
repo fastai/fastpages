@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>GitHub Actions: Providing Data Scientists With New Superpowers | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="GitHub Actions: Providing Data Scientists With New Superpowers" />
+<meta name="author" content="Hamel Husain & Jeremy Howard" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Tutorial on GitHub Actions For Data Scientists" />
+<meta property="og:description" content="A Tutorial on GitHub Actions For Data Scientists" />
+<link rel="canonical" href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" />
+<meta property="og:url" content="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"datePublished":"2020-03-06T00:00:00-06:00","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","description":"A Tutorial on GitHub Actions For Data Scientists","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"@type":"BlogPosting","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","dateModified":"2020-03-06T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>GitHub Actions: Providing Data Scientists With New Superpowers | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="GitHub Actions: Providing Data Scientists With New Superpowers" />
+<meta name="author" content="Hamel Husain & Jeremy Howard" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Tutorial on GitHub Actions For Data Scientists" />
+<meta property="og:description" content="A Tutorial on GitHub Actions For Data Scientists" />
+<link rel="canonical" href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" />
+<meta property="og:url" content="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"datePublished":"2020-03-06T00:00:00-06:00","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","description":"A Tutorial on GitHub Actions For Data Scientists","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"@type":"BlogPosting","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","dateModified":"2020-03-06T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    // remove paragraph tags in rendered toc (happens from notebooks)
+    var toctags = document.querySelectorAll(".toc-entry")
+    toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">GitHub Actions: Providing Data Scientists With New Superpowers</h1><p class="page-description">A Tutorial on GitHub Actions For Data Scientists</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-06T00:00:00-06:00" itemprop="datePublished">
+        Mar 6, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Hamel Husain & Jeremy Howard</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#actions">actions</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#what-superpowers">What Superpowers?</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#fastpages">fastpages</a></li>
+<li class="toc-entry toc-h2"><a href="#machine-learning-ops">Machine Learning Ops</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#a-gentle-introduction-to-github-actions">A Gentle Introduction To GitHub Actions</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-are-github-actions">What Are GitHub Actions?</a></li>
+<li class="toc-entry toc-h2"><a href="#example-a-fastpages-action-workflow">Example: A fastpages Action Workflow</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#part-1-define-workflow-triggers">Part 1: Define Workflow Triggers</a></li>
+<li class="toc-entry toc-h3"><a href="#part-2-define-jobs">Part 2: Define Jobs</a></li>
+<li class="toc-entry toc-h3"><a href="#part-3-define-steps">Part 3: Define Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#related-materials">Related Materials</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#getting-in-touch">Getting In Touch</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#footnotes">Footnotes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1 id="what-superpowers">
+<a class="anchor" href="#what-superpowers" aria-hidden="true"><span class="octicon octicon-link"></span></a>What Superpowers?</h1>
+
+<p>Hi, I’m <a href="https://twitter.com/HamelHusain">Hamel Husain</a>.  I’m a machine learning engineer at GitHub.  Recently, GitHub released a new product called <a href="https://github.com/features/actions">GitHub Actions</a>, which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.</p>
+
+<p>Recently, I’ve been able to use GitHub Actions to build some very unique tools for Data Scientists, which I want to share with you today.  Most importantly, I hope to get you excited about GitHub Actions, and the promise it has for giving you new superpowers as a Data Scientist.  Here are two projects I recently built with Actions that show off its potential:</p>
+
+<h2 id="fastpages">
+<a class="anchor" href="#fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>fastpages</h2>
+
+<p><a href="https://github.com/fastai/fastpages">fastpages</a> is an automated, open-source blogging platform with enhanced support for Jupyter notebooks.  You save your notebooks, markdown, or Word docs into a directory on GitHub, and they automatically become blog posts. Read the announcement below:</p>
+
+<center><div class="jekyll-twitter-plugin">
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">We're launching `fastpages`, a platform which allows you to host a blog for free, with no ads. You can blog with <a href="https://twitter.com/ProjectJupyter?ref_src=twsrc%5Etfw">@ProjectJupyter</a> notebooks, <a href="https://twitter.com/Office?ref_src=twsrc%5Etfw">@office</a> Word, directly from <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a>'s markdown editor, etc.<br><br>Nothing to install, &amp; setup is automated!<a href="https://t.co/dNSA0oQUrN">https://t.co/dNSA0oQUrN</a></p>— Jeremy Howard (@jeremyphoward) <a href="https://twitter.com/jeremyphoward/status/1232059428238581760?ref_src=twsrc%5Etfw">February 24, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div></center>
+
+<h2 id="machine-learning-ops">
+<a class="anchor" href="#machine-learning-ops" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning Ops</h2>
+
+<p>Wouldn’t it be cool if you could invoke a chatbot natively on GitHub to test your machine learning models on the infrastructure of your choice (GPUs), log all the results, and give you a rich report back in a pull request so that everyone could see the results?  You can with GitHub Actions!</p>
+
+<p>Consider the below annotated screenshot of <a href="https://github.com/machine-learning-apps/actions-ml-cicd/pull/34">this Pull Request</a>:</p>
+
+<p><img src="/images/fastpages_posts/actions/pr_1.png" alt="">
+<img src="/images/fastpages_posts/actions/pr_2.png" alt=""></p>
+
+<p>A more in-depth explanation about the above project can be viewed in this video:</p>
+
+<center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ll50l3fsoYs" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<p>Using GitHub Actions for machine learning workflows is starting to catch on.  <a href="https://twitter.com/julien_c">Julien Chaumond</a>, CTO of <a href="https://huggingface.co/">Hugging Face</a>, says:</p>
+
+<blockquote>
+  <p>GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPUs not on CPUs), on our own infra! <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+</blockquote>
+
+<p>Additionally, you can host a GitHub Action for other people so others can use parts of your workflow without having to re-create your steps.  I provide examples of this below.</p>
+
+<h1 id="a-gentle-introduction-to-github-actions">
+<a class="anchor" href="#a-gentle-introduction-to-github-actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Gentle Introduction To GitHub Actions</h1>
+
+<h2 id="what-are-github-actions">
+<a class="anchor" href="#what-are-github-actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>What Are GitHub Actions?</h2>
+
+<p><a href="https://github.com/features/actions">GitHub Actions</a> allow you to run arbitrary code in response to <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows">events</a>.  Events are activities that happen on GitHub such as:</p>
+
+<ul>
+  <li>Opening a pull request</li>
+  <li>Making an issue comment</li>
+  <li>Labeling an issue</li>
+  <li>Creating a new branch</li>
+  <li>… <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows">and many more</a>
+</li>
+</ul>
+
+<p>When an event is created, the GitHub Actions context is hydrated with a <a href="https://developer.github.com/v3/activity/events/types/">payload</a> containing metadata for that event.  Below is an example of a payload that is received when an issue is created:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"issue"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">444500041</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spelling error in the README file"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Codertocat"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1362934389</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"node_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MDU6TGFiZWwxMzYyOTM0Mzg5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bug"</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It looks like you accidently spelled 'commit' with two 't's."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This functionality allows you to respond to various events on GitHub in an automated way.   In addition to this payload, GitHub Actions also provide a plethora <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">of variables</a> and <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables">environment variables</a> that afford easy to access metadata such as the username and the owner of the repo.  Additionally, other people can package useful functionality into an Action that other people can inherit.  For example, consider the below Action that helps you <a href="https://github.com/pypa/gh-action-pypi-publish">publish python packages to PyPi</a>:</p>
+
+<p>The <a href="https://github.com/pypa/gh-action-pypi-publish#usage">Usage</a> section describes how this Action can be used:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Publish a Python distribution to PyPI</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">pypa/gh-action-pypi-publish@master</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">user</span><span class="pi">:</span> <span class="s">__token__</span>
+    <span class="na">password</span><span class="pi">:</span> <span class="s">${{ secrets.pypi_password }}</span>
+</code></pre></div></div>
+
+<p>This Action expects two inputs: <code class="highlighter-rouge">user</code> and a <code class="highlighter-rouge">password</code>.  You will notice that the password is referencing a variable called <code class="highlighter-rouge">secrets</code>, which is a variable that contains an <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">encrypted secret</a> that you can upload to your GitHub repository.  There are thousands of Actions (that are free) for a wide variety of tasks that can be discovered on the <a href="https://github.com/marketplace?type=actions">GitHub Marketplace</a>.  The ability to inherit ready-made Actions in your workflow allows you to accomplish complex tasks without implementing all of the logic yourself.  Some useful Actions for those getting started are:</p>
+
+<ul>
+  <li>
+<a href="https://github.com/actions/checkout">actions/checkout</a>:  Allows you to quickly clone the contents of your repository into your environment, which you often want to do.  This does a number of other things such as automatically mount your repository’s files into downstream Docker containers.</li>
+  <li>
+<a href="https://github.com/mxschmitt/action-tmate">mxschmitt/action-tmate</a>: Proivdes a way to debug Actions interactively.  This uses port forwarding to give you a terminal in the browser that is connected to your Actions runner.   Be careful not to expose sensitive information if you use this.</li>
+  <li>
+<a href="https://github.com/actions/github-script">actions/github-script</a>:  Gives you a pre-authenticated <a href="https://octokit.github.io/rest.js/">ocotokit.js</a> client that allows you to interact with the GitHub API to accomplish almost any task on GitHub automatically.  Only <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token#permissions-for-the-github_token">these endpoints</a> are supported (for example, the <a href="https://developer.github.com/v3/actions/secrets/">secrets endpoint</a> is not in that list).</li>
+</ul>
+
+<p>In addition to the aforementioned Actions, it is helpful to go peruse the official <a href="https://help.github.com/en/actions">GitHub Actions docs</a> before diving in.</p>
+
+<h2 id="example-a-fastpages-action-workflow">
+<a class="anchor" href="#example-a-fastpages-action-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: A fastpages Action Workflow</h2>
+
+<p>The best to way familiarize yourself with Actions is by studying examples.  Let’s take a look at the Action workflow that automates the build of <a href="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html">fastpages</a> (the platform used to write this blog post).</p>
+
+<h3 id="part-1-define-workflow-triggers">
+<a class="anchor" href="#part-1-define-workflow-triggers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 1: Define Workflow Triggers</h3>
+
+<p>blog, <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml">defined in ci.yaml</a>.  Like all Actions workflows, this is YAML file is located in the .github/workflows directory of the GitHub repo.</p>
+
+<p>The top of this YAML file looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">CI</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">master</span>
+  <span class="na">pull_request</span><span class="pi">:</span> 
+</code></pre></div></div>
+
+<p>This means that this workflow is triggered on either a <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows#push-event-push">push</a> or <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request">pull request</a> event.  Furthermore, push events are filtered such that only pushes to the master branch will trigger the workflow, whereas all pull requests will trigger this workflow.  It is important to note that pull requests opened from forks will have read-only access to the base repository and cannot access any secrets for security reasons.  The reason for defining the workflow in this way is we wanted to trigger the same workflow to test pull requests as well as build and deploy the website when a PR is merged into master.  This will be clarified as we step through the rest of the YAML file.</p>
+
+<h3 id="part-2-define-jobs">
+<a class="anchor" href="#part-2-define-jobs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 2: Define Jobs</h3>
+
+<p>Next, we define jobs (there is only one in this workflow).  Per <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobs">the docs</a>:</p>
+
+<blockquote>
+  <p>A workflow run is made up of one or more jobs. Jobs run in parallel by default.</p>
+</blockquote>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">jobs</span><span class="pi">:</span>     
+  <span class="na">build-site</span><span class="pi">:</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">( github.event.commits[0].message != 'Initial commit' ) || github.run_number &gt; </span><span class="m">1</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<p>The keyword <code class="highlighter-rouge">build-site</code> is the name of your job and you can name it whatever you want. In this case, we have a conditional if statement that dictates if this job should be run or not.  We are trying to ensure that this workflow does not run when the first commit to a repo is made with the message ‘Initial commit’.  The first variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.event</a>, contains a <a href="https://developer.github.com/v3/activity/events/types/#webhook-payload-example-31">json payload</a> of the event that triggered this workflow.  When developing workflows, it is helpful to print this variable in order to inspect its structure, which you can accomplish with the following YAML:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">see payload</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">echo "FULL PAYLOAD:\n${PAYLOAD}\n"</span>
+        <span class="s">echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="na">PAYLOAD</span><span class="pi">:</span> <span class="s">${{ toJSON(github.event) }}</span>
+        <span class="na">PR_PAYLOAD</span><span class="pi">:</span> <span class="s">${{ github.event.pull_request }}</span>
+</code></pre></div></div>
+<p><em>Note: the above step is only for debugging and is not currently in the workflow.</em></p>
+
+<p><a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#tojson">toJson</a> is a handy function that returns a pretty-printed JSON representation of the variable.  The output is printed directly in the logs contained in the Actions tab of your repo.  In this example, printing the payload for a push event will look like this (truncated for brevity):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refs/tags/simple-tag"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6113728f27ae8c7b1a77c8d03f9ed6e0adf246"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"forced"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"base_ref"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"updated README.md"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hamelsmu"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"head_commit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Therefore, the variable <code class="highlighter-rouge">github.event.commits[0].message</code> will retrieve the first commit message in the array of commits.  Since we are looking for situations where there is only one commit, this logic suffices.  The second variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.run_number</a> is a special variable in Actions which:</p>
+
+<blockquote>
+  <p>[is a] unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow’s first run, and increments with each new run. This number does not change if you re-run the workflow run.</p>
+</blockquote>
+
+<p>Therefore, the <code class="highlighter-rouge">if</code> statement introduced above:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">if</span><span class="pi">:</span> <span class="s">( github.event.commits[0].message != 'Initial commit' ) || github.run_number &gt; </span><span class="m">1</span>
+</code></pre></div></div>
+
+<p>Allows the workflow to run when the commit message is “Initial commit” as long as it is not the first commit.  ( <code class="highlighter-rouge">||</code> is a logical <code class="highlighter-rouge">or</code> operator).</p>
+
+<p>Finally, the line <code class="highlighter-rouge">runs-on: ubuntu-latest</code> specifies the <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">host operating system</a> that your workflows will run in.</p>
+
+<h3 id="part-3-define-steps">
+<a class="anchor" href="#part-3-define-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 3: Define Steps</h3>
+
+<p>Per the <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps">docs</a>:</p>
+
+<blockquote>
+  <p>A job contains a sequence of tasks called steps. Steps can run commands, run setup tasks, or run an Action in your repository, a public repository, or an Action published in a Docker registry. Not all steps run Actions, but all Actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. GitHub provides built-in steps to set up and complete a job.</p>
+</blockquote>
+
+<p>Below are the first two steps <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml">in our workflow</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Copy Repository Contents</span>
+      <span class="s">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
+      <span class="s">with</span><span class="pi">:</span>
+        <span class="na">persist-credentials</span><span class="pi">:</span> <span class="no">false</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">convert notebooks and word docs to posts</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">./_action_files</span>
+</code></pre></div></div>
+
+<p>The first step creates a copy of your repository in the Actions file system, with the help of the utility <a href="https://github.com/actions/checkout">action/checkout</a>.  This utility only fetches the last commit by default and saves files into a directory (whose path is stored in the environment variable <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables">GITHUB_WORKSPACE</a> that is accessible by subsequent steps in your job.  The second step runs the <a href="https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog">fastai/fastpages</a> Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">uses</span><span class="pi">:</span> <span class="s">./_action_files</span>
+</code></pre></div></div>
+
+<p>is a special case where the pre-made GitHub Action we want to run happens to be defined in the same repo that runs this workflow.  This syntax allows us to test changes to this pre-made Action when evaluating PRs by referencing the directory in the current repository that defines that pre-made Action.  <em>Note: Building pre-made Actions is beyond the scope of this tutorial.</em></p>
+
+<p>The next three steps in our workflow are defined below:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">setup directories for Jekyll build</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">rm -rf _site</span>
+        <span class="s">sudo chmod -R 777 .</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Jekyll build</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">docker://hamelsmu/fastpages-jekyll</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">args</span><span class="pi">:</span> <span class="s">bash -c "gem install bundler &amp;&amp; jekyll build -V"</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="na">JEKYLL_ENV</span><span class="pi">:</span> <span class="s1">'</span><span class="s">production'</span>
+  
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">copy CNAME file into _site if CNAME exists</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">sudo chmod -R 777 _site/</span>
+        <span class="s">cp CNAME _site/ 2&gt;/dev/null || :</span>
+</code></pre></div></div>
+
+<p>The step named <code class="highlighter-rouge">setup directories for Jekyll build</code> executes shell commands that remove the <code class="highlighter-rouge">_site</code> folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps.</p>
+
+<p>The step named <code class="highlighter-rouge">Jekyll build</code> executes a docker container hosted by the Jekyll community <a href="https://hub.docker.com/r/jekyll/jekyll/">on Dockerhub called <code class="highlighter-rouge">jekyll/jekyll</code></a>.  For those not familiar with Docker, see <a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">this tutorial</a>.  The name of this container is called <code class="highlighter-rouge">hamelsmu/fastpages-jekyll</code> because I’m adding some additional dependencies to <code class="highlighter-rouge">jekyll/jekyll</code> and hosting those on my DockerHub account for faster build times<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>.  The <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs">args parameter</a> allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command <code class="highlighter-rouge">jekyll build</code>, which builds our website and places relevant assets them into the <code class="highlighter-rouge">_site</code> folder. For more information about Jekyll, <a href="https://jekyllrb.com/docs/">read the official docs</a>.  Finally, the <code class="highlighter-rouge">env</code> parameter allows me to pass an environment variable into the Docker container.</p>
+
+<p>The final command above copies a <code class="highlighter-rouge">CNAME</code> file into the _site folder, which we need for the custom domain <a href="https://fastpages.fast.ai/">https://fastpages.fast.ai</a>. Setting up custom domains are outside the scope of this article.</p>
+
+<p>The final step in our workflow is defined below:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy</span>
+      <span class="s">if</span><span class="pi">:</span> <span class="s">github.event_name == 'push'</span>
+      <span class="s">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+      <span class="s">with</span><span class="pi">:</span>
+        <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">${{ secrets.SSH_DEPLOY_KEY }}</span>
+        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+</code></pre></div></div>
+
+<p>The statement</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">if</span><span class="pi">:</span> <span class="s">github.event_name == 'push'</span>
+</code></pre></div></div>
+<p>uses the variable <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.event_name</a> to ensure this step only runs when a push event ( in this case only pushes to the master branch trigger this workflow) occur.</p>
+
+<p>This step deploys the fastpages website by copying the contents of the <code class="highlighter-rouge">_site</code> folder to the root of the <code class="highlighter-rouge">gh-pages</code> branch, which <a href="https://pages.github.com/">GitHub Pages</a> uses for hosting.  This step uses the <a href="https://github.com/peaceiris/actions-gh-pages">peaceiris/actions-gh-pages</a> Action, pinned at version 3.  <a href="https://github.com/peaceiris/actions-gh-pages">Their README</a> describes various options and inputs for this Action.</p>
+
+<h1 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>
+
+<p>We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the <a href="https://github.com/fastai/fastpages/tree/master/.github/workflows">other workflows</a> in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can <a href="https://help.github.com/en/actions/building-actions">start with these docs</a> to learn more.</p>
+
+<p>Still confused about how GitHub Actions could be used for Data Science?  Here are some ideas of things you can build:</p>
+
+<ul>
+  <li>Jupyter Widgets that trigger GitHub Actions to perform various tasks on GitHub via the <a href="https://help.github.com/en/actions/reference/events-that-trigger-workflows#external-events-repository_dispatch">repository dispatch event</a>
+</li>
+  <li>Integration with <a href="https://www.pachyderm.com/">Pachyderm</a> for data versioning.</li>
+  <li>Integration with your favorite cloud machine learning services, such <a href="https://aws.amazon.com/sagemaker/">Sagemaker</a>, <a href="https://azure.microsoft.com/en-us/free/machine-learning/">Azure ML</a> or GCP’s <a href="https://cloud.google.com/ai-platform">AI Platform</a>.</li>
+</ul>
+
+<h2 id="related-materials">
+<a class="anchor" href="#related-materials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Related Materials</h2>
+
+<ul>
+  <li>GitHub Actions official <a href="https://help.github.com/en/actions">documentation</a>
+</li>
+  <li>
+<a href="https://github.com/actions/hello-world-docker-action">Hello world Docker Action</a>: A template to demonstrate how to build a Docker Action for other people to use.</li>
+  <li>
+<a href="https://github.com/sdras/awesome-actions">Awesome Actions</a>: A curated list of interesting GitHub Actions by topic.</li>
+  <li>
+<a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">A tutorial on Docker</a> for Data Scientists.</li>
+</ul>
+
+<h3 id="getting-in-touch">
+<a class="anchor" href="#getting-in-touch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting In Touch</h3>
+
+<p>Please feel free to get in touch with us on Twitter:</p>
+
+<ul>
+  <li>Hamel Husain <a href="https://twitter.com/HamelHusain">@HamelHusain</a>
+</li>
+  <li>Jeremy Howard <a href="https://twitter.com/jeremyphoward">@jeremyphoward</a>
+</li>
+</ul>
+
+<hr>
+<h5 id="footnotes">
+<a class="anchor" href="#footnotes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Footnotes</h5>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>You can see some of Hugging Face’s Actions workflows for machine learning <a href="https://github.com/huggingface/transformers/tree/master/.github/workflows">on GitHub</a> <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>These additional dependencies are <a href="https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile">defined here</a>, which uses the “jekyll build” command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml">defined here</a>. <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fastai/fastpages"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/actions/markdown/2020/03/06/fastpages-actions.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
