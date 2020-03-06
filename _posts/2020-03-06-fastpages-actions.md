@@ -5,7 +5,7 @@ toc: true
 comments: true
 layout: post
 categories: [actions, markdown]
-image: images/diagram.png
+image: images/fastpages_posts/actions/mona.png
 author: Hamel Husain & Jeremy Howard
 ---
 
