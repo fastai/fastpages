@@ -353,12 +353,12 @@ window.onload = wrap_img;
 <p>Below are the first two steps <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml">in our workflow</a>:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Copy Repository Contents</span>
-      <span class="s">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
-      <span class="s">with</span><span class="pi">:</span>
-        <span class="na">persist-credentials</span><span class="pi">:</span> <span class="no">false</span>
+     <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@master</span>
+     <span class="na">with</span><span class="pi">:</span>
+       <span class="na">persist-credentials</span><span class="pi">:</span> <span class="no">false</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">convert notebooks and word docs to posts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">./_action_files</span>
+   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">convert notebooks and word docs to posts</span>
+     <span class="na">uses</span><span class="pi">:</span> <span class="s">./_action_files</span>
 </code></pre></div></div>
 
 <p>The first step creates a copy of your repository in the Actions file system, with the help of the utility <a href="https://github.com/actions/checkout">action/checkout</a>.  This utility only fetches the last commit by default and saves files into a directory (whose path is stored in the environment variable <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables">GITHUB_WORKSPACE</a> that is accessible by subsequent steps in your job.  The second step runs the <a href="https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog">fastai/fastpages</a> Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax:</p>
@@ -397,11 +397,11 @@ window.onload = wrap_img;
 <p>The final step in our workflow is defined below:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy</span>
-      <span class="s">if</span><span class="pi">:</span> <span class="s">github.event_name == 'push'</span>
-      <span class="s">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
-      <span class="s">with</span><span class="pi">:</span>
-        <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">${{ secrets.SSH_DEPLOY_KEY }}</span>
-        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+    <span class="na">if</span><span class="pi">:</span> <span class="s">github.event_name == 'push'</span>
+    <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+    <span class="na">with</span><span class="pi">:</span>
+      <span class="na">deploy_key</span><span class="pi">:</span> <span class="s">${{ secrets.SSH_DEPLOY_KEY }}</span>
+      <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
 </code></pre></div></div>
 
 <p>The statement</p>
