@@ -140,7 +140,7 @@ The keyword `build-site` is the name of your job and you can name it whatever yo
         PAYLOAD: ${{ toJSON(github.event) }}
         PR_PAYLOAD: ${{ github.event.pull_request }}
 ```
-_Note: the above step is only for debugging is not currently in the workflow._
+_Note: the above step is only for debugging and is not currently in the workflow._
 
 [toJson](https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#tojson) is a handy function that returns a pretty-printed JSON representation of the variable.  The output is printed directly in the logs contained in the Actions tab of your repo.  In this example, printing the payload for a push event will look like this (truncated for brevity):
 
@@ -224,7 +224,7 @@ The next three steps in our workflow are defined below:
 
 The step named `setup directories for Jekyll build` executes shell commands that remove the `_site` folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps. 
 
-The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see this [gentle introduction](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The name of this container is called `hamelsmu/fastpages-jekyll` because I'm adding some additional dependencies to `jekyll/jekyll` and hosting those on my DockerHub account for faster build times[^1].  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).  Finally, the `env` parameter allows me to pass an environment variable into the Docker container. 
+The step named `Jekyll build` executes a docker container hosted by the Jekyll community [on Dockerhub called `jekyll/jekyll`](https://hub.docker.com/r/jekyll/jekyll/).  For those not familiar with Docker, see [this tutorial](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee).  The name of this container is called `hamelsmu/fastpages-jekyll` because I'm adding some additional dependencies to `jekyll/jekyll` and hosting those on my DockerHub account for faster build times[^1].  The [args parameter](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs) allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command `jekyll build`, which builds our website and places relevant assets them into the `_site` folder. For more information about Jekyll, [read the official docs](https://jekyllrb.com/docs/).  Finally, the `env` parameter allows me to pass an environment variable into the Docker container. 
 
 The final command above copies a `CNAME` file into the _site folder, which we need for the custom domain [https://fastpages.fast.ai](https://fastpages.fast.ai/). Setting up custom domains are outside the scope of this article.
 
@@ -264,6 +264,7 @@ Still confused about how GitHub Actions could be used for Data Science?  Here ar
 - GitHub Actions official [documentation](https://help.github.com/en/actions)
 - [Hello world Docker Action](https://github.com/actions/hello-world-docker-action): A template to demonstrate how to build a Docker Action for other people to use.
 - [Awesome Actions](https://github.com/sdras/awesome-actions): A curated list of interesting GitHub Actions by topic.
+- [A tutorial on Docker](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&sk=c554b55109102d47145c4b3381bee3ee) for Data Sciientists.
 
 ### Getting In Touch
 
