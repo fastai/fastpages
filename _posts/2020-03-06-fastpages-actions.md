@@ -189,12 +189,12 @@ Below are the first two steps [in our workflow](https://github.com/fastai/fastpa
 
 ```yaml
    - name: Copy Repository Contents
-      uses: actions/checkout@master
-      with:
-        persist-credentials: false
+     uses: actions/checkout@master
+     with:
+       persist-credentials: false
 
-    - name: convert notebooks and word docs to posts
-      uses: ./_action_files
+   - name: convert notebooks and word docs to posts
+     uses: ./_action_files
 ```
 
 The first step creates a copy of your repository in the Actions file system, with the help of the utility [action/checkout](https://github.com/actions/checkout).  This utility only fetches the last commit by default and saves files into a directory (whose path is stored in the environment variable [GITHUB_WORKSPACE](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables) that is accessible by subsequent steps in your job.  The second step runs the [fastai/fastpages](https://github.com/fastai/fastpages#using-the-github-action--your-own-custom-blog) Action, which converts notebooks and word documents to blog posts automatically.  In this case, the syntax: 
