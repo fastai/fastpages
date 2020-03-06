@@ -32,11 +32,12 @@ $dt-green-light: rgb(172, 229, 145);
         margin-left: 1rem !important;
 }
 
-// ensure dark background for code
+// ensure dark background for code in markdown
 [class^="language-"]:not(.language-plaintext) pre,
 [class^="language-"]:not(.language-plaintext) code
+// .highlight.[class^="h1-"]
 {
-  background-color: #323443 !important;
+  background-color: $dt-code-cell-background !important;
   color: $dt-gray-light;
 }
 
@@ -147,8 +148,12 @@ li {
   */
  
  .highlight {
-//    background: $dt-gray-dark;
-//    color: $dt-gray-light;
+   background: $dt-code-cell-background !important;
+   color: $dt-gray-light !important;
+   pre, code {
+    background: $dt-code-cell-background;
+    color: $dt-gray-light;
+   }
   
    .hll,
    .s,
