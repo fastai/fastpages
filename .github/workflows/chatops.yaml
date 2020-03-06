@@ -3,7 +3,7 @@ on: [issue_comment]
 
 jobs:
   trigger-chatops:
-    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/preview')
+    if: (github.event.issue.pull_request != null) &&  contains(github.event.comment.body, '/preview') && (github.repository == 'fastai/fastpages')
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
