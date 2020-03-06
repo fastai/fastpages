@@ -251,9 +251,9 @@ This step deploys the fastpages website by copying contents of the `_site` folde
 
 # Conclusion
 
-We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the [other workflows](https://github.com/fastai/fastpages/tree/master/.github/workflows) in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to build your own Action for other people, but you can [start with these docs](https://help.github.com/en/actions/building-actions) to learn more. 
+We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the [other workflows](https://github.com/fastai/fastpages/tree/master/.github/workflows) in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can [start with these docs](https://help.github.com/en/actions/building-actions) to learn more. 
 
-Still confused about how GitHub Actions could be used for Data Science?  Here are some additoinal ideas of things you can build to get you started:
+Still confused about how GitHub Actions could be used for Data Science?  Here are some ideas of things you can build:
 
 - Jupyter Widgets that trigger GitHub Actions to perform various tasks on GitHub via the [repository dispatch event](https://help.github.com/en/actions/reference/events-that-trigger-workflows#external-events-repository_dispatch)
 - Integration with [Pachyderm](https://www.pachyderm.com/) for data versioning.
