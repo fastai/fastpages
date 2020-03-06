@@ -14,7 +14,6 @@ jobs:
                 docker build -t hamelsmu/fastpages-nbdev -f _action_files/fastpages-nbdev.Dockerfile ./_action_files
 
             - name: push container
-              if: github.event == 'push'
               run: |
                 echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
                 docker push hamelsmu/fastpages-nbdev
