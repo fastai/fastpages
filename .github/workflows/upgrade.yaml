@@ -3,8 +3,49 @@ on:
   issues:
     types: [opened]
 
-jobs:     
+jobs:
+  check_credentials:
+    if: |
+      (github.repository != 'fastai/fastpages') &&
+      (github.event.issue.title == '[fastpages] Automated Upgrade')   
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Comment on issue if sufficient access does not exist
+      if: (github.event.issue.author_association != 'OWNER') && (github.event.issue.author_association != 'COLLABORATOR')
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var permission_level = process.env.permission_level;
+          var url = 'https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository#collaborator-access-on-a-repository-owned-by-a-user-account'
+          var msg = `You must have the [permission level](${url}) of either an **Owner** or **Collaborator** to instantiate an upgrade request.  Your permission level is ${permission_level}`
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: msg
+          })
+          github.issues.update({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'closed'
+          })
+          throw msg;
+      env:
+        permission_level: ${{ github.event.issue.author_association }}
+    
+    - name: see payload
+      run: |
+        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
+      env:
+        PAYLOAD: ${{ toJSON(github.event) }}
+        PR_PAYLOAD: ${{ github.event.pull_request }}
+          
   upgrade:
+    needs: [check_credentials]
     if: |
       (github.repository != 'fastai/fastpages') &&
       (github.event.issue.title == '[fastpages] Automated Upgrade') &&
