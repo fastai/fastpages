@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: see payload
+      run: |
+        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
+        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
+      env:
+        PAYLOAD: ${{ toJSON(github.event) }}
+        PR_PAYLOAD: ${{ github.event.pull_request }}
+
     - name: Comment on issue if sufficient access does not exist
       if: (github.event.issue.author_association != 'OWNER') && (github.event.issue.author_association != 'COLLABORATOR')
       uses: actions/github-script@0.6.0
@@ -35,14 +43,6 @@ jobs:
           throw msg;
       env:
         permission_level: ${{ github.event.issue.author_association }}
-    
-    - name: see payload
-      run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
-      env:
-        PAYLOAD: ${{ toJSON(github.event) }}
-        PR_PAYLOAD: ${{ github.event.pull_request }}
           
   upgrade:
     needs: [check_credentials]
@@ -57,14 +57,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-        
-    - name: see payload
-      run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
-      env:
-        PAYLOAD: ${{ toJSON(github.event) }}
-        PR_PAYLOAD: ${{ github.event.pull_request }}
     
     - name: checkout latest fastpages
       uses: actions/checkout@v2
