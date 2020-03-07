@@ -300,11 +300,9 @@ window.onload = wrap_img;
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">see payload</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-        <span class="s">echo "FULL PAYLOAD:\n${PAYLOAD}\n"</span>
-        <span class="s">echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"</span>
+        <span class="s">echo "PAYLOAD:\n${PAYLOAD}\n"</span>
       <span class="na">env</span><span class="pi">:</span>
         <span class="na">PAYLOAD</span><span class="pi">:</span> <span class="s">${{ toJSON(github.event) }}</span>
-        <span class="na">PR_PAYLOAD</span><span class="pi">:</span> <span class="s">${{ github.event.pull_request }}</span>
 </code></pre></div></div>
 <p><em>Note: the above step is only for debugging and is not currently in the workflow.</em></p>
 
@@ -414,7 +412,7 @@ window.onload = wrap_img;
 <h1 id="conclusion">
 <a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>
 
-<p>We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the <a href="https://github.com/fastai/fastpages/tree/master/.github/workflows">other workflows</a> in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can <a href="https://help.github.com/en/actions/building-actions">start with these docs</a> to learn more.</p>
+<p>We hope that this has shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the <a href="https://github.com/fastai/fastpages/tree/master/.github/workflows">other workflows</a> in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can <a href="https://help.github.com/en/actions/building-actions">start with these docs</a> to learn more.</p>
 
 <p>Still confused about how GitHub Actions could be used for Data Science?  Here are some ideas of things you can build:</p>
 
