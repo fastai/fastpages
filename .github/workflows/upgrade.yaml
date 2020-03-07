@@ -27,7 +27,7 @@ jobs:
         script: |
           var permission_level = process.env.permission_level;
           var url = 'https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository#collaborator-access-on-a-repository-owned-by-a-user-account'
-          var msg = `You must have the [permission level](${url}) of either an **Owner** or **Collaborator** to instantiate an upgrade request.  Your permission level is ${permission_level}`
+          var msg = `You must have the [permission level](${url}) of either an **OWNER** or **COLLABORATOR** to instantiate an upgrade request.  Your permission level is ${permission_level}`
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
