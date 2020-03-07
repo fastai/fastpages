@@ -138,11 +138,9 @@ The keyword `build-site` is the name of your job and you can name it whatever yo
 ```yaml
     - name: see payload
       run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-        echo "PR_PAYLOAD PAYLOAD:\n${PR_PAYLOAD}"
+        echo "PAYLOAD:\n${PAYLOAD}\n"
       env:
         PAYLOAD: ${{ toJSON(github.event) }}
-        PR_PAYLOAD: ${{ github.event.pull_request }}
 ```
 _Note: the above step is only for debugging and is not currently in the workflow._
 
@@ -255,7 +253,7 @@ This step deploys the fastpages website by copying the contents of the `_site` f
 
 # Conclusion
 
-We hope that this had shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the [other workflows](https://github.com/fastai/fastpages/tree/master/.github/workflows) in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can [start with these docs](https://help.github.com/en/actions/building-actions) to learn more. 
+We hope that this has shed some light on how we use GitHub Actions to automate fastpages.  While we only covered one workflow above, we hope this provides enough intuition to understand the [other workflows](https://github.com/fastai/fastpages/tree/master/.github/workflows) in fastpages.  We have only scratched the surface of GitHub Actions in this blog post, but we provide other materials below for those who want to dive in deeper.  We have not covered how to host an Action for other people, but you can [start with these docs](https://help.github.com/en/actions/building-actions) to learn more. 
 
 Still confused about how GitHub Actions could be used for Data Science?  Here are some ideas of things you can build:
 
