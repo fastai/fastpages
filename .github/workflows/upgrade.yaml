@@ -8,7 +8,7 @@ jobs:
     if: |
       (github.repository != 'fastai/fastpages') &&
       (github.event.issue.title == '[fastpages] Automated Upgrade') &&
-      (github.event.issue.author_association == 'OWNER')
+      (github.event.issue.author_association == 'OWNER' || github.event.issue.author_association == 'COLLABORATOR')
     runs-on: ubuntu-latest
     steps:
     
