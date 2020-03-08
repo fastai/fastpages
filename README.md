@@ -185,7 +185,7 @@ Note: for this setting **you can only reference image files and folders in the `
 
 - `title`: this is the title that appears on the upper left hand corner on the header of all your pages.  
 - `description`: this description will show up in various places when a preview for your site is generated (for example, on social media).
-- `github_username`: this allows your site to display a link to your GitHub page in the foooter.
+- `github_username`: this allows your site to display a link to your GitHub page in the footer.
 - `github_repo`: this allows your site to render links back to your repository for various features such as links to GitHub and Colab for notebooks.
 - `url`: This does not need to be changed unless you have a custom domain.  **Note: leave out the trailing / from this value.**
 - `baseurl`: See the comments in `/_config.yml` for instructions ( "Special Instructions for baseurl" on setting this value properly.  If you do not have a custom domain, then you can likely ignore this option.
