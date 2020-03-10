@@ -471,4 +471,6 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 ::-webkit-scrollbar-corner { background-color: transparent; }
 
+.output_text.output_execute_result pre { white-space: pre-wrap; }
+
 /*# sourceMappingURL=style.css.map */
