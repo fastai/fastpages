@@ -11,10 +11,18 @@ layout: default
 
 
   {% if site.paginate %}
-    {% assign posts = paginator.posts %}
+    {% assign rawposts = paginator.posts %}
   {% else %}
-    {% assign posts = site.posts %}
+    {% assign rawposts = site.posts %}
   {% endif %}
+
+  <!-- Hide posts if front matter flag hide:true -->
+  {% assign posts = ''|split:'' %}
+  {% for post in rawposts %}
+    {% if post.hide != true %}
+      {% assign posts = posts|push:post%}
+    {% endif %}
+  {% endfor %}
 
 
   {%- if posts.size > 0 -%}

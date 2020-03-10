@@ -47,6 +47,8 @@ See below for a more detailed list of features.
 		- [Tags](#categories)
 		- [Enabling Comments](#enabling-comments)
 		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
+      - [Hiding A Blog Post](#hiding-a-blog-post)
+      - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
 	  - [Hide Input/Output Cells](#hide-inputoutput-cells)
@@ -90,6 +92,8 @@ In a notebook, front matter is defined as a markdown cell at the beginning of th
   - comments: true
   - categories: [fastpages, jupyter]
   - image: images/some_folder/your_image.png
+  - hide: false
+  - search_exclude: true
   - metadata_key1: metadata_value1
   - metadata_key2: metadata_value2
   ```
@@ -103,6 +107,8 @@ Similarly, in a markdown document the same front matter would be defined like th
   toc: false
   comments: true
   image: images/some_folder/your_image.png
+  hide: false
+  search_exclude: true
   categories: [fastpages, jupyter]
   metadata_key1: metadata_value1
   metadata_key2: metadata_value2
@@ -178,6 +184,17 @@ On social media sites like Twitter, an image preview can be automatically shown 
 `- image: images/diagram.png`
 
 Note: for this setting **you can only reference image files and folders in the `/images` folder of your repo.**
+
+### Hiding A Blog Post
+
+You may want to prevent a blog post from being listed on the home page, but still have a public url that you can preview or share discreetly.  You can hide blog post from the home page by setting front matter parameter `hide` to `true`.  This is set to `false` by default.
+
+It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks/) in order to generate a predictable url for hidden blog posts.  You can also set the front matter `search_exclude` to `false` if you don't want users to find your hidden post in a search.
+
+### Toggle Search Visibility
+
+fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs.com/).  You can prevent a blog post or page from appearing in search results by setting the front matter parameter `search_exclude` to `false`.  This is set to `true` by default.
+
 
 ## Site Wide Configuration Options
 
