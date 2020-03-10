@@ -445,3 +445,10 @@ table {
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
+// Wrap text outputs instead of horizontal scroll
+.output_text.output_execute_result {
+  pre{
+    white-space: pre-wrap;
+  }
+}
