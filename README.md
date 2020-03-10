@@ -218,11 +218,27 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
 - `show_tags`: You can toggle the display of tags on your blog posts on or off by setting this value to `false`.  This is set to `true` by default, which which renders the following links for tags on your blog posts like this:
 
-![tags](_fastpages_docs/_post_tags.png)
+  ![tags](_fastpages_docs/_post_tags.png)
 
 - `pagination`: This is the maximum number of posts to show on each page of your home page.  Any posts exceeding this amount will be paginated onto another page.  This is set to `15` by default.  When this is triggered, you will see pagination at the bottom of your home page appear like this:
 
-![paginate](_fastpages_docs/_paginate.png)
+  ![paginate](_fastpages_docs/_paginate.png)
+
+  Note: if you are using an older version of fastpages, **you cannot use the automated upgrade process** to get pagination.  Instead you must follow these steps:
+
+    1. Rename your index.md file to index.html 
+         > mv index.md index.html
+    2. Replace the `Gemfile` and `Gemfile.lock` in the root of your repo with the files in this repo.
+    3. Edit your `_config.yml` as follows (look at [_config.yml](_config.yml) for a example):
+        ```yaml
+        gems:
+        - jekyll-paginate
+
+        paginate: 10
+        paginate_path: /page:num/
+        ```
+
+    _Alternatively, you can copy all of your posts over to a newly created  repository created from the fastpages template._
 
 ## Writing Blog Posts With Jupyter
 

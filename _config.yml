@@ -81,6 +81,7 @@ plugins:
   - jekyll-paginate
 
 # See https://jekyllrb.com/docs/pagination/
+# For pagination to work, you cannot have index.md at the root of your repo, instead you must rename this file to index.html
 paginate: 15
 paginate_path: /page:num/
 
