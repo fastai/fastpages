@@ -187,13 +187,13 @@ Note: for this setting **you can only reference image files and folders in the `
 
 ### Hiding A Blog Post
 
-You may want to prevent a blog post from being listed on the home page, but still have a public url that you can preview or share discreetly.  You can hide blog post from the home page by setting front matter parameter `hide` to `true`.  This is set to `false` by default.
+You may want to prevent a blog post from being listed on the home page, but still have a public url that you can preview or share discreetly.  You can hide a blog post from the home page by setting the front matter `hide` to `true`.  This is set to `false` by default.
 
 It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks/) in order to generate a predictable url for hidden blog posts.  You can also set the front matter `search_exclude` to `false` if you don't want users to find your hidden post in a search.
 
 ### Toggle Search Visibility
 
-fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs.com/).  You can prevent a blog post or page from appearing in search results by setting the front matter parameter `search_exclude` to `false`.  This is set to `true` by default.
+fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs.com/).  You can prevent a blog post or page from appearing in search results by setting the front matter `search_exclude` to `false`.  This is set to `true` by default.
 
 
 ## Site Wide Configuration Options
