@@ -7,7 +7,7 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
+  {{ content | markdownify }}
 
 
   {% if site.paginate %}
@@ -42,7 +42,7 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    {% if site.paginate and site.posts.size > site.paginate %}
       <div class="pager">
         <ul class="pagination">
         {%- if paginator.previous_page %}

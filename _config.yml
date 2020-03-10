@@ -78,6 +78,11 @@ plugins:
   - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-remote-theme
+  - jekyll-paginate
+
+# See https://jekyllrb.com/docs/pagination/
+paginate: 15
+paginate_path: /page:num/
 
 remote_theme: jekyll/minima
 

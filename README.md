@@ -220,6 +220,9 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
 ![tags](_fastpages_docs/_post_tags.png)
 
+- `pagination`: This is the maximum number of posts to show on each page of your home page.  Any posts exceeding this amount will be paginated onto another page.  This is set to `15` by default.  When this is triggered, you will see pagination at the bottom of your home page appear like this:
+
+![paginate](_fastpages_docs/_paginate.png)
 
 ## Writing Blog Posts With Jupyter
 
