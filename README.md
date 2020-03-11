@@ -229,7 +229,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
     1. Rename your index.md file to index.html 
          > mv index.md index.html
     2. Replace the `Gemfile` and `Gemfile.lock` in the root of your repo with the files in this repo.
-    3. Edit your `_config.yml` as follows (look at [_config.yml](_config.yml) for a example):
+    3. Edit your `_config.yml` as follows (look at [_config.yml](_config.yml) for an example):
         ```yaml
         gems:
         - jekyll-paginate
