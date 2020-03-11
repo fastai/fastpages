@@ -23,11 +23,14 @@
     - Collapsable code cells that are either open or closed by default.
     - Define the Title, Summary and other metadata via a special markdown cells
     - Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
-- Write posts on your local machine and [preview them with live reload](#running-the-blog-on-your-local-machine).
-- Create posts, including formatting and images, directly from Microsoft Word documents.
-- Create and edit [Markdown](https://guides.github.com/features/mastering-markdown/) posts entirely online using GitHub's built-in markdown editor.
+- Support for comments, supported natively through GitHub Issues.
+- Built-in search.
+- Support for customizing the styling of your site.
 - Embed Twitter cards and YouTube videos.
 - Categorization of blog posts by user-supplied tags for discoverability.
+- Create and edit [Markdown](https://guides.github.com/features/mastering-markdown/) posts.
+- Create posts, including formatting and images, directly from Microsoft Word documents.
+- Write posts on your local machine and [preview them with live reload](#running-the-blog-on-your-local-machine).
 
 See below for a more detailed list of features.
 
