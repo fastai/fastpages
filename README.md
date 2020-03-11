@@ -50,6 +50,7 @@ See below for a more detailed list of features.
       - [Hiding A Blog Post](#hiding-a-blog-post)
       - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
+  - [Syntax Highlighting](#syntax-highlighting)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
 	  - [Hide Input/Output Cells](#hide-inputoutput-cells)
 	  - [Collapsable Code Cells](#collapsable-code-cells)
@@ -239,6 +240,25 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
         ```
 
     _Alternatively, you can copy all of your posts over to a newly created  repository created from the fastpages template._
+
+## Syntax Highlighting
+
+`fastpages` overrides the default syntax highlighting of minima with the [Dracula theme](https://draculatheme.com/).  
+
+- The default highlighting in fastpages looks like this:
+
+  ![default-highlighting](_fastpages_docs/highlight_dracula.png)
+
+- However, you can make the syntax highlighting to look like this, if you choose:
+
+  ![default-highlighting](_fastpages_docs/highlight_original.png)
+
+  If you wish to revert to the light theme above, you can remove this or comment out this line in [_sass/minima/custom-styles.scss](_sass/minima/custom-styles.scss)
+
+  ```scss
+  @import "minima/fastpages-dracula-highlight"; 
+  ```
+- If you don't like either of these themes, you can add your own CSS in [`_sass/minima/custom-styles.scss`](_sass/minima/custom-styles.scss).  See [customizing fastpages](#customizing-fastpages) for more details.
 
 ## Writing Blog Posts With Jupyter
 
