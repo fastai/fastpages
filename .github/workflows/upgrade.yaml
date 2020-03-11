@@ -100,7 +100,7 @@ jobs:
         # remove files you don't want to copy from current version of fastpages
         cd new_files        
         rm -rf _posts _notebooks _word images
-        rm *.md CNAME action.yml _config.yml LICENSE
+        rm *.md CNAME action.yml _config.yml index.html LICENSE
         rm .github/workflows/chatops.yaml
         rm .github/workflows/docker-nbdev.yaml
         rm .github/workflows/docker.yaml
@@ -119,6 +119,7 @@ jobs:
         cp -r assets/js ../current_files/assets
         cp -r assets/badges ../current_files/assets
         cp _sass/minima/fastpages-styles.scss ../current_files/_sass/minima/
+        cp _sass/minima/fastpages-dracula-highlight.scss ../current_files/_sass/minima/
         
         # copy action workflows
         cp -r .github ../current_files

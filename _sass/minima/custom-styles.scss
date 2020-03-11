@@ -1,4 +1,7 @@
-// Import styles for fastpages.
+/* Import styles for fastpages.*/
 @import "minima/fastpages-styles";
 
-// Add your styles below
+// If you want to turn off dark background for syntax highlighting, comment the below line
+@import "minima/fastpages-dracula-highlight";    
+
+/* Add your styles below */
