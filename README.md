@@ -256,7 +256,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
   ![default-highlighting](_fastpages_docs/highlight_original.png)
 
-  If you wish to revert to the light theme above, you can remove this or comment out this line in [_sass/minima/custom-styles.scss](_sass/minima/custom-styles.scss)
+  If you wish to revert to the light theme above, you can remove the below line in [_sass/minima/custom-styles.scss](_sass/minima/custom-styles.scss)
 
   ```scss
   @import "minima/fastpages-dracula-highlight"; 
