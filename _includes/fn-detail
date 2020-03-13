@@ -1,5 +1,5 @@
 {% assign id = include.id %}
 {% assign content = include.content %}
 <div class="footnotes">
-    <p id="fn-{{ id }}">{{ id }}. {{ content }}<a href="#fnref-{{ id }}" class="footnote">↩</a></p>
+    <p id="fn-{{ id }}">{{ id }}. {{ content }}<a href="#fnref-{{ id }}" class="footnote footnotes">↩</a></p>
 </div>
