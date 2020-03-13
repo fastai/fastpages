@@ -185,20 +185,17 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This adds a linked superscript <sup id="fnref-20" class="footnote-ref"><a href="#fn-20">20</a></sup></p>
-<p></p>
-<div class="footnotes"><p id="fn-20">20. This is the actual footnote; with a <a href="www.github.com">link</a> as well! and a single quote ' too!<a href="#fnref-20" class="footnote footnotes">↩</a></p></div>
-<p>'</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Front-Matter">
 <a class="anchor" href="#Front-Matter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front Matter<a class="anchor-link" href="#Front-Matter"> </a>
 </h2>
-<p>Front Matter is a markdown cell at the beginning of your notebook that allows you to inject metadata into your notebook. <sup>superscript</sup> For example:</p>
+<p>The first cell in your Jupyter Notebook or markdown blog post contains front matter. Front matter is metadata that can turn on/off options in your Notebook. It is formatted like this:</p>
+
+<pre><code># Title
+&gt; Awesome summary
+
+- toc: true- branch: master- badges: true- comments: true
+- author: Hamel Husain &amp; Jeremy Howard
+- categories: [fastpages, jupyter]</code></pre>
 <ul>
 <li>Setting <code>toc: true</code> will automatically generate a table of contents</li>
 <li>Setting <code>badges: true</code> will automatically include GitHub and Google Colab links to your notebook.</li>
