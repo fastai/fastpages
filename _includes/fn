@@ -1,2 +1,0 @@
-{% assign id = include.id %}
-<sup id="fnref-{{id}}" class="footnote-ref"><a href="#fn-{{id}}">{{ id }}</a></sup>
