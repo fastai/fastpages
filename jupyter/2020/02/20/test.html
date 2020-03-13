@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-20T00:00:00-06:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-02-20T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","image":"https://fastpages.fast.ai/images/chart-preview.png","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","@context":"https://schema.org"}</script>
+{"datePublished":"2020-02-20T00:00:00-06:00","dateModified":"2020-02-20T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","image":"https://fastpages.fast.ai/images/chart-preview.png","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Fastpages Notebook Blog Post | fastpages</title>
@@ -32,7 +32,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-20T00:00:00-06:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-02-20T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","image":"https://fastpages.fast.ai/images/chart-preview.png","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","@context":"https://schema.org"}</script>
+{"datePublished":"2020-02-20T00:00:00-06:00","dateModified":"2020-02-20T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","image":"https://fastpages.fast.ai/images/chart-preview.png","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -93,7 +93,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -185,10 +185,20 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>This adds a linked superscript <sup id="fnref-20" class="footnote-ref"><a href="#fn-20">20</a></sup></p>
+<p></p>
+<div class="footnotes"><p id="fn-20">20. This is the actual footnote; with a <a href="www.github.com">link</a> as well! and a single quote ' too!<a href="#fnref-20" class="footnote footnotes">↩</a></p></div>
+<p>'</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Front-Matter">
 <a class="anchor" href="#Front-Matter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front Matter<a class="anchor-link" href="#Front-Matter"> </a>
 </h2>
-<p>Front Matter is a markdown cell at the beginning of your notebook that allows you to inject metadata into your notebook. For example:</p>
+<p>Front Matter is a markdown cell at the beginning of your notebook that allows you to inject metadata into your notebook. <sup>superscript</sup> For example:</p>
 <ul>
 <li>Setting <code>toc: true</code> will automatically generate a table of contents</li>
 <li>Setting <code>badges: true</code> will automatically include GitHub and Google Colab links to your notebook.</li>
@@ -941,14 +951,17 @@ window.onload = wrap_img;
 <h2 id="Footnotes">
 <a class="anchor" href="#Footnotes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Footnotes<a class="anchor-link" href="#Footnotes"> </a>
 </h2>
-<p>You can have footnotes in notebooks just like you can with markdown.</p>
-<p>For example, here is a footnote <sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>.</p>
-<div class="footnotes">
-<hr>
-<ol>
-<li id="fn-1"><p>This is the footnote.<a href="#fnref-1" class="footnote">↩</a></p></li>
-</ol>
-</div>
+<p>You can have footnotes in notebooks, however the syntax is different compared to markdown documents. <a href="https://github.com/fastai/fastpages/blob/master/_fastpages_docs/NOTEBOOK_FOOTNOTES.md">This guide provides more detail about this syntax</a>, which looks like this:</p>
+
+<pre><code>For example, here is a footnote {% fn 1 %}.
+And another {% fn 2 %}
+{{ 'This is the footnote.' | fndetail: 1 }}
+{{ 'This is the other footnote. You can even have a [link](www.github.com)!' | fndetail: 2 }}</code></pre>
+<p>For example, here is a footnote <sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup>.</p>
+<p>And another <sup id="fnref-2" class="footnote-ref"><a href="#fn-2">2</a></sup></p>
+<p></p>
+<div class="footnotes"><p id="fn-1">1. This is the footnote.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div>
+<div class="footnotes"><p id="fn-2">2. This is the other footnote. You can even have a <a href="www.github.com">link</a>!<a href="#fnref-2" class="footnote footnotes">↩</a></p></div>
 
 </div>
 </div>
