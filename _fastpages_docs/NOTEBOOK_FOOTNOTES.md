@@ -3,9 +3,9 @@
 Notebook -> HTML Footnotes don't work the same as Markdown. There isn't a good solution, so made these Jekyll plugins as a workaround
 
 ```
-This adds a linked superscript {% fn 20 %}
+This adds a linked superscript {% fn 15 %}
 
-{{ "This is the actual footnote" | fndetail: 20 }}
+{{ "This is the actual footnote" | fndetail: 15 }}
 ```
 
 ![image](https://user-images.githubusercontent.com/1483922/76640645-83e49f80-650d-11ea-8f8a-01ee6eba91e1.png)
