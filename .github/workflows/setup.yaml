@@ -52,6 +52,7 @@ jobs:
         cfg = re.sub(r'^(baseurl: )("")', r'\1"/{}"'.format(repo_name), cfg, flags=re.MULTILINE)
         cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
         cfg = re.sub(r'^(url: "https://)(fastpages.fast.ai)(")', r'\1{}.github.io\3'.format(username), cfg, flags=re.MULTILINE)
+        cfg = re.sub('UA-57531313-5', '', cfg, flags=re.MULTILINE)
         config_path.write_text(cfg)
 
         # prepare the pr message
