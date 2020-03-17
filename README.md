@@ -46,7 +46,7 @@ See below for a more detailed list of features.
 	- [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
 		- [Configure Title & Summary](#configure-title--summary)
 		- [Table of Contents](#table-of-contents)
-		- [Colab And GitHub Badges](#colab-and-github-badges)
+		- [Colab, Binder And GitHub Badges](#colab-binder-and-github-badges)
 		- [Tags](#categories)
 		- [Enabling Comments](#enabling-comments)
 		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
@@ -135,12 +135,19 @@ See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you
 ### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
 
-### Colab And GitHub Badges
+### Colab, Binder and GitHub Badges
 
 This option works for **notebooks only**
 
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
+  - By default, when you omit this parameter from your front matter, or you set `badges: true`, **all three badges (GitHub, Binder, Colab)** will appear by default. You can adjust these defaults in with the `default_badges` parameter in [Site Wide Configuration Options](#site-wide-configuration-options).
+    - If only want to hide a badge on an individual post, you can set the front matter `hide_{github,colab,binder}_badge: true`.  For example, if you wanted to hide the Binder badge for an individual notebook but you want the other badges to show up, you can set this in your front matter:
+
+      ```yaml
+      - badges: true
+      - hide_binder_badge: true
+      ```
 
 ### Categories
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
@@ -243,6 +250,15 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
         ```
 
     _Alternatively, you can copy all of your posts over to a newly created  repository created from the fastpages template._
+
+- `default_badges`: By default GitHub, Binder, and Colab badges will show up on notebook blog posts. You can adjust these defaults by setting the appropriate value in `default_badges` to false.  For example, if you wanted to turn Binder badges off by default, you would change `default_badges` to this:
+
+  ```yaml
+  default_badges:
+    github: true
+    binder: false
+    colab: true
+  ```
 
 ## Syntax Highlighting
 
