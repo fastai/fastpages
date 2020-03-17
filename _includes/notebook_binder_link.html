@@ -1,0 +1,5 @@
+<div class="px-2">
+    <a href="https://mybinder.org/v2/gh/{{site.github_username}}/{{site.github_repo | default: site.baseurl | remove: "/" }}/{{page.branch | default: "master"}}?filepath={{page.nb_path | url_encode }}" target="_blank">
+        <img class="notebook-badge-image" src="{{ "assets/badges/binder.svg" | relative_url }}" alt="Open In Binder"/>
+    </a>
+</div>
