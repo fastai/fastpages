@@ -148,6 +148,7 @@ This option works for **notebooks only**
       - badges: true
       - hide_binder_badge: true
       ```
+  - **Note about Binder**: Binder allows you to customize the dependencies and other aspects of the Jupyter Notebook environment for your readers. You can learn more [on the official Binder docs](https://mybinder.readthedocs.io/en/latest/introduction.html).
 
 ### Categories
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
