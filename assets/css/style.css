@@ -353,6 +353,8 @@ p { margin-top: 1rem !important; margin-bottom: 1rem !important; }
 
 h1, h2, h3, h4 { font-weight: normal !important; margin-bottom: 0.5rem !important; }
 
+h1 code, h2 code, h3 code, h4 code { font-size: 100%; }
+
 pre { margin-bottom: 1.5rem !important; }
 
 .post-title { margin-top: .5rem !important; }
