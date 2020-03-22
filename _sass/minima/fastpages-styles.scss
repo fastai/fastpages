@@ -53,6 +53,9 @@ p {
 h1, h2, h3, h4 {
     font-weight: normal !important;
     margin-bottom:0.5rem !important;  
+    code {
+      font-size: 100%;
+    }
 }
 
 pre {
