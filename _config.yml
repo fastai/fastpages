@@ -106,3 +106,8 @@ kramdown:
   auto_ids: true
   hard_wrap: false
   syntax_highlighter: rouge
+ 
+default_badges:
+  github: true
+  binder: false
+  colab: true
