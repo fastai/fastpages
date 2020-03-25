@@ -339,7 +339,7 @@ _Note:_ [alt text](https://support.office.com/en-us/article/add-alternative-text
 
 ### Specifying front-matter for Word documents
 
-`fastpages` does not have a robust way to specify front matter for Word documents.  At the moment, you can only specify front matter globablly for all Word documents by editing [_action_files/word_front_matter.txt](_action_files/word_front_matter.txt).  
+`fastpages` does not have a robust way to specify [front matter](https://jekyllrb.com/docs/front-matter/) for Word documents.  At the moment, you can only specify front matter globablly for all Word documents by editing [_action_files/word_front_matter.txt](_action_files/word_front_matter.txt).  
 
 To specify unique front matter per Word document, you will need to convert Word to markdown files manually. You can follow the steps in this [blog post](https://www.fast.ai/2020/01/18/gitblog/), which walk you through how to use [pandoc](https://pandoc.org/installing.html) to do the conversion.  Note: If you wish to customize your Word generated blog post in markdown, make sure you delete your Word document from the _word directory so your markdown file doesn’t get overwritten!  
 
