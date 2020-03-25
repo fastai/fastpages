@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-03-25T01:37:49-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-03-25T01:41:42-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
 
 &lt;p&gt;Hi, I’m &lt;a href=&quot;https://twitter.com/HamelHusain&quot;&gt;Hamel Husain&lt;/a&gt;.  I’m a machine learning engineer at GitHub.  Recently, GitHub released a new product called &lt;a href=&quot;https://github.com/features/actions&quot;&gt;GitHub Actions&lt;/a&gt;, which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.&lt;/p&gt;
 
@@ -1636,4 +1636,81 @@ wget https://example.com/cat_photo1.png
       &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Example Markdown Post</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Example Markdown Post</summary></entry><entry><title type="html">Microsoft Word Example Post</title><link href="https://fastpages.fast.ai/2020/01/01/Microsoft-Word-Example-Post.html" rel="alternate" type="text/html" title="Microsoft Word Example Post" /><published>2020-01-01T00:00:00-06:00</published><updated>2020-01-01T00:00:00-06:00</updated><id>https://fastpages.fast.ai/2020/01/01/Microsoft-Word-Example-Post</id><content type="html" xml:base="https://fastpages.fast.ai/2020/01/01/Microsoft-Word-Example-Post.html">&lt;p&gt;When writing a blog post with Microsoft Word – the filename becomes the title. In this case the file name is “2020-01-01-Microsoft-Word-Example-Post.docx”.&lt;/p&gt;
+
+&lt;p&gt;There is minimal support for Word documents in fastpages compared to Jupyter notebooks. Some known limitations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://support.office.com/en-us/article/add-alternative-text-to-a-shape-picture-chart-smartart-graphic-or-other-object-44989b2a-903c-4d9a-b742-6a75b451c669&quot;&gt;alt text&lt;/a&gt; in Word documents are not yet supported by fastpages, and will break links to images.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can only specify &lt;a href=&quot;https://jekyllrb.com/docs/front-matter/&quot;&gt;front matter&lt;/a&gt; for Word documents globally. See &lt;a href=&quot;https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word&quot;&gt;the README&lt;/a&gt; for more details.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For greater control over the content produced in word documents, you will need to convert word documents to markdown files manually. You can follow the steps this &lt;a href=&quot;https://www.fast.ai/2020/01/18/gitblog/&quot;&gt;blog post&lt;/a&gt;, which walk you through how to use &lt;a href=&quot;https://pandoc.org/installing.html&quot;&gt;pandoc&lt;/a&gt; to do the conversion. &lt;strong&gt;Note&lt;/strong&gt;: If you wish to customize your Word-generated blog post in markdown, make sure you delete your word document from the _word directory so your markdown file doesn’t get overwritten!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If your primary method of writing blog posts is Word documents, and you plan on always manually editing markdown files converted from Word, you are probably better off using &lt;a href=&quot;https://github.com/fastai/fast_template&quot;&gt;fast_template&lt;/a&gt; instead of &lt;strong&gt;fastpages&lt;/strong&gt;&lt;/em&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The material below is a reproduction of &lt;a href=&quot;https://medium.com/kubeflow/reducing-maintainer-toil-on-kubeflow-with-github-actions-and-machine-learning-f8568374daa1&quot;&gt;this blog post&lt;/a&gt;, and serves as an illustrative example.&lt;/p&gt;
+
+&lt;p&gt;Maintaining a healthy open source project can entail a huge amount of toil. Popular projects often have orders of magnitude more users and episodic contributors opening issues and PRs than core maintainers capable of handling these issues.&lt;/p&gt;
+
+&lt;p&gt;Consider this graphic prepared by the NumFOCUS foundation showing the number of maintainers for three widely used scientific computing projects:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://fastpages.fast.ai/assets/img/2020-01-01-Microsoft-Word-Example-Post/media/image1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can see that across these three projects, there is a very low ratio maintainers to users. Fixing this problem is not an easy task and likely requires innovative solutions to address the economics as well as tools.&lt;/p&gt;
+
+&lt;p&gt;Due to its recent momentum and popularity, Kubeflow suffers from a similar fate as illustrated by the growth of new issues opened:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://fastpages.fast.ai/assets/img/2020-01-01-Microsoft-Word-Example-Post/media/image2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Source: “&lt;a href=&quot;http://bit.ly/tf-github&quot;&gt;&lt;span class=&quot;underline&quot;&gt;TensorFlow World 2019, Automating Your Developer Workflow With ML&lt;/span&gt;&lt;/a&gt;”&lt;/p&gt;
+
+&lt;p&gt;Coincidentally, while building out end to end machine learning &lt;a href=&quot;https://github.com/kubeflow/examples&quot;&gt;&lt;span class=&quot;underline&quot;&gt;examples&lt;/span&gt;&lt;/a&gt; for Kubeflow, we built two examples using publicly available GitHub data: &lt;a href=&quot;https://github.com/kubeflow/examples/tree/master/github_issue_summarization&quot;&gt;&lt;span class=&quot;underline&quot;&gt;GitHub Issue Summarization&lt;/span&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/kubeflow/examples/tree/master/code_search&quot;&gt;&lt;span class=&quot;underline&quot;&gt;Code Search&lt;/span&gt;&lt;/a&gt;. While these tutorials were useful for demonstrating components of Kubeflow, we realized that we could take this a step further and build concrete data products that reduce toil for maintainers.&lt;/p&gt;
+
+&lt;p&gt;This is why we started the project &lt;a href=&quot;https://github.com/kubeflow/code-intelligence&quot;&gt;&lt;span class=&quot;underline&quot;&gt;kubeflow/code-intelligence&lt;/span&gt;&lt;/a&gt;, with the goals of increasing project velocity and health using data driven tools. Below are two projects we are currently experimenting with :&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/marketplace/issue-label-bot&quot;&gt;&lt;span class=&quot;underline&quot;&gt;Issue Label Bot&lt;/span&gt;&lt;/a&gt;: This is a bot that automatically labels GitHub issues using Machine Learning. This bot is a GitHub App that was originally built for Kubeflow but is now also used by several large open source projects. The &lt;a href=&quot;https://github.com/machine-learning-apps/Issue-Label-Bot&quot;&gt;&lt;span class=&quot;underline&quot;&gt;current version&lt;/span&gt;&lt;/a&gt; of this bot only applies a very limited set of labels, however we are currently &lt;a href=&quot;https://twimlai.com/twiml-talk-313-machine-learning-at-github-with-omoju-miller/&quot;&gt;&lt;span class=&quot;underline&quot;&gt;A/B testing new models&lt;/span&gt;&lt;/a&gt; that allow personalized labels. Here is a &lt;a href=&quot;https://towardsdatascience.com/mlapp-419f90e8f007&quot;&gt;&lt;span class=&quot;underline&quot;&gt;blog post&lt;/span&gt;&lt;/a&gt; discussing this project in more detail.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/kubeflow/code-intelligence/tree/master/Issue_Triage/action&quot;&gt;&lt;span class=&quot;underline&quot;&gt;Issue Triage GitHub Action&lt;/span&gt;&lt;/a&gt;: to compliment the Issue Label Bot, we created a GitHub Action that automatically adds / removes Issues to the Kubeflow project board tracking issues needing triage.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Together these projects allow us to reduce the toil of triaging issues. The GitHub Action makes it much easier for the Kubeflow maintainers to track issues needing triage. With the label bot we have taken the first steps in using ML to replace human intervention. We plan on &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/tree/master/Issue_Embeddings&quot;&gt;&lt;span class=&quot;underline&quot;&gt;using features extracted by ML&lt;/span&gt;&lt;/a&gt; to automate more steps in the triage process to further reduce toil.&lt;/p&gt;
+
+&lt;h2 id=&quot;building-solutions-with-github-actions&quot;&gt;Building Solutions with GitHub Actions&lt;/h2&gt;
+
+&lt;p&gt;One of the premises of Kubeflow is that a barrier to building data driven, ML powered solutions is getting models into production and integrated into a solution. In the case of building models to improve OSS project health, that often means integrating with GitHub where the project is hosted.&lt;/p&gt;
+
+&lt;p&gt;We are really excited by GitHub’s newly released feature &lt;a href=&quot;https://github.com/features/actions&quot;&gt;&lt;span class=&quot;underline&quot;&gt;GitHub Actions&lt;/span&gt;&lt;/a&gt; because we think it will make integrating ML with GitHub much easier.&lt;/p&gt;
+
+&lt;p&gt;For simple scripts, like the issue triage script, GitHub actions make it easy to automate executing the script in response to GitHub events without having to build and host a GitHub app.&lt;/p&gt;
+
+&lt;p&gt;To automate adding/removing issues needing triage to a Kanban board we wrote a simple &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/blob/master/py/issue_triage/triage.py&quot;&gt;&lt;span class=&quot;underline&quot;&gt;python&lt;/span&gt;&lt;/a&gt; script that interfaces with GitHub’s &lt;a href=&quot;https://developer.github.com/v4/&quot;&gt;&lt;span class=&quot;underline&quot;&gt;GraphQL API&lt;/span&gt;&lt;/a&gt; to modify issues.&lt;/p&gt;
+
+&lt;p&gt;As we continue to iterate on ML Models to further reduce toil, GitHub Actions will make it easy to leverage Kubeflow to put our models into production faster. A number of prebuilt GitHub Actions make it easy to create Kubernetes resources in response to GitHub events. For example, we have created &lt;a href=&quot;https://github.com/marketplace?utf8=%E2%9C%93&amp;amp;type=actions&amp;amp;query=argo&quot;&gt;&lt;span class=&quot;underline&quot;&gt;GitHub Actions to launch Argo Workflows&lt;/span&gt;&lt;/a&gt;. This means once we have a Kubernetes job or workflow to perform inference we can easily integrate the model with GitHub and have the full power of Kubeflow and Kubernetes (eg. GPUs). We expect this will allow us to iterate much faster compared to building and maintaining GitHub Apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Call To Action&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We have a lot more work to do in order to achieve our goal of reducing the amount of toil involved in maintaining OSS projects. If your interested in helping out here’s a couple of issues to get started:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Help us create reports that pull and visualize key performance indicators (KPI). &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/issues/71&quot;&gt;&lt;span class=&quot;underline&quot;&gt;https://github.com/kubeflow/code-intelligence/issues/71&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;We have defined our KPI here: &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/issues/19&quot;&gt;&lt;span class=&quot;underline&quot;&gt;issue #19&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Combine repo specific and non-repo specific label predictions: &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/issues/70&quot;&gt;&lt;span class=&quot;underline&quot;&gt;https://github.com/kubeflow/code-intelligence/issues/70&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In addition to the aforementioned issues we welcome contributions for these &lt;a href=&quot;https://github.com/kubeflow/code-intelligence/issues&quot;&gt;&lt;span class=&quot;underline&quot;&gt;other issues&lt;/span&gt;&lt;/a&gt; in our repo.&lt;/p&gt;</content><author><name></name></author><summary type="html">When writing a blog post with Microsoft Word – the filename becomes the title. In this case the file name is “2020-01-01-Microsoft-Word-Example-Post.docx”.</summary></entry></feed>

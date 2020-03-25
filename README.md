@@ -61,6 +61,7 @@ See below for a more detailed list of features.
 	  - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
   - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
   - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
+    - [Specifying front-matter for Word documents](#specifying-front-matter-for-word-documents)
 - [Running the blog on your local machine](#running-the-blog-on-your-local-machine)
 - [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
 	- [Optional Inputs](#optional-inputs)
@@ -333,6 +334,14 @@ If you are writing your blog post in markdown, save your `.md` file into the `/_
 ## Writing Blog Posts With Microsoft Word
 
 Save your Microsoft Word documents into the `/_word` folder with the same naming convention (`YYYY-MM-DD-*.docx`) specified for notebooks.
+
+_Note:_ [alt text](https://support.office.com/en-us/article/add-alternative-text-to-a-shape-picture-chart-smartart-graphic-or-other-object-44989b2a-903c-4d9a-b742-6a75b451c669) in Word documents are not yet supported by fastpages, and will break links to images.
+
+### Specifying front-matter for Word documents
+
+`fastpages` does not have a robust way to specify front matter for Word documents.  At the moment, you can only specify front matter globablly for all Word documents by editing [_action_files/word_front_matter.txt](_action_files/word_front_matter.txt).  
+
+If you want different front matter for individual Word documents, you can convert Word documents to markdown files by running the blog locally using the  [development guide](_fastpages_docs/DEVELOPMENT.md) and edit the front matter in the markdown file.  If you do this, you must delete the Word document after you convert it to markdown so the automated system does not overwrite your markdown file next time your site builds.
 
 # Running the blog on your local machine
 
