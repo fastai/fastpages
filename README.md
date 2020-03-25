@@ -341,7 +341,9 @@ _Note:_ [alt text](https://support.office.com/en-us/article/add-alternative-text
 
 `fastpages` does not have a robust way to specify front matter for Word documents.  At the moment, you can only specify front matter globablly for all Word documents by editing [_action_files/word_front_matter.txt](_action_files/word_front_matter.txt).  
 
-If you want different front matter for individual Word documents, you can convert Word documents to markdown files by running the blog locally using the  [development guide](_fastpages_docs/DEVELOPMENT.md) and edit the front matter in the markdown file.  If you do this, you must delete the Word document after you convert it to markdown so the automated system does not overwrite your markdown file next time your site builds.
+For greater control over the content produced in word documents, you will need to convert word documents to markdown files manually. You can follow the steps this [blog post](https://www.fast.ai/2020/01/18/gitblog/), which walk you through how to use [pandoc](https://pandoc.org/installing.html) to do the conversion. Note: If you wish to customize your Word-generated blog post in markdown, make sure you delete your word document from the _word directory so your markdown file doesn’t get overwritten!
+
+_If your primary method of writing blog posts is Word documents, and you plan on always manually editing markdown files converted from Word, you are probably better off using [fast_template](https://github.com/fastai/fast_template) instead of fastpages._
 
 # Running the blog on your local machine
 
