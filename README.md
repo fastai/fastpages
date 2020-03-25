@@ -335,6 +335,8 @@ If you are writing your blog post in markdown, save your `.md` file into the `/_
 
 Save your Microsoft Word documents into the `/_word` folder with the same naming convention (`YYYY-MM-DD-*.docx`) specified for notebooks.
 
+_Note:_ [alt text](https://support.office.com/en-us/article/add-alternative-text-to-a-shape-picture-chart-smartart-graphic-or-other-object-44989b2a-903c-4d9a-b742-6a75b451c669) in Word documents are not yet supported by fastpages, and will break links to images.
+
 ### Specifying front-matter for Word documents
 
 `fastpages` does not have a robust way to specify front matter for Word documents.  At the moment, you can only specify front matter globablly for all Word documents by editing [_action_files/word_front_matter.txt](_action_files/word_front_matter.txt).  
