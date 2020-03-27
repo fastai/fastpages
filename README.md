@@ -59,6 +59,7 @@ See below for a more detailed list of features.
 	  - [Collapsable Code Cells](#collapsable-code-cells)
 	  - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
 	  - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
+	  - [Adding Footnotes To Blog Posts](#adding-footnotes)
   - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
   - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
     - [Specifying front-matter for Word documents](#specifying-front-matter-for-word-documents)
@@ -306,6 +307,9 @@ In a markdown cell in your notebook, use the following markdown shortcuts to emb
   > youtube: https://youtu.be/your-link
   > twitter: https://twitter.com/some-link
   ```
+### Adding Footnotes
+
+Adding footnotes in notebooks is a bit different than markdown.  Please the [Detailed Guide To Footnotes in Notebooks](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/NOTEBOOK_FOOTNOTES.md).
 
 ### Automatically Convert Notebooks To Blog Posts
 
