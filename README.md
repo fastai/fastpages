@@ -286,7 +286,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
 ### Hide Input/Output Cells
 
-Place the comment `#hide` at the beginning of a code cell and it wil **hide both the input and the output** of that cell. 
+Place the comment `#hide` at the beginning of a code cell and it wil **hide both the input and the output** of that cell.
 
 A `#hide_input` comment at the top of any cell will **only hide the input**.
 
@@ -294,7 +294,7 @@ Furthermore, the `hide input` [Jupyter Extension](https://jupyter-contrib-nbexte
 
 ### Collapsable Code Cells
 
-You may want to have code code be hidden from view under a collapsed element that the user can expand, rather than completely hiding the code from the reader.  
+You may want some code to be hidden in a collapsed element that the user can expand, rather than completely hiding the code from the reader.
 
 - To include code in a collapsable cell that **is collapsed by default**, place the comment `#collapse` at the top of the code cell.
 - To include code in a collapsable cell that **is open by default**, place the comment `#collapse_show` or `#collapse-show` at the top of the code cell.
