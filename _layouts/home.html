@@ -24,6 +24,7 @@ layout: default
     {% endif %}
   {% endfor %}
 
+  {% assign posts = posts | sort: "sticky_rank", "last" %}
 
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
