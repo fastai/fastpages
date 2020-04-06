@@ -235,7 +235,7 @@ title: Post Three
 ---
 ```
 
-However, since `sticky_rank` is specified, blog posts will **first be sorted by stick_rank in ascending order, then by date in descending order**, so the order of these posts will appear like so:
+However, since `sticky_rank` is specified, blog posts will **first be sorted by sticky_rank in ascending order, then by date in descending order**, so the order of these posts will appear like so:
 
 - Post One
 - Post Two
