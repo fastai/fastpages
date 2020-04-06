@@ -51,6 +51,7 @@ See below for a more detailed list of features.
 		- [Enabling Comments](#enabling-comments)
 		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
       - [Hiding A Blog Post](#hiding-a-blog-post)
+      - [Pinning A Blog Post](#pinning-a-blog-post)
       - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
   - [Syntax Highlighting](#syntax-highlighting)
@@ -204,6 +205,41 @@ Note: for this setting **you can only reference image files and folders in the `
 You may want to prevent a blog post from being listed on the home page, but still have a public url that you can preview or share discreetly.  You can hide a blog post from the home page by setting the front matter `hide` to `true`.  This is set to `false` by default.
 
 It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks/) in order to generate a predictable url for hidden blog posts.  You can also set the front matter `search_exclude` to `false` if you don't want users to find your hidden post in a search.
+
+### Pinning A Blog Post
+
+By default, posts are sorted by date on your homepage. However you may want one or more blog posts to always appear at the very top of your homepage.  In otherwords, you may want certain posts to be "pinned" or "sticky".  To accomplish this, specify the `sticky_rank` front matter in the order you would like your sticky posts to appear.  Blog posts that do not set this parameter are sorted in the default way, by date after the sticky posts.
+
+For example, consider these three markdown posts
+
+`2020-01-01-Post-One.md`
+```yaml
+title: Post One
+sticky_rank: 1
+```
+
+`2020-02-01-Post-One.md`
+```yaml
+title: Post Two
+sticky_rank: 2
+```
+
+`2020-04-01-Post-One.md`
+```yaml
+title: Post Three
+```
+
+Normally, these posts would be sorted by the most recent date:
+
+- Post Three
+- Post Two
+- Post One
+
+However, since `sticky_rank` is specified, blog posts will **first be sorted by stick_rank in ascending order, then by date in descending order**, so the order of these posts will appear like so:
+
+- Post One
+- Post Two
+- Post Three
 
 ### Toggle Search Visibility
 
