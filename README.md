@@ -214,19 +214,25 @@ For example, consider these three markdown posts
 
 `2020-01-01-Post-One.md`
 ```yaml
+---
 title: Post One
 sticky_rank: 1
+---
 ```
 
-`2020-02-01-Post-One.md`
+`2020-02-01-Post-Two.md`
 ```yaml
+---
 title: Post Two
 sticky_rank: 2
+---
 ```
 
-`2020-04-01-Post-One.md`
+`2020-04-01-Post-Three.md`
 ```yaml
+---
 title: Post Three
+---
 ```
 
 However, since `sticky_rank` is specified, blog posts will **first be sorted by stick_rank in ascending order, then by date in descending order**, so the order of these posts will appear like so:
