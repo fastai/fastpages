@@ -208,7 +208,7 @@ It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks
 
 ### Pinning A Blog Post
 
-By default, posts are sorted by date on your homepage. However you may want one or more blog posts to always appear at the very top of your homepage.  In otherwords, you may want certain posts to be "pinned" or "sticky".  To accomplish this, specify the `sticky_rank` front matter in the order you would like your sticky posts to appear.  Blog posts that do not set this parameter are sorted in the default way, by date after the sticky posts.
+By default, posts are sorted by date on your homepage. However you may want one or more blog posts to always appear at the very top of your homepage.  In otherwords, you may want certain posts to be "pinned" or "sticky".  To accomplish this, specify the `sticky_rank` front matter in the order you would like your sticky posts to appear.  Blog posts that do not set this parameter are sorted in the default way by date after the sticky posts.
 
 For example, consider these three markdown posts
 
@@ -229,17 +229,13 @@ sticky_rank: 2
 title: Post Three
 ```
 
-Normally, these posts would be sorted by the most recent date:
-
-- Post Three
-- Post Two
-- Post One
-
 However, since `sticky_rank` is specified, blog posts will **first be sorted by stick_rank in ascending order, then by date in descending order**, so the order of these posts will appear like so:
 
 - Post One
 - Post Two
 - Post Three
+
+_Note: without `sticky_rank` the above posts would actually be sorted in reverse order due to the dates associated with each post._
 
 ### Toggle Search Visibility
 
