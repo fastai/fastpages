@@ -16,6 +16,9 @@ jobs:
         steps:
             - uses: actions/checkout@master
             
+            - name: setup directories for Jekyll build
+              run: sudo chmod -R 777 .
+              
             - name: build container
               run: |
                 docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
