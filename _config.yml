@@ -85,6 +85,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-paginate
+  - jekyll-sitemap
 
 # See https://jekyllrb.com/docs/pagination/
 # For pagination to work, you cannot have index.md at the root of your repo, instead you must rename this file to index.html
