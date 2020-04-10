@@ -122,7 +122,7 @@ html { font-size: 16px; }
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
 /** Basic styling */
-body { font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif; color: #111; background-color: #fdfdfd; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; display: flex; min-height: 100vh; flex-direction: column; overflow-wrap: break-word; }
+body { font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif; color: #111111; background-color: #fdfdfd; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; display: flex; min-height: 100vh; flex-direction: column; overflow-wrap: break-word; }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight { margin-bottom: 15px; }
@@ -153,7 +153,7 @@ a { color: #2a7ae2; text-decoration: none; }
 
 a:visited { color: #1756a9; }
 
-a:hover { color: #111; text-decoration: underline; }
+a:hover { color: #111111; text-decoration: underline; }
 
 .social-media-list a:hover, .pagination a:hover { text-decoration: none; }
 
@@ -167,7 +167,7 @@ blockquote > :last-child { margin-bottom: 0; }
 blockquote i, blockquote em { font-style: normal; }
 
 /** Code formatting */
-pre, code { font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace; font-size: 0.9375em; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+pre, code { font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace; font-size: 0.9375em; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eeeeff; }
 
 code { padding: 1px 5px; }
 
@@ -175,9 +175,9 @@ pre { padding: 8px 12px; overflow-x: auto; }
 
 pre > code { border: 0; padding-right: 0; padding-left: 0; }
 
-.highlight { border-radius: 3px; background: #eef; }
+.highlight { border-radius: 3px; background: #eeeeff; }
 
-.highlighter-rouge .highlight { background: #eef; }
+.highlighter-rouge .highlight { background: #eeeeff; }
 
 /** Wrapper */
 .wrapper { max-width: calc(800px - (30px)); margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; }
@@ -201,7 +201,7 @@ table tr:nth-child(even) { background-color: #f7f7f7; }
 
 table th, table td { padding: 10px 15px; }
 
-table th { background-color: #f0f0f0; border: 1px solid #dedede; }
+table th { background-color: #f0f0f0; border: 1px solid #e0e0e0; }
 
 table td { border: 1px solid #e8e8e8; }
 
@@ -230,7 +230,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .site-nav input:checked ~ .trigger { display: block; padding-bottom: 5px; }
 
-.site-nav .page-link { color: #111; line-height: 1.5; display: block; padding: 5px 10px; margin-left: 20px; }
+.site-nav .page-link { color: #111111; line-height: 1.5; display: block; padding: 5px 10px; margin-left: 20px; }
 
 .site-nav .page-link:not(:last-child) { margin-right: 0; }
 
@@ -317,7 +317,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .social-media-list li a, .pagination li a { display: block; padding: 7.5px; border: 1px solid #e8e8e8; }
 
-.social-media-list li a:hover, .pagination li a:hover { border-color: #cfcfcf; }
+.social-media-list li a:hover, .pagination li a:hover { border-color: #dbdbdb; }
 
 /** Pagination navbar */
 .pagination { margin-bottom: 30px; }
@@ -326,7 +326,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .pagination li div { display: block; padding: 7.5px; border: 1px solid transparent; }
 
-.pagination li div.pager-edge { color: #dbdbdb; border: 1px dashed; }
+.pagination li div.pager-edge { color: #e8e8e8; border: 1px dashed; }
 
 /** Grid helpers */
 @media screen and (min-width: 800px) { .one-half { width: calc(50% - (30px / 2)); } }
