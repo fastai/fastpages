@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-04-11T03:24:18-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-04-11T12:54:35-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
 
 &lt;p&gt;Hi, I’m &lt;a href=&quot;https://twitter.com/HamelHusain&quot;&gt;Hamel Husain&lt;/a&gt;.  I’m a machine learning engineer at GitHub.  Recently, GitHub released a new product called &lt;a href=&quot;https://github.com/features/actions&quot;&gt;GitHub Actions&lt;/a&gt;, which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.&lt;/p&gt;
 
@@ -821,8 +821,8 @@
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;h2 id=&quot;Front-Matter&quot;&gt;Front Matter&lt;a class=&quot;anchor-link&quot; href=&quot;#Front-Matter&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The first cell in your Jupyter Notebook or markdown blog post contains front matter. Front matter is metadata that can turn on/off options in your Notebook. It is formatted like this:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# Title
-&amp;gt; Awesome summary
+&lt;pre&gt;&lt;code&gt;# &quot;My Title&quot;
+&amp;gt; &quot;Awesome summary&quot;
 
 - toc:true- branch: master- badges: true- comments: true
 - author: Hamel Husain &amp;amp; Jeremy Howard
@@ -832,7 +832,7 @@
 &lt;li&gt;Setting &lt;code&gt;badges: true&lt;/code&gt; will automatically include GitHub and Google Colab links to your notebook.&lt;/li&gt;
 &lt;li&gt;Setting &lt;code&gt;comments: true&lt;/code&gt; will enable commenting on your blog post, powered by &lt;a href=&quot;https://github.com/utterance/utterances&quot;&gt;utterances&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;More details and options for front matter can be viewed on the &lt;a href=&quot;https://github.com/fastai/fastpages#front-matter-related-options&quot;&gt;front matter section&lt;/a&gt; of the README.&lt;/p&gt;
+&lt;p&gt;The title and description need to be enclosed in double quotes only if they include special characters such as a colon. More details and options for front matter can be viewed on the &lt;a href=&quot;https://github.com/fastai/fastpages#front-matter-related-options&quot;&gt;front matter section&lt;/a&gt; of the README.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
