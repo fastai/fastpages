@@ -22,6 +22,7 @@ build: .FORCE
 # rebuild the services WITH cache
 quick-build: .FORCE
 	docker-compose stop || true;
+	docker build -t hamelsmu/fastpages-nbdev -f _action_files/fastpages-nbdev.Dockerfile .
 	docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
 	docker-compose build 
 
