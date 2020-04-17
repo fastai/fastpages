@@ -4,7 +4,7 @@ _Adapted from [fastai/nbdev/CONTRIBUTING.md](https://github.com/fastai/nbdev/blo
 
 First, thanks a lot for wanting to help! Some things to keep in mind:
 
-- The jupyter to blog post conversion functionality relies on [fastai/nbdev](https://github.com/fastai/nbdev).  For idiosyncratic uses of nbdev that only apply to blogs that would require a large refactor to nbdev, it might be acceptable to apply a [monkey patch](https://stackoverflow.com/questions/5626193/what-is-monkey-patching) in `fastpages`.  However, it is encouraged to contribute to `nbdev` where possible if there is a change that could unlock a new feature.  If you are unsure, please open an issue in this repo to discucss.
+- The jupyter to blog post conversion functionality relies on [fastai/nbdev](https://github.com/fastai/nbdev).  For idiosyncratic uses of nbdev that only apply to blogs that would require a large refactor to nbdev, it might be acceptable to apply a [monkey patch](https://stackoverflow.com/questions/5626193/what-is-monkey-patching) in `fastpages`.  However, it is encouraged to contribute to `nbdev` where possible if there is a change that could unlock a new feature.  If you are unsure, please open an issue in this repo to discuss.
 
 
 ## Note for new contributors from Jeremy
@@ -35,7 +35,7 @@ It can be tempting to jump into a new project by questioning the stylistic decis
 ## Do you intend to add a new feature or change an existing one?
 
 * You can suggest your change on the [fastai forum](http://forums.fast.ai/) to see if others are interested or want to help. 
-* Once your approach has been discussed and confirmed on the forum, you are welcome to push a PR, including a complete description of the new feature and an example of how it's used. Be sure to document your code in the notabook.
+* Once your approach has been discussed and confirmed on the forum, you are welcome to push a PR, including a complete description of the new feature and an example of how it's used. Be sure to document your code in the notebook.
 * Ensure that your code includes tests that exercise not only your feature, but also any other code that might be impacted.
 
 ## PR submission guidelines
@@ -51,7 +51,7 @@ Some general rules of thumb that will make your life easier.
 * Do not add/remove vertical whitespace. Preserve the original style of the file you edit as much as you can.
 * Do not turn an already submitted PR into your development playground. If after you submitted PR, you discovered that more work is needed - close the PR, do the required work and then submit a new PR. Otherwise each of your commits requires attention from maintainers of the project.
 * If, however, you submitted a PR and received a request for changes, you should proceed with commits inside that PR, so that the maintainer can see the incremental fixes and won't need to review the whole PR again. In the exception case where you realize it'll take many many commits to complete the requests, then it's probably best to close the PR, do the work and then submit it again. Use common sense where you'd choose one way over another.
-* When you open a pull request, you can generate a live preview build of how the blog site will look by making a comment in the PR that contains this command: `/preview`.  GitHub will build your site and drop a temporary link for everyone to review.  You can do this as multiple times if necessary, however as mentioned previously do not turn an already submitted  PR inot a development playground.
+* When you open a pull request, you can generate a live preview build of how the blog site will look by making a comment in the PR that contains this command: `/preview`.  GitHub will build your site and drop a temporary link for everyone to review.  You can do this as multiple times if necessary, however, as mentioned previously do not turn an already submitted  PR into a development playground.
 
 ## Do you have questions about the source code?
 
