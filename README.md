@@ -69,8 +69,9 @@ See below for a more detailed list of features.
 	- [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [Upgrading Fastpages](#upgrading-fastpages)
-- [Customizing Fastpages](#customizing-fastpages)
 - [FAQ](#faq)
+- [Customizing Fastpages](#customizing-fastpages)
+- [Troubleshooting fastpages](#troubleshooting-fastpages)
 
 <!-- /TOC -->
 
@@ -479,3 +480,6 @@ fastpages builds upon the [minima theme](https://github.com/jekyll/minima).  If 
 
 **If you choose to make customizations to fastpages**  It is possible that customizations you make could collide with current or future versions of fastpages and we recommend doing so only if you feel sufficiently comfortable with HTML and CSS.
 
+# Troubleshooting fastpages
+
+Please see the [troubleshooting guide](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/TROUBLESHOOTING.md).
