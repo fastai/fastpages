@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://fastpages.fast.ai/" />
 <meta property="og:site_name" content="fastpages" />
 <script type="application/ld+json">
-{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"WebSite","headline":"fastpages","url":"https://fastpages.fast.ai/","name":"fastpages","@context":"https://schema.org"}</script>
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"WebSite","url":"https://fastpages.fast.ai/","name":"fastpages","headline":"fastpages","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://fastpages.fast.ai/" />
 <meta property="og:site_name" content="fastpages" />
 <script type="application/ld+json">
-{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"WebSite","headline":"fastpages","url":"https://fastpages.fast.ai/","name":"fastpages","@context":"https://schema.org"}</script>
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"WebSite","url":"https://fastpages.fast.ai/","name":"fastpages","headline":"fastpages","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -49,7 +49,7 @@ function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
         var elements = document.querySelectorAll(".post img");
         Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("title")) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
                 const caption = document.createElement('figcaption');
                 var node = document.createTextNode(el.getAttribute("title"));
                 caption.appendChild(node);

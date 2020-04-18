@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-04-18T17:24:23-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://fastpages.fast.ai/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fastpages.fast.ai/" rel="alternate" type="text/html" /><updated>2020-04-18T18:17:04-05:00</updated><id>https://fastpages.fast.ai/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">GitHub Actions: Providing Data Scientists With New Superpowers</title><link href="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html" rel="alternate" type="text/html" title="GitHub Actions: Providing Data Scientists With New Superpowers" /><published>2020-03-06T00:00:00-06:00</published><updated>2020-03-06T00:00:00-06:00</updated><id>https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions</id><content type="html" xml:base="https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html">&lt;h1 id=&quot;what-superpowers&quot;&gt;What Superpowers?&lt;/h1&gt;
 
 &lt;p&gt;Hi, I’m &lt;a href=&quot;https://twitter.com/HamelHusain&quot;&gt;Hamel Husain&lt;/a&gt;.  I’m a machine learning engineer at GitHub.  Recently, GitHub released a new product called &lt;a href=&quot;https://github.com/features/actions&quot;&gt;GitHub Actions&lt;/a&gt;, which has mostly flown under the radar in the machine learning and data science community as just another continuous integration tool.&lt;/p&gt;
 
@@ -518,14 +518,17 @@
 
 &lt;div class=&quot;output_html rendered_html output_subarea output_execute_result&quot;&gt;
 
-&lt;div id=&quot;altair-viz-f9891c10f7fa4bcd80a749e3e62e065a&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;altair-viz-af30e8a5882348c7b0bad1557e87af48&quot;&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
   (function(spec, embedOpt){
-    const outputDiv = document.getElementById(&quot;altair-viz-f9891c10f7fa4bcd80a749e3e62e065a&quot;);
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== &quot;altair-viz-af30e8a5882348c7b0bad1557e87af48&quot;) {
+      outputDiv = document.getElementById(&quot;altair-viz-af30e8a5882348c7b0bad1557e87af48&quot;);
+    }
     const paths = {
       &quot;vega&quot;: &quot;https://cdn.jsdelivr.net/npm//vega@5?noext&quot;,
       &quot;vega-lib&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-lib?noext&quot;,
-      &quot;vega-lite&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-lite@4.0.2?noext&quot;,
+      &quot;vega-lite&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext&quot;,
       &quot;vega-embed&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-embed@6?noext&quot;,
     };
 
@@ -562,7 +565,7 @@
         .catch(showError)
         .then(() =&gt; displayChart(vegaEmbed));
     }
-  })({&quot;config&quot;: {&quot;view&quot;: {&quot;continuousWidth&quot;: 400, &quot;continuousHeight&quot;: 300}}, &quot;layer&quot;: [{&quot;mark&quot;: &quot;line&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}}, {&quot;mark&quot;: {&quot;type&quot;: &quot;rule&quot;, &quot;color&quot;: &quot;#aaa&quot;}, &quot;encoding&quot;: {&quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector002&quot;}}]}, {&quot;mark&quot;: &quot;circle&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;opacity&quot;: {&quot;condition&quot;: {&quot;value&quot;: 1, &quot;selection&quot;: &quot;selector002&quot;}, &quot;value&quot;: 0}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;selection&quot;: {&quot;selector002&quot;: {&quot;type&quot;: &quot;single&quot;, &quot;encodings&quot;: [&quot;x&quot;], &quot;on&quot;: &quot;mouseover&quot;, &quot;nearest&quot;: true, &quot;empty&quot;: &quot;none&quot;}}}, {&quot;mark&quot;: {&quot;type&quot;: &quot;text&quot;, &quot;align&quot;: &quot;left&quot;, &quot;dx&quot;: 5, &quot;dy&quot;: -5, &quot;stroke&quot;: &quot;white&quot;, &quot;strokeWidth&quot;: 2}, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;text&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector002&quot;}}]}, {&quot;mark&quot;: {&quot;type&quot;: &quot;text&quot;, &quot;align&quot;: &quot;left&quot;, &quot;dx&quot;: 5, &quot;dy&quot;: -5}, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;text&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector002&quot;}}]}], &quot;data&quot;: {&quot;url&quot;: &quot;https://vega.github.io/vega-datasets/data/stocks.csv&quot;}, &quot;height&quot;: 400, &quot;width&quot;: 700, &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v4.0.2.json&quot;}, {&quot;mode&quot;: &quot;vega-lite&quot;});
+  })({&quot;config&quot;: {&quot;view&quot;: {&quot;continuousWidth&quot;: 400, &quot;continuousHeight&quot;: 300}}, &quot;layer&quot;: [{&quot;mark&quot;: &quot;line&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}}, {&quot;mark&quot;: {&quot;type&quot;: &quot;rule&quot;, &quot;color&quot;: &quot;#aaa&quot;}, &quot;encoding&quot;: {&quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector001&quot;}}]}, {&quot;mark&quot;: &quot;circle&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;opacity&quot;: {&quot;condition&quot;: {&quot;value&quot;: 1, &quot;selection&quot;: &quot;selector001&quot;}, &quot;value&quot;: 0}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;selection&quot;: {&quot;selector001&quot;: {&quot;type&quot;: &quot;single&quot;, &quot;encodings&quot;: [&quot;x&quot;], &quot;on&quot;: &quot;mouseover&quot;, &quot;nearest&quot;: true, &quot;empty&quot;: &quot;none&quot;}}}, {&quot;mark&quot;: {&quot;type&quot;: &quot;text&quot;, &quot;align&quot;: &quot;left&quot;, &quot;dx&quot;: 5, &quot;dy&quot;: -5, &quot;stroke&quot;: &quot;white&quot;, &quot;strokeWidth&quot;: 2}, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;text&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector001&quot;}}]}, {&quot;mark&quot;: {&quot;type&quot;: &quot;text&quot;, &quot;align&quot;: &quot;left&quot;, &quot;dx&quot;: 5, &quot;dy&quot;: -5}, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;symbol&quot;}, &quot;text&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;}, &quot;x&quot;: {&quot;type&quot;: &quot;temporal&quot;, &quot;field&quot;: &quot;date&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;price&quot;, &quot;scale&quot;: {&quot;type&quot;: &quot;log&quot;}}}, &quot;transform&quot;: [{&quot;filter&quot;: {&quot;selection&quot;: &quot;selector001&quot;}}]}], &quot;data&quot;: {&quot;url&quot;: &quot;https://vega.github.io/vega-datasets/data/stocks.csv&quot;}, &quot;height&quot;: 400, &quot;width&quot;: 700, &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v4.8.1.json&quot;}, {&quot;mode&quot;: &quot;vega-lite&quot;});
 &lt;/script&gt;
 &lt;/div&gt;
 
@@ -682,6 +685,14 @@
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;h2 id=&quot;Other-Feautures&quot;&gt;Other Feautures&lt;a class=&quot;anchor-link&quot; href=&quot;#Other-Feautures&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h3 id=&quot;GitHub-Flavored-Emojis&quot;&gt;GitHub Flavored Emojis&lt;a class=&quot;anchor-link&quot; href=&quot;#GitHub-Flavored-Emojis&quot;&gt; &lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Typing &lt;code&gt;I give this post two :+1:!&lt;/code&gt; will render this:&lt;/p&gt;
+&lt;p&gt;I give this post two :+1:!&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1441,6 +1452,14 @@
 &lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
 &lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
 &lt;h1 id=&quot;Other-Elements&quot;&gt;Other Elements&lt;a class=&quot;anchor-link&quot; href=&quot;#Other-Elements&quot;&gt; &lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
+&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
+&lt;h2 id=&quot;GitHub-Flavored-Emojis&quot;&gt;GitHub Flavored Emojis&lt;a class=&quot;anchor-link&quot; href=&quot;#GitHub-Flavored-Emojis&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Typing &lt;code&gt;I give this post two :+1:!&lt;/code&gt; will render this:&lt;/p&gt;
+&lt;p&gt;I give this post two :+1:!&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

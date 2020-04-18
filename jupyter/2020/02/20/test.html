@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-20T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"A tutorial of fastpages for Jupyter notebooks.","@type":"BlogPosting","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","datePublished":"2020-02-20T00:00:00-06:00","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"image":"https://fastpages.fast.ai/images/chart-preview.png","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","datePublished":"2020-02-20T00:00:00-06:00","image":"https://fastpages.fast.ai/images/chart-preview.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -38,7 +38,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-20T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"A tutorial of fastpages for Jupyter notebooks.","@type":"BlogPosting","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","datePublished":"2020-02-20T00:00:00-06:00","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"image":"https://fastpages.fast.ai/images/chart-preview.png","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html"},"description":"A tutorial of fastpages for Jupyter notebooks.","@type":"BlogPosting","url":"https://fastpages.fast.ai/jupyter/2020/02/20/test.html","headline":"Fastpages Notebook Blog Post","dateModified":"2020-02-20T00:00:00-06:00","datePublished":"2020-02-20T00:00:00-06:00","image":"https://fastpages.fast.ai/images/chart-preview.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -55,7 +55,7 @@ function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
         var elements = document.querySelectorAll(".post img");
         Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("title")) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
                 const caption = document.createElement('figcaption');
                 var node = document.createTextNode(el.getAttribute("title"));
                 caption.appendChild(node);
@@ -81,25 +81,31 @@ window.onload = wrap_img;
 </script>
 </head><body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
         <label for="nav-trigger">
           <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
             </svg>
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
-      </nav></div>
+        <div class="trigger">
+<a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a>
+</div>
+      </nav>
+</div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Fastpages Notebook Blog Post</h1><p class="page-description">A tutorial of fastpages for Jupyter notebooks.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-20T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Fastpages Notebook Blog Post</h1>
+<p class="page-description">A tutorial of fastpages for Jupyter notebooks.</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-20T00:00:00-06:00" itemprop="datePublished">
         Feb 20, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -110,7 +116,7 @@ window.onload = wrap_img;
 </span></p>
 
     
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i> 
       
         <a class="category-tags-link" href="/categories/#jupyter">jupyter</a>
         
@@ -130,13 +136,13 @@ window.onload = wrap_img;
 
           <div class="px-2">
     <a href="https://mybinder.org/v2/gh/fastai/fastpages/master?filepath=_notebooks%2F2020-02-20-test.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder">
     </a>
 </div>
 
           <div class="px-2">
     <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-02-20-test.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab">
     </a>
 </div>
         </div>
@@ -144,11 +150,13 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#About">About </a>
+<li class="toc-entry toc-h1">
+<a href="#About">About </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Front-Matter">Front Matter </a></li>
 <li class="toc-entry toc-h2"><a href="#Markdown-Shortcuts">Markdown Shortcuts </a></li>
-<li class="toc-entry toc-h2"><a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair </a>
+<li class="toc-entry toc-h2">
+<a href="#Interactive-Charts-With-Altair">Interactive Charts With Altair </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Example-1:-DropDown">Example 1: DropDown </a></li>
 <li class="toc-entry toc-h3"><a href="#Example-2:-Tooltips">Example 2: Tooltips </a></li>
@@ -156,7 +164,8 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#Data-Tables">Data Tables </a></li>
-<li class="toc-entry toc-h2"><a href="#Images">Images </a>
+<li class="toc-entry toc-h2">
+<a href="#Images">Images </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Local-Images">Local Images </a></li>
 <li class="toc-entry toc-h3"><a href="#Remote-Images">Remote Images </a></li>
@@ -166,15 +175,18 @@ window.onload = wrap_img;
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#Other-Elements">Other Elements </a>
+<li class="toc-entry toc-h1">
+<a href="#Other-Elements">Other Elements </a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#GitHub-Flavored-Emojis">GitHub Flavored Emojis </a></li>
 <li class="toc-entry toc-h2"><a href="#Tweetcards">Tweetcards </a></li>
 <li class="toc-entry toc-h2"><a href="#Youtube-Videos">Youtube Videos </a></li>
 <li class="toc-entry toc-h2"><a href="#Boxes-/-Callouts">Boxes / Callouts </a></li>
 <li class="toc-entry toc-h2"><a href="#Footnotes">Footnotes </a></li>
 </ul>
 </li>
-</ul><!--
+</ul>
+<!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -886,6 +898,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GitHub-Flavored-Emojis">
+<a class="anchor" href="#GitHub-Flavored-Emojis" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitHub Flavored Emojis<a class="anchor-link" href="#GitHub-Flavored-Emojis"> </a>
+</h2>
+<p>Typing <code>I give this post two :+1:!</code> will render this:</p>
+<p>I give this post two <img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20">!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Tweetcards">
 <a class="anchor" href="#Tweetcards" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tweetcards<a class="anchor-link" href="#Tweetcards"> </a>
 </h2>
@@ -987,14 +1011,9 @@ And another {% fn 2 %}
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="fastai/fastpages"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+  </div>
+<!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js" repo="fastai/fastpages" issue-term="title" label="blogpost-comment" theme="github-light" crossorigin="anonymous" async>
 </script><a class="u-url" href="/jupyter/2020/02/20/test.html" hidden></a>
 </article>
       </div>
@@ -1018,7 +1037,11 @@ And another {% fn 2 %}
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links">
+<ul class="social-media-list">
+<li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li>
+<li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li>
+</ul>
 </div>
 
   </div>

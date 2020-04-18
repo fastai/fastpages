@@ -335,6 +335,8 @@ table td { border: 1px solid #e8e8e8; }
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 .post img { display: block; vertical-align: top; margin-left: auto; margin-right: auto; }
 
+img.emoji { display: inline !important; }
+
 .post figcaption { text-align: center; font-size: .8rem; font-style: italic; color: light-grey; }
 
 .page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important; }
