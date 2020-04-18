@@ -16,6 +16,7 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
     - Pay attention to the emitted logs when you save your notebooks or files. Often, you will see errors here that will give you important clues.
 - [ ] When developing locally, you will notice that Jupyter notebooks are converted to corresponding markdown files in the `_posts` folder.  Take a look at the problematic blog posts and see if you can spot the offending HTML or markdown in that code.
 - Use your browser's developer tools to see if there are any errors.  Common errors are (1) not able to find images because they have not been saved into the right folder, (2) javascript or other errors.
+- If you receive a Jekyll build error or a Liquid error, search for this error on Stack Overflow to provide more insight on the problem.
 
 ## Step 3: See if there are errors in the build process of GitHub Actions.
 
