@@ -1,4 +1,4 @@
-# Filing Bugs Troubleshooting
+# Filing Bugs & Troubleshooting
 
 These are required prerequisites before filing an issue on GitHub or on the [fastai forums](https://forums.fast.ai/)
 
