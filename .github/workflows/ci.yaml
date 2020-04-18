@@ -28,7 +28,7 @@ jobs:
     - name: Jekyll build
       uses: docker://hamelsmu/fastpages-jekyll
       with:
-        args: bash -c "gem install bundler && jekyll build -V --strict_front_matter"
+        args: bash -c "gem install bundler && jekyll build -V --strict_front_matter --trace"
       env:
         JEKYLL_ENV: 'production'
         
