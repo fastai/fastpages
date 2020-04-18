@@ -49,7 +49,11 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
 
     See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/) for more information.
 
-    **Colons, tilda, asteriks and other characters may cause your front matter to break and for your posts to not render.**
+    **Colons, tilda, asteriks and other characters may cause your front matter to break and for your posts to not render.**  If you violoate these conventions you often get an error that looks something like this:
+
+    ```bash
+    Error: YAML Exception reading ... (<unknown>): mapping values are not allowed
+    ```
 
 2. You are not able to customize the styling or theme of fastpages?  **A**: See [Customizing Fastpages](https://github.com/fastai/fastpages#customizing-fastpages)
 
