@@ -55,6 +55,6 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
     Error: YAML Exception reading ... (<unknown>): mapping values are not allowed
     ```
 
-2. You are not able to customize the styling or theme of fastpages?  **A**: See [Customizing Fastpages](https://github.com/fastai/fastpages#customizing-fastpages)
+2. Can you customize the styling or theme of fastpages?  **A**: See [Customizing Fastpages](https://github.com/fastai/fastpages#customizing-fastpages)
 
 See the [FAQ](https://github.com/fastai/fastpages#faq) for frequently asked questions.
