@@ -211,7 +211,7 @@ It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks
 
 By default, posts are sorted by date on your homepage. However, you may want one or more blog posts to always appear at the very top of your homepage.  In other words, you may want certain posts to be "pinned" or "sticky".  To accomplish this, specify the `sticky_rank` front matter in the order you would like your sticky posts to appear.  Blog posts that do not set this parameter are sorted in the default way by date after the sticky posts.
 
-For example, consider these three markdown posts
+For example, consider these three markdown posts (also works for notebooks).
 
 `2020-01-01-Post-One.md`
 ```yaml
@@ -242,7 +242,16 @@ However, since `sticky_rank` is specified, blog posts will **first be sorted by 
 - Post Two
 - Post Three
 
-_Note: without `sticky_rank` the above posts would actually be sorted in reverse order due to the dates associated with each post._
+_Without `sticky_rank` the above posts would actually be sorted in reverse order due to the dates associated with each post._
+
+_Note: pinning also works for notebooks:_
+
+```
+# "My cool blog post"
+> "Description of blog post"
+
+- sticky_rank: 2
+```
 
 ### Toggle Search Visibility
 
