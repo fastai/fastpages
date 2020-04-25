@@ -1,3 +1,5 @@
 ---
 layout: post
+tags: prose, word
+toc: true
 ---
