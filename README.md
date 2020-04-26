@@ -311,6 +311,9 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
     colab: true
   ```
 
+- `html_escape`: this allows you to toggle escaping of HTML in various components of blog posts on or off.  At this moment, you can only toggle this for the `description` field in your posts.  
+This is set to `false` by default.
+
 ## Syntax Highlighting
 
 `fastpages` overrides the default syntax highlighting of minima with the [Dracula theme](https://draculatheme.com/).  
