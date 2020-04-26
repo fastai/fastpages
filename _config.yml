@@ -72,6 +72,10 @@ default_badges:
   binder: true
   colab: true
 
+# Escape HTML in post descriptions
+html_escape:
+  description: false
+
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima
