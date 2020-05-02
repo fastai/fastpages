@@ -94,6 +94,7 @@ In a notebook, front matter is defined as a markdown cell at the beginning of th
   ```markdown
   # "Title"
   > "Awesome summary"
+  
   - toc: false
   - branch: master
   - badges: true
