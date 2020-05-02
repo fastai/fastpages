@@ -36,6 +36,24 @@ jobs:
         assert config['baseurl'] == settings['DEFAULT']['baseurl'], errmsg
       shell: python
 
+    - name: Create issue if baseurl rule is violated
+      if: failure()
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var err = process.env.ERROR_STRING;
+          var run_id = process.env.RUN_ID;
+          github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: "Error updating notebooks",
+            body: `${err}\n See run [${run_id}](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${run_id}) for more details.`
+          })
+      env:
+        ERROR_STRING: "You have not configured your baseurl correctly, please read the instructions in _config.yml carefully."
+        RUN_ID: ${{ github.run_id	}}
+
     - name: check for User Pages
       run: |
         import os
@@ -43,3 +61,16 @@ jobs:
         errmsg = "fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details."
         assert ".github.io" not in nwo, errmsg
       shell: python
+
+    - name: Create Issue if User Pages rule is violated
+      if: failure()
+      uses: actions/github-script@0.6.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: "Error updating notebooks",
+            body: 'fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details.'
+          })
