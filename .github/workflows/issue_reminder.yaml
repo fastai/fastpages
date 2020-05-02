@@ -16,7 +16,6 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          var permission_level = process.env.permission_level;
           var url = 'https://github.com/fastai/fastpages/blob/master/_fastpages_docs/TROUBLESHOOTING.md'
           var msg = `Thank you for opening an issue.  If this issue is related to a bug, please follow the steps and provide the information outlined in the [Troubleshooting Guide](${url}).  Failure to follow these instructions may result in automatic closing of this issue.`
           github.issues.createComment({
