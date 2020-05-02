@@ -47,7 +47,7 @@ jobs:
           github.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            title: "Error updating notebooks",
+            title: "Error with repository configuration: baseurl",
             body: `${err}\n See run [${run_id}](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${run_id}) for more details.`
           })
       env:
@@ -71,6 +71,6 @@ jobs:
           github.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            title: "Error updating notebooks",
+            title: "Error with repository configuration: repo name",
             body: 'fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details.'
           })
