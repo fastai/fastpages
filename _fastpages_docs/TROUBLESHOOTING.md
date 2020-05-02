@@ -2,15 +2,18 @@
 
 These are required prerequisites before filing an issue on GitHub or on the [fastai forums](https://forums.fast.ai/)
 
+## Step 1: Attempt To Upgrade fastpages
 
-## Step 1: Search Relevant Places For Similar Issues
+See the [Upgrading guide](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/UPGRADE.md).
+
+## Step 2: Search Relevant Places For Similar Issues
 
 - [ ] Search the [fastai forums](https://forums.fast.ai/) for similar problems.
 - [ ] Search issues on the [fastpages repo](https://github.com/fastai/fastpages/) for a similar problems?
 - [ ] Read the [README of the repo](https://github.com/fastai/fastpages/blob/master/README.md) carefully
 
 
-## Step 2: Observe Build Logs When Developing Locally
+## Step 3: Observe Build Logs When Developing Locally
  
 - [ ] Run the [fastpages blog server locally](DEVELOPMENT.md)
     - Pay attention to the emitted logs when you save your notebooks or files. Often, you will see errors here that will give you important clues.
@@ -18,12 +21,12 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
 - Use your browser's developer tools to see if there are any errors.  Common errors are (1) not able to find images because they have not been saved into the right folder, (2) javascript or other errors.
 - If you receive a Jekyll build error or a Liquid error, search for this error on Stack Overflow to provide more insight on the problem.
 
-## Step 3: See if there are errors in the build process of GitHub Actions.
+## Step 4: See if there are errors in the build process of GitHub Actions.
 
 - [ ] In your GitHub repository, you will have a tab called **Actions**.  To find build errors, click on the `Event` dropdown list and select `push`.  Browse through tthe logs to see if you can find an error.
 
 
-## Step 4: Once you have performed all the above steps, post your issue in the fastai formus.
+## Step 5: Once you have performed all the above steps, post your issue in the fastai formus.
 
 - [ ] Use the [nbdev & blogging category](https://forums.fast.ai/c/fastai-users/nbdev/48) to specify your problem.
 - [ ] If you cannot find a similar issue create a new thread instead of commenting on an unrelated one.
