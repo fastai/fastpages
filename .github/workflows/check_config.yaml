@@ -1,0 +1,45 @@
+name: Check Configurations
+on: push
+
+jobs:
+ check-config:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@master
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: install dependencies
+      run:  pip3 install pyyaml
+
+    - name: check baseurl
+      run: |
+        import yaml
+        from pathlib import Path
+        from configparser import ConfigParser
+        settings = ConfigParser()
+        
+        config_path = Path('_config.yml')
+        settings_path = Path('_action_files/settings.ini')
+        
+        assert config_path.exists(), 'Did not find _config.yml in the current directory!'
+        assert settings_path.exists(), 'Did not find _action_files/settings.ini in the current directory!'
+        
+        settings.read(settings_path)
+        with open('_config.yml') as f:
+            config = yaml.safe_load(f)
+            
+        errmsg = f"The value set for baseurl in _action_files/settings.ini and _config.yml are not identical. Please fix and try again."
+        assert config['baseurl'] == settings['DEFAULT']['baseurl'], errmsg
+      shell: python
+
+    - name: check for User Pages
+      run: |
+        import os
+        nwo = os.getenv('GITHUB_REPOSITORY')
+        errmsg = "fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details."
+        assert ".github.io" not in nwo, errmsg
+      shell: python
