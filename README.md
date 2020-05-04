@@ -42,31 +42,32 @@ See below for a more detailed list of features.
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Welcome To `fastpages`](#welcome-to-fastpages)
-	- [Setup Instructions](#setup-instructions)
-	- [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
-		- [Configure Title & Summary](#configure-title--summary)
-		- [Table of Contents](#table-of-contents)
-		- [Colab, Binder And GitHub Badges](#colab-binder-and-github-badges)
-		- [Tags](#categories)
-		- [Enabling Comments](#enabling-comments)
-		- [Setting an Image For Social Media](#setting-an-image-for-social-media)
-      - [Hiding A Blog Post](#hiding-a-blog-post)
-      - [Pinning A Blog Post](#pinning-a-blog-post)
-      - [Toggle Search Visibility](#toggle-search-visibility)
+    - [`fastpages` provides the following features:](#fastpages-provides-the-following-features)
+  - [Setup Instructions](#setup-instructions)
+  - [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
+    - [Configure Title & Summary](#configure-title--summary)
+    - [Table of Contents](#table-of-contents)
+    - [Colab, Binder and GitHub Badges](#colab-binder-and-github-badges)
+    - [Categories](#categories)
+    - [Enabling Comments](#enabling-comments)
+    - [Setting an Image For Social Media](#setting-an-image-for-social-media)
+    - [Hiding A Blog Post](#hiding-a-blog-post)
+    - [Pinning A Blog Post](#pinning-a-blog-post)
+    - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
-	  - [Hide Input/Output Cells](#hide-inputoutput-cells)
-	  - [Collapsable Code Cells](#collapsable-code-cells)
-	  - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
-	  - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
-	  - [Adding Footnotes To Blog Posts](#adding-footnotes)
+    - [Hide Input/Output Cells](#hide-inputoutput-cells)
+    - [Collapsable Code Cells](#collapsable-code-cells)
+    - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
+    - [Adding Footnotes](#adding-footnotes)
+    - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
   - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
   - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
     - [Specifying front-matter for Word documents](#specifying-front-matter-for-word-documents)
 - [Running the blog on your local machine](#running-the-blog-on-your-local-machine)
-- [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action-your-own-custom-blog)
-	- [Optional Inputs](#optional-inputs)
+- [Using The GitHub Action & Your Own Custom Blog](#using-the-github-action--your-own-custom-blog)
+    - [Optional Inputs](#optional-inputs)
 - [Contributing To Fastpages](#contributing-to-fastpages)
 - [Upgrading Fastpages](#upgrading-fastpages)
 - [FAQ](#faq)
@@ -112,7 +113,8 @@ Similarly, in a markdown document the same front matter would be defined like th
   ```yaml
   ---
   title: "My Title"
-  summary: "Awesome summary"
+  description: "Awesome description"
+  layout: post
   toc: false
   comments: true
   image: images/some_folder/your_image.png
