@@ -24,7 +24,23 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  {% assign posts = posts | sort: "sticky_rank", "last" %}
+  <!-- Sort posts by rank, then date -->
+  {% assign grouped_posts = posts | group_by: "sticky_rank" | sort: "name", "last" %}
+  {% assign sticky_posts = ''|split:'' %}
+  {% assign non_sticky_posts = '' | split:'' %}
+
+ 
+  {% for gp in grouped_posts %}
+    {%- if gp.name == "" -%}
+      {% assign non_sticky_posts = gp.items | sort: "date" | reverse %}
+    {%- else %}
+      {% assign sticky_posts = sticky_posts | concat: gp.items %}
+    {%- endif -%}
+  {% endfor %}
+
+   <!-- Assemble final sorted posts array -->
+  {% assign sticky_posts = sticky_posts | sort: "sticky_rank", "last" %}
+  {% assign posts = sticky_posts | concat: non_sticky_posts %}
 
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
