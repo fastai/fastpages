@@ -6,6 +6,14 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
 
 See the [Upgrading guide](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/UPGRADE.md).
 
+If developing locally, refresh your Docker containers with the following commands:
+
+`make remove`
+
+followed by
+
+`make build`
+
 ## Step 2: Search Relevant Places For Similar Issues
 
 - [ ] Search the [fastai forums](https://forums.fast.ai/) for similar problems.
