@@ -6,7 +6,7 @@ These are required prerequisites before filing an issue on GitHub or on the [fas
 
 See the [Upgrading guide](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/UPGRADE.md).
 
-**In addition to upgrading**, if developing locally, refresh your Docker containers with the following commands:
+**In addition to upgrading**, if developing locally, refresh your Docker containers with the following commands from the root of your repo:
 
 `make remove` followed by `make build`
 
