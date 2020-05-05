@@ -30,9 +30,9 @@ See the [Upgrading guide](https://github.com/fastai/fastpages/blob/master/_fastp
 - [ ] In your GitHub repository, you will have a tab called **Actions**.  To find build errors, click on the `Event` dropdown list and select `push`.  Browse through tthe logs to see if you can find an error.
 
 
-## Step 5: Once you have performed all the above steps, post your issue in the fastai formus.
+## Step 5: Once you have performed all the above steps, post your issue in the fastai formus or a GitHub Issue.
 
-- [ ] Use the [nbdev & blogging category](https://forums.fast.ai/c/fastai-users/nbdev/48) to specify your problem.
+- [ ] Use the [nbdev & blogging category](https://forums.fast.ai/c/fastai-users/nbdev/48) to specify your problem if posting on the fastpages forums.
 - [ ] If you cannot find a similar issue create a new thread instead of commenting on an unrelated one.
 - When reporting a bug, provide this information:
 
