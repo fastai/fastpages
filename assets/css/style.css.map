@@ -3,11 +3,11 @@
 	"file": "style.css",
 	"sources": [
 		"style.scss",
-		"../../tmp/jekyll-remote-theme-20200505-1-doih9g/_sass/minima/skins/classic.scss",
-		"../../tmp/jekyll-remote-theme-20200505-1-doih9g/_sass/minima/initialize.scss",
-		"../../tmp/jekyll-remote-theme-20200505-1-doih9g/_sass/minima/custom-variables.scss",
-		"../../tmp/jekyll-remote-theme-20200505-1-doih9g/_sass/minima/_base.scss",
-		"../../tmp/jekyll-remote-theme-20200505-1-doih9g/_sass/minima/_layout.scss",
+		"../../tmp/jekyll-remote-theme-20200505-1-6ko4zr/_sass/minima/skins/classic.scss",
+		"../../tmp/jekyll-remote-theme-20200505-1-6ko4zr/_sass/minima/initialize.scss",
+		"../../tmp/jekyll-remote-theme-20200505-1-6ko4zr/_sass/minima/custom-variables.scss",
+		"../../tmp/jekyll-remote-theme-20200505-1-6ko4zr/_sass/minima/_base.scss",
+		"../../tmp/jekyll-remote-theme-20200505-1-6ko4zr/_sass/minima/_layout.scss",
 		"_sass/minima/custom-styles.scss",
 		"_sass/minima/fastpages-styles.scss",
 		"_sass/minima/fastpages-dracula-highlight.scss"
