@@ -33,23 +33,6 @@
     </script>
 {% endif %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-<script type="text/javascript">
-require.config({
-  paths: {
-    jquery: 'https://code.jquery.com/jquery-3.5.0.min',
-    plotly: 'https://cdn.plot.ly/plotly-latest.min'
-  },
-
-  shim: {
-    plotly: {
-      deps: ['jquery'],
-      exports: 'plotly'
-    }
-  }
-});
-</script>
-
 <script>
 function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
