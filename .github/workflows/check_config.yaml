@@ -55,6 +55,7 @@ jobs:
         RUN_ID: ${{ github.run_id	}}
 
     - name: check for User Pages
+      id: userpage
       run: |
         import os
         nwo = os.getenv('GITHUB_REPOSITORY')
@@ -63,7 +64,7 @@ jobs:
       shell: python
 
     - name: Create Issue if User Pages rule is violated
-      if: failure()
+      if: steps.userpage.outcome == 'failure'
       uses: actions/github-script@0.6.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
