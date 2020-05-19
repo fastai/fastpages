@@ -4,16 +4,6 @@
     "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     "settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/opt/conda/bin/python",
-		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
-		"python.formatting.autopep8Path": "/opt/conda/bin/flake8",
-		"python.formatting.yapfPath": "/opt/conda/bin/flake8",
-		"python.linting.flake8Path": "/opt/conda/bin/flake8",
-		"python.linting.pycodestylePath": "/opt/conda/bin/pycodestyle",
-		"python.linting.pydocstylePath": "/opt/conda/bin/pydocstyle",
-		"python.linting.pylintPath": "/opt/conda/bin/pylint",
-		"python.testing.pytestPath": "/opt/conda/bin/pytest"
 	},
     "forwardPorts": 4000,
     "extensions": ["ms-python.python",
