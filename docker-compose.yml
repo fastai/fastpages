@@ -16,7 +16,6 @@ services:
     tty: true
     volumes:
       - .:/data/
-    command: /bin/sh -c "while sleep 10000; do :; done"
 
   converter:
     <<: *fastpages

@@ -1,6 +1,6 @@
 {
     "name": "fastpages-codespaces",
-    "dockerComposeFile": ["docker-compose.yml"],
+    "dockerComposeFile": ["docker-compose.yml", "docker-compose.extend.yml"],
     "service": "fastpages",
     "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     "forwardPorts": [4000],
