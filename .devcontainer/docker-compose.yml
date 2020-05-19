@@ -1,0 +1,39 @@
+version: "3"
+services:
+  fastpages: &fastpages
+    working_dir: /data
+    environment:
+        - INPUT_BOOL_SAVE_MARKDOWN=false
+    build:
+      context: ./_action_files
+      dockerfile: ./Dockerfile
+    image: fastpages-dev
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/data/
+
+  converter:
+    <<: *fastpages
+    command: /fastpages/action_entrypoint.sh
+
+  watcher:
+    <<: *fastpages
+    command: watchmedo shell-command --command /fastpages/action_entrypoint.sh --pattern *.ipynb --recursive --drop
+
+  jekyll:
+    working_dir: /data
+    image: hamelsmu/fastpages-jekyll
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/data/
+    command: >
+     bash -c "gem install bundler
+     && jekyll serve --trace --strict_front_matter"
+
