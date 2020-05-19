@@ -1,6 +1,6 @@
 {
     "name": "fastpages Codespaces",
-    "dockerComposeFile": "docker-compose.yml",
+    "dockerFile": "_action_files/fastpages-nbdev.Dockerfile",
     "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     "settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
@@ -8,5 +8,4 @@
     "forwardPorts": 4000,
     "extensions": ["ms-python.python",
                    "ms-azuretools.vscode-docker"],
-    "service": "fastpages"
 }
