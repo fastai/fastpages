@@ -1,6 +1,6 @@
 {
     "name": "fastpages Codespaces",
-    "dockerFile": "_action_files/fastpages-nbdev.Dockerfile",
+    "image": "hamelsmu/fastpages-nbdev",
     "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     "settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
