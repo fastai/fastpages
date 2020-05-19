@@ -27,7 +27,7 @@ for FILENAME in ${GITHUB_WORKSPACE}/_word/*.docx; do
     # Inject correction to image links in markdown
     sed -i.bak 's/!\[\](assets/!\[\]({{ site.url }}{{ site.baseurl }}\/assets/g' "_posts/${NEW_NAME}"
     # Remove intermediate files
-    rm _posts/*.bak
+    rm _posts/*.bak 2> /dev/null || true
 
     cat "${GITHUB_WORKSPACE}/_action_files/word_front_matter.txt" "_posts/${NEW_NAME}" > temp && mv temp "_posts/${NEW_NAME}"
 done
