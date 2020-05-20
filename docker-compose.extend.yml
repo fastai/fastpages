@@ -1,4 +1,5 @@
 version: "3"
 services:
   fastpages:
-    command: /bin/sh -c "while sleep 1000; do :; done"
+    command: [ "/bin/bash", "-c", "tail -f /dev/null" ]
+
