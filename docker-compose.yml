@@ -30,7 +30,7 @@ services:
     image: hamelsmu/fastpages-jekyll
     restart: unless-stopped
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
     volumes:
       - .:/data/
     command: >
