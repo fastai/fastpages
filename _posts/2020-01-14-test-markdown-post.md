@@ -92,8 +92,9 @@ key: value
 
 ## Tweetcards
 
-{% twitter https://twitter.com/jakevdp/status/1204765621767901185?s=20 %}
-
+```
+{% twitter https://twitter.com/jeremyphoward/status/1249698787666399235 %}
+```
 
 ## Footnotes
 
