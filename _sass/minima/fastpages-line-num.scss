@@ -6,3 +6,17 @@ pre {
 .rouge-code {
   width: 100%;
 }
+.rouge-gutter,
+.rouge-code {
+  padding: 0;
+}
+pre {
+    margin-bottom: 0 !important; 
+    padding: 8px;
+}
+.highlight {
+    margin-bottom: 0;
+}
+.rouge-table {
+  margin-bottom: 0;
+}
