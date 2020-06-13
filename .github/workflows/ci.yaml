@@ -38,6 +38,7 @@ jobs:
         sudo chmod -R 777 .
 
     - name: make sure pages branch is gh-pages
+      if: github.event_name == 'push'
       uses: actions/github-script@v2
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
@@ -63,7 +64,7 @@ jobs:
         cp CNAME _site/ 2>/dev/null || :
 
     - name: Deploy
-      if: github.event_name	== 'push'
+      if: github.event_name == 'push'
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
