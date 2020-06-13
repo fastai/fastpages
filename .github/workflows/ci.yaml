@@ -13,7 +13,7 @@ jobs:
     steps:
       
     - name: Check if secret exists
-      if: github.event_name	== 'push'
+      if: github.event_name == 'push'
       run: |
         if [ -z "$deploy_key" ]
         then
