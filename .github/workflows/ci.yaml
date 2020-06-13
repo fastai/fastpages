@@ -21,7 +21,7 @@ jobs:
           exit 1;
         fi
       env:
-       deploy_key: ${{ secrets.FOO }}
+       deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
           
 
     - name: Copy Repository Contents
