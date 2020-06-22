@@ -36,7 +36,7 @@ jobs:
       run: |
         rm -rf _site
         sudo chmod -R 777 .
-          
+
     - name: Jekyll build
       uses: docker://hamelsmu/fastpages-jekyll
       with:
