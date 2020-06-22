@@ -9,7 +9,7 @@
 
 # Welcome To `fastpages`
 
-> An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and Markdown.
+> An easy to use blogging platform, with support for Jupyter notebooks, Word documents, and Markdown.
 
 ![](images/diagram.png)
 
