@@ -61,7 +61,7 @@ See below for a more detailed list of features.
     - [Collapsable Code Cells](#collapsable-code-cells)
     - [Embedded Twitter and YouTube Content](#embedded-twitter-and-youtube-content)
     - [Adding Footnotes](#adding-footnotes)
-    - [Adding Citations via BibTex](#adding-bibtex)
+    - [Adding Citations via BibTeX](#adding-bibtex)
     - [Automatically Convert Notebooks To Blog Posts](#automatically-convert-notebooks-to-blog-posts)
   - [Writing Blog Posts With Markdown](#writing-blog-posts-with-markdown)
   - [Writing Blog Posts With Microsoft Word](#writing-blog-posts-with-microsoft-word)
