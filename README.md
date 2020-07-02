@@ -337,6 +337,10 @@ This is set to `false` by default.
   ```
 - If you don't like either of these themes, you can add your own CSS in [`_sass/minima/custom-styles.scss`](_sass/minima/custom-styles.scss).  See [customizing fastpages](#customizing-fastpages) for more details.
 
+## Adding Citations via BibTeX
+
+Users who prefer to use the citation system BibTeX may do so; it requires enabling the [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) plugin. Please see [Citations in Fastpages via BibTeX and jekyll-scholar](https://drscotthawley.github.io/devblog4/2020/07/01/Citations-Via-Bibtex.html) for instructions on implementing this. 
+
 ## Writing Blog Posts With Jupyter
 
 ### Hide Input/Output Cells
@@ -365,10 +369,6 @@ In a markdown cell in your notebook, use the following markdown shortcuts to emb
 ### Adding Footnotes
 
 Adding footnotes in notebooks is a bit different than markdown.  Please see the [Detailed Guide To Footnotes in Notebooks](https://github.com/fastai/fastpages/blob/master/_fastpages_docs/NOTEBOOK_FOOTNOTES.md).
-
-### Adding Citations via BibTeX
-
-Users who prefer to use citation system BibTeX may do so; it requires enabling the [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) plugin. Please see [Citations in Fastpages via BibTeX and jekyll-scholar](https://drscotthawley.github.io/devblog4/2020/07/01/Citations-Via-Bibtex.html) for instructions on implementing this. 
 
 ### Automatically Convert Notebooks To Blog Posts
 
