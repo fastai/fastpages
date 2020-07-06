@@ -432,7 +432,7 @@ window.onload = wrap_img;
     
     <span class="n">data</span><span class="o">=</span><span class="n">stocks</span>
 <span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
 <span class="p">)</span>
 </pre></div>
@@ -449,12 +449,12 @@ window.onload = wrap_img;
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-af30e8a5882348c7b0bad1557e87af48"></div>
+<div id="altair-viz-41d5fb7e7ab54499b1723c5de0b99685"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-af30e8a5882348c7b0bad1557e87af48") {
-      outputDiv = document.getElementById("altair-viz-af30e8a5882348c7b0bad1557e87af48");
+    if (outputDiv.id !== "altair-viz-41d5fb7e7ab54499b1723c5de0b99685") {
+      outputDiv = document.getElementById("altair-viz-41d5fb7e7ab54499b1723c5de0b99685");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -496,7 +496,7 @@ window.onload = wrap_img;
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector001"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector001": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "line", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}}, {"mark": {"type": "rule", "color": "#aaa"}, "encoding": {"x": {"type": "temporal", "field": "date"}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "symbol"}, "opacity": {"condition": {"value": 1, "selection": "selector001"}, "value": 0}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "selection": {"selector001": {"type": "single", "encodings": ["x"], "on": "mouseover", "nearest": true, "empty": "none"}}}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}, {"mark": {"type": "text", "align": "left", "dx": 5, "dy": -5}, "encoding": {"color": {"type": "nominal", "field": "symbol"}, "text": {"type": "quantitative", "field": "price"}, "x": {"type": "temporal", "field": "date"}, "y": {"type": "quantitative", "field": "price", "scale": {"type": "log"}}}, "transform": [{"filter": {"selection": "selector001"}}]}], "data": {"url": "https://vega.github.io/vega-datasets/data/stocks.csv"}, "height": 400, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"}, {"mode": "vega-lite"});
 </script>
 </div>
 
@@ -526,9 +526,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/movies.json'</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
-<span class="c1"># display table with pandas</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># display table with pandas</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
     <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
