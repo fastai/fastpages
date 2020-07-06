@@ -245,11 +245,15 @@ table {
 
 
 // Handling large charts on mobile devices
-@media only screen and (max-width: 900px) {
-  /* for mobile phone and tablet devices */
-  .output_wrapper{
-    overflow: scroll;
-  }
+// @media only screen and (max-width: 1200px) {
+//   /* for mobile phone and tablet devices */
+//   .output_wrapper{
+//     overflow: scroll;
+//   }
+// }
+
+.output_wrapper{
+  overflow: scroll;
 }
 
 .svg-icon.orange{
