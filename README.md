@@ -86,6 +86,8 @@ See below for a more detailed list of features.
 
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
+>If you are not getting any PR, plese make sure you have third party actions enabled in your organization: (Settings -> Actions -> Actions Permissions -> Enable local and third party Actions for this repository)
+
 
 ## Customizing Blog Posts With Front Matter
 
