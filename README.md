@@ -55,6 +55,7 @@ See below for a more detailed list of features.
     - [Pinning A Blog Post](#pinning-a-blog-post)
     - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
+  - [Adjusting Page Width](#adjusting-page-width)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Adding Citations via BibTeX](#adding-citations-via-bibtex)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
@@ -318,6 +319,22 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
 - `html_escape`: this allows you to toggle escaping of HTML in various components of blog posts on or off.  At this moment, you can only toggle this for the `description` field in your posts.  
 This is set to `false` by default.
+
+## Adjusting Page Width
+
+You can adjust the page width of fastpages on various devices by editing [/_sass/minima/custom-variables.scss](_sass/minima/custom-variables.scss).
+
+These are the default values, which can be adjusted to suit your preferences:
+
+```scss
+// width of the content area
+// can be set as "px" or "%"
+$content-width:    1000px;
+$on-palm:          800px;
+$on-laptop:        1000px;
+$on-medium:        1000px;
+$on-large:         1200px;
+```
 
 ## Syntax Highlighting
 
