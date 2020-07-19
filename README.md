@@ -98,7 +98,7 @@ In a notebook, front matter is defined as a markdown cell at the beginning of th
   ```markdown
   # "Title"
   > "Awesome summary"
-  
+
   - toc: false
   - branch: master
   - badges: true
@@ -164,7 +164,7 @@ This option works for **notebooks only**
   - You can have a comma seperated list inside square brackets of categories for a blog post, which will make the post visible on the tags page of your blog's site.  For example:
 
     In a notebook:
-    
+
     ```
     # "My Title"
     - categories: [fastpages, jupyter]
@@ -278,7 +278,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 - `twitter_username`: creates a link in your footer to your twitter page.
 - `use_math`: Set this to `true` to get LaTeX math equation support.  This is off by default as it otherwhise loads javascript into each page that may not be used.
 - `show_description`: This shows a description under the title of your blog posts on your homepage that contains a list of your blog posts.  Set to `true` by default.
-- `google_analytics`: Optionally use a [Google Analytics](http://www.google.com/analytics/) ID for tracking if desired. 
+- `google_analytics`: Optionally use a [Google Analytics](http://www.google.com/analytics/) ID for tracking if desired.
 - `show_image`: If set to true, this uses the `image` parameter in the front matter of your blog posts to render a preview of your blogs as shown below.  This is set to `false` by default.
   When show_image is set to `true` your homepage will look like this:
 
@@ -294,7 +294,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
   Note: if you are using an older version of fastpages, **you cannot use the automated upgrade process** to get pagination.  Instead you must follow these steps:
 
-    1. Rename your index.md file to index.html 
+    1. Rename your index.md file to index.html
          > mv index.md index.html
     2. Replace the `Gemfile` and `Gemfile.lock` in the root of your repo with the files in this repo.
     3. Edit your `_config.yml` as follows (look at [_config.yml](_config.yml) for an example):
@@ -351,13 +351,13 @@ $on-large:         1200px;
   If you wish to revert to the light theme above, you can remove the below line in [_sass/minima/custom-styles.scss](_sass/minima/custom-styles.scss)
 
   ```scss
-  @import "minima/fastpages-dracula-highlight"; 
+  @import "minima/fastpages-dracula-highlight";
   ```
 - If you don't like either of these themes, you can add your own CSS in [`_sass/minima/custom-styles.scss`](_sass/minima/custom-styles.scss).  See [customizing fastpages](#customizing-fastpages) for more details.
 
 ## Adding Citations via BibTeX
 
-Users who prefer to use the citation system BibTeX may do so; it requires enabling the [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) plugin. Please see [Citations in Fastpages via BibTeX and jekyll-scholar](https://drscotthawley.github.io/devblog4/2020/07/01/Citations-Via-Bibtex.html) for instructions on implementing this. 
+Users who prefer to use the citation system BibTeX may do so; it requires enabling the [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) plugin. Please see [Citations in Fastpages via BibTeX and jekyll-scholar](https://drscotthawley.github.io/devblog4/2020/07/01/Citations-Via-Bibtex.html) for instructions on implementing this.
 
 ## Writing Blog Posts With Jupyter
 
@@ -514,7 +514,7 @@ Please see the [upgrading guide](_fastpages_docs/UPGRADE.md).
 
 # Customizing Fastpages
 
-fastpages builds upon the [minima theme](https://github.com/jekyll/minima).  If you want to customize the styling or layout of fastpages, you can find instructions [in minima's README](https://github.com/jekyll/minima/blob/master/README.md).  It is a good idea to read the full contents of the README to understand the directory structure.  Furthermore, it is a good idea to have a basic understanding of Jekyll before customizing your theme.  For those new to Jekyll, [the official docs](https://jekyllrb.com/docs/) are a good place to start.  Concretely, you can override css in fastpages in `_sass/minima/custom-styles.scss`.
+fastpages builds upon the [minima theme](https://github.com/jekyll/minima).  If you want to customize the styling or layout of fastpages, you can find instructions [in minima's README](https://github.com/jekyll/minima/blob/master/README.md).  It is a good idea to read the full contents of the README to understand the directory structure.  Furthermore, it is a good idea to have a basic understanding of Jekyll before customizing your theme.  For those new to Jekyll, [the official docs](https://jekyllrb.com/docs/) are a good place to start.  Concretely, you can override css in fastpages in `_sass/minima/custom-styles.scss`. *NOTE that minima's "skins" feature is currently incompatible with fastpages' css settings.*
 
 **If you choose to make customizations to fastpages**  It is possible that customizations you make could collide with current or future versions of fastpages and we recommend doing so only if you feel sufficiently comfortable with HTML and CSS.
 
