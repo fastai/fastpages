@@ -99,5 +99,5 @@ key: value
 
 
 
-[^1]: This is the footnote.
+1<sub>This is the footnote.</sub>
 
