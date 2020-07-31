@@ -118,7 +118,7 @@ jobs:
 
         # copy custom-variables.scss if doesn't exist
         if [ ! -f "../current_files/_sass/minima/custom-variables.scss" ]; then
-          cp ../current_files/_sass/minima/custom-variables.scss _sass/minima
+          cp _sass/minima/custom-variables.scss ../current_files/_sass/minima/
         fi
 
         # copy select files in assets and _sass
