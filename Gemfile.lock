@@ -75,7 +75,8 @@ GEM
       jekyll (>= 3.0, < 5.0)
     katex (0.6.0)
       execjs (~> 2.7)
-    kramdown (2.1.0)
+    kramdown (2.3.0)
+      rexml
     kramdown-math-katex (1.0.1)
       katex (~> 0.4)
       kramdown (~> 2.0)
@@ -106,6 +107,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rexml (3.2.4)
     rouge (3.16.0)
     rubyzip (2.2.0)
     safe_yaml (1.0.5)
