@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-06T00:00:00-06:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"description":"A Tutorial on GitHub Actions For Data Scientists","@type":"BlogPosting","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"description":"A Tutorial on GitHub Actions For Data Scientists","@type":"BlogPosting","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -41,7 +41,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-06T00:00:00-06:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"description":"A Tutorial on GitHub Actions For Data Scientists","@type":"BlogPosting","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"description":"A Tutorial on GitHub Actions For Data Scientists","@type":"BlogPosting","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -200,7 +200,7 @@ window.onload = wrap_img;
 <p>Using GitHub Actions for machine learning workflows is starting to catch on.  <a href="https://twitter.com/julien_c">Julien Chaumond</a>, CTO of <a href="https://huggingface.co/">Hugging Face</a>, says:</p>
 
 <blockquote>
-  <p>GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPUs not on CPUs), on our own infra! <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+  <p>GitHub Actions are great because they let us do CI on GPUs (as most of our users use the library on GPUs not on CPUs), on our own infra! <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
 </blockquote>
 
 <p>Additionally, you can host a GitHub Action for other people so others can use parts of your workflow without having to re-create your steps.  I provide examples of this below.</p>
@@ -399,7 +399,7 @@ window.onload = wrap_img;
 
 <p>The step named <code class="highlighter-rouge">setup directories for Jekyll build</code> executes shell commands that remove the <code class="highlighter-rouge">_site</code> folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps.</p>
 
-<p>The step named <code class="highlighter-rouge">Jekyll build</code> executes a docker container hosted by the Jekyll community <a href="https://hub.docker.com/r/jekyll/jekyll/">on Dockerhub called <code class="highlighter-rouge">jekyll/jekyll</code></a>.  For those not familiar with Docker, see <a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">this tutorial</a>.  The name of this container is called <code class="highlighter-rouge">hamelsmu/fastpages-jekyll</code> because I’m adding some additional dependencies to <code class="highlighter-rouge">jekyll/jekyll</code> and hosting those on my DockerHub account for faster build times<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>.  The <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs">args parameter</a> allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command <code class="highlighter-rouge">jekyll build</code>, which builds our website and places relevant assets them into the <code class="highlighter-rouge">_site</code> folder. For more information about Jekyll, <a href="https://jekyllrb.com/docs/">read the official docs</a>.  Finally, the <code class="highlighter-rouge">env</code> parameter allows me to pass an environment variable into the Docker container.</p>
+<p>The step named <code class="highlighter-rouge">Jekyll build</code> executes a docker container hosted by the Jekyll community <a href="https://hub.docker.com/r/jekyll/jekyll/">on Dockerhub called <code class="highlighter-rouge">jekyll/jekyll</code></a>.  For those not familiar with Docker, see <a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">this tutorial</a>.  The name of this container is called <code class="highlighter-rouge">hamelsmu/fastpages-jekyll</code> because I’m adding some additional dependencies to <code class="highlighter-rouge">jekyll/jekyll</code> and hosting those on my DockerHub account for faster build times<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>.  The <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs">args parameter</a> allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command <code class="highlighter-rouge">jekyll build</code>, which builds our website and places relevant assets them into the <code class="highlighter-rouge">_site</code> folder. For more information about Jekyll, <a href="https://jekyllrb.com/docs/">read the official docs</a>.  Finally, the <code class="highlighter-rouge">env</code> parameter allows me to pass an environment variable into the Docker container.</p>
 
 <p>The final command above copies a <code class="highlighter-rouge">CNAME</code> file into the _site folder, which we need for the custom domain <a href="https://fastpages.fast.ai/">https://fastpages.fast.ai</a>. Setting up custom domains are outside the scope of this article.</p>
 
@@ -464,13 +464,13 @@ window.onload = wrap_img;
 <h5 id="footnotes">
 <a class="anchor" href="#footnotes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Footnotes</h5>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>You can see some of Hugging Face’s Actions workflows for machine learning <a href="https://github.com/huggingface/transformers/tree/master/.github/workflows">on GitHub</a> <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>You can see some of Hugging Face’s Actions workflows for machine learning <a href="https://github.com/huggingface/transformers/tree/master/.github/workflows">on GitHub</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>These additional dependencies are <a href="https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile">defined here</a>, which uses the “jekyll build” command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml">defined here</a>. <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>These additional dependencies are <a href="https://github.com/fastai/fastpages/blob/master/_action_files/fastpages-jekyll.Dockerfile">defined here</a>, which uses the “jekyll build” command to add ruby dedpendencies from the Gemfile located at the root of the repo.  Additionally, this docker image is built by another Action workflow <a href="https://github.com/fastai/fastpages/blob/master/.github/workflows/docker.yaml">defined here</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
