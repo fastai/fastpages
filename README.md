@@ -191,7 +191,7 @@ show_tags: true
 
 ### Enabling Comments
 
-Blog posting is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
+Commenting on blog posts is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
 
 To enable comments with [Utterances](https://github.com/utterance/utterances) you will need to do the following:
 
