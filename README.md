@@ -56,6 +56,7 @@ See below for a more detailed list of features.
     - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
   - [Adjusting Page Width](#adjusting-page-width)
+  - [Annotations and Highlighting With hypothes.is](#annotations-and-highlighting-with-hypothes.is)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Adding Citations via BibTeX](#adding-citations-via-bibtex)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
@@ -335,6 +336,21 @@ $on-laptop:        1000px;
 $on-medium:        1000px;
 $on-large:         1200px;
 ```
+
+## Annotations and Highlighting With hypothes.is
+
+[hypothes.is](https://web.hypothes.is/) is an open platform that provides a way to annotate and higlight pages, which can be either public or private.  When this feature is enabled, readers of your blog will be presented with the following tooltip when highlighting text:
+
+![annotation](_fastpages_docs/annotate.png)
+
+**This is disabled by default in fastpages.** You can enable or disable this in your [_config.yml](_config.yml) file by setting `annotations` to `true` or `false`:
+
+```yaml
+# Set this to true to turn on annotations with hypothes.is
+annotations: false
+```
+
+> You can customize hypothes.is by reading [these configuration options](http://h.readthedocs.io/projects/client/en/latest/publishers/config/).  It is also a good idea to read [these docs](https://web.hypothes.is/for-publishers/#embedding) if you want to do more with hypothes.is.  However, before trying to customize this feature you should read the [customizing fastpages](#customizing-fastpages) section for important caveats.
 
 ## Syntax Highlighting
 
