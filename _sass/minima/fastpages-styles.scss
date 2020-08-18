@@ -196,21 +196,13 @@ h6:hover .anchor-link {
   font-weight:bold;
 }
 
-// Handle Overflow With Table Output
-
 table {
   display: block !important;
-  overflow-x: auto;
   white-space: nowrap;
   font-size: 75%;
   border:none;
   th{
     text-align: center! important;
-  }
-  td{
-    text-overflow:ellipsis;
-    overflow:hidden;
-    max-width: 15em;
   }
 }
 
