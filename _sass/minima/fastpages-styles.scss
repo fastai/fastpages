@@ -200,7 +200,7 @@ table {
   display: block !important;
   white-space: normal;
   max-width: 100%;
-  font-size: 75%;
+  font-size: 100%;
   border:none;
   th{
     text-align: center! important;
@@ -245,11 +245,15 @@ table {
 //   }
 // }
 
-.output_wrapper{
-  overflow: scroll;
-}
-
 .svg-icon.orange{
   width: 30px;
   height: 23px;
+}
+
+.code_cell {
+  margin: 1.5rem 0px !important;
+}
+
+pre code {
+  font-size: 15px !important;
 }
