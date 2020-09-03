@@ -411,7 +411,7 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 
 .search-result-highlight { color: #2e0137; font-weight: bold; }
 
-table { display: block !important; white-space: normal; max-width: 100%; font-size: 75%; border: none; }
+table { display: block !important; white-space: normal; max-width: 100%; font-size: 100%; border: none; }
 
 table th { text-align: center !important; }
 
@@ -425,9 +425,11 @@ table th { text-align: center !important; }
 
 .output_text.output_execute_result pre { white-space: pre-wrap; }
 
-.output_wrapper { overflow: scroll; }
-
 .svg-icon.orange { width: 30px; height: 23px; }
+
+.code_cell { margin: 1.5rem 0px !important; }
+
+pre code { font-size: 15px !important; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
@@ -439,20 +441,20 @@ table th { text-align: center !important; }
 
 .language-python + .language-plaintext pre { background-color: white !important; }
 
-.input_area pre, .input_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; font-size: 100%; }
+.input_area pre, .input_area div { margin-bottom: 1.0rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; font-size: 105%; }
 
-.output_area pre, .output_area div { margin-bottom: 1rem !important; margin-top: 1rem !important; padding-bottom: 0 !important; padding-top: 0 !important; }
+.output_area pre, .output_area div { margin-bottom: 1rem !important; margin-top: 0rem !important; padding-bottom: 0 !important; padding-top: 0 !important; }
 
 .input_area pre { border-left: 1px solid lightcoral; }
 
-.output_area pre { border-left: 1px solid grey; margin-left: 1rem !important; }
+.output_area pre { border-left: 1px solid grey; margin-left: 1rem !important; font-size: 16px; }
 
 .code_cell table { width: auto; }
 
 /* Dracula Theme v1.2.5 https://github.com/zenorocha/dracula-theme Copyright 2016, All rights reserved Code licensed under the MIT license */
 .highlight { background: #323443 !important; color: #f8f8f2 !important; }
 
-.highlight pre, .highlight code { background: #323443; color: #f8f8f2; }
+.highlight pre, .highlight code { background: #323443; color: #f8f8f2; font-size: 110%; }
 
 .highlight .hll, .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #e7997a; }
 
@@ -466,7 +468,9 @@ table th { text-align: center !important; }
 
 .highlight .bp { font-style: italic; }
 
-.highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs { color: #6272a4; }
+.highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .cs { color: #6272a4; }
+
+.highlight .c1 { color: gray; }
 
 .highlight .kd, .highlight .kt, .highlight .nb, .highlight .nl, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: #8be9fd; }
 
@@ -481,5 +485,7 @@ table th { text-align: center !important; }
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #bd93f9; }
 
 .highlight .gd { color: #ff5555; }
+
+p code { font-size: 19px; }
 
 /*# sourceMappingURL=style.css.map */

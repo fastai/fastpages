@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>fastcore: An Underrated Python Library | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="fastcore: An Underrated Python Library" />
+<meta name="author" content="<a href='https://twitter.com/HamelHusain'>Hamel Husain</a>, <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A unique python library that extends the python programming language and provides utilities that enhance productivity." />
+<meta property="og:description" content="A unique python library that extends the python programming language and provides utilities that enhance productivity." />
+<link rel="canonical" href="https://fastpages.fast.ai/fastcore/" />
+<meta property="og:url" content="https://fastpages.fast.ai/fastcore/" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"<a href='https://twitter.com/HamelHusain'>Hamel Husain</a>, <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>"},"description":"A unique python library that extends the python programming language and provides utilities that enhance productivity.","@type":"BlogPosting","headline":"fastcore: An Underrated Python Library","dateModified":"2020-09-01T00:00:00-05:00","datePublished":"2020-09-01T00:00:00-05:00","url":"https://fastpages.fast.ai/fastcore/","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastcore/"},"image":"https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57531313-5','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>fastcore: An Underrated Python Library | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="fastcore: An Underrated Python Library" />
+<meta name="author" content="<a href='https://twitter.com/HamelHusain'>Hamel Husain</a>, <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A unique python library that extends the python programming language and provides utilities that enhance productivity." />
+<meta property="og:description" content="A unique python library that extends the python programming language and provides utilities that enhance productivity." />
+<link rel="canonical" href="https://fastpages.fast.ai/fastcore/" />
+<meta property="og:url" content="https://fastpages.fast.ai/fastcore/" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"<a href='https://twitter.com/HamelHusain'>Hamel Husain</a>, <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>"},"description":"A unique python library that extends the python programming language and provides utilities that enhance productivity.","@type":"BlogPosting","headline":"fastcore: An Underrated Python Library","dateModified":"2020-09-01T00:00:00-05:00","datePublished":"2020-09-01T00:00:00-05:00","url":"https://fastpages.fast.ai/fastcore/","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastcore/"},"image":"https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57531313-5','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">fastcore: An Underrated Python Library</h1><p class="page-description">A unique python library that extends the python programming language and provides utilities that enhance productivity.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-01T00:00:00-05:00" itemprop="datePublished">
+        Sep 1, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name"><a href='https://twitter.com/HamelHusain'>Hamel Husain</a>, <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a></span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      14 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#fastcore">fastcore</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#fastai">fastai</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/fastai/fastpages/tree/master/_notebooks/2020-09-01-fastcore.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/fastai/fastpages/master?filepath=_notebooks%2F2020-09-01-fastcore.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-09-01-fastcore.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-09-01-fastcore.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/copied_from_nb/fastcore_imgs/td.png" alt="screenshot with code" /></p>
+<h1 id="Background">Background<a class="anchor-link" href="#Background"> </a></h1><p>I recently embarked on a journey to sharpen my python skills:  I wanted to learn advanced patterns, idioms, and techniques.  I started with reading books on advanced Python, however, the information didn't seem to stick without having somewhere to apply it.  I also wanted the ability to ask questions from an expert while I was learning -- which is an arrangement that is hard to find!  That's when it occurred to me: What if I could find an open source project that has fairly advanced python code and write documentation and tests?  I made a bet that if I did this it would force me to learn everything very deeply, and the maintainers would be appreciative of my work and be willing to answer my questions.</p>
+<p>And that's exactly what I did over the past month!  I'm pleased to report that it has been the most efficient learning experience I've ever experienced.  I've discovered that writing documentation forced me to deeply understand not just what the code does but also <em>why the code works the way it does</em>, and to explore edge cases while writing tests.  Most importantly, I was able to ask questions when I was stuck, and maintainers were willing to devote extra time knowing that their mentorship was in service of making their code more accessible!  It turns out the library I choose, <a href="https://fastcore.fast.ai/">fastcore</a> is some of the most fascinating Python I have ever encountered as its purpose and goals are fairly unique.</p>
+<p>For the uninitiated, <a href="https://fastcore.fast.ai/">fastcore</a> is a library on top of which many <a href="https://github.com/fastai">fast.ai</a> projects are built on. Most importantly, <a href="https://fastcore.fast.ai/">fastcore</a> extends the python programming language and strives to eliminate boilerplate and add useful functionality for common tasks. In this blog post, I'm going to highlight some of my favorite tools that fastcore provides, rather than sharing what I learned about python.  My goal is to pique your interest in this library, and hopefully motivate you to check out the documentation after you are done to learn more!</p>
+<h1 id="Why-fastcore-is-interesting">Why fastcore is interesting<a class="anchor-link" href="#Why-fastcore-is-interesting"> </a></h1><ol>
+<li><strong>Get exposed to ideas from other languages without leaving python:</strong>  I’ve always heard that it is beneficial to learn other languages in order to become a better programmer.  From a pragmatic point of view, I’ve found it difficult to learn other languages because I could never use them at work.   Fastcore extends python to include patterns found in languages as diverse as Julia, Ruby and Haskell.  Now that I understand these tools I am motivated to learn other languages.</li>
+<li><strong>You get a new set of pragmatic tools</strong>: fastcore includes utilities that will allow you to write more concise expressive code, and perhaps solve new problems.</li>
+<li><strong>Learn more about the Python programming language:</strong>  Because fastcore extends the python programming language, many advanced concepts are exposed during the process.  For the motivated, this is a great way to see how many of the internals of python work.  </li>
+</ol>
+<h1 id="A-whirlwind-tour-through-fastcore">A whirlwind tour through fastcore<a class="anchor-link" href="#A-whirlwind-tour-through-fastcore"> </a></h1><p>Here are some things you can do with fastcore that immediately caught my attention.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Making-**kwargs-transparent">Making **kwargs transparent<a class="anchor-link" href="#Making-**kwargs-transparent"> </a></h2><p>Whenever I see a function that has the argument <strong>**kwargs</strong>, I cringe a little.  This is because it means the API is obfuscated and I have to read the source code to figure out what valid parameters might be. Consider the below example:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">baz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="n">baz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Signature (c, a, **kwargs)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Without reading the source code, it might be hard for me to know that <code>foo</code> also accepts and additional parameters <code>b</code> and <code>d</code>.  We can fix this with <code>delegates</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">baz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="nd">@delegates</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span> <span class="c1"># this decorator will pass down keyword arguments from baz</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="n">baz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Signature (c, a, b=2, d=4)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can customize the behavior of this decorator.  For example, you can have your cake and eat it too by passing down your arguments and also keeping <code>**kwargs</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@delegates</span><span class="p">(</span><span class="n">baz</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="n">baz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Signature (c, a, b=2, d=4, **kwargs)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also exclude arguments.  For example, we exclude argument <code>d</code> from delegation:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">basefoo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="nd">@delegates</span><span class="p">(</span><span class="n">basefoo</span><span class="p">,</span> <span class="n">but</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">])</span> <span class="c1"># exclude `d`</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Signature (c, a, b=2)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also delegate between classes:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">BaseFoo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> <span class="k">pass</span>
+
+<span class="nd">@delegates</span><span class="p">()</span><span class="c1"># since no argument was passsed here we delegate to the superclass</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">BaseFoo</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+<span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Signature (a, b=1, c=2)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information, read the <a href="https://fastcore.fast.ai/foundation.html#delegates">docs on delegates</a>.</p>
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Avoid-boilerplate-when-setting-instance-attributes">Avoid boilerplate when setting instance attributes<a class="anchor-link" href="#Avoid-boilerplate-when-setting-instance-attributes"> </a></h2><p>Have you ever wondered if it was possible to avoid the boilerplate involved with setting attributes in <code>__init__</code>?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">,</span><span class="n">c</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ouch! That was painful.  Look at all the repeated variable names.  Do I really have to repeat myself like this when defining a class?  Not Anymore!  Checkout <a href="https://fastcore.fast.ai/utils.html#store_attr">store_attr</a>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span> 
+        <span class="n">store_attr</span><span class="p">()</span>
+        
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">t</span><span class="o">.</span><span class="n">b</span> <span class="o">==</span> <span class="mi">4</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also exclude certain attributes:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span> 
+        <span class="n">store_attr</span><span class="p">(</span><span class="n">but</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+    
+<span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">t</span><span class="o">.</span><span class="n">b</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are many more ways of customizing and using <code>store_attr</code> than I highlighted here.  Check out <a href="https://fastcore.fast.ai/utils.html#store_attr">the docs</a> for more detail.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Avoiding-subclassing-boilerplate">Avoiding subclassing boilerplate<a class="anchor-link" href="#Avoiding-subclassing-boilerplate"> </a></h2><p>One thing I hate about python is the <code>__super__().__init__()</code> boilerplate associated with subclassing.  For example:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ParentClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">some_attr</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+        
+<span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="n">cc</span> <span class="o">=</span> <span class="n">ChildClass</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">cc</span><span class="o">.</span><span class="n">some_attr</span> <span class="o">==</span> <span class="s1">&#39;hello&#39;</span> <span class="c1"># only accessible b/c you used super</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can avoid this boilerplate by using the metaclass <a href="https://fastcore.fast.ai/foundation.html#PrePostInitMeta">PrePostInitMeta</a>.  We define a new class called <code>NewParent</code> that is a wrapper around the <code>ParentClass</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">NewParent</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">PrePostInitMeta</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__pre_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">NewParent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">pass</span>
+    
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ChildClass</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">sc</span><span class="o">.</span><span class="n">some_attr</span> <span class="o">==</span> <span class="s1">&#39;hello&#39;</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Type-Dispatch">Type Dispatch<a class="anchor-link" href="#Type-Dispatch"> </a></h2><p>Type dispatch, or <a href="https://en.wikipedia.org/wiki/Multiple_dispatch#Julia">Multiple dispatch</a>, allows you to change the way a function behaves based upon the input types it receives.  This is a prominent feature in some programming languages like Julia.  For example, this is a <a href="https://en.wikipedia.org/wiki/Multiple_dispatch#Julia">conceptual example</a> of how multiple dispatch works in Julia, returning different values depending on the input types of x and y:</p>
+<div class="highlight"><pre><span></span><span class="n">collide_with</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">Asteroid</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">Asteroid</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c"># deal with asteroid hitting asteroid</span>
+
+<span class="n">collide_with</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">Asteroid</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">Spaceship</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c"># deal with asteroid hitting spaceship</span>
+
+<span class="n">collide_with</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">Spaceship</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">Asteroid</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c"># deal with spaceship hitting asteroid</span>
+
+<span class="n">collide_with</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">Spaceship</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="n">Spaceship</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span> 
+<span class="c"># deal with spaceship hitting spaceship</span>
+</pre></div>
+<p>Type dispatch can be especially useful in data science, where you might allow different input types (i.e. Numpy arrays and Pandas dataframes) to a function that processes data. Type dispatch allows you to have a common API for functions that do similar tasks.</p>
+<p>Unfortunately, Python does not support this out-of-the box.  Fortunately, there is the <a href="https://fastcore.fast.ai/dispatch.html#typedispatch-Decorator">@typedispatch</a> decorator to the rescue.  This decorator relies upon type hints in order to route inputs the correct version of the function:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@typedispatch</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="nd">@typedispatch</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nd">@typedispatch</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is a demonstration of type dispatch at work for the function <code>f</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span><span class="p">,</span> <span class="s1">&#39;World!&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Hello World!&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>20</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are limitations of this feature, as well as other ways of using this functionality that <a href="https://fastcore.fast.ai/dispatch.html">you can read about here</a>. In the process of learning about typed dispatch, I also found a python library called <a href="https://github.com/mrocklin/multipledispatch">multipledispatch</a> made my <a href="https://github.com/mrocklin">Mathhew Rocklin</a> (the creator of Dask).</p>
+<p>After using this feature, I am now motivated to learn languages like Julia to discover what other paradigms I might be missing.</p>
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-better-version-of-functools.partial">A better version of functools.partial<a class="anchor-link" href="#A-better-version-of-functools.partial"> </a></h2><p><code>functools.partial</code> is a great utility that creates functions from other functions that lets you set default values. Lets take this function for example that filters a list to only contain values &gt;= <code>val</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span> 
+    <span class="s2">&quot;Filter a list to remove any values that are less than val.&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">val</span><span class="p">]</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3, 4, 5, 6]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can create a new function out of this function using <code>partial</code> that sets the default value to 5:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filter5</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">filter5</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 6]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One problem with <code>partial</code> is that it removes the original docstring and replaces it with a generic docstring:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filter5</span><span class="o">.</span><span class="vm">__doc__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;partial(func, *args, **keywords) - new function with partial application\n    of the given arguments and keywords.\n&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://fastcore.fast.ai/utils.html#partialler">fastcore.utils.partialler</a> fixes this, and makes sure the docstring is retained such that the new API is transparent:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filter5</span> <span class="o">=</span> <span class="n">partialler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">filter5</span><span class="o">.</span><span class="vm">__doc__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Filter a list to remove any values that are less than val.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Composition-of-functions">Composition of functions<a class="anchor-link" href="#Composition-of-functions"> </a></h2><p>A technique that is pervasive in functional programming languages is function composition, whereby you chain a bunch of functions together to achieve some kind of result.  This is especially useful when applying various data transformations.  Consider a toy example where I have three functions:  (1) Removes elements of a list less than 5 (from the prior section) (2) adds 2 to each number (3) sums all the numbers:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span> <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">val</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">arrsum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span> <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="c1"># See the previous section on partialler</span>
+<span class="n">add2</span> <span class="o">=</span> <span class="n">partialler</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">transform</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">filter5</span><span class="p">,</span> <span class="n">add2</span><span class="p">,</span> <span class="n">arrsum</span><span class="p">)</span>
+<span class="n">transform</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But why is this useful?  You might me thinking, I can accomplish the same thing with:</p>
+<div class="highlight"><pre><span></span><span class="n">arrsum</span><span class="p">(</span><span class="n">add2</span><span class="p">(</span><span class="n">filter5</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])))</span>
+</pre></div>
+<p>You are not wrong!  However, composition gives you a convenient interface in case you want to do something like the following:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">transforms</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+    <span class="s2">&quot;fit a model after performing transformations&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="o">*</span><span class="n">transforms</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># its a dumb model.  Don&#39;t judge me</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># filters out elements &lt; 5, adds 2, then predicts the mean</span>
+<span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">transforms</span><span class="o">=</span><span class="p">[</span><span class="n">filter5</span><span class="p">,</span> <span class="n">add2</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[7.5, 7.5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information about <code>compose</code>, read <a href="https://fastcore.fast.ai/utils.html#compose">the docs</a>.</p>
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-more-useful-__repr__">A more useful <code>__repr__</code><a class="anchor-link" href="#A-more-useful-__repr__"> </a></h2><p>In python, <code>__repr__</code> helps you get information about an object for logging and debugging.  Below is what you get by default when you define a new class. (Note: we are using <code>store_attr</code>, which was discussed earlier).</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span> <span class="n">store_attr</span><span class="p">()</span> <span class="c1"># `store_attr` was discussed previously</span>
+    
+<span class="n">Test</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Test at 0x7ff9e95a5730&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can use <a href="https://fastcore.fast.ai/utils.html#basic_repr">basic_repr</a> to quickly give us a more sensible default:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span> <span class="n">store_attr</span><span class="p">()</span> 
+    <span class="fm">__repr__</span> <span class="o">=</span> <span class="n">basic_repr</span><span class="p">(</span><span class="s1">&#39;a,b,c&#39;</span><span class="p">)</span>
+    
+<span class="n">Test</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Test(a=2, b=2, c=3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Monkey-Patching-With-A-Decorator">Monkey Patching With A Decorator<a class="anchor-link" href="#Monkey-Patching-With-A-Decorator"> </a></h2><p>It can be convenient to <a href="https://www.geeksforgeeks.org/monkey-patching-in-python-dynamic-behavior/">monkey patch</a> with a decorator, which is especially helpful when you want to patch an external library you are importing.  We can use the <a href="https://fastcore.fast.ai/foundation.html#patch">decorator @patch</a> from <code>fastcore.foundation</code> along with type hints like so:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">int</span><span class="p">):</span> <span class="k">pass</span>  
+
+<span class="nd">@patch</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span><span class="n">MyClass</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">+</span><span class="n">a</span>
+
+<span class="n">mc</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, <code>MyClass</code> has an additional method named <code>func</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mc</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>13</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Still not convinced?  I'll show you another example of this kind of patching in the next section.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="A-better-pathlib.Path">A better pathlib.Path<a class="anchor-link" href="#A-better-pathlib.Path"> </a></h2><p>When you see <a href="https://fastcore.fast.ai/utils.html#Extensions-to-Pathlib.Path">these extensions</a> to pathlib.path you won't ever use vanilla pathlib again! A number of additional methods have been added to pathlib, such as:</p>
+<ul>
+<li><code>Path.readlines</code>: same as <code>with open('somefile', 'r') as f: f.readlines()</code></li>
+<li><code>Path.read</code>: same as <code>with open('somefile', 'r') as f: f.read()</code></li>
+<li><code>Path.save</code>: saves file as pickle</li>
+<li><code>Path.load</code>: loads pickle file</li>
+<li><code>Path.ls</code>: shows the contents of the path as a list. </li>
+<li>etc.</li>
+</ul>
+<p><a href="https://fastcore.fast.ai/utils.html#Extensions-to-Pathlib.Path">Read more about this here</a>.  Here is a demonstration of <code>ls</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../_notebooks&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span> <span class="c1"># you don&#39;t get this with vanilla Pathlib.Path!!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#21) [Path(&#39;../_notebooks/gpt2_simple_mask.jpg&#39;),Path(&#39;../_notebooks/bert_mac_small.jpg&#39;),Path(&#39;../_notebooks/causal_with_prefix.jpg&#39;),Path(&#39;../_notebooks/.DS_Store&#39;),Path(&#39;../_notebooks/2020-03-07-How_to_Create_an_Automatic_Code_Comment_Generator_using_Deep_Learning.ipynb&#39;),Path(&#39;../_notebooks/2020-09-01-fastcore.ipynb&#39;),Path(&#39;../_notebooks/2020-03-07-Syntax-Highlighting.ipynb&#39;),Path(&#39;../_notebooks/2020-03-06-bart.ipynb&#39;),Path(&#39;../_notebooks/README.md&#39;),Path(&#39;../_notebooks/2020-05-01-TrainDonkeyCar.ipynb&#39;)...]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wait!  What's going on here?  We just imported <code>pathlib.Path</code> - why are we getting this new functionality?  Thats because we imported the <code>fastcore.foundation</code> module, which patches this module via the <code>@patch</code> decorator discussed earlier.  Just to drive the point home on why the <code>@patch</code> decorator is useful, I'll go ahead and add another method to <code>Path</code> right now:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@patch</span>
+<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span><span class="n">Path</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;This is fun!&quot;</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">fun</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;This is fun!&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That is magical, right?  I know!  That's why I'm writing about it!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="An-Even-More-Concise-Way-To-Create-Lambdas">An Even More Concise Way To Create Lambdas<a class="anchor-link" href="#An-Even-More-Concise-Way-To-Create-Lambdas"> </a></h2><p><code>Self</code>, with an uppercase S, is an even more concise way to create lambdas that are calling methods on an object.  For example, let's create a lambda for taking the sum of a Numpy array:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">f</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can use <code>Self</code> in the same way:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Self</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">f</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's create a lambda that does a groupby and max of a Pandas dataframe:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Some Column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">],</span> 
+                 <span class="s1">&#39;Another Column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">]})</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Self</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Some Column&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">f</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Another Column</th>
+    </tr>
+    <tr>
+      <th>Some Column</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Read more about <code>Self</code> in <a href="https://fastcore.fast.ai/utils.html#Self-(with-an-uppercase-S">the docs</a>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="Notebook-Functions">Notebook Functions<a class="anchor-link" href="#Notebook-Functions"> </a></h2><p>These are simple but handy, and allow you to know whether or not code is executing in a Jupyter Notebook, Colab, or an Ipython Shell:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">in_notebook</span><span class="p">(),</span> <span class="n">in_colab</span><span class="p">(),</span> <span class="n">in_ipython</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(True, False, True)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is useful if you are displaying certain types of visualizations, progress bars or animations in your code that you may want to modify or toggle depending on the environment.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+<h2 id="A-Drop-In-Replacement-For-List">A Drop-In Replacement For List<a class="anchor-link" href="#A-Drop-In-Replacement-For-List"> </a></h2><p>You might be pretty happy with Python's <code>list</code>.  This is one of those situations that you don't know you needed a better list until someone showed one to you.  Enter <code>L</code>, a list like object with many extra goodies.</p>
+<p>The best way I can describe <code>L</code> is to pretend that <code>list</code> and <code>numpy</code> had a pretty baby:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>define a list (check out the nice <code>__repr__</code> that shows the length of the list!)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#3) [1,2,3]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Shuffle a list:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+<span class="n">p</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#20) [16,2,9,11,3,6,10,7,19,4...]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Index into a list:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#3) [9,3,10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>L has sensible defaults, for example appending an element to a list:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(#4) [1,2,3,4]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is much more <code>L</code> has to offer. Read <a href="https://fastcore.fast.ai/foundation.html#Class-L-Methods">the docs</a> to learn more.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="But-Wait-...-There's-More!">But Wait ... There's More!<a class="anchor-link" href="#But-Wait-...-There's-More!"> </a></h1><p><img src="/images/copied_from_nb/fastcore_imgs/bwtm.jpg" alt="" /></p>
+<p>There are more things I would like to show you about fastcore, but there is no way they would reasonably fit into a blog post.  Here is a list of some of my favorite things that I didn't demo in this blog post:</p>
+<h2 id="Utilities">Utilities<a class="anchor-link" href="#Utilities"> </a></h2><p>The <a href="https://fastcore.fast.ai/utils.html">Utilites</a> section contain many shortcuts to perform common tasks or provide an additional interface to what standard python provides.</p>
+<ul>
+<li><a href="https://fastcore.fast.ai/utils.html#mk_class">mk_class</a>: quickly add a bunch of attributes to a class</li>
+<li><a href="https://fastcore.fast.ai/utils.html#wrap_class">wrap_class</a>: add new methods to a class with a simple decorator</li>
+<li><a href="https://fastcore.fast.ai/utils.html#groupby">groupby</a>: similar to Scala's groupby</li>
+<li><a href="https://fastcore.fast.ai/utils.html#merge">merge</a>: merge dicts</li>
+<li><a href="https://fastcore.fast.ai/utils.html#fastuple">fasttuple</a>: a tuple on steroids</li>
+<li><a href="https://fastcore.fast.ai/utils.html#Infinite-Lists">Infinite Lists</a>: useful for padding and testing</li>
+<li><a href="https://fastcore.fast.ai/utils.html#chunked">chunked</a>: for batching and organizing stuff</li>
+</ul>
+<h2 id="Multiprocessing">Multiprocessing<a class="anchor-link" href="#Multiprocessing"> </a></h2><p>The <a href="http://fastcore.fast.ai/utils.html#Multiprocessing">Multiprocessing section</a> extends python's multiprocessing library by offering features like:</p>
+<ul>
+<li>progress bars</li>
+<li>ability to pause to mitigate race conditions with external services</li>
+<li>processing things in batches on each worker, ex: if you have a vectorized operation to perform in chunks</li>
+</ul>
+<h2 id="Functional-Programming">Functional Programming<a class="anchor-link" href="#Functional-Programming"> </a></h2><p>The <a href="http://fastcore.fast.ai/utils.html#Functions-on-Functions">functional programming section</a> is my favorite part of this library.</p>
+<ul>
+<li><a href="https://fastcore.fast.ai/utils.html#maps">maps</a>:  a map that also composes functions</li>
+<li><a href="https://fastcore.fast.ai/utils.html#mapped">mapped</a>: A more robust <code>map</code> </li>
+<li><a href="https://fastcore.fast.ai/utils.html#using_attr">using_attr</a>:  compose a function that operates on an attribute</li>
+</ul>
+<h2 id="Transforms">Transforms<a class="anchor-link" href="#Transforms"> </a></h2><p><a href="https://fastcore.fast.ai/transform.html">Transforms</a> is a collection of utilities for creating data transformations and associated pipelines. These transformation utilities build upon many of the building blocks discussed in this blog post.</p>
+<h2 id="Further-Reading">Further Reading<a class="anchor-link" href="#Further-Reading"> </a></h2><p><strong>It should be noted that you should read the <a href="https://fastcore.fast.ai/">main page of the docs</a> first, followed by the section on <a href="https://fastcore.fast.ai/">tests</a> to fully understand the documentation.</strong></p>
+<ul>
+<li>The <a href="https://fastcore.fast.ai/">fastcore documentation site</a>.</li>
+<li>The <a href="https://github.com/fastai/fastcore">fastcore GitHub repo</a>.</li>
+<li>Blog post on <a href="https://www.fast.ai/2019/08/06/delegation/">delegation</a>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Shameless-plug:-fastpages">Shameless plug: fastpages<a class="anchor-link" href="#Shameless-plug:-fastpages"> </a></h1><p>This blog post was written entirely in a Jupyter Notebook, which GitHub automatically converted into to a blog post!  Sound interesting?  <a href="https://github.com/fastai/fastpages">Check out fastpages</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fastai/fastpages"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fastcore/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
