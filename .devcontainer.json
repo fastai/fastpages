@@ -7,6 +7,6 @@
     "appPort": [4000],
     "extensions": ["ms-python.python",
                    "ms-azuretools.vscode-docker"],
-    "runServices": ["converter", "jekyll", "watcher"]
+    "runServices": ["converter", "notebook", "jekyll", "watcher"]
 }
 
