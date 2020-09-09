@@ -42,5 +42,6 @@ services:
       - .:/data/
     command: >
      bash -c "gem install bundler
-     && chmod -R u+rwx . && jekyll serve --trace --strict_front_matter"
+     && bundle i
+     && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0 --trace --strict_front_matter"
 
