@@ -5,7 +5,7 @@ on:
 
 jobs:
     nbdev-docker-fastpages:
-        if: github.repository == 'fastai/fastpages'
+        if: (1 == 2) && github.repository == 'fastai/fastpages' # turn this off
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@main
