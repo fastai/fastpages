@@ -4,7 +4,8 @@ on:
     branches:
       - master # need to filter here so we only deploy when there is a push to master
   # no filters on pull requests, so intentionally left blank
-  pull_request: 
+  pull_request:
+  workflow_dispatch:
 
 jobs:     
   build-site:
