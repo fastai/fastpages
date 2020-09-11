@@ -1,3 +1,4 @@
+#THIS HAS BEEN DEPRECATED
 FROM python:3-slim-stretch
 
 RUN pip install --upgrade pip
