@@ -34,14 +34,15 @@ services:
 
   jekyll:
     working_dir: /data
-    image: jekyll/jekyll:4.0.1
+    image: fastai/fastpages-jekyll #jekyll/jekyll:4.0.1
     restart: unless-stopped
     ports:
       - "4000:4000"
     volumes:
       - .:/data/
     command: >
-     bash -c "gem install bundler
-     && bundle i
-     && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0 --trace --strict_front_matter"
+      bash -c "chmod -R u+rwx . && jekyll serve --host 0.0.0.0 --trace --strict_front_matter"
+    #  bash -c "gem install bundler
+    #  && bundle i
+    #  && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0 --trace --strict_front_matter"
 

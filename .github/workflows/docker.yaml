@@ -21,13 +21,13 @@ jobs:
               
             - name: build container
               run: |
-                docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
+                docker build -t fastai/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
 
             - name: push container
               if: github.event == 'push'
               run: |
                 echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
-                docker push hamelsmu/fastpages-jekyll
+                docker push fastai/fastpages-jekyll
               env:
                 USERNAME: ${{ secrets.DOCKER_USERNAME }}
                 PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
