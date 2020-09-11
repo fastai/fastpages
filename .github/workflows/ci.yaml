@@ -39,9 +39,9 @@ jobs:
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      uses: docker://hamelsmu/fastpages-jekyll
+      uses: docker://fastai/fastpages-jekyll
       with:
-        args: bash -c "gem install bundler && jekyll build -V --strict_front_matter --trace"
+        args: bash -c "jekyll build -V --strict_front_matter --trace"
       env:
         JEKYLL_ENV: 'production'
         
