@@ -174,13 +174,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -274,8 +267,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 
@@ -305,8 +297,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="n">cars</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/cars.json'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/cars.json'</span>
 <span class="n">movies</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/movies.json'</span>
 <span class="n">sp500</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/sp500.csv'</span>
 <span class="n">stocks</span> <span class="o">=</span> <span class="s1">'https://vega.github.io/vega-datasets/data/stocks.csv'</span>
@@ -348,8 +339,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># single-value selection over [Major_Genre, MPAA_Rating] pairs</span>
-<span class="c1"># use specific hard-wired values as the initial selected values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use specific hard-wired values as the initial selected values</span>
 <span class="n">selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s1">'Select'</span><span class="p">,</span>
     <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">'Major_Genre'</span><span class="p">,</span> <span class="s1">'MPAA_Rating'</span><span class="p">],</span>
@@ -555,8 +545,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># select a point for which to provide details-on-demand</span>
-<span class="n">label</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_single</span><span class="p">(</span>
     <span class="n">encodings</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">],</span> <span class="c1"># limit selection to x-axis value</span>
     <span class="n">on</span><span class="o">=</span><span class="s1">'mouseover'</span><span class="p">,</span>  <span class="c1"># select on mouseover events</span>
     <span class="n">nearest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># select data point nearest the cursor</span>
@@ -689,8 +678,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># display table with pandas</span>
-<span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">'Title'</span><span class="p">,</span> <span class="s1">'Worldwide_Gross'</span><span class="p">,</span> 
     <span class="s1">'Production_Budget'</span><span class="p">,</span> <span class="s1">'Distributor'</span><span class="p">,</span> <span class="s1">'MPAA_Rating'</span><span class="p">,</span> <span class="s1">'IMDB_Rating'</span><span class="p">,</span> <span class="s1">'Rotten_Tomatoes_Rating'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
