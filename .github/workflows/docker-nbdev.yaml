@@ -1,0 +1,8 @@
+name: deprecated
+on: workflow_dispatch
+
+jobs:
+  nothing:
+    runs-on: ubuntu-latest
+    steps:
+    - run: exit 1;

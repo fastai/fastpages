@@ -71,7 +71,6 @@ jobs:
         git rm -rf images/fastpages_posts
         git rm .github/workflows/chatops.yaml
         git rm .github/workflows/docker.yaml
-        git rm .github/workflows/docker-nbdev.yaml
         git rm .github/ISSUE_TEMPLATE/bug.md
         git rm .github/ISSUE_TEMPLATE/feature_request.md
         git rm _word/*.docx
