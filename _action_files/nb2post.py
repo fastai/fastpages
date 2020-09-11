@@ -2,7 +2,7 @@
 from datetime import datetime
 import re, os, logging
 from nbdev import export2html
-from nbdev.export2html import Config, Path, _re_digits, _to_html, _re_block_notes
+from nbdev.export2html import Config, Path, _to_html, _re_block_notes
 from fast_template import rename_for_jekyll
 
 warnings = set()
@@ -19,4 +19,4 @@ for original, new in warnings:
     
 ## apply monkey patches
 export2html._nb2htmlfname = _nb2htmlfname
-export2html.notebook2html(fname='_notebooks/*.ipynb', dest='_posts/', template_file='/fastpages/fastpages.tpl')
+export2html.notebook2html(fname='_notebooks/*.ipynb', dest='_posts/', template_file='/fastpages/fastpages.tpl', execute=False)
