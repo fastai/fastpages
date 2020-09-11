@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>GitHub Actions: Providing Data Scientists With New Superpowers | fastpages</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="GitHub Actions: Providing Data Scientists With New Superpowers" />
 <meta name="author" content="Hamel Husain & Jeremy Howard" />
 <meta property="og:locale" content="en_US" />
@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-06T00:00:00-06:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"description":"A Tutorial on GitHub Actions For Data Scientists","@type":"BlogPosting","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","@context":"https://schema.org"}</script>
+{"url":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html","@type":"BlogPosting","headline":"GitHub Actions: Providing Data Scientists With New Superpowers","dateModified":"2020-03-06T00:00:00-06:00","datePublished":"2020-03-06T00:00:00-06:00","image":"https://fastpages.fast.ai/images/fastpages_posts/actions/actions_logo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/actions/markdown/2020/03/06/fastpages-actions.html"},"author":{"@type":"Person","name":"Hamel Husain & Jeremy Howard"},"description":"A Tutorial on GitHub Actions For Data Scientists","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -232,7 +232,7 @@ window.onload = wrap_img;
     <span class="na">password</span><span class="pi">:</span> <span class="s">${{ secrets.pypi_password }}</span>
 </code></pre></div></div>
 
-<p>This Action expects two inputs: <code class="highlighter-rouge">user</code> and a <code class="highlighter-rouge">password</code>.  You will notice that the password is referencing a variable called <code class="highlighter-rouge">secrets</code>, which is a variable that contains an <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">encrypted secret</a> that you can upload to your GitHub repository.  There are thousands of Actions (that are free) for a wide variety of tasks that can be discovered on the <a href="https://github.com/marketplace?type=actions">GitHub Marketplace</a>.  The ability to inherit ready-made Actions in your workflow allows you to accomplish complex tasks without implementing all of the logic yourself.  Some useful Actions for those getting started are:</p>
+<p>This Action expects two inputs: <code class="language-plaintext highlighter-rouge">user</code> and a <code class="language-plaintext highlighter-rouge">password</code>.  You will notice that the password is referencing a variable called <code class="language-plaintext highlighter-rouge">secrets</code>, which is a variable that contains an <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">encrypted secret</a> that you can upload to your GitHub repository.  There are thousands of Actions (that are free) for a wide variety of tasks that can be discovered on the <a href="https://github.com/marketplace?type=actions">GitHub Marketplace</a>.  The ability to inherit ready-made Actions in your workflow allows you to accomplish complex tasks without implementing all of the logic yourself.  Some useful Actions for those getting started are:</p>
 
 <ul>
   <li>
@@ -283,7 +283,7 @@ window.onload = wrap_img;
     <span class="na">steps</span><span class="pi">:</span>
 </code></pre></div></div>
 
-<p>The keyword <code class="highlighter-rouge">build-site</code> is the name of your job and you can name it whatever you want. In this case, we have a conditional if statement that dictates if this job should be run or not.  We are trying to ensure that this workflow does not run when the first commit to a repo is made with the message ‘Initial commit’.  The first variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.event</a>, contains a <a href="https://developer.github.com/v3/activity/events/types/#webhook-payload-example-31">json payload</a> of the event that triggered this workflow.  When developing workflows, it is helpful to print this variable in order to inspect its structure, which you can accomplish with the following YAML:</p>
+<p>The keyword <code class="language-plaintext highlighter-rouge">build-site</code> is the name of your job and you can name it whatever you want. In this case, we have a conditional if statement that dictates if this job should be run or not.  We are trying to ensure that this workflow does not run when the first commit to a repo is made with the message ‘Initial commit’.  The first variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.event</a>, contains a <a href="https://developer.github.com/v3/activity/events/types/#webhook-payload-example-31">json payload</a> of the event that triggered this workflow.  When developing workflows, it is helpful to print this variable in order to inspect its structure, which you can accomplish with the following YAML:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">see payload</span>
       <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
@@ -312,19 +312,19 @@ window.onload = wrap_img;
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Therefore, the variable <code class="highlighter-rouge">github.event.commits[0].message</code> will retrieve the first commit message in the array of commits.  Since we are looking for situations where there is only one commit, this logic suffices.  The second variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.run_number</a> is a special variable in Actions which:</p>
+<p>Therefore, the variable <code class="language-plaintext highlighter-rouge">github.event.commits[0].message</code> will retrieve the first commit message in the array of commits.  Since we are looking for situations where there is only one commit, this logic suffices.  The second variable in the if statement, <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.run_number</a> is a special variable in Actions which:</p>
 
 <blockquote>
   <p>[is a] unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow’s first run, and increments with each new run. This number does not change if you re-run the workflow run.</p>
 </blockquote>
 
-<p>Therefore, the <code class="highlighter-rouge">if</code> statement introduced above:</p>
+<p>Therefore, the <code class="language-plaintext highlighter-rouge">if</code> statement introduced above:</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">if</span><span class="pi">:</span> <span class="s">( github.event.commits[0].message != 'Initial commit' ) || github.run_number &gt; </span><span class="m">1</span>
 </code></pre></div></div>
 
-<p>Allows the workflow to run when the commit message is “Initial commit” as long as it is not the first commit.  ( <code class="highlighter-rouge">||</code> is a logical <code class="highlighter-rouge">or</code> operator).</p>
+<p>Allows the workflow to run when the commit message is “Initial commit” as long as it is not the first commit.  ( <code class="language-plaintext highlighter-rouge">||</code> is a logical <code class="language-plaintext highlighter-rouge">or</code> operator).</p>
 
-<p>Finally, the line <code class="highlighter-rouge">runs-on: ubuntu-latest</code> specifies the <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">host operating system</a> that your workflows will run in.</p>
+<p>Finally, the line <code class="language-plaintext highlighter-rouge">runs-on: ubuntu-latest</code> specifies the <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">host operating system</a> that your workflows will run in.</p>
 
 <h3 id="part-3-define-steps">
 <a class="anchor" href="#part-3-define-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 3: Define Steps</h3>
@@ -373,11 +373,11 @@ window.onload = wrap_img;
         <span class="s">cp CNAME _site/ 2&gt;/dev/null || :</span>
 </code></pre></div></div>
 
-<p>The step named <code class="highlighter-rouge">setup directories for Jekyll build</code> executes shell commands that remove the <code class="highlighter-rouge">_site</code> folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps.</p>
+<p>The step named <code class="language-plaintext highlighter-rouge">setup directories for Jekyll build</code> executes shell commands that remove the <code class="language-plaintext highlighter-rouge">_site</code> folder in order to get rid of stale files related to the page we want to build, as well as grant permissions to all the files in our repo to subsequent steps.</p>
 
-<p>The step named <code class="highlighter-rouge">Jekyll build</code> executes a docker container hosted by the Jekyll community <a href="https://hub.docker.com/r/jekyll/jekyll/">on Dockerhub called <code class="highlighter-rouge">jekyll/jekyll</code></a>.  For those not familiar with Docker, see <a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">this tutorial</a>.  The name of this container is called <code class="highlighter-rouge">hamelsmu/fastpages-jekyll</code> because I’m adding some additional dependencies to <code class="highlighter-rouge">jekyll/jekyll</code> and hosting those on my DockerHub account for faster build times<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>.  The <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs">args parameter</a> allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command <code class="highlighter-rouge">jekyll build</code>, which builds our website and places relevant assets them into the <code class="highlighter-rouge">_site</code> folder. For more information about Jekyll, <a href="https://jekyllrb.com/docs/">read the official docs</a>.  Finally, the <code class="highlighter-rouge">env</code> parameter allows me to pass an environment variable into the Docker container.</p>
+<p>The step named <code class="language-plaintext highlighter-rouge">Jekyll build</code> executes a docker container hosted by the Jekyll community <a href="https://hub.docker.com/r/jekyll/jekyll/">on Dockerhub called <code class="language-plaintext highlighter-rouge">jekyll/jekyll</code></a>.  For those not familiar with Docker, see <a href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5?source=friends_link&amp;sk=c554b55109102d47145c4b3381bee3ee">this tutorial</a>.  The name of this container is called <code class="language-plaintext highlighter-rouge">hamelsmu/fastpages-jekyll</code> because I’m adding some additional dependencies to <code class="language-plaintext highlighter-rouge">jekyll/jekyll</code> and hosting those on my DockerHub account for faster build times<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>.  The <a href="https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswithargs">args parameter</a> allows you to execute arbitrary commands with the Docker container by overriding the CMD instruction in the Dockerfile.  We use this Docker container hosted on Dockerhub so we don’t have to deal with installing and configuring all of the complicated dependencies for Jekyll.  The files from our repo are already available in the Actions runtime due to the first step in this workflow, and are mounted into this Docker container automatically for us.  In this case, we are running the command <code class="language-plaintext highlighter-rouge">jekyll build</code>, which builds our website and places relevant assets them into the <code class="language-plaintext highlighter-rouge">_site</code> folder. For more information about Jekyll, <a href="https://jekyllrb.com/docs/">read the official docs</a>.  Finally, the <code class="language-plaintext highlighter-rouge">env</code> parameter allows me to pass an environment variable into the Docker container.</p>
 
-<p>The final command above copies a <code class="highlighter-rouge">CNAME</code> file into the _site folder, which we need for the custom domain <a href="https://fastpages.fast.ai/">https://fastpages.fast.ai</a>. Setting up custom domains are outside the scope of this article.</p>
+<p>The final command above copies a <code class="language-plaintext highlighter-rouge">CNAME</code> file into the _site folder, which we need for the custom domain <a href="https://fastpages.fast.ai/">https://fastpages.fast.ai</a>. Setting up custom domains are outside the scope of this article.</p>
 
 <p>The final step in our workflow is defined below:</p>
 
@@ -394,7 +394,7 @@ window.onload = wrap_img;
 </code></pre></div></div>
 <p>uses the variable <a href="https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context">github.event_name</a> to ensure this step only runs when a push event ( in this case only pushes to the master branch trigger this workflow) occur.</p>
 
-<p>This step deploys the fastpages website by copying the contents of the <code class="highlighter-rouge">_site</code> folder to the root of the <code class="highlighter-rouge">gh-pages</code> branch, which <a href="https://pages.github.com/">GitHub Pages</a> uses for hosting.  This step uses the <a href="https://github.com/peaceiris/actions-gh-pages">peaceiris/actions-gh-pages</a> Action, pinned at version 3.  <a href="https://github.com/peaceiris/actions-gh-pages">Their README</a> describes various options and inputs for this Action.</p>
+<p>This step deploys the fastpages website by copying the contents of the <code class="language-plaintext highlighter-rouge">_site</code> folder to the root of the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch, which <a href="https://pages.github.com/">GitHub Pages</a> uses for hosting.  This step uses the <a href="https://github.com/peaceiris/actions-gh-pages">peaceiris/actions-gh-pages</a> Action, pinned at version 3.  <a href="https://github.com/peaceiris/actions-gh-pages">Their README</a> describes various options and inputs for this Action.</p>
 
 <h1 id="conclusion">
 <a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>

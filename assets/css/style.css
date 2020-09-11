@@ -234,12 +234,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .site-nav .page-link:not(:last-child) { margin-right: 0; }
 
-@media screen and (min-width: 1000px) { .site-nav { position: static; float: right; border: none; background-color: inherit; }
-  .site-nav label[for="nav-trigger"] { display: none; }
-  .site-nav .menu-icon { display: none; }
-  .site-nav input ~ .trigger { display: block; }
-  .site-nav .page-link { display: inline; padding: 0; margin-left: auto; }
-  .site-nav .page-link:not(:last-child) { margin-right: 20px; } }
+@media screen and (min-width: 1000px) { .site-nav { position: static; float: right; border: none; background-color: inherit; } .site-nav label[for="nav-trigger"] { display: none; } .site-nav .menu-icon { display: none; } .site-nav input ~ .trigger { display: block; } .site-nav .page-link { display: inline; padding: 0; margin-left: auto; } .site-nav .page-link:not(:last-child) { margin-right: 20px; } }
 
 /** Site footer */
 .site-footer { border-top: 1px solid #e8e8e8; padding: 30px 0; }
@@ -258,14 +253,9 @@ table td { border: 1px solid #e8e8e8; }
 
 .footer-col-3 { width: calc(100% - (30px / 2)); }
 
-@media screen and (min-width: 1200px) { .footer-col-1 { width: calc(35% - (30px / 2)); }
-  .footer-col-2 { width: calc(20% - (30px / 2)); }
-  .footer-col-3 { width: calc(45% - (30px / 2)); } }
+@media screen and (min-width: 1200px) { .footer-col-1 { width: calc(35% - (30px / 2)); } .footer-col-2 { width: calc(20% - (30px / 2)); } .footer-col-3 { width: calc(45% - (30px / 2)); } }
 
-@media screen and (min-width: 1000px) { .footer-col-wrapper { display: flex; }
-  .footer-col { width: calc(100% - (30px / 2)); padding: 0 15px; }
-  .footer-col:first-child { padding-right: 15px; padding-left: 0; }
-  .footer-col:last-child { padding-right: 0; padding-left: 15px; } }
+@media screen and (min-width: 1000px) { .footer-col-wrapper { display: flex; } .footer-col { width: calc(100% - (30px / 2)); padding: 0 15px; } .footer-col:first-child { padding-right: 15px; padding-left: 0; } .footer-col:last-child { padding-right: 0; padding-left: 15px; } }
 
 /** Page content */
 .page-content { padding: 30px 0; flex: 1 0 auto; }
