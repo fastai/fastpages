@@ -14,7 +14,7 @@ permalink: /codespaces
 
 ## Teaser
 
-{% twitter https://twitter.com/jeremyphoward/status/1303827203323387906 %}
+
 
 ## Introduction
 
@@ -83,7 +83,7 @@ If you are launching a fresh Codespace, it may take several minutes to spinup. O
 
 ![]({{ site.baseurl }}/images/fastpages_posts/codespaces/2_verify.gif)
 
-Additionally, we can serve arbitary applications on user specified various ports, which we can open as shown below:
+Additionally, we can serve an arbitary number of applications on user specified ports, which we can open as shown below:
 
 ![]({{ site.baseurl }}/images/fastpages_posts/codespaces/3_nb.gif)
 
@@ -101,7 +101,7 @@ This is amazing!  With a click of a button, I was able to:
 
 This section uses the repo [fastai/fastcore](https://github.com/fastai/fastcore) as an example.
 
-To customize a Codespaces environment, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  For the repo in this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
+To customize a Codespaces environment for visitors to your repo, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  For the repo in this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
 
 ```json
 {
@@ -131,7 +131,7 @@ A quick description of these keys:
 
 For more options, as well as more documentation on the above, see [these docs](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
 
-For completeness, here is the associated [`docker-compose.yml` file](https://github.com/fastai/fastcore/blob/master/docker-compose.yml):  
+For completeness, below is the associated [`docker-compose.yml` file](https://github.com/fastai/fastcore/blob/master/docker-compose.yml):  
 
 ```yaml
   
@@ -173,25 +173,28 @@ services:
      && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0"
 ```
 
-Here is a summary of all the services defined in the above [Docker Compose](https://docs.docker.com/compose/) configuration:
+Below is a summary of the services defined in the above [Docker Compose](https://docs.docker.com/compose/) configuration:
 
 - **fastai:** this is the base definition that the three services (`notebook`, `watcher`, and `jekyll`) use, so we don't have to repeat YAML for common settings.
 - **notebook:** After defensively doing an editable install of the library defined in the repository, this serves a Jupyter notebook on port 8080.  
 - **watcher:** We use the tool [`watchmedo`](https://github.com/gorakhargosh/watchdog) to automatically re-generate the docs when any notebook file changes.
 - **jekyll:** This service builds the docs with nbdev and runs a [Jekyll](https://jekyllrb.com/) server for the docs.
 
-You don't have to use Docker Compose with Codespaces. Our use case was sufficiently complicated enough to warrant this approach.
+You do not have to use Docker Compose with Codespaces. We only used it here because we wanted to expose several services without having our visitors do any setup.  More information about customizing Codespaces can be found in [the official docs](https://docs.github.com/en/github/developing-online-with-codespaces).
 
 ## Blogging With fastpages
 
-I kin
-
+This blog post was written in [fastpages](https://github.com/fastai/fastpages) which is also built on nbdev!  I highly recommend fastpages if you want an easy way to blog with Jupyter notebooks.
 
 ## Additional Resources
 
+1. The [GitHub Codepaces site](https://github.com/features/codespaces).
+1. The official [docs for Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces).
 1. The nbdev [docs](https://nbdev.fast.ai/).
 2. The nbdev [GitHub repo](https://github.com/fastai/nbdev).
 3. [fastpages](https://github.com/fastai/fastpages): The project used to write this blog.
-4. 
+4. The GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore), which is what we used in this post as an example.
+
+## Footnotes
 
 [^1]: Even though this post is over two years old, not much has changed.
