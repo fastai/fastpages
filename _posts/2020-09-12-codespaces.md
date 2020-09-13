@@ -10,11 +10,11 @@ author: Hamel Husain & Jeremy Howard
 permalink: /codespaces
 ---
 
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/codespaces.png)
-
-## Teaser
-
-
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="" poster="https://github.githubassets.com/images/modules/site/codespaces/hero.jpg">
+          <source type="video/mp4; codecs=hevc,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.hevc.mp4">
+          <source type="video/mp4; codecs=av01.0.05M.08,opus" src="https://github.githubassets.com/images/modules/site/codespaces/hero.av1.mp4">
+          <source type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.h264.mp4">
+</video>
 
 ## Introduction
 
@@ -77,19 +77,19 @@ In addition to what is shown here, I often like to also use VSCode with an embbe
 
 This is how you launch a Codespace:
 
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/1_open.gif)
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4" %}
 
 If you are launching a fresh Codespace, it may take several minutes to spinup. Once the environment is ready, we can verify that all dependencies we wanted are installed (in this case nbdev):
 
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/2_verify.gif)
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4" %}
 
 Additionally, we can serve an arbitary number of applications on user specified ports, which we can open as shown below:
 
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/3_nb.gif)
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb.mp4" %}
 
 In this case, these applications are a notebook and docs site.  We can see that making a change in the notebook is also chnages the corresponding docs:
 
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/4_reload.gif)
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" %}
 
 This is amazing!  With a click of a button, I was able to:
 
@@ -101,7 +101,7 @@ This is amazing!  With a click of a button, I was able to:
 
 This section uses the repo [fastai/fastcore](https://github.com/fastai/fastcore) as an example.
 
-To customize a Codespaces environment for visitors to your repo, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  For the repo in this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
+To customize a Codespaces environment for visitors to your repo, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  In this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
 
 ```json
 {
@@ -129,7 +129,7 @@ A quick description of these keys:
 - **runServices**: These are the services that you want to run from your Docker Compose configuration.
 - **postStartCommand**: A command string or list of command arguments to run when the container starts.  In this case, I wanted to do an editable install of the python library in the repository.
 
-For more options, as well as more documentation on the above, see [these docs](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
+For more options, as well as more documentation on this configuration file, see [these docs](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
 
 For completeness, below is the associated [`docker-compose.yml` file](https://github.com/fastai/fastcore/blob/master/docker-compose.yml):  
 
@@ -193,7 +193,7 @@ This blog post was written in [fastpages](https://github.com/fastai/fastpages) w
 1. The nbdev [docs](https://nbdev.fast.ai/).
 2. The nbdev [GitHub repo](https://github.com/fastai/nbdev).
 3. [fastpages](https://github.com/fastai/fastpages): The project used to write this blog.
-4. The GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore), which is what we used in this post as an example.
+4. The GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore), which is what we used in this blog post as an example.
 
 ## Footnotes
 
