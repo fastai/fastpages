@@ -20,9 +20,7 @@ permalink: /codespaces
 
 ### What is Literate Programming?
 
-[Wikipedia](https://en.wikipedia.org/wiki/Literate_programming):
-
-> Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.The approach is used in scientific computing and in data science routinely for reproducible research and open access purposes ... According to Knuth,literate programming provides higher-quality programs, since it forces programmers to explicitly state the thoughts behind the program, making poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation.
+> Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.The approach is used in scientific computing and in data science routinely for reproducible research and open access purposes ... According to Knuth,literate programming provides higher-quality programs, since it forces programmers to explicitly state the thoughts behind the program, making poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation. [^1]
 
 One of the most popular literate programming tools in use today are [Jupyter Notebooks](https://jupyter.org/).  However, notebooks on their own fall short of the literate programming ideal for the following reasons:
 
@@ -52,7 +50,7 @@ It will expand your mind on alternate ways of software development and give you 
 
 ## The Problem: Setting Up Your Dev Environment
 
-At the time of this writing, managing and setting up any python programming environment [can still be very challenging](http://veekaybee.github.io/2018/03/12/installing-python-is-hard/)[^1].
+At the time of this writing, managing and setting up any python programming environment [can still be very challenging](http://veekaybee.github.io/2018/03/12/installing-python-is-hard/)[^2].
 
 To add insult to injury, the nbdev development environment requires additional setup, which can make the barrier of entry high.  nbdev has several components:
 
@@ -66,7 +64,7 @@ For example, my screen usually looks like this when developing with nbdev:
 
 Note how in the screenshot above, there is a 1:1 correspondence between code and documentation.  Additionally, the `source` links take you directly to the generated plain text python code on GitHub!.
 
-In addition to what is shown here, I often like to also use VSCode with an embbeded terminal.  To many folks, this can seem like an overwhelming  task to setup this development environment correctly.  :sunglasses: :rocket: Not anymore, with GitHub Codespaces! :rocket: :sunglasses: 
+In addition to what is shown here, I often like to also use VSCode with an embbeded terminal. Setting up all of these aforementioned development tools properly can be an overwhelming task to many people.  :sunglasses: :rocket: Not anymore, with GitHub Codespaces! :rocket: :sunglasses:
 
 ## Enter GitHub CodeSpaces
 
@@ -99,7 +97,7 @@ This is amazing!  With a click of a button, I was able to:
 
 ## How Does this work?
 
-This section uses the repo [fastai/fastcore](https://github.com/fastai/fastcore) as an example.
+This section uses the configuration files in the GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore) as an example.
 
 To customize a Codespaces environment for visitors to your repo, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  In this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
 
@@ -195,6 +193,6 @@ This blog post was written in [fastpages](https://github.com/fastai/fastpages) w
 3. [fastpages](https://github.com/fastai/fastpages): The project used to write this blog.
 4. The GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore), which is what we used in this blog post as an example.
 
-## Footnotes
-
-[^1]: Even though this post is over two years old, not much has changed.
+----
+[^1]: Wikipedia article: [Literate Programming](https://en.wikipedia.org/wiki/Literate_programming)
+[^2]: Even though this post is over two years old, not much has changed.
