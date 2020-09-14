@@ -5,9 +5,9 @@ comments: true
 hide: false
 toc: false
 layout: post
-categories: [actions, markdown]
+categories: [codespaces, nbdev]
 image: images/fastpages_posts/codespaces/codespaces.png
-author: Hamel Husain & Jeremy Howard
+author: "<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>"
 permalink: /codespaces
 ---
 
@@ -21,20 +21,18 @@ permalink: /codespaces
 
 > Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.  According to Knuth, literate programming provides higher-quality programs by forcing programmers to explicitly state the thoughts behind the program.  This process makes poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation. [^1]
 
-When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that [Jupyter notebooks](https://jupyter.org/) fully encapsulated literate programming.  
-
-While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:[^2]
+When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that [Jupyter notebooks](https://jupyter.org/) fully encapsulated literate programming.  While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:[^2]
 
 - It can be difficult to compile source code from notebooks.
 - It can be difficult to diff and use version control with notebooks because they are not stored in plain text.
 - It is not clear how to automatically generate documentation from notebooks.
 - It is not clear how to properly run tests suites when writing code in notebooks.
 
-That's when I discovered [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the [python library fastcore](https://fastcore.fast.ai/).  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and why it is designed that way.  If something was impossible to explain, this was a sign that the code need to be refactored.  While nbdev is not perfect, I have never enjoyed as much productivity (and fun) as a software developer!  
+That's when I discovered [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the [python library fastcore](https://fastcore.fast.ai/).  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  If something was impossible to explain, this was a sign that the code need to be refactored.  To my surprise, I have never enjoyed as much productivity (and fun) as a software developer prior to using the tools I describe in this blog post!
 
 ## nbdev: Literate Programming With Jupyter
 
-**Today, I'm going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), right in your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**
+**Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**
 
 To whet your appetite on how cool this is, below is a teaser of what is possible:
 
@@ -197,7 +195,7 @@ By setting up Codespaces appropriately on your repo, you can give contributors a
 
 ## You Can Write Blogs With Notebooks, Too!
 
-This blog post was written in [fastpages](https://github.com/fastai/fastpages) which is also built on nbdev!  I recommend [fastpages](https://github.com/fastai/fastpages) if you want an easy way to blog with Jupyter notebooks.
+This blog post was written in [fastpages](https://github.com/fastai/fastpages) which is also built on nbdev!  We recommend [fastpages](https://github.com/fastai/fastpages) if you want an easy way to blog with Jupyter notebooks.
 
 ## Additional Resources
 
