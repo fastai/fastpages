@@ -1,5 +1,5 @@
 ---
-title: "Nbdev + GitHub Codespaces: A New Literate Programming Environment"
+title: "nbdev + GitHub Codespaces: A New Literate Programming Environment"
 description: How a new GitHub feature makes literate programming easier than ever before.
 comments: true
 hide: false
@@ -54,42 +54,40 @@ Since you are in a notebook, you can also add charts, text, links, images, video
 
 ## GitHub Codespaces
 
-Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https://github.com/fastai/nbdev_template), getting set up to start using literate programming is far easier than it used to be. However, we realized it could be even easier, thanks to [GitHub Codespaces](https://github.com/features/codespaces).
-
-Codespaces is a fully functional development environment in your browser, that you can access without ever leaving GitHub. With Codespaces, you get the following in your browser:
+Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https://github.com/fastai/nbdev_template), getting set up to start using literate programming is far easier than it used to be. However, we realized it could be even easier, thanks to [GitHub Codespaces](https://github.com/features/codespaces).  Codespaces is a fully functional development environment in your browser, that you can access without ever leaving GitHub. With Codespaces, you get the following in your browser:
 
 1. A full VS Code IDE.
 2. An environment that has files from the repository mounted into the environment, along with your GitHub credentials.
 3. A development environment with depdencies pre-installed, backed by [Docker](https://www.docker.com/).
 4. The ability to serve additional applications on arbitrary ports.  For nbdev, we serve a Jupyter notebook server as well as a [Jekyll](https://jekyllrb.com/) based documentation site.
 5. A shared file system, which facilitates editing code in one browser tab and rendering the results in another.
+6. ... [and more](https://docs.github.com/en/github/developing-online-with-codespaces).
 
-We found that GitHub Codespaces eliminates all of the complexity of instantiating a literate programming environment.  For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate (https://github.com/fastai) without wasting time on DevOps or complicated setup steps.  
-Most importantly, CodeSpaces allows people to quickly get started with creating their own software with literate programming.
+We found that GitHub Codespaces eliminates all of the complexity of instantiating a literate programming environment.  For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces allows people to quickly get started with creating their own software with literate programming.
 
-## Enter GitHub CodeSpaces
+## A Tour of nbdev + Codespaces
 
-This is how you launch a Codespace:
+This section uses the project [fastai/fastcore](https://github.com/fastai/fastcore), which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open_zoom.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4" %}
 
 <p><br></p>
 
-If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we wanted are installed (in this case nbdev):
+If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we wanted are installed (in this case `fastcore` and `nbdev`):
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify_zoom.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4" %}
 
 <p><br></p>
 
 Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open through VSCode as shown below:
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb_zoom.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb.mp4" %}
 
 <p><br></p>
 
-In this case, these applications are a notebook and docs site.  We can see that making a change in the notebook also changes the corresponding docs:
+In this case, these applications are a notebook and docs site.  If we make a change to the notebook this gets reflected immediately in the data docs.  This is perhaps the most exciting part of the setup that Codespaces automates for you!
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload_zoom.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" %}
 
 <p><br></p>
 
@@ -99,99 +97,11 @@ This is amazing!  With a click of a button, I was able to:
 2. Launch two additional applications: a Jupyter Notebook server on port 8080 and a docs site on port 4000.
 3. Automatically update the docs every time I make a change to a Jupyter notebook.
 
+## Give It A Try For Yourself
 
-## Something about docs
+To try out nbdev yourself, start with familiarizing yourself with the [docs](https://nbdev.fast.ai/).  When you are ready to write your own software with nbdev see the [section in the docs regarding repo setup](https://nbdev.fast.ai/tutorial.html#Set-up-Repo).  You can also try out nbdev (after reading the docs) by contributing to most [fastai](https://github.com/fastai) projects.
 
-Note how in the screenshot above, there is a 1:1 correspondence between code and documentation.  Additionally, the `source` links take you directly to the generated plain text python code on GitHub!.
-
-## How Does this work?
-
-This section uses the configuration files in the GitHub repo [fastai/fastcore](https://github.com/fastai/fastcore) as an example.
-
-To customize a Codespaces environment for visitors to your repo, [you can specify a `.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) file.  In this example,  [`.devcontainer.json`](https://github.com/fastai/fastcore/blob/master/.devcontainer.json) looks like this:
-
-```json
-{
-    "name": "fastcore-codespaces",
-    "dockerComposeFile": "docker-compose.yml",
-    "settings": {"terminal.integrated.shell.linux": "/bin/bash"},
-    "service": "watcher",
-    "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
-    "forwardPorts": [4000, 8080],
-    "extensions": ["ms-python.python",
-                   "ms-azuretools.vscode-docker"],
-    "runServices": ["notebook", "jekyll", "watcher"],
-    "postStartCommand": "pip install -e ."
-}
-```
-A quick description of these keys:
-
-- **name:** this can be any name you choose, which will show up on the Codespaces menu.
-- **dockerComposeFile**: since we are starting many different applications (a notebook and a docs site), we are using [Docker Compose](https://docs.docker.com/compose/). `docker-compose.yml` is located at the root of [this repo](https://github.com/fastai/fastcore).
-- **settings**: these are [VSCode settings](https://code.visualstudio.com/docs/getstarted/settings).  In this case, I'm making sure the shell is bash.
-- **service**: when you use Docker Compose, VS Code must bind to one of the services in your compose file.  I choose the service that automatically refreshes the docs called `watcher`, which I discuss later.
-- **mounts**: this is boilerplate that is needed such that Docker works properly in Codespaces.
-- **forwardPorts**: These are the ports you want to open (I'm opening one for the Jekyll docs site and another for the notebook).
-- **extensions**: A list of [VS Code extensions](https://code.visualstudio.com/docs/introvideos/extend) to be added to the environment.  The Docker extension is optional and not required in this case, but I often find it helpful for debugging.
-- **runServices**: These are the services that you want to run from your Docker Compose configuration.
-- **postStartCommand**: A command string or list of command arguments to run when the container starts.  In this case, I wanted to do an editable install of the python library in the repository.
-
-For more options, as well as more documentation on this configuration file, see [these docs](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
-
-For completeness, below is the associated [`docker-compose.yml` file](https://github.com/fastai/fastcore/blob/master/docker-compose.yml):  
-
-```yaml
-  
-version: "3"
-services:
-  fastai: &fastai
-    restart: unless-stopped
-    working_dir: /data
-    image: fastai/codespaces
-    logging:
-      driver: json-file
-      options:
-        max-size: 50m
-    stdin_open: true
-    tty: true
-    volumes:
-      - .:/data/
-
-  notebook:
-    <<: *fastai
-    command: bash -c "pip install -e . && jupyter notebook --allow-root --no-browser --ip=0.0.0.0 --port=8080 --NotebookApp.token='' --NotebookApp.password=''"
-    ports:
-      - "8080:8080"
-
-  watcher:
-    <<: *fastai
-    command: watchmedo shell-command --command nbdev_build_docs --pattern *.ipynb --recursive --drop
-    network_mode: host # for GitHub Codespaces https://github.com/features/codespaces/
-
-  jekyll:
-    <<: *fastai
-    ports:
-     - "4000:4000"
-    command: >
-     bash -c "cp -r docs_src docs
-     && pip install .
-     && nbdev_build_docs && cd docs
-     && bundle i
-     && chmod -R u+rwx . && bundle exec jekyll serve --host 0.0.0.0"
-```
-
-Below is a summary of the services defined in the above [Docker Compose](https://docs.docker.com/compose/) configuration:
-
-- **fastai:** this is the base definition that the three services (`notebook`, `watcher`, and `jekyll`) use, so we don't have to repeat YAML for common settings.
-- **notebook:** After defensively doing an editable install of the library defined in the repository, this serves a Jupyter notebook on port 8080.  
-- **watcher:** We use the tool [`watchmedo`](https://github.com/gorakhargosh/watchdog) to automatically re-generate the docs when any notebook file changes.
-- **jekyll:** This service builds the docs with nbdev and runs a [Jekyll](https://jekyllrb.com/) server for the docs.
-
-You do not have to use Docker Compose with Codespaces. We only used it here because we wanted to expose several services without having our visitors do any setup.  More information about customizing Codespaces can be found in [the official docs](https://docs.github.com/en/github/developing-online-with-codespaces).
-
-## Conclusion
-
-By setting up Codespaces appropriately on your repo, you can give contributors a head start by providing an easy to use development environment that has ultimate portability (all you need is a browser).  Furthermore, when you have a specialized development environment, Codespaces can do the heavy lifting of setting everything up for you!
+GitHub Codespaces can be configured with a [`.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) configuration file.  Details on how to configure Codespaces for your repos can be found in [the official Codespaces docs](https://docs.github.com/en/github/developing-online-with-codespaces). While [nbdev_template](https://github.com/fastai/nbdev_template) (referenced in the setup section of the docs) already contains what you need to get started with nbdev, you might find it useful to customize your environment even further.
 
 ## You Can Write Blogs With Notebooks, Too!
 
@@ -209,4 +119,3 @@ This blog post was written in [fastpages](https://github.com/fastai/fastpages) w
 ----
 [^1]: Wikipedia article: [Literate Programming](https://en.wikipedia.org/wiki/Literate_programming)
 [^2]: This is not a criticism of Jupyter.  Jupyter doesn't claim to be a full literate programming system.  However, people can sometimes (unfairly) judge Jupyter according to this criteria.
-[^3]: This blog post doesn't contain any code so its not the b[This blog post](https://fastpages.fast.ai/fastcore/) summarizes interesting parts of fastcore.
