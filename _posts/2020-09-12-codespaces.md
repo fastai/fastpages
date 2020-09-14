@@ -19,60 +19,57 @@ permalink: /codespaces
 
 ## Introduction
 
-### What is Literate Programming?
+> Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.  According to Knuth, literate programming provides higher-quality programs by forcing programmers to explicitly state the thoughts behind the program.  This process makes poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation. [^1]
 
-> Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.The approach is used in scientific computing and in data science routinely for reproducible research and open access purposes ... According to Knuth, literate programming provides higher-quality programs, since it forces programmers to explicitly state the thoughts behind the program, making poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation. [^1]
+When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that [Jupyter notebooks](https://jupyter.org/) fully encapsulated literate programming.  
 
-One of the most popular literate programming tools in use today are [Jupyter Notebooks](https://jupyter.org/).  However, notebooks on their own fall short of the literate programming ideal for the following reasons:
+While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:[^2]
 
 - It can be difficult to compile source code from notebooks.
 - It can be difficult to diff and use version control with notebooks because they are not stored in plain text.
-- It is not clear how to automatically generate a documentation site from notebooks.
+- It is not clear how to automatically generate documentation from notebooks.
+- It is not clear how to properly run tests suites when writing code in notebooks.
 
-### Literate Programming For Jupyter: nbdev
+That's when I discovered [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the [python library fastcore](https://fastcore.fast.ai/).  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and why it is designed that way.  If something was impossible to explain, this was a sign that the code need to be refactored.  While nbdev is not perfect, I have never enjoyed as much productivity (and fun) as a software developer!  
 
-The python project [nbdev](https://nbdev.fast.ai/) builds on Jupyter Notebooks to provide the following features:
+## nbdev: Literate Programming With Jupyter
 
-- Searchable, hyperlinked documentation; any word you surround in back ticks will be automatically hyperlinked to the appropriate documentation.
+**Today, I'm going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), right in your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**
+
+To whet your appetite on how cool this is, below is a teaser of what is possible:
+
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e.mp4" %}
+
+<p><br></p>
+
+### Features of nbdev
+
+According to the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
+
+- Searchable, hyperlinked documentation.
 - Python modules, following best practices such as [automatically defining `__all__`](http://xion.io/post/code/python-all-wild-imports.html) with your exported functions, classes, and variables.
-- Pip and conda installers (uploaded to pypi and anaconda for you).
+- Pip and Conda installers.
 - Tests (defined directly in your notebooks, and run in parallel).
 - Navigate and edit your code in a standard text editor or IDE, and export any changes automatically back into your notebooks.
 
-Since you are in a notebook, you can also add charts, text, links, images, videos, etc, that is included automatically in the documentation of your library. The cells where your code is defined will be hidden and replaced by standardized documentation of your function, showing its name, arguments, docstring, and link to the source code on GitHub.
+Since you are in a notebook, you can also add charts, text, links, images, videos, etc, that is included automatically in the documentation of your library, along with standardized documentation generated automatically from your code.
 
-Sounds amazing, right?  It is!  We share further references to nbdev at the end of this blog post.
+## GitHub Codespaces
 
-## Why You Should Try Literate Programming
+Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https://github.com/fastai/nbdev_template), getting set up to start using literate programming is far easier than it used to be. However, we realized it could be even easier, thanks to [GitHub Codespaces](https://github.com/features/codespaces).
 
-Literate programming is not for everyone.  Many people feel quite comfortable with their current development environment. However, I recommend trying it, at least once, to see what you think.  
+Codespaces is a fully functional development environment in your browser, that you can access without ever leaving GitHub. With Codespaces, you get the following in your browser:
 
-It will expand your mind on alternate ways of software development and give you insight into opportunities for better developer tools.  You might even decide that you are more productive with literate programming and stick with it.  Either way, it is a beneficial experience that doesn't require much effort, especially with what I'm showing you in this blog post!
+1. A full VS Code IDE.
+2. An environment that has files from the repository mounted into the environment, along with your GitHub credentials.
+3. A development environment with depdencies pre-installed, backed by [Docker](https://www.docker.com/).
+4. The ability to serve additional applications on arbitrary ports.  For nbdev, we serve a Jupyter notebook server as well as a [Jekyll](https://jekyllrb.com/) based documentation site.
+5. A shared file system, which facilitates editing code in one browser tab and rendering the results in another.
 
-## The Problem: Setting Up Your Dev Environment
-
-At the time of this writing, managing and setting up any python programming environment [can still be very challenging](http://veekaybee.github.io/2018/03/12/installing-python-is-hard/)[^2].
-
-To add insult to injury, the nbdev development environment requires additional setup, which can make the barrier of entry high.  nbdev has several components:
-
-1. A running Jupyter Notebook.
-2. A suite of CLI tools, with [githooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).  These automatically sync notebooks with plain-text scripts, automatically clean and test notebooks and convert notebooks to docs.
-3. A documentation site, based [on Jekyll](https://jekyllrb.com/).
-
-For example, my screen usually looks like this when developing with nbdev:
-
-![]({{ site.baseurl }}/images/fastpages_posts/codespaces/dev.png "A typical nbdev development environment.  A Jupyter Notebooks and docs site.")
-
-Note how in the screenshot above, there is a 1:1 correspondence between code and documentation.  Additionally, the `source` links take you directly to the generated plain text python code on GitHub!.
-
-In addition to what is shown here, I often like to also use VSCode with an embedded terminal. Setting up all of these aforementioned development tools properly can be an overwhelming task for many people.  :sunglasses: :rocket: Not anymore, with GitHub Codespaces! :rocket: :sunglasses:
+We found that GitHub Codespaces eliminates all of the complexity of instantiating a literate programming environment.  For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate (https://github.com/fastai) without wasting time on DevOps or complicated setup steps.  
+Most importantly, CodeSpaces allows people to quickly get started with creating their own software with literate programming.
 
 ## Enter GitHub CodeSpaces
-
-[GitHub Codespaces](https://github.com/features/codespaces) is a fully functional development environment in your browser, that you can access without ever leaving GitHub. With Codespaces, you get the following in your browser:
-
-- A full VSCode IDE.
-- The ability to serve additional applications on arbitrary ports so you can preview websites, or in our case, serve a Jupyter notebook server and a documentation site.
 
 This is how you launch a Codespace:
 
@@ -103,6 +100,11 @@ This is amazing!  With a click of a button, I was able to:
 1. Launch an IDE with all dependencies pre-installed.
 2. Launch two additional applications: a Jupyter Notebook server on port 8080 and a docs site on port 4000.
 3. Automatically update the docs every time I make a change to a Jupyter notebook.
+
+
+## Something about docs
+
+Note how in the screenshot above, there is a 1:1 correspondence between code and documentation.  Additionally, the `source` links take you directly to the generated plain text python code on GitHub!.
 
 ## How Does this work?
 
@@ -208,4 +210,5 @@ This blog post was written in [fastpages](https://github.com/fastai/fastpages) w
 
 ----
 [^1]: Wikipedia article: [Literate Programming](https://en.wikipedia.org/wiki/Literate_programming)
-[^2]: Even though this post is over two years old, not much has changed.
+[^2]: This is not a criticism of Jupyter.  Jupyter doesn't claim to be a full literate programming system.  However, people can sometimes (unfairly) judge Jupyter according to this criteria.
+[^3]: This blog post doesn't contain any code so its not the b[This blog post](https://fastpages.fast.ai/fastcore/) summarizes interesting parts of fastcore.
