@@ -86,7 +86,7 @@ If you are launching a fresh Codespace, it may take several minutes to set up. O
 
 <p><br></p>
 
-Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open as shown below:
+Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open through VSCode as shown below:
 
 {% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb_zoom.mp4" %}
 
