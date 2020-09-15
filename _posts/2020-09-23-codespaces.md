@@ -44,7 +44,7 @@ To whet your appetite on how cool this is, below is a teaser of what is possible
 
 According to the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
 
-- Searchable, hyperlinked documentation, which can be automatically deployed to [GitHub Pages](https://docs.github.com/en/github/working-with-github-pages).
+- Searchable, hyperlinked documentation, which can be automatically hosted on [GitHub Pages](https://docs.github.com/en/github/working-with-github-pages) for free.
 - Python modules, following best practices such as [automatically defining `__all__`](http://xion.io/post/code/python-all-wild-imports.html) with your exported functions, classes, and variables.
 - Pip and Conda installers.
 - Tests defined directly in notebooks which run in parallel.  This testing system has been thoroughly tested with [GitHub Actions](https://github.com/features/actions).
