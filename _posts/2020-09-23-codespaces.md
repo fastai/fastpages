@@ -44,26 +44,26 @@ To whet your appetite on how cool this is, below is a teaser of what is possible
 
 According to the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
 
-- Searchable, hyperlinked documentation.
+- Searchable, hyperlinked documentation, which can be automatically deployed to [GitHub Pages](https://docs.github.com/en/github/working-with-github-pages).
 - Python modules, following best practices such as [automatically defining `__all__`](http://xion.io/post/code/python-all-wild-imports.html) with your exported functions, classes, and variables.
 - Pip and Conda installers.
-- Tests (defined directly in your notebooks, and run in parallel).
+- Tests defined directly in notebooks which run in parallel.  This testing system has been thoroughly tested with [GitHub Actions](https://github.com/features/actions).
 - Navigate and edit your code in a standard text editor or IDE, and export any changes automatically back into your notebooks.
 
-Since you are in a notebook, you can also add charts, text, links, images, videos, etc, that is included automatically in the documentation of your library, along with standardized documentation generated automatically from your code.
+Since you are in a notebook, you can also add charts, text, links, images, videos, etc, that are included automatically in the documentation of your library, along with standardized documentation generated automatically from your code.  [This site](https://docs.fast.ai/) is an example of docs generated automatically by nbdev.
 
 ## GitHub Codespaces
 
-Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https://github.com/fastai/nbdev_template), getting set up to start using literate programming is far easier than it used to be. However, we realized it could be even easier, thanks to [GitHub Codespaces](https://github.com/features/codespaces).  Codespaces is a fully functional development environment in your browser, that you can access without ever leaving GitHub. With Codespaces, you get the following in your browser:
+Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https://github.com/fastai/nbdev_template), setting up a development environment with nbdev is far easier than it used to be. However, we realized it could be even easier, thanks to a new GitHub product called [Codespaces](https://github.com/features/codespaces).  Codespaces is a fully functional development environment in your browser, accessible directly from GitHub, that provides the following features:
 
 1. A full VS Code IDE.
 2. An environment that has files from the repository mounted into the environment, along with your GitHub credentials.
-3. A development environment with depdencies pre-installed, backed by [Docker](https://www.docker.com/).
+3. A development environment with dependencies pre-installed, backed by [Docker](https://www.docker.com/).
 4. The ability to serve additional applications on arbitrary ports.  For nbdev, we serve a Jupyter notebook server as well as a [Jekyll](https://jekyllrb.com/) based documentation site.
 5. A shared file system, which facilitates editing code in one browser tab and rendering the results in another.
 6. ... [and more](https://docs.github.com/en/github/developing-online-with-codespaces).
 
-We found that GitHub Codespaces eliminates all of the complexity of instantiating a literate programming environment.  For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces allows people to quickly get started with creating their own software with literate programming.
+For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.
 
 ## A Tour of nbdev + Codespaces
 
@@ -99,7 +99,7 @@ This is amazing!  With a click of a button, I was able to:
 
 ## Give It A Try For Yourself
 
-To try out nbdev yourself, start with familiarizing yourself with the [docs](https://nbdev.fast.ai/).  When you are ready to write your own software with nbdev see the [section in the docs regarding repo setup](https://nbdev.fast.ai/tutorial.html#Set-up-Repo).  You can also try out nbdev (after reading the docs) by contributing to most [fastai](https://github.com/fastai) projects.
+To try out nbdev yourself, start with familiarizing yourself with the [nbdev docs](https://nbdev.fast.ai/) as well as the [video tutorial](https://youtu.be/Hrs7iEYmRmg).  When you are ready to write your own software with nbdev, see the [section in the docs regarding repo setup](https://nbdev.fast.ai/tutorial.html#Set-up-Repo).
 
 GitHub Codespaces can be configured with a [`.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) configuration file.  Details on how to configure Codespaces for your repos can be found in [the official Codespaces docs](https://docs.github.com/en/github/developing-online-with-codespaces). While [nbdev_template](https://github.com/fastai/nbdev_template) (referenced in the setup section of the docs) already contains what you need to get started with nbdev, you might find it useful to customize your environment even further.
 
