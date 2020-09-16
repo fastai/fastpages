@@ -12,7 +12,7 @@ author: "<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='h
 permalink: /codespaces
 ---
 
-**Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**  But first, what is literate programming?  And how did I got from a skeptic to a big fan of literate programming in a month?
+**Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, in under 5 minutes. You'll even see how VSCode and Jupyter work together automatically!**  But first, what is literate programming?  And how did I got from a skeptic to a big fan of literate programming in a month?
 
 ## Introduction
 
