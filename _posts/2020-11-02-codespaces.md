@@ -94,7 +94,7 @@ This is just the tip of the iceberg.  There are additional utilities for [writin
 
 ## Give It A Try For Yourself
 
-To try out nbdev yourself, [take this tutorial](https://nbdev.fast.ai/tutorial.html), which will walk you through everything you need to know.  The tutorial also contains information about using a repository template, which will contain the configuration files you need to get started with Codespaces and nbdev.
+To try out nbdev yourself, [take this tutorial](https://nbdev.fast.ai/tutorial.html), which will walk you through everything you need to know.  The tutorial also shows you how to use a repository template with the configuration files necessary to enable Codespaces with nbdev.
 
 ## You Can Write Blogs With Notebooks, Too!
 
