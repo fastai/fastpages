@@ -1,5 +1,5 @@
 ---
-title: "nbdev + GitHub Codespaces: A New Literate Programming Environment"
+title: "[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment"
 description: How a new GitHub feature makes literate programming easier than ever before.
 comments: true
 hide: false
@@ -19,7 +19,7 @@ permalink: /codespaces
 </video>
 
 
-## DRAFT:  This Blog Post Is A Draft.  Please Do Not Publicize
+## WARNING:  This Blog Post Is A Draft.  Please Do Not Publicize!
 
 ## Introduction
 
