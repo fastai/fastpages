@@ -12,41 +12,30 @@ author: "<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='h
 permalink: /codespaces
 ---
 
-<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="" poster="https://github.githubassets.com/images/modules/site/codespaces/hero.jpg">
-          <source type="video/mp4; codecs=hevc,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.hevc.mp4">
-          <source type="video/mp4; codecs=av01.0.05M.08,opus" src="https://github.githubassets.com/images/modules/site/codespaces/hero.av1.mp4">
-          <source type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.h264.mp4">
-</video>
-
-
-## WARNING:  This Blog Post Is A Draft.  Please Do Not Publicize!
+**Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**  But first, what is literate programming?  And how did I got from a skeptic to a big fan of literate programming in a month?
 
 ## Introduction
 
 > Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.  According to Knuth, literate programming provides higher-quality programs by forcing programmers to explicitly state the thoughts behind the program.  This process makes poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one's thoughts during a program's creation. [^1]
 
-When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that [Jupyter notebooks](https://jupyter.org/) fully encapsulated literate programming.  While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:[^2]
+When I first learned about literate programming, I was quite skeptical.  For the longest time, I had wrongly equated [Jupyter notebooks](https://jupyter.org/) with literate programming.  Indeed, Jupyter is a brilliant interactive computing system, which was awarded the Association of Computing Machinery (ACM) [Software System Award](https://blog.jupyter.org/jupyter-receives-the-acm-software-system-award-d433b0dfe3a2), and is loved by many developers. However, Jupyter falls short of the literate programming paradigm for the following reasons:[^2]
 
 - It can be difficult to compile source code from notebooks.
 - It can be difficult to diff and use version control with notebooks because they are not stored in plain text.
 - It is not clear how to automatically generate documentation from notebooks.
 - It is not clear how to properly run tests suites when writing code in notebooks.
 
-That's when I discovered [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the [python library fastcore](https://fastcore.fast.ai/).  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  If something was impossible to explain, this was a sign that the code need to be refactored.  To my surprise, I have never enjoyed as much productivity (and fun) as a software developer prior to using the tools I describe in this blog post!
+My skepticism quickly evaporated when I began using [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev while contributing to the python library [fastcore](https://github.com/fastai/fastcore), and can report that Donald Knuth was definitely onto something.  The process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  Furthermore, the reduced cognitive load and speed of iteration of having documentation, code, and tests in one location boosted my productivity to levels I have never before experienced as a software developer.  Furthermore, I found that developing this way bolstered collaboration such that code reviews not only happened faster but were more meaningful.  In short, nbdev may be the most profound productivity tool I have ever used.  
 
-## nbdev: Literate Programming With Jupyter
+As a teaser, look how easy it is to instantiate this literate programming environment, which includes a notebook, docs site and IDE with all dependencies pre-installed! :point_down:
 
-**Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You'll even see how VSCode and Jupyter work together automatically!**
-
-To whet your appetite on how cool this is, below is a teaser of what is possible:
-
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e_small.mp4" %}
 
 <p><br></p>
 
-### Features of nbdev
+## Features of nbdev
 
-As listed in the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
+As discussed in the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
 
 - Searchable, hyperlinked documentation, which can be automatically hosted on [GitHub Pages](https://docs.github.com/en/github/working-with-github-pages) for free.
 - Python modules, following best practices such as [automatically defining `__all__`](http://xion.io/post/code/python-all-wild-imports.html) with your exported functions, classes, and variables.
@@ -67,7 +56,7 @@ Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https:/
 5. A shared file system, which facilitates editing code in one browser tab and rendering the results in another.
 6. ... [and more](https://docs.github.com/en/github/developing-online-with-codespaces).
 
-For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.
+Codespaces enables developers to immediately participate in a project without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.
 
 ## A demo of nbdev + Codespaces
 
@@ -85,13 +74,13 @@ If you are launching a fresh Codespace, it may take several minutes to set up. O
 
 Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open through VSCode as shown below:
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb_small.mp4" %}
 
 <p><br></p>
 
 In this case, these applications are a notebook and docs site.  Changes to a notebook are reflected immediately in the data docs.  Furthermore, we can use the cli command `nbdev_build_lib` to sync our notebooks with python modules.  This functionality is shown below:
 
-{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" %}
+{% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload_small.mp4" %}
 
 <p><br></p>
 
