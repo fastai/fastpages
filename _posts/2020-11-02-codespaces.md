@@ -94,9 +94,7 @@ This is just the tip of the iceberg.  There are additional utilities for [writin
 
 ## Give It A Try For Yourself
 
-To try out nbdev yourself, start with familiarizing yourself with the [nbdev docs](https://nbdev.fast.ai/) as well as the [video tutorial](https://youtu.be/Hrs7iEYmRmg).  When you are ready to write your own software with nbdev, see the [section in the docs regarding repo setup](https://nbdev.fast.ai/tutorial.html#Set-up-Repo).
-
-GitHub Codespaces can be configured with a [`.devcontainer.json`](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) configuration file.  Details on how to configure Codespaces for your repos can be found in [the official Codespaces docs](https://docs.github.com/en/github/developing-online-with-codespaces). While [nbdev_template](https://github.com/fastai/nbdev_template) (referenced in the setup section of the docs) already contains what you need to get started with nbdev, you might find it useful to customize your environment even further.
+To try out nbdev yourself, [take this tutorial](https://nbdev.fast.ai/tutorial.html), which will walk you through everything you need to know.  The tutorial also contains information about using a repository template, which will contain the configuration files you need to get started with Codespaces and nbdev.
 
 ## You Can Write Blogs With Notebooks, Too!
 
