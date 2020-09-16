@@ -61,29 +61,35 @@ window.onload = wrap_img;
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
         <label for="nav-trigger">
           <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
             </svg>
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
-      </nav></div>
+        <div class="trigger">
+<a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a>
+</div>
+      </nav>
+</div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment</h1><p class="page-description">How a new GitHub feature makes literate programming easier than ever before.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-02T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment</h1>
+<p class="page-description">How a new GitHub feature makes literate programming easier than ever before.</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-02T00:00:00-06:00" itemprop="datePublished">
         Nov 2, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name"><a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a></span></span>
+            <span class="p-author h-card" itemprop="name"><a href="https://twitter.com/HamelHusain">Hamel Husain</a> &amp; <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a></span></span>
        • <span class="read-time" title="Estimated read time">
     
     
@@ -92,10 +98,10 @@ window.onload = wrap_img;
 </span></p>
 
     
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i> 
       
         <a class="category-tags-link" href="/categories/#codespaces">codespaces</a>
-        &nbsp;
+         
       
         <a class="category-tags-link" href="/categories/#nbdev">nbdev</a>
         
@@ -106,13 +112,7 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="" poster="https://github.githubassets.com/images/modules/site/codespaces/hero.jpg">
-          <source type="video/mp4; codecs=hevc,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.hevc.mp4" />
-          <source type="video/mp4; codecs=av01.0.05M.08,opus" src="https://github.githubassets.com/images/modules/site/codespaces/hero.av1.mp4" />
-          <source type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.h264.mp4" />
-</video>
-
-<h2 id="warning--this-blog-post-is-a-draft--please-do-not-publicize">WARNING:  This Blog Post Is A Draft.  Please Do Not Publicize!</h2>
+    <p><strong>Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You’ll even see how VSCode and Jupyter work together automatically!</strong>  But first, what is literate programming?  And how did I got from a skeptic to a big fan of literate programming in a month?</p>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -120,7 +120,7 @@ window.onload = wrap_img;
   <p>Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.  According to Knuth, literate programming provides higher-quality programs by forcing programmers to explicitly state the thoughts behind the program.  This process makes poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one’s thoughts during a program’s creation. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
 </blockquote>
 
-<p>When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that <a href="https://jupyter.org/">Jupyter notebooks</a> fully encapsulated literate programming.  While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
+<p>When I first learned about literate programming, I was quite skeptical.  For the longest time, I had wrongly equated <a href="https://jupyter.org/">Jupyter notebooks</a> with literate programming.  Indeed, Jupyter is a brilliant interactive computing system, which was awarded the Association of Computing Machinery (ACM) <a href="https://blog.jupyter.org/jupyter-receives-the-acm-software-system-award-d433b0dfe3a2">Software System Award</a>, and is loved by many developers. However, Jupyter falls short of the literate programming paradigm for the following reasons:<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
 
 <ul>
   <li>It can be difficult to compile source code from notebooks.</li>
@@ -129,23 +129,19 @@ window.onload = wrap_img;
   <li>It is not clear how to properly run tests suites when writing code in notebooks.</li>
 </ul>
 
-<p>That’s when I discovered <a href="https://nbdev.fast.ai/">nbdev</a>, a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the <a href="https://fastcore.fast.ai/">python library fastcore</a>.  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  If something was impossible to explain, this was a sign that the code need to be refactored.  To my surprise, I have never enjoyed as much productivity (and fun) as a software developer prior to using the tools I describe in this blog post!</p>
+<p>My skepticism quickly evaporated when I began using <a href="https://nbdev.fast.ai/">nbdev</a>, a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev while contributing to the python library <a href="https://github.com/fastai/fastcore">fastcore</a>, and can report that Donald Knuth was definitely onto something.  The process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  Furthermore, the reduced cognitive load and speed of iteration of having documentation, code, and tests in one location boosted my productivity to levels I have never before experienced as a software developer.  Furthermore, I found that developing this way bolstered collaboration such that code reviews not only happened faster but were more meaningful.  In short, nbdev may be the most profound productivity tool I have ever used.</p>
 
-<h2 id="nbdev-literate-programming-with-jupyter">nbdev: Literate Programming With Jupyter</h2>
-
-<p><strong>Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You’ll even see how VSCode and Jupyter work together automatically!</strong></p>
-
-<p>To whet your appetite on how cool this is, below is a teaser of what is possible:</p>
+<p>As a teaser, look how easy it is to instantiate this literate programming environment, which includes a notebook, docs site and IDE with all dependencies pre-installed! <img class="emoji" title=":point_down:" alt=":point_down:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png" height="20" width="20"></p>
 
 <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
-    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e.mp4" />
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e_small.mp4"></source>
 </video>
 
-<p><br /></p>
+<p><br></p>
 
-<h3 id="features-of-nbdev">Features of nbdev</h3>
+<h2 id="features-of-nbdev">Features of nbdev</h2>
 
-<p>As listed in the <a href="https://nbdev.fast.ai/">docs</a>, nbdev provides the following features:</p>
+<p>As discussed in the <a href="https://nbdev.fast.ai/">docs</a>, nbdev provides the following features:</p>
 
 <ul>
   <li>Searchable, hyperlinked documentation, which can be automatically hosted on <a href="https://docs.github.com/en/github/working-with-github-pages">GitHub Pages</a> for free.</li>
@@ -170,41 +166,41 @@ window.onload = wrap_img;
   <li>… <a href="https://docs.github.com/en/github/developing-online-with-codespaces">and more</a>.</li>
 </ol>
 
-<p>For <a href="https://github.com/fastai">fastai</a>, Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.</p>
+<p>Codespaces enables developers to immediately participate in a project without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.</p>
 
 <h2 id="a-demo-of-nbdev--codespaces">A demo of nbdev + Codespaces</h2>
 
 <p>This demo uses the project <a href="https://github.com/fastai/fastcore">fastai/fastcore</a>, which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:</p>
 
 <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
-    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4" />
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4"></source>
 </video>
 
-<p><br /></p>
+<p><br></p>
 
 <p>If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we want are installed (in this case <code class="language-plaintext highlighter-rouge">fastcore</code> and <code class="language-plaintext highlighter-rouge">nbdev</code>):</p>
 
 <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
-    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4" />
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4"></source>
 </video>
 
-<p><br /></p>
+<p><br></p>
 
 <p>Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open through VSCode as shown below:</p>
 
 <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
-    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb.mp4" />
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb_small.mp4"></source>
 </video>
 
-<p><br /></p>
+<p><br></p>
 
 <p>In this case, these applications are a notebook and docs site.  Changes to a notebook are reflected immediately in the data docs.  Furthermore, we can use the cli command <code class="language-plaintext highlighter-rouge">nbdev_build_lib</code> to sync our notebooks with python modules.  This functionality is shown below:</p>
 
 <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
-    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" />
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload_small.mp4"></source>
 </video>
 
-<p><br /></p>
+<p><br></p>
 
 <p>This is amazing!  With a click of a button, I was able to:</p>
 
@@ -233,30 +229,26 @@ window.onload = wrap_img;
   <li>The official <a href="https://docs.github.com/en/github/developing-online-with-codespaces">docs for Codespaces</a>.</li>
   <li>The nbdev <a href="https://nbdev.fast.ai/">docs</a>.</li>
   <li>The nbdev <a href="https://github.com/fastai/nbdev">GitHub repo</a>.</li>
-  <li><a href="https://github.com/fastai/fastpages">fastpages</a>: The project used to write this blog.</li>
+  <li>
+<a href="https://github.com/fastai/fastpages">fastpages</a>: The project used to write this blog.</li>
   <li>The GitHub repo <a href="https://github.com/fastai/fastcore">fastai/fastcore</a>, which is what we used in this blog post as an example.</li>
 </ol>
 
-<hr />
+<hr>
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1" role="doc-endnote">
-      <p>Wikipedia article: <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>Wikipedia article: <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
     <li id="fn:2" role="doc-endnote">
-      <p>This is not a criticism of Jupyter.  Jupyter doesn’t claim to be a full literate programming system.  However, people can sometimes (unfairly) judge Jupyter according to this criteria. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>This is not a criticism of Jupyter.  Jupyter doesn’t claim to be a full literate programming system.  However, people can sometimes (unfairly) judge Jupyter according to this criteria. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="fastai/fastpages"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+  </div>
+<!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js" repo="fastai/fastpages" issue-term="title" label="blogpost-comment" theme="github-light" crossorigin="anonymous" async>
 </script><a class="u-url" href="/codespaces" hidden></a>
 </article>
       </div>
@@ -280,7 +272,11 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links">
+<ul class="social-media-list">
+<li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li>
+<li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li>
+</ul>
 </div>
 
   </div>
