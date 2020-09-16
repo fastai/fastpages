@@ -27,7 +27,7 @@ When I first learned about literate programming, I was quite skeptical.  For the
 
 My skepticism quickly evaporated when I began using [nbdev](https://nbdev.fast.ai/), a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev while contributing to the python library [fastcore](https://github.com/fastai/fastcore), and can report that Donald Knuth was definitely onto something.  The process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  Furthermore, the reduced cognitive load and speed of iteration of having documentation, code, and tests in one location boosted my productivity to levels I have never before experienced as a software developer.  Furthermore, I found that developing this way bolstered collaboration such that code reviews not only happened faster but were more meaningful.  In short, nbdev may be the most profound productivity tool I have ever used.  
 
-As a teaser, look how easy it is to instantiate this literate programming environment, which includes a notebook, docs site and IDE with all dependencies pre-installed! :point_down:
+As a teaser, look how easy it is to instantiate this literate programming environment, which includes a notebook, a docs site and an IDE with all dependencies pre-installed! :point_down:
 
 {% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e_small.mp4" %}
 
