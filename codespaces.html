@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment" />
+<meta name="author" content="<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How a new GitHub feature makes literate programming easier than ever before." />
+<meta property="og:description" content="How a new GitHub feature makes literate programming easier than ever before." />
+<link rel="canonical" href="https://fastpages.fast.ai/codespaces" />
+<meta property="og:url" content="https://fastpages.fast.ai/codespaces" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/fastpages_posts/codespaces/codespaces.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-02T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://fastpages.fast.ai/codespaces","@type":"BlogPosting","headline":"[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment","dateModified":"2020-11-02T00:00:00-06:00","datePublished":"2020-11-02T00:00:00-06:00","image":"https://fastpages.fast.ai/images/fastpages_posts/codespaces/codespaces.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/codespaces"},"author":{"@type":"Person","name":"<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>"},"description":"How a new GitHub feature makes literate programming easier than ever before.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57531313-5','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[DRAFT - DO NOT SHARE] nbdev + GitHub Codespaces: A New Literate Programming Environment</h1><p class="page-description">How a new GitHub feature makes literate programming easier than ever before.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-02T00:00:00-06:00" itemprop="datePublished">
+        Nov 2, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name"><a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a></span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#codespaces">codespaces</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#nbdev">nbdev</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="" poster="https://github.githubassets.com/images/modules/site/codespaces/hero.jpg">
+          <source type="video/mp4; codecs=hevc,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.hevc.mp4" />
+          <source type="video/mp4; codecs=av01.0.05M.08,opus" src="https://github.githubassets.com/images/modules/site/codespaces/hero.av1.mp4" />
+          <source type="video/mp4; codecs=avc1.4D401E,mp4a.40.2" src="https://github.githubassets.com/images/modules/site/codespaces/hero.h264.mp4" />
+</video>
+
+<h2 id="warning--this-blog-post-is-a-draft--please-do-not-publicize">WARNING:  This Blog Post Is A Draft.  Please Do Not Publicize!</h2>
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+  <p>Literate programming is a programming paradigm introduced by Donald Knuth in which a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated.  According to Knuth, literate programming provides higher-quality programs by forcing programmers to explicitly state the thoughts behind the program.  This process makes poorly thought-out design decisions more obvious. Knuth also claims that literate programming provides a first-rate documentation system, which is not an add-on, but is grown naturally in the process of exposition of one’s thoughts during a program’s creation. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
+</blockquote>
+
+<p>When I first learned about literate programming, I was quite skeptical.  Software engineers seem to have a workflow that works well for them, so why should I believe there is anything else that works better?  However, I quickly realized that I have never had access to a literate programming system as a Python developer.  Furthermore, I wrongly assumed that <a href="https://jupyter.org/">Jupyter notebooks</a> fully encapsulated literate programming.  While Jupyter is a brilliant interactive computing system, it falls short of the literate programming paradigm for the following reasons:<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<ul>
+  <li>It can be difficult to compile source code from notebooks.</li>
+  <li>It can be difficult to diff and use version control with notebooks because they are not stored in plain text.</li>
+  <li>It is not clear how to automatically generate documentation from notebooks.</li>
+  <li>It is not clear how to properly run tests suites when writing code in notebooks.</li>
+</ul>
+
+<p>That’s when I discovered <a href="https://nbdev.fast.ai/">nbdev</a>, a project that extends notebooks to complete the literate programming ideal.  I spent a month, full time, using nbdev to overhaul the docs for the <a href="https://fastcore.fast.ai/">python library fastcore</a>.  I can report that Donald Knuth is definitely onto something.  Indeed, the process of writing prose and tests alongside code forced me to deeply understand why the code does what it does, and to think deeply about its design.  If something was impossible to explain, this was a sign that the code need to be refactored.  To my surprise, I have never enjoyed as much productivity (and fun) as a software developer prior to using the tools I describe in this blog post!</p>
+
+<h2 id="nbdev-literate-programming-with-jupyter">nbdev: Literate Programming With Jupyter</h2>
+
+<p><strong>Today, we are going to show you how to set up a literate programming environment, allowing you to use an IDE (VS Code) and an interactive computing environment (Jupyter), without leaving your browser, for free, with under 5 mins of setup. You’ll even see how VSCode and Jupyter work together automatically!</strong></p>
+
+<p>To whet your appetite on how cool this is, below is a teaser of what is possible:</p>
+
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/e2e.mp4" />
+</video>
+
+<p><br /></p>
+
+<h3 id="features-of-nbdev">Features of nbdev</h3>
+
+<p>According to the <a href="https://nbdev.fast.ai/">docs</a>, nbdev provides the following features:</p>
+
+<ul>
+  <li>Searchable, hyperlinked documentation, which can be automatically hosted on <a href="https://docs.github.com/en/github/working-with-github-pages">GitHub Pages</a> for free.</li>
+  <li>Python modules, following best practices such as <a href="http://xion.io/post/code/python-all-wild-imports.html">automatically defining <code class="language-plaintext highlighter-rouge">__all__</code></a> with your exported functions, classes, and variables.</li>
+  <li>Pip and Conda installers.</li>
+  <li>Tests defined directly in notebooks which run in parallel.  This testing system has been thoroughly tested with <a href="https://github.com/features/actions">GitHub Actions</a>.</li>
+  <li>Navigate and edit your code in a standard text editor or IDE, and export any changes automatically back into your notebooks.</li>
+</ul>
+
+<p>Since you are in a notebook, you can also add charts, text, links, images, videos, etc, that are included automatically in the documentation of your library, along with standardized documentation generated automatically from your code.  <a href="https://docs.fast.ai/">This site</a> is an example of docs generated automatically by nbdev.</p>
+
+<h2 id="github-codespaces">GitHub Codespaces</h2>
+
+<p>Thanks to <a href="https://docs.conda.io/en/latest/">Conda</a> and <a href="https://github.com/fastai/nbdev_template">nbdev_template</a>, setting up a development environment with nbdev is far easier than it used to be. However, we realized it could be even easier, thanks to a new GitHub product called <a href="https://github.com/features/codespaces">Codespaces</a>.  Codespaces is a fully functional development environment in your browser, accessible directly from GitHub, that provides the following features:</p>
+
+<ol>
+  <li>A full VS Code IDE.</li>
+  <li>An environment that has files from the repository mounted into the environment, along with your GitHub credentials.</li>
+  <li>A development environment with dependencies pre-installed, backed by <a href="https://www.docker.com/">Docker</a>.</li>
+  <li>The ability to serve additional applications on arbitrary ports.  For nbdev, we serve a Jupyter notebook server as well as a <a href="https://jekyllrb.com/">Jekyll</a> based documentation site.</li>
+  <li>A shared file system, which facilitates editing code in one browser tab and rendering the results in another.</li>
+  <li>… <a href="https://docs.github.com/en/github/developing-online-with-codespaces">and more</a>.</li>
+</ol>
+
+<p>For <a href="https://github.com/fastai">fastai</a>, Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.</p>
+
+<h2 id="a-demo-of-nbdev--codespaces">A demo of nbdev + Codespaces</h2>
+
+<p>This demo uses the project <a href="https://github.com/fastai/fastcore">fastai/fastcore</a>, which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:</p>
+
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4" />
+</video>
+
+<p><br /></p>
+
+<p>If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we wanted are installed (in this case <code class="language-plaintext highlighter-rouge">fastcore</code> and <code class="language-plaintext highlighter-rouge">nbdev</code>):</p>
+
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4" />
+</video>
+
+<p><br /></p>
+
+<p>Additionally, we can serve an arbitrary number of applications on user-specified ports, which we can open through VSCode as shown below:</p>
+
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/3_nb.mp4" />
+</video>
+
+<p><br /></p>
+
+<p>In this case, these applications are a notebook and docs site.  Changes to a notebook are reflected immediately in the data docs.  Furthermore, we can use the cli command <code class="language-plaintext highlighter-rouge">nbdev_build_lib</code> to sync our notebooks with python modules.  This functionality is shown below:</p>
+
+<video class="codespaces-hero-video d-block width-full bg-white" alt="Codespaces demo" playsinline="" muted="" loop="" autoplay="">
+    <source type="video/mp4" src="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" />
+</video>
+
+<p><br /></p>
+
+<p>This is amazing!  With a click of a button, I was able to:</p>
+
+<ol>
+  <li>Launch an IDE with all dependencies pre-installed.</li>
+  <li>Launch two additional applications: a Jupyter Notebook server on port 8080 and a docs site on port 4000.</li>
+  <li>Automatically update the docs and modules every time I make a change to a Jupyter notebook.</li>
+</ol>
+
+<p>This is just the tip of the iceberg.  There are additional utilities for <a href="https://nbdev.fast.ai/test.html">writing and executing tests</a>, <a href="https://nbdev.fast.ai/sync.html#Diff-notebook---library">diffing notebooks</a>, <a href="https://nbdev.fast.ai/magic_flags.html#How-do-comment-flags-correspond-to-magic-flags?">special flags</a> for hiding, showing, and collapsing cells in the docs, as well as <a href="https://nbdev.fast.ai/cli.html#nbdev_install_git_hooks">git hooks</a> for further automation.  This and more functionality is covered in <a href="https://nbdev.fast.ai/">the nbdev docs</a>.</p>
+
+<h2 id="give-it-a-try-for-yourself">Give It A Try For Yourself</h2>
+
+<p>To try out nbdev yourself, start with familiarizing yourself with the <a href="https://nbdev.fast.ai/">nbdev docs</a> as well as the <a href="https://youtu.be/Hrs7iEYmRmg">video tutorial</a>.  When you are ready to write your own software with nbdev, see the <a href="https://nbdev.fast.ai/tutorial.html#Set-up-Repo">section in the docs regarding repo setup</a>.</p>
+
+<p>GitHub Codespaces can be configured with a <a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference"><code class="language-plaintext highlighter-rouge">.devcontainer.json</code></a> configuration file.  Details on how to configure Codespaces for your repos can be found in <a href="https://docs.github.com/en/github/developing-online-with-codespaces">the official Codespaces docs</a>. While <a href="https://github.com/fastai/nbdev_template">nbdev_template</a> (referenced in the setup section of the docs) already contains what you need to get started with nbdev, you might find it useful to customize your environment even further.</p>
+
+<h2 id="you-can-write-blogs-with-notebooks-too">You Can Write Blogs With Notebooks, Too!</h2>
+
+<p>This blog post was written in <a href="https://github.com/fastai/fastpages">fastpages</a> which is also built on nbdev!  We recommend <a href="https://github.com/fastai/fastpages">fastpages</a> if you want an easy way to blog with Jupyter notebooks.</p>
+
+<h2 id="additional-resources">Additional Resources</h2>
+
+<ol>
+  <li>The <a href="https://github.com/features/codespaces">GitHub Codepaces site</a>.</li>
+  <li>The official <a href="https://docs.github.com/en/github/developing-online-with-codespaces">docs for Codespaces</a>.</li>
+  <li>The nbdev <a href="https://nbdev.fast.ai/">docs</a>.</li>
+  <li>The nbdev <a href="https://github.com/fastai/nbdev">GitHub repo</a>.</li>
+  <li><a href="https://github.com/fastai/fastpages">fastpages</a>: The project used to write this blog.</li>
+  <li>The GitHub repo <a href="https://github.com/fastai/fastcore">fastai/fastcore</a>, which is what we used in this blog post as an example.</li>
+</ol>
+
+<hr />
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Wikipedia article: <a href="https://en.wikipedia.org/wiki/Literate_programming">Literate Programming</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>This is not a criticism of Jupyter.  Jupyter doesn’t claim to be a full literate programming system.  However, people can sometimes (unfairly) judge Jupyter according to this criteria. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fastai/fastpages"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/codespaces" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
