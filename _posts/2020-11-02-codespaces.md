@@ -46,7 +46,7 @@ To whet your appetite on how cool this is, below is a teaser of what is possible
 
 ### Features of nbdev
 
-According to the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
+As listed in the [docs](https://nbdev.fast.ai/), nbdev provides the following features:
 
 - Searchable, hyperlinked documentation, which can be automatically hosted on [GitHub Pages](https://docs.github.com/en/github/working-with-github-pages) for free.
 - Python modules, following best practices such as [automatically defining `__all__`](http://xion.io/post/code/python-all-wild-imports.html) with your exported functions, classes, and variables.
@@ -77,7 +77,7 @@ This demo uses the project [fastai/fastcore](https://github.com/fastai/fastcore)
 
 <p><br></p>
 
-If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we wanted are installed (in this case `fastcore` and `nbdev`):
+If you are launching a fresh Codespace, it may take several minutes to set up. Once the environment is ready, we can verify that all dependencies we want are installed (in this case `fastcore` and `nbdev`):
 
 {% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/2_verify.mp4" %}
 
