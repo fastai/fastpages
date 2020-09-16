@@ -67,7 +67,7 @@ For [fastai](https://github.com/fastai), Codespaces enables developers to immedi
 
 ## A demo of nbdev + Codespaces
 
-This section uses the project [fastai/fastcore](https://github.com/fastai/fastcore), which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:
+This demo uses the project [fastai/fastcore](https://github.com/fastai/fastcore), which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:
 
 {% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/1_open.mp4" %}
 
