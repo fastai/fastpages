@@ -65,7 +65,7 @@ Thanks to [Conda](https://docs.conda.io/en/latest/) and [nbdev_template](https:/
 
 For [fastai](https://github.com/fastai), Codespaces enables developers to immediately participate without wasting time on DevOps or complicated setup steps.  Most importantly, CodeSpaces with nbdev allows developers to quickly get started with creating their own software with literate programming.
 
-## A Tour of nbdev + Codespaces
+## A demo of nbdev + Codespaces
 
 This section uses the project [fastai/fastcore](https://github.com/fastai/fastcore), which was built with nbdev, as an example.   First, we can navigate to this repo and launch a Codespace:
 
@@ -85,7 +85,7 @@ Additionally, we can serve an arbitrary number of applications on user-specified
 
 <p><br></p>
 
-In this case, these applications are a notebook and docs site.  If we make a change to the notebook this gets reflected immediately in the data docs.  This is perhaps the most exciting part of the setup that Codespaces automates for you!
+In this case, these applications are a notebook and docs site.  Changes to a notebook are reflected immediately in the data docs.  Furthermore, we can use the cli command `nbdev_build_lib` to sync our notebooks with python modules.  This functionality is shown below:
 
 {% include video.html url="https://github.com/machine-learning-apps/demo-videos/raw/master/codespaces-nbdev/4_reload.mp4" %}
 
@@ -95,7 +95,9 @@ This is amazing!  With a click of a button, I was able to:
 
 1. Launch an IDE with all dependencies pre-installed.
 2. Launch two additional applications: a Jupyter Notebook server on port 8080 and a docs site on port 4000.
-3. Automatically update the docs every time I make a change to a Jupyter notebook.
+3. Automatically update the docs and modules every time I make a change to a Jupyter notebook.
+
+This is just the tip of the iceberg.  There are additional utilities for [writing and executing tests](https://nbdev.fast.ai/test.html), [diffing notebooks](https://nbdev.fast.ai/sync.html#Diff-notebook---library), [special flags](https://nbdev.fast.ai/magic_flags.html#How-do-comment-flags-correspond-to-magic-flags?) for hiding, showing, and collapsing cells in the docs, as well as [git hooks](https://nbdev.fast.ai/cli.html#nbdev_install_git_hooks) for further automation.  This and more functionality is covered in [the nbdev docs](https://nbdev.fast.ai/).
 
 ## Give It A Try For Yourself
 
