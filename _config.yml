@@ -41,6 +41,9 @@ minima:
   social_links:
     twitter: fastdotai
     github: fastai
+    youtube: jekyll
+    linkedin: jekyll
+    
 
 # Set this to true to get LaTeX math equation support
 use_math: 
