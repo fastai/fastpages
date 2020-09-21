@@ -38,7 +38,7 @@ baseurl: "" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
-  social_links:
+  social_links: # see https://github.com/jekyll/minima#social-networks
     twitter: fastdotai
     github: fastai
     #youtube: jekyll
