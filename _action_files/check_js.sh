@@ -15,5 +15,5 @@ function compare {
             }  
 
 compare "https://unpkg.com/@primer/css/dist/primer.css" "https://cdn.jsdelivr.net/npm/@primer/css/dist/primer.css"
-compare "https://hypothes.is/embed.js" "https://cdn.jsdelivr.net/npm/hypothesis/build/boot.js"
+#compare "https://hypothes.is/embed.js" "https://cdn.jsdelivr.net/npm/hypothesis/build/boot.js"
 compare "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" "https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
