@@ -1,4 +1,4 @@
-name: Check CDNs
+name: Check CDN
 on: 
     schedule:
       - cron: '1 6 * * *'
