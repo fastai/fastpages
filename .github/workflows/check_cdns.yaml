@@ -1,0 +1,14 @@
+name: Check CDNs
+on: 
+    schedule:
+      - cron: '1 6 * * *'
+    workflow_dispatch: #allows you to trigger manually
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+      steps:
+        - name: make comment on PR if env does not exist
+          if: steps.get_status.outputs.status == 'public'
+          run: |
+           ./_action_files/check_js.sh
