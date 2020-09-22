@@ -8,4 +8,4 @@ jobs:
   run:
     runs-on: ubuntu-latest
       steps:
-          run: ./_action_files/check_js.sh
+        run: ./_action_files/check_js.sh
