@@ -8,7 +8,4 @@ jobs:
   run:
     runs-on: ubuntu-latest
       steps:
-        - name: make comment on PR if env does not exist
-          if: steps.get_status.outputs.status == 'public'
-          run: |
-           ./_action_files/check_js.sh
+          run: ./_action_files/check_js.sh
