@@ -2,10 +2,10 @@ name: Check CDNs
 on: 
     schedule:
       - cron: '1 6 * * *'
-    workflow_dispatch: #allows you to trigger manually
+    workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
-      steps:
-        run: ./_action_files/check_js.sh
+    steps:
+    - run: ./_action_files/check_js.sh
