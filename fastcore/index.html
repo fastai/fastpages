@@ -477,6 +477,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are many more ways of customizing and using <code>store_attr</code> than I highlighted here.  Check out <a href="https://fastcore.fast.ai/utils.html#store_attr">the docs</a> for more detail.</p>
+<p>P.S. you might be thinking that Python <a href="https://docs.python.org/3/library/dataclasses.html">dataclasses</a> also allow you to avoid this boilerplate.  While true in some cases, <code>store_attr</code> is more flexible.<sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup></p>
+<p><div class="footnotes"><p id="fn-1">1. For example, store_attr does not rely on inheritance, which means you won't get stuck using multiple inheritance when using this with your own classes.  Also, unlike dataclasses, store_attr does not require python 3.7 or higher.  Furthermore, you can use store_attr anytime in the object lifecycle, and in any location in your class to customize the behavior of how and when variables are stored.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
 
 </div>
 </div>
