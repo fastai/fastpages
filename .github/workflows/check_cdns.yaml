@@ -1,8 +1,8 @@
 name: Check CDN
 on: 
-    push:
-    schedule:
-      - cron: '1 7,14,21 * * *'
+#     push:
+#     schedule:
+#       - cron: '1 7,14,21 * * *'
     workflow_dispatch:
 
 jobs:
