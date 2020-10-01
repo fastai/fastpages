@@ -1,0 +1,12 @@
+name: Check CDN
+on: 
+    schedule:
+      - cron: '1 7,14,21 * * *'
+    workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - run: ./_action_files/check_js.sh
