@@ -1,5 +1,7 @@
 name: Setup
-on: [push, workflow_dispatch]
+on: 
+  issues:
+    types: [opened]
 
 jobs:
   setup:
