@@ -1,6 +1,5 @@
 name: Setup
-on: 
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   setup:
