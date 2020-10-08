@@ -3,7 +3,9 @@ on: [push, workflow_dispatch]
 
 jobs:
   setup:
-    if: (github.event.commits[0].message == 'initial commit') && (github.run_number == 1)
+    if: |
+      (github.repository != 'fastai/fastpages') &&
+      (github.event.issue.title == '[fastpages] Setup')   
     runs-on: ubuntu-latest
     steps:
 
