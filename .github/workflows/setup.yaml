@@ -1,9 +1,8 @@
 name: Setup
-on: push
+on: workflow_dispatch
 
 jobs:
   setup:
-    if: (github.event.commits[0].message == 'Initial commit') && (github.run_number == 1)
     runs-on: ubuntu-latest
     steps:
 
