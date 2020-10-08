@@ -88,6 +88,8 @@ See below for a more detailed list of features.
 
 2. Navigate to the Actions tab in your new reposotory and click on `Enable Actions on this repository`:
 
+    ![](_fastpages_docs/enable_actions.png)
+
 3. TODO
 
 3. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after you trigger the workflow.  Follow the instructions in that PR to continue.
