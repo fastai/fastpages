@@ -82,8 +82,6 @@ See below for a more detailed list of features.
 
 ## Setup Instructions
 
-:construction: I'm in the process of fixing this right now, check back in a couple of hours :construction:
-
 1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate).  Name your repo anything you like **except** {your-username}.github.io.
 
 2. (Illustrated in the gif below) Navigate to the Actions tab in your new reposotory and click on `Enable Actions on this repository`, then click on the `Setup` workflow on the list of actions on the left-hand side, then from the `Run workflow` dropdown select `Run workflow` (and leave the branch as master):
