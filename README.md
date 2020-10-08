@@ -88,7 +88,7 @@ See below for a more detailed list of features.
 
 2. (Illustrated in the gif below) Navigate to the Actions tab in your new reposotory and click on `Enable Actions on this repository`, then click on the `Setup` workflow on the list of actions on the left-hand side, then from the `Run workflow` dropdown select `Run workflow` (and leave the branch as master):
 
-    ![](_fastpages_docs/fastpages-setup.gif)
+    ![](_fastpages_docs/fastapges-setup.gif)
     
 > If you do not see the option to enable Actions, make sure you have third party actions enabled in your organization: **Settings -> Actions -> Actions Permissions -> Enable local and third party Actions for this repository**
 
