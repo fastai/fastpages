@@ -112,7 +112,7 @@ jobs:
 
     - name: commit changes
       run: |
-        git config --global user.email "${GH_EMAIL}"
+        git config --global user.email "${GH_USERNAME}@users.noreply.github.com"
         git config --global user.name "${GH_USERNAME}"
         git checkout -B fastpages-automated-setup
         git rm CNAME action.yml
@@ -130,8 +130,7 @@ jobs:
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
-        GH_EMAIL: ${{ github.event.commits[0].author.email }}
-        GH_USERNAME: ${{ github.event.commits[0].author.username }}
+        GH_USERNAME: ${{ github.event.issue.user.login }}
 
     - name: Open a PR
       id: pr
