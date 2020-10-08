@@ -19,7 +19,6 @@ jobs:
         path: ${{ github.event_path }}
 
   setup:
-    if: 1 == 2
     runs-on: ubuntu-latest
     steps:
 
@@ -96,11 +95,11 @@ jobs:
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
-        GH_USERNAME: ${{ github.event.issue.user.login }}
+        GH_USERNAME: ${{ github.event.sender.login }}
 
     - name: Open a PR
       id: pr
-      uses: actions/github-script@0.5.0
+      uses: actions/github-script@v3
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
