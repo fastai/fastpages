@@ -359,7 +359,7 @@ annotations: false
 
 ## Subscribing with RSS
 
-You can direct your readers to subscribe with [RSS feeds](https://en.wikipedia.org/wiki/RSS).  There are [many RSS subscription services](https://www.google.com/search?q=free+rss+subscription+service&oq=free+rss+subscription+service) available on the internet.  Some examples include:
+You can direct your readers to subscribe with [RSS feeds](https://en.wikipedia.org/wiki/RSS).  There are many RSS subscription services available on the internet.  Some examples include:
 
 1. [Feedrabbit](https://feedrabbit.com/)
 2. [Blogtrottr](https://blogtrottr.com/)
