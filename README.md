@@ -85,14 +85,11 @@ See below for a more detailed list of features.
 
 1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate).  Name your repo anything you like **except** {your-username}.github.io.
 
-2. (Illustrated in the gif below) Navigate to the Actions tab in your new reposotory and click on `Enable Actions on this repository`, then click on the `Setup` workflow on the list of actions on the left-hand side, then from the `Run workflow` dropdown select `Run workflow` (and leave the branch as master):
+2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
-    ![](_fastpages_docs/fastapges-setup.gif)
-    
-> If you do not see the option to enable Actions, make sure you have third party actions enabled in your organization: **Settings -> Actions -> Actions Permissions -> Enable local and third party Actions for this repository**
+>If you are not seeing a PR, please make sure you have third party actions enabled in your organization: **Settings -> Actions -> Actions Permissions -> Enable local and third party Actions for this repository**
 
-
-3. **GitHub Actions will automatically open a PR** on your new repository after you trigger the workflow.  Follow the instructions in that PR to continue.
+For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
 ## Customizing Blog Posts With Front Matter
 
