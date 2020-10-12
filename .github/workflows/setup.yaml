@@ -1,24 +1,9 @@
 name: Setup
-on: 
-  workflow_dispatch:
+on: push
 
 jobs:
-  debug: 
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: see payload
-      run: |
-        echo "FULL PAYLOAD:\n${PAYLOAD}\n"
-      env:
-        PAYLOAD: ${{ toJSON(github.event) }}
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: payload
-        path: ${{ github.event_path }}
-
   setup:
+    if: (github.event.commits[0].message == 'Initial commit') && (github.run_number == 1)
     runs-on: ubuntu-latest
     steps:
 
@@ -77,7 +62,7 @@ jobs:
 
     - name: commit changes
       run: |
-        git config --global user.email "${GH_USERNAME}@users.noreply.github.com"
+        git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
         git checkout -B fastpages-automated-setup
         git rm CNAME action.yml
@@ -95,11 +80,11 @@ jobs:
         git commit -m'setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
       env: 
-        GH_USERNAME: ${{ github.event.sender.login }}
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: Open a PR
-      id: pr
-      uses: actions/github-script@v3
+      uses: actions/github-script@0.5.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
@@ -113,5 +98,3 @@ jobs:
                         base: 'master',
                         body: `${contents}`
                         })
-                        .then(result => console.log(`::set-output name=pr_num::${result.data.number}`))
-
