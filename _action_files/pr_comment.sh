@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Make a comment on a PR.
 # Usage:
@@ -18,9 +18,9 @@ if [[ -z "${ISSUE_NUMBER}" ]]; then
 fi
 
 if [ -z "$1" ]
-  then
-    echo "No MESSAGE argument supplied.  Usage: issue_comment.sh <message>"
-    exit 1
+then
+	echo "No MESSAGE argument supplied.  Usage: issue_comment.sh <message>"
+	exit 1
 fi
 
 MESSAGE=$1
@@ -33,7 +33,7 @@ AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
 # Create a comment with APIv3 # POST /repos/:owner/:repo/issues/:issue_number/comments
 curl -XPOST -sSL \
-    -d "{\"body\": \"$MESSAGE\"}" \
-    -H "${AUTH_HEADER}" \
-    -H "${API_HEADER}" \
-    "${URI}/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}/comments"
+	-d "{\"body\": \"$MESSAGE\"}" \
+	-H "${AUTH_HEADER}" \
+	-H "${API_HEADER}" \
+	"${URI}/repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}/comments"
