@@ -417,7 +417,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ouch! That was painful.  Look at all the repeated variable names.  Do I really have to repeat myself like this when defining a class?  Not Anymore!  Checkout <a href="https://fastcore.fast.ai/utils.html#store_attr">store_attr</a>:</p>
+<p>Ouch! That was painful.  Look at all the repeated variable names.  Do I really have to repeat myself like this when defining a class?  Not Anymore!  Checkout <a href="https://fastcore.fast.ai/basics.html#store_attr">store_attr</a>:</p>
 
 </div>
 </div>
@@ -476,7 +476,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are many more ways of customizing and using <code>store_attr</code> than I highlighted here.  Check out <a href="https://fastcore.fast.ai/utils.html#store_attr">the docs</a> for more detail.</p>
+<p>There are many more ways of customizing and using <code>store_attr</code> than I highlighted here.  Check out <a href="https://fastcore.fast.ai/basics.html#store_attr">the docs</a> for more detail.</p>
 <p>P.S. you might be thinking that Python <a href="https://docs.python.org/3/library/dataclasses.html">dataclasses</a> also allow you to avoid this boilerplate.  While true in some cases, <code>store_attr</code> is more flexible.<sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup></p>
 <p><div class="footnotes"><p id="fn-1">1. For example, store_attr does not rely on inheritance, which means you won't get stuck using multiple inheritance when using this with your own classes.  Also, unlike dataclasses, store_attr does not require python 3.7 or higher.  Furthermore, you can use store_attr anytime in the object lifecycle, and in any location in your class to customize the behavior of how and when variables are stored.<a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
 
@@ -842,7 +842,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://fastcore.fast.ai/utils.html#partialler">fastcore.utils.partialler</a> fixes this, and makes sure the docstring is retained such that the new API is transparent:</p>
+<p><a href="https://fastcore.fast.ai/basics.html#partialler">fastcore.utils.partialler</a> fixes this, and makes sure the docstring is retained such that the new API is transparent:</p>
 
 </div>
 </div>
@@ -981,7 +981,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For more information about <code>compose</code>, read <a href="https://fastcore.fast.ai/utils.html#compose">the docs</a>.</p>
+<p>For more information about <code>compose</code>, read <a href="https://fastcore.fast.ai/basics.html#compose">the docs</a>.</p>
 <hr />
 
 </div>
@@ -1032,7 +1032,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can use <a href="https://fastcore.fast.ai/utils.html#basic_repr">basic_repr</a> to quickly give us a more sensible default:</p>
+<p>We can use <a href="https://fastcore.fast.ai/basics.html#basic_repr">basic_repr</a> to quickly give us a more sensible default:</p>
 
 </div>
 </div>
@@ -1154,7 +1154,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
-<h2 id="A-better-pathlib.Path">A better pathlib.Path<a class="anchor-link" href="#A-better-pathlib.Path"> </a></h2><p>When you see <a href="https://fastcore.fast.ai/utils.html#Extensions-to-Pathlib.Path">these extensions</a> to pathlib.path you won't ever use vanilla pathlib again! A number of additional methods have been added to pathlib, such as:</p>
+<h2 id="A-better-pathlib.Path">A better pathlib.Path<a class="anchor-link" href="#A-better-pathlib.Path"> </a></h2><p>When you see <a href="https://fastcore.fast.ai/xtras.html#Extensions-to-Pathlib.Path">these extensions</a> to pathlib.path you won't ever use vanilla pathlib again! A number of additional methods have been added to pathlib, such as:</p>
 <ul>
 <li><code>Path.readlines</code>: same as <code>with open('somefile', 'r') as f: f.readlines()</code></li>
 <li><code>Path.read</code>: same as <code>with open('somefile', 'r') as f: f.read()</code></li>
@@ -1163,7 +1163,7 @@ window.onload = wrap_img;
 <li><code>Path.ls</code>: shows the contents of the path as a list. </li>
 <li>etc.</li>
 </ul>
-<p><a href="https://fastcore.fast.ai/utils.html#Extensions-to-Pathlib.Path">Read more about this here</a>.  Here is a demonstration of <code>ls</code>:</p>
+<p><a href="https://fastcore.fast.ai/xtras.html#Extensions-to-Pathlib.Path">Read more about this here</a>.  Here is a demonstration of <code>ls</code>:</p>
 
 </div>
 </div>
@@ -1388,7 +1388,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Read more about <code>Self</code> in <a href="https://fastcore.fast.ai/utils.html#Self-(with-an-uppercase-S">the docs</a>).</p>
+<p>Read more about <code>Self</code> in <a href="https://fastcore.fast.ai/basics.html#Self-(with-an-uppercase-S">the docs</a>).</p>
 
 </div>
 </div>
@@ -1623,27 +1623,27 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="But-Wait-...-There's-More!">But Wait ... There's More!<a class="anchor-link" href="#But-Wait-...-There's-More!"> </a></h1><p><img src="/images/copied_from_nb/fastcore_imgs/bwtm.jpg" alt="" /></p>
 <p>There are more things I would like to show you about fastcore, but there is no way they would reasonably fit into a blog post.  Here is a list of some of my favorite things that I didn't demo in this blog post:</p>
-<h2 id="Utilities">Utilities<a class="anchor-link" href="#Utilities"> </a></h2><p>The <a href="https://fastcore.fast.ai/utils.html">Utilites</a> section contain many shortcuts to perform common tasks or provide an additional interface to what standard python provides.</p>
+<h2 id="Utilities">Utilities<a class="anchor-link" href="#Utilities"> </a></h2><p>The <a href="https://fastcore.fast.ai/basics.html">Basics</a> section contain many shortcuts to perform common tasks or provide an additional interface to what standard python provides.</p>
 <ul>
-<li><a href="https://fastcore.fast.ai/utils.html#mk_class">mk_class</a>: quickly add a bunch of attributes to a class</li>
-<li><a href="https://fastcore.fast.ai/utils.html#wrap_class">wrap_class</a>: add new methods to a class with a simple decorator</li>
-<li><a href="https://fastcore.fast.ai/utils.html#groupby">groupby</a>: similar to Scala's groupby</li>
-<li><a href="https://fastcore.fast.ai/utils.html#merge">merge</a>: merge dicts</li>
-<li><a href="https://fastcore.fast.ai/utils.html#fastuple">fasttuple</a>: a tuple on steroids</li>
-<li><a href="https://fastcore.fast.ai/utils.html#Infinite-Lists">Infinite Lists</a>: useful for padding and testing</li>
-<li><a href="https://fastcore.fast.ai/utils.html#chunked">chunked</a>: for batching and organizing stuff</li>
+<li><a href="https://fastcore.fast.ai/basics.html#mk_class">mk_class</a>: quickly add a bunch of attributes to a class</li>
+<li><a href="https://fastcore.fast.ai/basics.html#wrap_class">wrap_class</a>: add new methods to a class with a simple decorator</li>
+<li><a href="https://fastcore.fast.ai/basics.html#groupby">groupby</a>: similar to Scala's groupby</li>
+<li><a href="https://fastcore.fast.ai/basics.html#merge">merge</a>: merge dicts</li>
+<li><a href="https://fastcore.fast.ai/basics.html#fastuple">fasttuple</a>: a tuple on steroids</li>
+<li><a href="https://fastcore.fast.ai/basics.html#Infinite-Lists">Infinite Lists</a>: useful for padding and testing</li>
+<li><a href="https://fastcore.fast.ai/basics.html#chunked">chunked</a>: for batching and organizing stuff</li>
 </ul>
-<h2 id="Multiprocessing">Multiprocessing<a class="anchor-link" href="#Multiprocessing"> </a></h2><p>The <a href="http://fastcore.fast.ai/utils.html#Multiprocessing">Multiprocessing section</a> extends python's multiprocessing library by offering features like:</p>
+<h2 id="Multiprocessing">Multiprocessing<a class="anchor-link" href="#Multiprocessing"> </a></h2><p>The <a href="http://fastcore.fast.ai/xtras.html#Multiprocessing">Multiprocessing section</a> extends python's multiprocessing library by offering features like:</p>
 <ul>
 <li>progress bars</li>
 <li>ability to pause to mitigate race conditions with external services</li>
 <li>processing things in batches on each worker, ex: if you have a vectorized operation to perform in chunks</li>
 </ul>
-<h2 id="Functional-Programming">Functional Programming<a class="anchor-link" href="#Functional-Programming"> </a></h2><p>The <a href="http://fastcore.fast.ai/utils.html#Functions-on-Functions">functional programming section</a> is my favorite part of this library.</p>
+<h2 id="Functional-Programming">Functional Programming<a class="anchor-link" href="#Functional-Programming"> </a></h2><p>The <a href="https://fastcore.fast.ai/basics.html#Functions-on-Functions">functional programming section</a> is my favorite part of this library.</p>
 <ul>
-<li><a href="https://fastcore.fast.ai/utils.html#maps">maps</a>:  a map that also composes functions</li>
-<li><a href="https://fastcore.fast.ai/utils.html#mapped">mapped</a>: A more robust <code>map</code> </li>
-<li><a href="https://fastcore.fast.ai/utils.html#using_attr">using_attr</a>:  compose a function that operates on an attribute</li>
+<li><a href="https://fastcore.fast.ai/basics.html#maps">maps</a>:  a map that also composes functions</li>
+<li><a href="https://fastcore.fast.ai/xtras.html#mapped">mapped</a>: A more robust <code>map</code> </li>
+<li><a href="https://fastcore.fast.ai/basics.html#using_attr">using_attr</a>:  compose a function that operates on an attribute</li>
 </ul>
 <h2 id="Transforms">Transforms<a class="anchor-link" href="#Transforms"> </a></h2><p><a href="https://fastcore.fast.ai/transform.html">Transforms</a> is a collection of utilities for creating data transformations and associated pipelines. These transformation utilities build upon many of the building blocks discussed in this blog post.</p>
 <h2 id="Further-Reading">Further Reading<a class="anchor-link" href="#Further-Reading"> </a></h2><p><strong>It should be noted that you should read the <a href="https://fastcore.fast.ai/">main page of the docs</a> first, followed by the section on <a href="https://fastcore.fast.ai/">tests</a> to fully understand the documentation.</strong></p>
