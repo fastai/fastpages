@@ -59,6 +59,7 @@ See below for a more detailed list of features.
   - [Annotations and Highlighting With hypothes.is](#annotations-and-highlighting-with-hypothes.is)
   - [Subscribing with RSS](#subscribing-with-rss)
   - [Syntax Highlighting](#syntax-highlighting)
+  - [Dark Mode](#dark-mode)
   - [Adding Citations via BibTeX](#adding-citations-via-bibtex)
   - [Writing Blog Posts With Jupyter](#writing-blog-posts-with-jupyter)
     - [Hide Input/Output Cells](#hide-inputoutput-cells)
@@ -378,6 +379,10 @@ You can direct your readers to subscribe with [RSS feeds](https://en.wikipedia.o
   @import "minima/fastpages-dracula-highlight";
   ```
 - If you don't like either of these themes, you can add your own CSS in [`_sass/minima/custom-styles.scss`](_sass/minima/custom-styles.scss).  See [customizing fastpages](#customizing-fastpages) for more details.
+
+## Dark Mode
+
+[This blog post](https://prudhvirampey.com/blog/colours/jekyll/css/fastpages/2020/10/30/hello-dark-mode.html) describes how to enable Dark Mode for fastpages.
 
 ## Adding Citations via BibTeX
 
