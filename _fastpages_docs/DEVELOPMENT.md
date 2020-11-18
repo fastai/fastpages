@@ -100,9 +100,3 @@ make bash-nb
 _Note: you can use `docker-compose run` instead of `make bash-nb` or `make bash-jekyll` to start a service and then attach to it.
 Or you can run all your services in the background, `make server-detached`, and then use `make bash-nb` or `make bash-jekyll` as in the examples above._
 
-## Running A Jupyter Server
-
-The fastpages development environment does not provide a Jupyter server for you.  This is intentional so that you are free to run Jupyter Notebooks or Jupyter Lab in a manner that is familiar to you, and manage dependencies (requirements.txt, conda, etc) in the way you wish.  Some tips that may make your life easier:
-
-- Provide instructions in your README and your blog posts on how to install the dependencies required to run your notebooks.  This will make it easier for your audience to reproduce your notebooks.
-- Do not edit the Dockerfile in `/_action_files`, as that may interfere with the blogging environment.  Furthermore, any changes you make to these files may get lost in future upgrades, if [upgrading automatically](UPGRADE.md).  Instead, if you wish to manage your Jupyter server with Docker, we recommend that you maintain a seperate Dockerfile at the root of your repository.
