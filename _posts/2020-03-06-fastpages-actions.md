@@ -104,7 +104,7 @@ The best to way familiarize yourself with Actions is by studying examples.  Letâ
 
 ### Part 1: Define Workflow Triggers
 
- blog, [defined in ci.yaml](https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml).  Like all Actions workflows, this is YAML file is located in the .github/workflows directory of the GitHub repo.
+First, we define triggers in [ci.yaml](https://github.com/fastai/fastpages/blob/master/.github/workflows/ci.yaml). Like all Actions workflows, this is a YAML file located in the .github/workflows directory of the GitHub repo.
 
 The top of this YAML file looks like this:
 
