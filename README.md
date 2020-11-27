@@ -192,6 +192,8 @@ This option works for **notebooks only**
 show_tags: true
 ```
 
+**Note: Adding categories changes a blog post's url.  We recommend specifying a [permalink](https://jekyllrb.com/docs/permalinks/) in your front matter** to achieve a consistent url that will not change if you add or remove categories.
+
 ### Enabling Comments
 
 Commenting on blog posts is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
