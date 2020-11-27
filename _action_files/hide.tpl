@@ -24,7 +24,12 @@
 {% endblock input_group %}
 
 {% block output_group -%}
-{%- if cell.metadata.hide_output -%}
+{%- if cell.metadata.collapse_output -%}
+    <details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>{{ super() }}</p>
+    </details>
+{%- elif cell.metadata.hide_output -%}
 {%- else -%}
     {{ super()  }}
 {%- endif -%}

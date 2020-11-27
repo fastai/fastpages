@@ -404,6 +404,7 @@ You may want some code to be hidden in a collapsed element that the user can exp
 
 - To include code in a collapsable cell that **is collapsed by default**, place the comment `#collapse` at the top of the code cell.
 - To include code in a collapsable cell that **is open by default**, place the comment `#collapse_show` or `#collapse-show` at the top of the code cell.
+- To include the output under a collapsable element that is closed by default, place the comment `#collapse_output` or `#collapse-output` at the top of the code cell.
 
 ### Embedded Twitter and YouTube Content
 In a markdown cell in your notebook, use the following markdown shortcuts to embed Twitter cards and YouTube Videos.
