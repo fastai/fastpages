@@ -81,7 +81,6 @@ html_escape:
 
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -118,5 +117,5 @@ kramdown:
 
 # to limit size of xml as it can grow quite large.
 feed:
-  posts_limit: 5 #default posts_limit: 10
+  posts_limit: 2 #default posts_limit: 10
   excerpt_only: true

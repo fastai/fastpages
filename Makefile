@@ -50,4 +50,4 @@ restart-jekyll: .FORCE
 	docker-compose restart jekyll
 
 .FORCE:
-	chmod -R u+rwx .
+	chmod -R u+rw .

@@ -8,15 +8,17 @@ jobs:
     steps:
 
     - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
+      uses: actions/setup-python@v2
 
     - name: Copy Repository Contents
       uses: actions/checkout@v2
 
+    - name: Install dependencies
+      run: pip install ghapi
+        
     - name: modify files
       run: |
+        from ghapi import GhApi
         import re, os
         from pathlib import Path
         from configparser import ConfigParser
@@ -25,6 +27,10 @@ jobs:
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
         baseurl = '' if repo_name == f'{username}.github.io' else f'/{repo_name}'
+
+        api = GhApi(owner=username, repo=repo_name, token="${{secrets.GITHUB_TOKEN}}")
+        api.enable_pages(branch="gh-pages", path="/")
+
         readme_template_path = Path('_fastpages_docs/README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
@@ -85,7 +91,7 @@ jobs:
         GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: Open a PR
-      uses: actions/github-script@0.5.0
+      uses: actions/github-script@v3
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |

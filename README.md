@@ -192,6 +192,8 @@ This option works for **notebooks only**
 show_tags: true
 ```
 
+**Note: Adding categories changes a blog post's url.  We recommend specifying a [permalink](https://jekyllrb.com/docs/permalinks/) in your front matter** to achieve a consistent url that will not change if you add or remove categories.
+
 ### Enabling Comments
 
 Commenting on blog posts is powered by [Utterances](https://github.com/utterance/utterances), an open-source and ad-free way of implementing comments.  All comments are stored in issues on your blog's GitHub repo.  You can turn this on setting `comments` to  `true`.  This defaults to `false`.
@@ -404,6 +406,7 @@ You may want some code to be hidden in a collapsed element that the user can exp
 
 - To include code in a collapsable cell that **is collapsed by default**, place the comment `#collapse` at the top of the code cell.
 - To include code in a collapsable cell that **is open by default**, place the comment `#collapse_show` or `#collapse-show` at the top of the code cell.
+- To include the output under a collapsable element that is closed by default, place the comment `#collapse_output` or `#collapse-output` at the top of the code cell.
 
 ### Embedded Twitter and YouTube Content
 In a markdown cell in your notebook, use the following markdown shortcuts to embed Twitter cards and YouTube Videos.
