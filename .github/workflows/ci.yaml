@@ -12,7 +12,6 @@ jobs:
     if: ( github.event.commits[0].message != 'Initial commit' ) || github.run_number > 1
     runs-on: ubuntu-latest
     steps:
-
     - name: Copy Repository Contents
       uses: actions/checkout@main
       with:
@@ -44,3 +43,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
+        publish_branch: gh-pages 

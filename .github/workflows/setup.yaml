@@ -8,15 +8,17 @@ jobs:
     steps:
 
     - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
+      uses: actions/setup-python@v2
 
     - name: Copy Repository Contents
       uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: pip install ghapi
         
     - name: modify files
       run: |
+        from ghapi import GhApi
         import re, os
         from pathlib import Path
         from configparser import ConfigParser
@@ -24,6 +26,11 @@ jobs:
 
         nwo = os.getenv('GITHUB_REPOSITORY')
         username, repo_name = nwo.split('/')
+        baseurl = '' if repo_name == f'{username}.github.io' else f'/{repo_name}'
+
+        api = GhApi(owner=username, repo=repo_name, token="${{secrets.GITHUB_TOKEN}}")
+        api.enable_pages(branch="gh-pages", path="/")
+
         readme_template_path = Path('_fastpages_docs/README_TEMPLATE.md')
         readme_path = Path('README.md')
         config_path = Path('_config.yml')
@@ -35,28 +42,28 @@ jobs:
         assert config_path.exists(), 'Did not find _config.yml in the current directory!'
         assert pr_msg_path.exists(), 'Did not find _fastpages_docs/_setup_pr_template.md in the current directory!'
         assert settings.exists(), 'Did not find _action_files/settings.ini in the current directory!'
-        
+
         # edit settings.ini file to inject baseurl
         config.read(settings)
-        config['DEFAULT']['baseurl'] = f'/{repo_name}'
+        config['DEFAULT']['baseurl'] = baseurl
         with open('_action_files/settings.ini', 'w') as configfile:
           config.write(configfile)
 
         # replace content of README with template
-        readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name).replace('{_baseurl_}', baseurl)
         readme_path.write_text(readme)
-        
+
         # update _config.yml
         cfg = config_path.read_text()
         cfg = re.sub(r'^(github_username: )(fastai)', fr'\g<1>{username}', cfg, flags=re.MULTILINE)
-        cfg = re.sub(r'^(baseurl: )("")', r'\1"/{}"'.format(repo_name), cfg, flags=re.MULTILINE)
-        cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
+        cfg = re.sub(r'^(baseurl: )("")', fr'\1"{baseurl}"', cfg, flags=re.MULTILINE)
+        cfg = re.sub(r'^(github_repo: ")(fastpages)', fr'\1{repo_name}', cfg, flags=re.MULTILINE)
         cfg = re.sub(r'^(url: "https://)(fastpages.fast.ai)(")', fr'\g<1>{username}.github.io\3', cfg, flags=re.MULTILINE)
         cfg = re.sub('UA-57531313-5', '', cfg, flags=re.MULTILINE)
         config_path.write_text(cfg)
 
         # prepare the pr message
-        pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+        pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name).replace('{_baseurl_}', baseurl)
         pr_msg_path.write_text(pr)
       shell: python
 
@@ -77,14 +84,14 @@ jobs:
         git rm .github/ISSUE_TEMPLATE/feature_request.md
         git rm _word/*.docx
         git add _config.yml README.md _fastpages_docs/ _action_files/settings.ini
-        git commit -m'setup repo'
+        git commit -m 'Setup repo'
         git push -f --set-upstream origin fastpages-automated-setup
-      env: 
+      env:
         GH_EMAIL: ${{ github.event.commits[0].author.email }}
         GH_USERNAME: ${{ github.event.commits[0].author.username }}
 
     - name: Open a PR
-      uses: actions/github-script@0.5.0
+      uses: actions/github-script@v3
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |

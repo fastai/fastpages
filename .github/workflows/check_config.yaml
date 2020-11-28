@@ -22,17 +22,17 @@ jobs:
         from pathlib import Path
         from configparser import ConfigParser
         settings = ConfigParser()
-        
+
         config_path = Path('_config.yml')
         settings_path = Path('_action_files/settings.ini')
-        
+
         assert config_path.exists(), 'Did not find _config.yml in the current directory!'
         assert settings_path.exists(), 'Did not find _action_files/settings.ini in the current directory!'
-        
+
         settings.read(settings_path)
         with open('_config.yml') as f:
             config = yaml.safe_load(f)
-            
+
         errmsg = f"The value set for baseurl in _action_files/settings.ini and _config.yml are not identical. Please fix and try again."
         assert config['baseurl'] == settings['DEFAULT']['baseurl'], errmsg
       shell: python
@@ -54,25 +54,3 @@ jobs:
       env:
         ERROR_STRING: "You have not configured your baseurl correctly, please read the instructions in _config.yml carefully."
         RUN_ID: ${{ github.run_id	}}
-
-    - name: check for User Pages
-      id: userpage
-      run: |
-        import os
-        nwo = os.getenv('GITHUB_REPOSITORY')
-        errmsg = "fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details."
-        assert ".github.io" not in nwo, errmsg
-      shell: python
-
-    - name: Create Issue if User Pages rule is violated
-      if: steps.userpage.outcome == 'failure'
-      uses: actions/github-script@0.6.0
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          github.issues.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            title: "Error with repository configuration: repo name",
-            body: 'fastpages does not support User Pages or repo names that end with github.io, please see https://forums.fast.ai/t/fastpages-replacing-main-username-github-io-page-w-fastpages/64316/3 for more details.'
-          })

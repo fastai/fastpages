@@ -19,7 +19,7 @@ Hello :wave: @{_username_}!  Thank you for using fastpages!
 
 If you are not using a custom domain, your website will appear at: 
 
-#### https://{_username_}.github.io/{_repo_name_}
+#### https://{_username_}.github.io{_baseurl_}
 
 
 ## Optional: Using a Custom Domain
