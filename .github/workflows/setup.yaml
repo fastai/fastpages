@@ -68,11 +68,16 @@ jobs:
         git rm CNAME action.yml
         git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
         git rm _notebooks/2020-09-01-fastcore.ipynb || true
+        git rm _notebooks/2020-11-17-linkcheck.ipynb || true
+        git rm -rf _notebooks/fastcore_imgs
+        git rm -rf _notebooks/fastlinkcheck_images
         git rm _posts/2020-03-06-fastpages-actions.md
         git rm _posts/*codespaces.md || true
         git rm -rf images/fastpages_posts
         git rm .github/workflows/chatops.yaml
         git rm .github/workflows/docker.yaml
+        git rm .github/workflows/issue-reminder.yaml
+        git rm .github/workflows/setup.yaml
         git rm .github/ISSUE_TEMPLATE/bug.md
         git rm .github/ISSUE_TEMPLATE/feature_request.md
         git rm _word/*.docx
