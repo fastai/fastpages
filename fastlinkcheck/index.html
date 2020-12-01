@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Introducing fastlinkcheck | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Introducing fastlinkcheck" />
+<meta name="author" content="<a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a> and <a href='https://twitter.com/HamelHusain'>Hamel Husain</a>" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Say goodbye broken links on your static sites. Platform independent, fast, and built in python." />
+<meta property="og:description" content="Say goodbye broken links on your static sites. Platform independent, fast, and built in python." />
+<link rel="canonical" href="https://fastpages.fast.ai/fastlinkcheck/" />
+<meta property="og:url" content="https://fastpages.fast.ai/fastlinkcheck/" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:image" content="https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-17T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://fastpages.fast.ai/fastlinkcheck/","@type":"BlogPosting","headline":"Introducing fastlinkcheck","dateModified":"2020-11-17T00:00:00-06:00","datePublished":"2020-11-17T00:00:00-06:00","image":"https://fastpages.fast.ai/images/copied_from_nb/fastcore_imgs/td.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://fastpages.fast.ai/fastlinkcheck/"},"author":{"@type":"Person","name":"<a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a> and <a href='https://twitter.com/HamelHusain'>Hamel Husain</a>"},"description":"Say goodbye broken links on your static sites. Platform independent, fast, and built in python.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://fastpages.fast.ai/feed.xml" title="fastpages" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57531313-5','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Introducing fastlinkcheck</h1><p class="page-description">Say goodbye broken links on your static sites.  Platform independent, fast, and built in python.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-17T00:00:00-06:00" itemprop="datePublished">
+        Nov 17, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name"><a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a> and <a href='https://twitter.com/HamelHusain'>Hamel Husain</a></span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#nbdev">nbdev</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#fastlinkcheck">fastlinkcheck</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/fastai/fastpages/tree/master/_notebooks/2020-11-17-linkcheck.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/fastai/fastpages/master?filepath=_notebooks%2F2020-11-17-linkcheck.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/fastai/fastpages/blob/master/_notebooks/2020-11-17-linkcheck.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-11-17-linkcheck.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/copied_from_nb/fastlinkcheck_images/fastlinkcheck.png" alt="diagram" /></p>
+<h1 id="Motivation">Motivation<a class="anchor-link" href="#Motivation"> </a></h1><p>Recently, fastai has been hard at work improving and overhauling <a href="https://nbdev.fast.ai/">nbdev</a>, a literate programming environment for python.  A key feature of nbdev is automated generation of documentation from Jupyter notebooks.  This documentation system adds many niceties, such as the following types of hyperlinks automatically:</p>
+<ul>
+<li>Links to source code on GitHub.</li>
+<li>Links to both internal and external documentation by introspecting variable names in backticks.</li>
+</ul>
+<p>Because documentation is so easy to create and maintain in nbdev, we find ourselves and others creating much more of it!  In addition to automatic hyperlinks, we often include our own links to relevant websites, blogs and videos when documenting code.  For example, one of the largest nbdev generated sites, <a href="https://docs.fast.ai/">docs.fast.ai</a>, has more than 300 external and internal links at the time of this writing.</p>
+<h1 id="The-Solution">The Solution<a class="anchor-link" href="#The-Solution"> </a></h1><p>Due to the continued popularity of <a href="https://github.com/fastai/fastai">fastai</a> and the growth of new nbdev projects, grooming these links manually became quite tedious.  We investigated solutions that could verify links for us automatically, but were not satisfied with any existing solutions.  These are the features we desired:</p>
+<ul>
+<li>A platform independent solution that is not tied to a specific static site generator like Jekyll or Hugo.</li>
+<li>Intelligent introspection of external links that are actually internal links.  For example, if we are building the site docs.fast.ai, a link to <code>https://docs.fast.ai/tutorial</code> should not result in a web request, but rather introspection of the local file system for the presence of <code>tutorial.html</code> in the right location.</li>
+<li>Verification of any links to assets like CSS, data, javascript or other files. </li>
+<li>Logs that are well organized that allow us to see each broken link or reference to a non-existent path, and the pages these are found in.</li>
+<li>Parallelism to verify links as fast as possible. </li>
+<li>Lightweight, easy to install with minimal dependencies.</li>
+</ul>
+<p>We tried tools such as <a href="https://github.com/wummel/linkchecker">linkchecker</a> and <a href="https://github.com/bartdag/pylinkvalidator">pylinkvalidator</a>, but these required your site to be first be hosted. Since we wanted to check links on a static site, hosting is overhead we wanted to avoid.</p>
+<p>This is what led us to create <a href="https://fastlinkcheck.fast.ai/">fastlinkcheck</a>, which we discuss below.
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>For Ruby users, <a href="https://github.com/gjtorikian/html-proofer">htmlproofer</a> apperas to provide overlapping functionality.  We have not tried this library. 
+</div></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="A-tour-of-fastlinkcheck">A tour of fastlinkcheck<a class="anchor-link" href="#A-tour-of-fastlinkcheck"> </a></h1><p>For this tour we will be referring to the files in the <a href="https://github.com/fastai/fastlinkcheck">fastlinkcheck repo</a>.  You should clone this repo in the current directory in order to follow along:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fastai</span><span class="o">/</span><span class="n">fastlinkcheck</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">fastlinkcheck</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cloning into &#39;fastlinkcheck&#39;...
+remote: Enumerating objects: 135, done.
+remote: Counting objects: 100% (135/135), done.
+remote: Compressing objects: 100% (98/98), done.
+remote: Total 608 (delta 69), reused 76 (delta 34), pack-reused 473
+Receiving objects: 100% (608/608), 1.12 MiB | 10.47 MiB/s, done.
+Resolving deltas: 100% (302/302), done.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation"> </a></h2><p>You can install <code>fastlinkcheck</code> with pip:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>pip install fastlinkcheck</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Usage">Usage<a class="anchor-link" href="#Usage"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After installing <code>fastlinkcheck</code>, the cli command <code>link_check</code> is available from the command line.  We can see various options with the <code>--help</code> flag.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>usage: link_check [-h] [--host HOST] [--config_file CONFIG_FILE] [--pdb]
+                  [--xtra XTRA]
+                  path
+
+Check for broken links recursively in `path`.
+
+positional arguments:
+  path                  Root directory searched recursively for HTML files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --host HOST           Host and path (without protocol) of web server
+  --config_file CONFIG_FILE
+                        Location of file with urls to ignore
+  --pdb                 Run in pdb debugger (default: False)
+  --xtra XTRA           Parse for additional args (default: &#39;&#39;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the root of <a href="https://github.com/fastai/fastlinkcheck">fastlinkcheck repo</a>, We can search the directory <code>_example/broken_links</code> recursively for broken links like this:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                                                 
+ERROR: The Following Broken Links or Paths were found:
+
+- &#39;http://fastlinkcheck.com/test.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`
+
+- &#39;http://somecdn.com/doesntexist.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`
+
+- Path(&#39;/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.js&#39;) was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Specifying the <code>--host</code> parameter allows you detect links that are internal by identifying links with that host name. External links are verified by making a request to the appropriate website.  On the other hand, internal links are verified by inspecting the presence and content of local files.</p>
+<p>We must be careful when using the <code>--host</code> argument to only pass the host (and path, if necessary) <strong>without</strong> the protocol.  For example, this is how we specify the hostname if your site's url is <code>http://fastlinkcheck.com/test.html</code>:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span> <span class="o">--</span><span class="n">host</span> <span class="n">fastlinkcheck</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                                                 
+ERROR: The Following Broken Links or Paths were found:
+
+- &#39;http://somecdn.com/doesntexist.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`
+
+- Path(&#39;/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.js&#39;) was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have one less broken link as there is indeed a file named <code>test.html</code> in the root of the path we are searching.  However, if we add a path to the end of <code>--host</code> , such as <code>fastlinkcheck.com/mysite</code> the link would again be listed as broken because <code>_example/broken_links/mysite/test.html</code> does not exist:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span> <span class="o">--</span><span class="n">host</span> <span class="n">fastlinkcheck</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mysite</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                                                 
+ERROR: The Following Broken Links or Paths were found:
+
+- &#39;http://fastlinkcheck.com/test.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`
+
+- &#39;http://somecdn.com/doesntexist.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`
+
+- Path(&#39;/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.js&#39;) was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can ignore links by creating a text file that contains a list of urls and paths to ignore.  For example, the file <code>_example/broken_links/linkcheck.rc</code> contains:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cat</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span><span class="o">/</span><span class="n">linkcheck</span><span class="o">.</span><span class="n">rc</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>test.js
+https://www.google.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can use this file to ignore urls and paths with the <code>--config_file</code> argument.  This will filter out references to the broken link <code>/test.js</code> from our earlier results:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span> <span class="o">--</span><span class="n">host</span> <span class="n">fastlinkcheck</span><span class="o">.</span><span class="n">com</span> <span class="o">--</span><span class="n">config_file</span> <span class="n">_example</span><span class="o">/</span><span class="n">broken_links</span><span class="o">/</span><span class="n">linkcheck</span><span class="o">.</span><span class="n">rc</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                                                 
+ERROR: The Following Broken Links or Paths were found:
+
+- &#39;http://somecdn.com/doesntexist.html&#39; was found in the following pages:
+  - `/Users/hamelsmu/github/fastlinkcheck/_example/broken_links/test.html`</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, if there are no broken links, <code>link_check</code> will not return anything.  The directory <code>_example/no_broken_links/</code> does not contain any HTML files with broken links:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link_check</span> <span class="n">_example</span><span class="o">/</span><span class="n">no_broken_links</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>No broken links found!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Python">Python<a class="anchor-link" href="#Python"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also use these utilities from python instead of the terminal.  Please see <a href="https://fastlinkcheck.fast.ai/linkcheck.html/">these docs</a> for more information.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-link_check-in-GitHub-Actions">Using <code>link_check</code> in GitHub Actions<a class="anchor-link" href="#Using-link_check-in-GitHub-Actions"> </a></h2><p>The <code>link_check</code> CLI utility that is installed with <code>fastlinkcheck</code> can be very useful in continuous integration systems like <a href="https://github.com/features/actions">GitHub Actions</a>.  Here is an example GitHub Actions workflow that uses <code>link_check</code>:</p>
+<div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Check Links</span>
+<span class="nt">on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">workflow_dispatch</span><span class="p p-Indicator">,</span> <span class="nv">push</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">check-links</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check for broken links</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">pip install fastlinkcheck</span>
+        <span class="no">link_check _example</span>
+</pre></div>
+<p>We can a few more lines of code to open an issue instead when a broken link is found, using the <a href="https://github.com/cli/cli">gh cli</a>:</p>
+<div class="highlight"><pre><span></span><span class="nn">...</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check for broken links</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">pip install fastlinkcheck</span>
+        <span class="no">link_check _example 2&gt; err || true</span>
+        <span class="no">export GITHUB_TOKEN=&quot;YOUR_TOKEN&quot;</span>
+        <span class="no">[[ -s err ]] &amp;&amp;  gh issue create -t &quot;Broken links found&quot; -b &quot;$(&lt; err)&quot; -R &quot;yourusername/yourrepo&quot;</span>
+</pre></div>
+<p>We can extend this even further to only open an issue when another issue with a specific label isn't already open:</p>
+<div class="highlight"><pre><span></span><span class="nn">...</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check for broken links</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+       <span class="no">pip install fastlinkcheck</span>
+       <span class="no">link_check &quot;docs/_site&quot; --host &quot;docs.fast.ai&quot; 2&gt; err || true</span>
+        <span class="no">export GITHUB_TOKEN=&quot;YOUR_TOKEN&quot;</span>
+        <span class="no">if [[ -z $(gh issue list -l &quot;broken-link&quot;)) &amp;&amp; (-s err) ]]; then</span>
+          <span class="no">gh issue create -t &quot;Broken links found&quot; -b &quot;$(&lt; err)&quot; -l &quot;broken-link&quot; -R &quot;yourusername/yourrepo&quot;</span>
+        <span class="no">fi</span>
+</pre></div>
+<p>See the <a href="https://docs.github.com/en/free-pro-team@latest/actions">GitHub Actions docs</a> for more information.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Resources">Resources<a class="anchor-link" href="#Resources"> </a></h1><p>The following resources are relevant for those interested in learning more about <code>fastlinkcheck</code>:</p>
+<ul>
+<li>The fastlinkcheck <a href="https://github.com/fastai/fastlinkcheck">GitHub repo</a></li>
+<li>The fastlinkcheck <a href="https://fastlinkcheck.fast.ai/">docs</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="fastai/fastpages"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fastlinkcheck/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
