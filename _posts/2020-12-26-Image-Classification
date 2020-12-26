@@ -1,0 +1,143 @@
+# Image Classification
+
+---
+
+## Image Classification
+
+---
+
+**Introduction**
+
+Definition
+
+Model analyses an image and identifies the ‘class’ the image falls under. (Or a probability of the image being part of a ‘class’). A class is essentially a label, for instance, 'ca', 'animal', 'building', and so on.
+
+Applications
+
+Automated Image Organization, Backbone for advanced tasks like object detection, pose estimation, action recognition etc.
+
+Scope
+
+Muticlass and Multilabel classification
+
+Tools
+
+TorchVision, TFHub
+
+**Models**
+
+ResNet
+
+*[Deep Residual Learning for Image Recognition. ICLR, 2016.](https://arxiv.org/abs/1512.03385)*
+
+A very popular model that is often used as a backbone CNN to extract visual representations. It achieves a Top 1 accuracy of 76.1 on ImageNet (1000 categories).
+
+MobileNet
+
+*[Searching for MobileNetV3. ICCV, 2019.](https://arxiv.org/abs/1905.02244)*
+
+A lean mobile network that achieves an accuracy of 76.0 on ImageNet (1000 categories).
+
+EfficientNet
+
+*[EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks. ICML, 2019.](https://arxiv.org/abs/1905.11946)*
+
+It achieves a Top 1 accuracy of 81.3 on ImageNet (1000 categories).
+
+BiT
+
+*[Big Transfer (BiT): General Visual Representation Learning. arXiv, 2020.](https://arxiv.org/abs/1912.11370)*
+
+It achieves a Top 1 accuracy of 85.4 on ImageNet (1000 categories).
+
+ViT
+
+*[An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. ICLR, 2021.](https://arxiv.org/abs/2010.11929)*
+
+It showed that the reliance on CNNs is not necessary and a pure transformer applied directly to sequences of image patches can perform very well on image classification tasks. This model achieves a Top 1 accuracy of 87.8 on ImageNet (1000 categories).
+
+---
+
+**Process flow**
+
+Step 1: Collect Images
+
+Capture via camera, scrap from the internet or use public datasets
+
+Step 2: Create Labels
+
+In-house labeling or via outsourcing e.g. amazon mechanical turk
+
+Step 3: Data Acquisition
+
+Setup the database connection and fetch the data into python environment
+
+Step 4: Data Exploration
+
+Explore the data, validate it and create preprocessing strategy
+
+Step 5: Data Preparation
+
+Clean the data and make it ready for modeling
+
+Step 6: Model Building
+
+Create the model architecture in python and perform a sanity check
+
+Step 7: Model Training
+
+Start the training process and track the progress and experiments
+
+Step 8: Model Validation
+
+Validate the final set of models and select/assemble the final model
+
+Step 9: UAT Testing
+
+Wrap the model inference engine in API for client testing
+
+Step 10: Deployment
+
+Deploy the model on cloud or edge as per the requirement
+
+Step 11: Documentation
+
+Prepare the documentation and transfer all assets to the client  
+
+**Use Cases**
+
+Flower Classification
+
+[Flower Classification](https://www.notion.so/Flower-Classification-3afadec78f274940bcf35a8433a4ac9d). Gradio App available.
+
+Traffic Sign Classification
+
+Train a 43-class image classifier from scratch in Keras. This is available as Streamlit App. A tutorial video is also available [here](https://www.notion.so/Traffic-Sign-Classification-from-Scratch-using-CNN-4ed7e0b9ad184c52871f13a1a1821f0e) on the notion. 
+
+STL-10 Object Classification
+
+Fine tune a 10-class classifier in PyTorch. Checkout the notion [here](https://www.notion.so/STL-10-Image-Classification-in-PyTorch-a08568d0551c4a4fb5f06d18cc4ba7f2).
+
+Plant Disease Classification
+
+Available as a Streamlit App
+
+Brain Tumor Classification
+
+Available as a Streamlit App
+
+TorchVision Pre-trained Classifiers
+
+PyTorch TorchVision provides more than 10 pre-trained image classification model, which can be easily fine-tuned on a custom image dataset. Here I experimented with VGG11, AlexNet, ResNet18, and MobileNetV2.
+
+EfficientNet Fine-tuning
+
+Fine-tune EfficientNet in TF Keras to build a dog classifier. There are 120 classes of dogs. The data is available in Tensorflow datasets. The notion is available [here](https://www.notion.so/Image-classification-via-fine-tuning-with-EfficientNet-e16c131ad0054aff8798e1e496f36d32).
+
+BiT Fine-tuning
+
+Fine-tune Big-Transfer few-shot model. This model is available in TFHub. Checkout [Colab](https://colab.research.google.com/github/google-research/big_transfer/blob/master/colabs/big_transfer_tf2.ipynb).
+
+---
+
+---
