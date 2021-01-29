@@ -7,7 +7,6 @@
     - [Rebuild all the containers](#rebuild-all-the-containers)
     - [Removing all the containers](#removing-all-the-containers)
     - [Attaching a shell to a container](#attaching-a-shell-to-a-container)
-  - [Running a Jupyter Server](#running-a-jupyter-server)
 
 You can run your fastpages blog on your local machine, and view any changes you make to your posts, including Jupyter Notebooks and Word documents, live.
 The live preview requires that you have Docker installed on your machine. [Follow the instructions on this page if you need to install Docker.](https://www.docker.com/products/docker-desktop)
