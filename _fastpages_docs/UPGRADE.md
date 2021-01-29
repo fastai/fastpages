@@ -42,7 +42,7 @@ There are two ways to upgrade fastpages.  One is an automated way that assumes y
     It is possible that you might receive an error message instead of this command.  You can follow the instructions in the comment to troubleshoot the issue.  Common reasons for receiving an error are:
 
     - You are up to date, therefore no upgrade is possible.  You will see an error that there is "nothing to commit".
-    - You already have a PR from a prevoius upgrade open that you never merged.
+    - You already have a PR from a previous upgrade open that you never merged.
 
     Please [ask on the forums](https://forums.fast.ai/) if you have encounter another problem that is unclear.
 
