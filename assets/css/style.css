@@ -415,6 +415,8 @@ table th { text-align: center !important; }
 
 .output_text.output_execute_result pre { white-space: pre-wrap; }
 
+.output_wrapper { overflow: scroll; }
+
 .svg-icon.orange { width: 30px; height: 23px; }
 
 .code_cell { margin: 1.5rem 0px !important; }
