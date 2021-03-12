@@ -63,4 +63,10 @@ See the [Upgrading guide](https://github.com/fastai/fastpages/blob/master/_fastp
 
 2. Can you customize the styling or theme of fastpages?  **A**: See [Customizing Fastpages](https://github.com/fastai/fastpages#customizing-fastpages)
 
+3. Your initial build failed on GH-Pages Status
+
+    `Error messsage: Unable to build page. Please try again later.` `Error: Process completed with exit code 1.`
+    
+    If your github username contains capital letters e.g. YourUserName, go to [config file](../_config.yml#L17) line 17 and rename `YourUserName.github.io` to `yourusername.github.io`. After the commit blog should build without error.
+
 See the [FAQ](https://github.com/fastai/fastpages#faq) for frequently asked questions.
