@@ -75,7 +75,7 @@ GEM
       jekyll (>= 3.0, < 5.0)
     katex (0.6.0)
       execjs (~> 2.7)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     kramdown-math-katex (1.0.1)
       katex (~> 0.4)
