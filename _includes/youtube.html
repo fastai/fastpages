@@ -4,6 +4,6 @@
     {% assign url = include.content | remove: "</a>" | split: ">" | last %}
     {% assign base_url = url |  split: "/" | last %}
 {% endif %}
-<center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{base_url}}" frameborder="0" allowfullscreen></iframe>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/{{base_url}}" frameborder="0" allowfullscreen></iframe>
 </center>
