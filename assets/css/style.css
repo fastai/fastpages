@@ -423,6 +423,10 @@ table th { text-align: center !important; }
 
 pre code { font-size: 15px !important; }
 
+.youtube-iframe-wrapper { position: relative; padding-bottom: 56.10%; height: 0; overflow: hidden; }
+
+.youtube-iframe-wrapper iframe, .youtube-iframe-wrapper object, .youtube-iframe-wrapper embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
