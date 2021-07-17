@@ -128,7 +128,7 @@ jobs:
         if: steps.get_status.outputs.status == 'private'
         id: py
         run: | 
-          sudo npm install netlify-cli -g
+          sudo npm install -g --unsafe-perm=true netlify-cli
           netlify deploy --dir _site | tee _netlify_logs.txt
           cat _netlify_logs.txt | python _action_files/parse_netlify.py
 
