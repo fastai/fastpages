@@ -152,7 +152,7 @@ See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you
 
 This option works for **notebooks only**
 
-  -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post post. It'll default to `master` if you don't specify it in the notebook.
+  -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
   - By default, when you omit this parameter from your front matter, or you set `badges: true`, **all three badges (GitHub, Binder, Colab)** will appear by default. You can adjust these defaults in with the `default_badges` parameter in [Site Wide Configuration Options](#site-wide-configuration-options).
     - If only want to hide a badge on an individual post, you can set the front matter `hide_{github,colab,binder}_badge: true`.  For example, if you wanted to hide the Binder badge for an individual notebook but you want the other badges to show up, you can set this in your front matter:
