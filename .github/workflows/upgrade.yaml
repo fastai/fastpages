@@ -130,7 +130,7 @@ jobs:
         cp -r .github ../current_files
         
         # install dependencies
-        pip3 install pyyaml
+        pip3 install pyyaml==5.4.1
 
     - name: sync baseurl
       if: steps.check_version.outputs.vbump == 'true'
