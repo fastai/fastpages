@@ -136,6 +136,7 @@ jobs:
       if: steps.check_version.outputs.vbump == 'true'
       run: |
         import re, os, yaml
+        from yaml import Loader
         from pathlib import Path
         from configparser import ConfigParser
         settings = ConfigParser()
@@ -156,7 +157,7 @@ jobs:
         # read data from config files
         settings.read(settings_path)
         with open(config_path, 'r') as cfg:
-          config = yaml.load(cfg)
+          config = yaml.load(cfg, Loader=Loader)
         
         # sync value for baseurl b/w config.yml and settings.ini
         settings['DEFAULT']['baseurl'] = config['baseurl']
