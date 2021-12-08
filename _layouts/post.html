@@ -49,6 +49,7 @@ layout: default
           {% unless page.hide_github_badge or site.default_badges.github != true %}{% include notebook_github_link.html %}{% endunless %}
           {% unless page.hide_binder_badge or site.default_badges.binder != true  %}{% include notebook_binder_link.html %}{% endunless %}
           {% unless page.hide_colab_badge or site.default_badges.colab != true %}{% include notebook_colab_link.html %}{% endunless %}
+          {% unless page.hide_deepnote_badge or site.default_badges.deepnote != true %}{% include notebook_deepnote_link.html %}{% endunless %}
         </div>
       {% endif -%}
     {% endif -%}

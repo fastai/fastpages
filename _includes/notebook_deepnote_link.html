@@ -1,0 +1,5 @@
+<div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2F{{site.github_username}}%2F{{site.github_repo | default: site.baseurl | remove: "/" }}%2Fblob%2F{{page.branch | default: "master"}}%2F{{page.nb_path | cgi_escape}}" target="_blank">
+      <img class="notebook-badge-image" src="{{ "assets/badges/deepnote.svg" | relative_url }}" alt="Launch in Deepnote"/>
+  </a>
+</div>

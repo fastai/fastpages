@@ -22,7 +22,7 @@
     - Hide or show cell input and output.
     - Collapsable code cells that are either open or closed by default.
     - Define the Title, Summary and other metadata via a special markdown cells
-    - Ability to add links to [Colab](https://colab.research.google.com/) and GitHub automatically.
+    - Ability to add links to [Colab](https://colab.research.google.com/), [Deepnote](https://deepnote.com/) and GitHub automatically.
 - Support for comments, supported natively through GitHub Issues.
 - Built-in search.
 - Support for customizing the styling of your site.
@@ -47,7 +47,7 @@ See below for a more detailed list of features.
   - [Customizing Blog Posts With Front Matter](#customizing-blog-posts-with-front-matter)
     - [Configure Title & Summary](#configure-title--summary)
     - [Table of Contents](#table-of-contents)
-    - [Colab, Binder and GitHub Badges](#colab-binder-and-github-badges)
+    - [Colab, Binder, Deepnote and GitHub Badges](#colab-binder-deepnote-and-github-badges)
     - [Categories](#categories)
     - [Enabling Comments](#enabling-comments)
     - [Setting an Image For Social Media](#setting-an-image-for-social-media)
@@ -148,14 +148,14 @@ See this [tutorial on YAML](https://rollout.io/blog/yaml-tutorial-everything-you
 ### Table of Contents
   - `fast_template` will automatically generate a table of contents for you based on [markdown headers](https://guides.github.com/features/mastering-markdown/)!  You can toggle this feature on or off by setting `toc:` to either `true` or `false`.
 
-### Colab, Binder and GitHub Badges
+### Colab, Binder, Deepnote and GitHub Badges
 
 This option works for **notebooks only**
 
   -  The `branch` field is used to optionally render a link your notebook to Colab and GitHub in your blog post. It'll default to `master` if you don't specify it in the notebook.
   - If you do not want to show Colab / GitHub badges on your blog post (perhaps because your repo is private and the links would be broken) set `badges` to `false`.  This defaults to `true`
-  - By default, when you omit this parameter from your front matter, or you set `badges: true`, **all three badges (GitHub, Binder, Colab)** will appear by default. You can adjust these defaults in with the `default_badges` parameter in [Site Wide Configuration Options](#site-wide-configuration-options).
-    - If only want to hide a badge on an individual post, you can set the front matter `hide_{github,colab,binder}_badge: true`.  For example, if you wanted to hide the Binder badge for an individual notebook but you want the other badges to show up, you can set this in your front matter:
+  - By default, when you omit this parameter from your front matter, or you set `badges: true`, **all four badges (GitHub, Binder, Deepnote, Colab)** will appear by default. You can adjust these defaults in with the `default_badges` parameter in [Site Wide Configuration Options](#site-wide-configuration-options).
+    - If only want to hide a badge on an individual post, you can set the front matter `hide_{github,colab,binder,deepnote}_badge: true`.  For example, if you wanted to hide the Binder badge for an individual notebook but you want the other badges to show up, you can set this in your front matter:
 
       ```yaml
       - badges: true
@@ -274,7 +274,7 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 - `title`: this is the title that appears on the upper left hand corner on the header of all your pages.  
 - `description`: this description will show up in various places when a preview for your site is generated (for example, on social media).
 - `github_username`: this allows your site to display a link to your GitHub page in the footer.
-- `github_repo`: this allows your site to render links back to your repository for various features such as links to GitHub and Colab for notebooks.
+- `github_repo`: this allows your site to render links back to your repository for various features such as links to GitHub, Colab and Deepnote for notebooks.
 - `url`: This does not need to be changed unless you have a custom domain.  **Note: leave out the trailing / from this value.**
 - `baseurl`: See the comments in `/_config.yml` for instructions ( "Special Instructions for baseurl" on setting this value properly.  If you do not have a custom domain, then you can likely ignore this option.
 - `email`: this is currently unused.  Ignore.
@@ -311,12 +311,13 @@ fastpages comes with built in keyword search powered by [lunr.js](https://lunrjs
 
     _Alternatively, you can copy all of your posts over to a newly created  repository created from the fastpages template._
 
-- `default_badges`: By default GitHub, Binder, and Colab badges will show up on notebook blog posts. You can adjust these defaults by setting the appropriate value in `default_badges` to false.  For example, if you wanted to turn Binder badges off by default, you would change `default_badges` to this:
+- `default_badges`: By default GitHub, Binder, Deepnote, and Colab badges will show up on notebook blog posts. You can adjust these defaults by setting the appropriate value in `default_badges` to false.  For example, if you wanted to turn Binder badges off by default, you would change `default_badges` to this:
 
   ```yaml
   default_badges:
     github: true
     binder: false
+    deepnote: false
     colab: true
   ```
 
