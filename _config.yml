@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: fastpages
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: James Lim (Lin Li-Shang) 
+description: James is a material scientist, xpertise in two-dimensional material, solid-state physics, thin-film technology, microscopy science and image analysis. I am also an amature footballer and material informatics ethusiestic.
 github_username: fastai
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "fastpages"
@@ -39,8 +39,8 @@ baseurl: "" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    github: asimo945
+    Linkedin: LiShang (James) Lin
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -49,7 +49,7 @@ use_math:
 show_description: true
 
 # Set this to true to display image previews on home page, if they exist
-show_image: false
+show_image: True
 
 # Set this to true to turn on annotations with hypothes.is (https://web.hypothes.is/)
 annotations: false
