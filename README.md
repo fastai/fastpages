@@ -214,7 +214,7 @@ Note: for this setting **you can only reference image files and folders in the `
 
 You may want to prevent a blog post from being listed on the home page, but still have a public url that you can preview or share discreetly.  You can hide a blog post from the home page by setting the front matter `hide` to `true`.  This is set to `false` by default.
 
-It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks/) in order to generate a predictable url for hidden blog posts.  You can also set the front matter `search_exclude` to `false` if you don't want users to find your hidden post in a search.
+It is recommended that you use [permalinks](https://jekyllrb.com/docs/permalinks/) in order to generate a predictable url for hidden blog posts.  You can also set the front matter `search_exclude` to `true` if you don't want users to find your hidden post in a search.
 
 ### Pinning A Blog Post
 
