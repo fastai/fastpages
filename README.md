@@ -84,7 +84,7 @@ See below for a more detailed list of features.
 
 ## Setup Instructions
 
-1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate). Make sure to sign in to your account, or you will see a 404 error. Name your repo anything you like **except** {your-username}.github.io.
+1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate). Make sure to sign in to your account, or you will see a 404 error. Furthremore, **do not check the `include all branches` checkbox**. Name your repo anything you like **except** {your-username}.github.io.  
 
 2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
