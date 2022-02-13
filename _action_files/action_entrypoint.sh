@@ -6,6 +6,9 @@ export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChec
 eval "$(ssh-agent -s)"
 
 ######## Run notebook/word converter ########
+
+# download gdocs as word docs
+python /fastpages/gdocs2word.py
 # word converter using pandoc
 /fastpages/word2post.sh
 # notebook converter using nbdev
