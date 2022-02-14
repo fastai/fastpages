@@ -2,15 +2,16 @@
 import json
 import requests
 from pathlib import Path
-from typing import Dict, Text
-
-def get_dl_url_from_id(id, fmt):
-    return f"https://docs.google.com/document/export?format={fmt}&id={id}"
+from typing import Dict
 
 
-def download_gdocs(urls : Dict[Text, Text], format="docx", dir_path="_word", chunk_size=8192):
-    """Modified from https://stackoverflow.com/a/16696317/7766834
-
+def download_gdocs(
+    urls: Dict[str, str],
+    format: str = "docx",
+    dir_path: str = "_word",
+    chunk_size: int = 8192,
+):
+    """
     Args:
         urls (dict): A dict of doc_name, url key value pairs of
                      e.g. "my post": "1d1N-2j56BVRVXOFPRlJRdgictahCV"
@@ -18,27 +19,36 @@ def download_gdocs(urls : Dict[Text, Text], format="docx", dir_path="_word", chu
                                 Defaults to "docx".
         dir_path (str, optional): dir in which to store downloaded file.
                                   Defaults to "_word".
-        chunk_size (int, optional): chunk sixe for reponse byte stream. Defaults to 8192.
-
+        chunk_size (int, optional): chunk sixe for reponse byte stream. 
+                                    Defaults to 8192.
     Returns:
         int: request status code
     """
 
-    for file_name, g_id in urls.items():
+    try:
 
-        dl_url = get_dl_url_from_id(g_id, format)
-        
-        with requests.get(dl_url, stream=True) as r:
-            r.raise_for_status()
+        session = requests.Session()
+        for file_name, g_id in urls.items():
 
-            local_file = Path(dir_path) / (file_name.replace(" ", "_") + f".{format}")
-            with open(local_file, 'wb') as f:
-                for chunk in r.iter_content(chunk_size):
-                    f.write(chunk)
+            dl_uri = "https://docs.google.com/document/export"
+            params = {"format": format, "id": g_id}
 
-    return r.status_code
+            with session.get(dl_uri, params=params, stream=True) as r:
+                r.raise_for_status()
 
-if __name__ == '__main__':
+                local_file = Path(f"{dir_path}/{file_name}.{format}")
+                with local_file.open("wb") as f:
+                    for chunk in r.iter_content(chunk_size):
+                        f.write(chunk)
+
+    except requests.HTTPError:
+        pass
+
+    finally:
+        return r.status_code
+
+
+if __name__ == "__main__":
 
     with open("_word/gdocs_named_paths.json") as j:
         named_urls = json.load(j)
