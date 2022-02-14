@@ -4,7 +4,6 @@ import requests
 from pathlib import Path
 from typing import Dict
 
-
 def download_gdocs(
     urls: Dict[str, str],
     format: str = "docx",
@@ -52,5 +51,8 @@ if __name__ == "__main__":
 
     with open("_word/gdocs_named_paths.json") as j:
         named_urls = json.load(j)
+        
+    named_urls.pop("<title>", None)
+    if named_urls:
+        download_gdocs(named_urls)
 
-    download_gdocs(named_urls)
