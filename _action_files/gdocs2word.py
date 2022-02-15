@@ -3,30 +3,23 @@ import json
 import re
 import requests
 from pathlib import Path
-from typing import Dict
+from typing import Iterable
 
 
 def download_gdocs(
-    g_ids: Dict[str, str],
+    g_ids: Iterable[str],
     format: str = "docx",
     dir_path: str = "_word",
     chunk_size: int = 8192,
 ):
 
-    """ Downloads specified google docs into /_word as .docx files
+    """ Downloads specified google docs into /_word as .docx files.
 
     Args:
-        urls (dict): A dict of doc_name, url key value pairs of
-                     e.g. "my post": "1d1N-2j56BVRVXOFPRlJRdgictahCV"
-        format (str, optional): The export format supplied to Google.
-                                Defaults to "docx".
-        dir_path (str, optional): dir in which to store downloaded file.
-                                  Defaults to "_word".
-        chunk_size (int, optional): chunk sixe for reponse byte stream. D
-                                    efaults to 8192.
-
-    Returns:
-        int: request status code
+        g_ids (list): A list of google doc ids e.g. 
+        format (str): Export format to request. Default: "docx".
+        dir_path (str): dir to download files to. Default: "_word".
+        chunk_size (int): bytes chunk size for stream. Default: 8192.
     """
 
     try:
