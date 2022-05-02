@@ -84,15 +84,13 @@ See below for a more detailed list of features.
 
 ## Setup Instructions
 
-1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate). Make sure to sign in to your account, or you will see a 404 error. Furthermore, **do not check the `include all branches` checkbox**. Name your repo anything you like **except** {your-username}.github.io.  
+1.  Generate a copy of this repo by clicking [on this link](https://github.com/fastai/fastpages/generate). Make sure to sign in to your account, or you will see a 404 error. Name your repo anything you like **except** {your-username}.github.io.
 
 2. **GitHub Actions will automatically open a PR** on your new repository ~ 30 seconds after the copy is created.  Follow the instructions in that PR to continue.
 
 >If you are not seeing a PR, please make sure you have third party actions enabled in your organization: **Settings -> Actions -> Actions Permissions -> Enable local and third party Actions for this repository**
 
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
-
-3.  You can create content in the `_posts`, `_notebooks`, or `_word` folders.  See examples of files that are in those folders in this repo to see examples of how to structure content.  The most important thing to consider is front matter, which is discussed further below:
 
 ## Customizing Blog Posts With Front Matter
 
