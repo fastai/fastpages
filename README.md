@@ -92,7 +92,7 @@ See below for a more detailed list of features.
 
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
-3.  To create your first post, add content in the `_posts`, `_markdown`, or `_word` directories.  You can find examples in this repo of how to structure the content for these.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.
+3.  To create your first post, add content in the `_posts`, `_notebooks` or `_word` directories.  You can find examples in this repo of how to structure the content for these.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.
 
 ## Customizing Blog Posts With Front Matter
 
