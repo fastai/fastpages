@@ -92,6 +92,8 @@ See below for a more detailed list of features.
 
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
+3.  You can create content in the `_posts`, `_notebooks`, or `_word` folders.  See examples of files that are in those folders in this repo to see examples of how to structure content.  The most important thing to consider is front matter, which is discussed further below:
+
 ## Customizing Blog Posts With Front Matter
 
 [Front matter](https://jekyllrb.com/docs/front-matter/) allows you to toggle various options on/off for each blog post, as well as pass metadata to various features of fastpages.
