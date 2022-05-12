@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   setup:
-    if: (github.event.commits[0].message == 'Initial commit') && (github.run_number == 1)
+    if: (github.event.commits[0].message == 'Setup commit')
     runs-on: ubuntu-latest
     steps:
 
