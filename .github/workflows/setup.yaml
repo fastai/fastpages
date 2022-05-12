@@ -1,6 +1,11 @@
 name: Setup
 on: push
 
+permissions: 
+  actions: write
+  pull-requests: write
+  contents: write
+
 jobs:
   setup:
     if: (github.event.commits[0].message == 'Initial commit') && (github.run_number == 1)
