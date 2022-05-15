@@ -107,7 +107,7 @@ You will be taken to a screen where there will be a button on the upper right ha
 
 After doing this, a pull request should appear.
 
-1.  To create your first post, add content in the `_posts`, `_notebooks` or `_word` directories.  You can follow examples of content in those folders in this repo of how to structure the content.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.  Note that content in the `_word` directory does not support front matter.
+4.  To create your first post, add content in the `_posts`, `_notebooks` or `_word` directories.  You can follow examples of content in those folders in this repo of how to structure the content.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.  Note that content in the `_word` directory does not support front matter.
 
 ## Customizing Blog Posts With Front Matter
 
