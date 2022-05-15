@@ -7,6 +7,9 @@ permissions:
   actions: write
   pull-requests: write
   contents: write
+  deployments: write
+  pages: write
+  statuses: write
 
 jobs:
   check_credentials:
