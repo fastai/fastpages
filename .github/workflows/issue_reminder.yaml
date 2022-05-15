@@ -1,8 +1,12 @@
-
 name: Issue Reminder
-on: 
+on:
   issues:
     types: [opened]
+
+permissions:
+  actions: write
+  pull-requests: write
+  contents: write
 
 jobs:
   issue_comment:
@@ -10,17 +14,16 @@ jobs:
       (github.repository == 'fastai/fastpages')
     runs-on: ubuntu-latest
     steps:
-
-    - name: Comment on issue
-      uses: actions/github-script@0.6.0
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          var url = 'https://github.com/fastai/fastpages/blob/master/_fastpages_docs/TROUBLESHOOTING.md'
-          var msg = `Thank you for opening an issue.  If this issue is related to a bug, please follow the steps and provide the information outlined in the [Troubleshooting Guide](${url}).  Failure to follow these instructions may result in automatic closing of this issue.`
-          github.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: msg
-          })
+      - name: Comment on issue
+        uses: actions/github-script@0.6.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            var url = 'https://github.com/fastai/fastpages/blob/master/_fastpages_docs/TROUBLESHOOTING.md'
+            var msg = `Thank you for opening an issue.  If this issue is related to a bug, please follow the steps and provide the information outlined in the [Troubleshooting Guide](${url}).  Failure to follow these instructions may result in automatic closing of this issue.`
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: msg
+            })

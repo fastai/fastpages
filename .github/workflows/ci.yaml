@@ -7,52 +7,55 @@ on:
   pull_request:
   workflow_dispatch:
 
-jobs:     
+permissions:
+  actions: write
+  pull-requests: write
+  contents: write
+
+jobs:
   build-site:
     if: ( github.event.commits[0].message != 'Initial commit' ) || github.run_number > 1
     runs-on: ubuntu-latest
     steps:
-      
-    - name: Check if secret exists
-      if: github.event_name == 'push'
-      run: |
-        if [ -z "$deploy_key" ]
-        then
-          echo "You do not have a secret named SSH_DEPLOY_KEY.  This means you did not follow the setup instructions carefully.  Please try setting up your repo again with the right secrets."
-          exit 1;
-        fi
-      env:
-       deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
-          
+      - name: Check if secret exists
+        if: github.event_name == 'push'
+        run: |
+          if [ -z "$deploy_key" ]
+          then
+            echo "You do not have a secret named SSH_DEPLOY_KEY.  This means you did not follow the setup instructions carefully.  Please try setting up your repo again with the right secrets."
+            exit 1;
+          fi
+        env:
+          deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
 
-    - name: Copy Repository Contents
-      uses: actions/checkout@main
-      with:
-        persist-credentials: false
+      - name: Copy Repository Contents
+        uses: actions/checkout@main
+        with:
+          persist-credentials: false
 
-    - name: convert notebooks and word docs to posts
-      uses: ./_action_files
+      - name: convert notebooks and word docs to posts
+        uses: ./_action_files
 
-    - name: setup directories for Jekyll build
-      run: |
-        rm -rf _site
-        sudo chmod -R 777 .
+      - name: setup directories for Jekyll build
+        run: |
+          rm -rf _site
+          sudo chmod -R 777 .
 
-    - name: Jekyll build
-      uses: docker://fastai/fastpages-jekyll
-      with:
-        args: bash -c "jekyll build -V --strict_front_matter --trace"
-      env:
-        JEKYLL_ENV: 'production'
-        
-    - name: copy CNAME file into _site if CNAME exists
-      run: |
-        sudo chmod -R 777 _site/
-        cp CNAME _site/ 2>/dev/null || :
+      - name: Jekyll build
+        uses: docker://fastai/fastpages-jekyll
+        with:
+          args: bash -c "jekyll build -V --strict_front_matter --trace"
+        env:
+          JEKYLL_ENV: "production"
 
-    - name: Deploy
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
-        publish_dir: ./_site
+      - name: copy CNAME file into _site if CNAME exists
+        run: |
+          sudo chmod -R 777 _site/
+          cp CNAME _site/ 2>/dev/null || :
+
+      - name: Deploy
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+          publish_dir: ./_site

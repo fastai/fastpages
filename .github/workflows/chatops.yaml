@@ -1,6 +1,11 @@
 name: Chatops
 on: [issue_comment]
 
+permissions:
+  actions: write
+  pull-requests: write
+  contents: write
+
 jobs:
   trigger-chatops:
     if: (github.event.issue.pull_request != null) &&  contains(github.event.comment.body, '/preview') && (github.repository == 'fastai/fastpages')
@@ -10,7 +15,6 @@ jobs:
       CHECK_RUN_NAME: "Draft-Site-Build"
     runs-on: ubuntu-latest
     steps:
-          
       - name: see payload
         run: |
           echo "FULL PAYLOAD:\n${PAYLOAD}\n"
@@ -18,16 +22,16 @@ jobs:
         env:
           PAYLOAD: ${{ toJSON(github.event) }}
           PR_PAYLOAD: ${{ github.event.pull_request }}
-        
+
       - name: verify env exists
         id: get_status
-        run:  |
+        run: |
           if [ -z ${NETLIFY_AUTH_TOKEN} ]; then echo "::set-output name=status::public"; else echo "::set-output name=status::private"; fi
 
       - name: make comment on PR if env does not exist
         if: steps.get_status.outputs.status == 'public'
         run: |
-           ./_action_files/pr_comment.sh "Was not able to generate site preview due to absent credentials."
+          ./_action_files/pr_comment.sh "Was not able to generate site preview due to absent credentials."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -44,7 +48,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.6
-          
+
       - name: install requests
         run: pip3 install requests
 
@@ -81,8 +85,8 @@ jobs:
           print(f"::set-output name=id::{id}")
         env:
           SHA: ${{ steps.chatops.outputs.SHA }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: add label
         if: steps.get_status.outputs.status == 'private'
         run: |
@@ -102,13 +106,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUM: ${{ steps.chatops.outputs.PULL_REQUEST_NUMBER }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
-          
+
       - name: Copy The PR's Branch Repository Contents
         uses: actions/checkout@main
         if: steps.get_status.outputs.status == 'private'
         with:
           ref: ${{ steps.chatops.outputs.SHA }}
-     
+
       - name: convert notebooks and word docs to posts
         uses: ./ # use the code in this repo to instead of fastai/fastpages@master
 
@@ -117,33 +121,33 @@ jobs:
         run: |
           rm -rf _site
           sudo chmod -R 777 .
-          
+
       - name: Jekyll build with baseurl as root for netifly
         if: steps.get_status.outputs.status == 'private'
         uses: docker://fastai/fastpages-jekyll
         with:
           args: bash -c "jekyll build"
-     
+
       - name: deploy to netlify
         if: steps.get_status.outputs.status == 'private'
         id: py
-        run: | 
+        run: |
           sudo npm install -g --unsafe-perm=true netlify-cli
           netlify deploy --dir _site | tee _netlify_logs.txt
           cat _netlify_logs.txt | python _action_files/parse_netlify.py
 
-      - name: make comment on PR 
+      - name: make comment on PR
         if: steps.get_status.outputs.status == 'private'
         run: |
-           MSG="A preview build of this branch has been generated for SHA: $SHA and can be viewed **live** at: ${URL}\n\nThe current fastpages site built from master can be viewed for comparison [here](https://fastpages.fast.ai/)"
-           echo "$MSG"
-           ./_action_files/pr_comment.sh "${MSG}"
+          MSG="A preview build of this branch has been generated for SHA: $SHA and can be viewed **live** at: ${URL}\n\nThe current fastpages site built from master can be viewed for comparison [here](https://fastpages.fast.ai/)"
+          echo "$MSG"
+          ./_action_files/pr_comment.sh "${MSG}"
         env:
-           URL: ${{ steps.py.outputs.draft_url }}
-           SHA: ${{ steps.chatops.outputs.SHA }}
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-           ISSUE_NUMBER: ${{ github.event.issue.number }}
-           
+          URL: ${{ steps.py.outputs.draft_url }}
+          SHA: ${{ steps.chatops.outputs.SHA }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+
       - name: remove label
         if: always()
         run: |
@@ -177,11 +181,11 @@ jobs:
           check_run_id = os.getenv('CHECK_RUN_ID')
           if not check_run_id:
             quit()
-          
+
           url = f'https://api.github.com/repos/{nwo}/check-runs/{check_run_id}'
           headers = {'authorization': f'token {token}',
                      'accept': 'application/vnd.github.antiope-preview+json'}
-          
+
           data = {
               'conclusion': f'{conclusion}',
           }
@@ -192,4 +196,3 @@ jobs:
           WORKFLOW_CONCLUSION: ${{ job.status }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CHECK_RUN_ID: ${{ steps.create_check.outputs.id }}
-

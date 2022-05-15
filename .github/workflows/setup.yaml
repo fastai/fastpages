@@ -1,105 +1,109 @@
 name: Setup
 on: push
 
+permissions:
+  actions: write
+  pull-requests: write
+  contents: write
+
 jobs:
   setup:
     if: (github.event.commits[0].message == 'Initial commit') && (github.run_number == 1)
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
 
-    - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6
+      - name: Copy Repository Contents
+        uses: actions/checkout@v2
 
-    - name: Copy Repository Contents
-      uses: actions/checkout@v2
-        
-    - name: modify files
-      run: |
-        import re, os
-        from pathlib import Path
-        from configparser import ConfigParser
-        config = ConfigParser()
+      - name: modify files
+        run: |
+          import re, os
+          from pathlib import Path
+          from configparser import ConfigParser
+          config = ConfigParser()
 
-        nwo = os.getenv('GITHUB_REPOSITORY')
-        username, repo_name = nwo.split('/')
-        readme_template_path = Path('_fastpages_docs/README_TEMPLATE.md')
-        readme_path = Path('README.md')
-        config_path = Path('_config.yml')
-        pr_msg_path = Path('_fastpages_docs/_setup_pr_template.md')
-        settings = Path('_action_files/settings.ini')
+          nwo = os.getenv('GITHUB_REPOSITORY')
+          username, repo_name = nwo.split('/')
+          readme_template_path = Path('_fastpages_docs/README_TEMPLATE.md')
+          readme_path = Path('README.md')
+          config_path = Path('_config.yml')
+          pr_msg_path = Path('_fastpages_docs/_setup_pr_template.md')
+          settings = Path('_action_files/settings.ini')
 
-        assert readme_template_path.exists(), 'Did not find _fastpages_docs/README_TEMPLATE.md in the current directory!'
-        assert readme_path.exists(), 'Did not find README.md in the current directory!'
-        assert config_path.exists(), 'Did not find _config.yml in the current directory!'
-        assert pr_msg_path.exists(), 'Did not find _fastpages_docs/_setup_pr_template.md in the current directory!'
-        assert settings.exists(), 'Did not find _action_files/settings.ini in the current directory!'
-        
-        # edit settings.ini file to inject baseurl
-        config.read(settings)
-        config['DEFAULT']['baseurl'] = f'/{repo_name}'
-        with open('_action_files/settings.ini', 'w') as configfile:
-          config.write(configfile)
+          assert readme_template_path.exists(), 'Did not find _fastpages_docs/README_TEMPLATE.md in the current directory!'
+          assert readme_path.exists(), 'Did not find README.md in the current directory!'
+          assert config_path.exists(), 'Did not find _config.yml in the current directory!'
+          assert pr_msg_path.exists(), 'Did not find _fastpages_docs/_setup_pr_template.md in the current directory!'
+          assert settings.exists(), 'Did not find _action_files/settings.ini in the current directory!'
 
-        # replace content of README with template
-        readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
-        readme_path.write_text(readme)
-        
-        # update _config.yml
-        cfg = config_path.read_text()
-        cfg = re.sub(r'^(github_username: )(fastai)', fr'\g<1>{username}', cfg, flags=re.MULTILINE)
-        cfg = re.sub(r'^(baseurl: )("")', r'\1"/{}"'.format(repo_name), cfg, flags=re.MULTILINE)
-        cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
-        cfg = re.sub(r'^(url: "https://)(fastpages.fast.ai)(")', fr'\g<1>{username}.github.io\3', cfg, flags=re.MULTILINE)
-        cfg = re.sub('UA-57531313-5', '', cfg, flags=re.MULTILINE)
-        config_path.write_text(cfg)
+          # edit settings.ini file to inject baseurl
+          config.read(settings)
+          config['DEFAULT']['baseurl'] = f'/{repo_name}'
+          with open('_action_files/settings.ini', 'w') as configfile:
+            config.write(configfile)
 
-        # prepare the pr message
-        pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
-        pr_msg_path.write_text(pr)
-      shell: python
+          # replace content of README with template
+          readme = readme_template_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+          readme_path.write_text(readme)
 
-    - name: commit changes
-      run: |
-        git config --global user.email "${GH_EMAIL}"
-        git config --global user.name "${GH_USERNAME}"
-        git checkout -B fastpages-automated-setup
-        git rm CNAME action.yml
-        git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
-        git rm _notebooks/2020-09-01-fastcore.ipynb || true
-        git rm _notebooks/2020-11-17-linkcheck.ipynb || true
-        git rm -rf _notebooks/fastcore_imgs
-        git rm -rf _notebooks/fastlinkcheck_images
-        git rm _posts/2020-03-06-fastpages-actions.md
-        git rm _posts/*codespaces.md || true
-        git rm -rf images/fastpages_posts
-        git rm .github/workflows/chatops.yaml
-        git rm .github/workflows/docker.yaml
-        git rm .github/workflows/issue_reminder.yaml
-        git rm .github/workflows/setup.yaml
-        git rm .github/ISSUE_TEMPLATE/bug.md
-        git rm .github/ISSUE_TEMPLATE/feature_request.md
-        git rm _word/*.docx
-        git add _config.yml README.md _fastpages_docs/ _action_files/settings.ini
-        git commit -m'setup repo'
-        git push -f --set-upstream origin fastpages-automated-setup
-      env: 
-        GH_EMAIL: ${{ github.event.commits[0].author.email }}
-        GH_USERNAME: ${{ github.event.commits[0].author.username }}
+          # update _config.yml
+          cfg = config_path.read_text()
+          cfg = re.sub(r'^(github_username: )(fastai)', fr'\g<1>{username}', cfg, flags=re.MULTILINE)
+          cfg = re.sub(r'^(baseurl: )("")', r'\1"/{}"'.format(repo_name), cfg, flags=re.MULTILINE)
+          cfg = re.sub(r'^(github_repo: ")(fastpages)', r'\1{}'.format(repo_name), cfg, flags=re.MULTILINE)
+          cfg = re.sub(r'^(url: "https://)(fastpages.fast.ai)(")', fr'\g<1>{username}.github.io\3', cfg, flags=re.MULTILINE)
+          cfg = re.sub('UA-57531313-5', '', cfg, flags=re.MULTILINE)
+          config_path.write_text(cfg)
 
-    - name: Open a PR
-      uses: actions/github-script@0.5.0
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          var fs = require('fs');
-          var contents = fs.readFileSync('_fastpages_docs/_setup_pr_template.md', 'utf8');
-          github.pulls.create({
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        title: 'Initial Setup',
-                        head: 'fastpages-automated-setup',
-                        base: 'master',
-                        body: `${contents}`
-                        })
+          # prepare the pr message
+          pr = pr_msg_path.read_text().replace('{_username_}', username).replace('{_repo_name_}', repo_name)
+          pr_msg_path.write_text(pr)
+        shell: python
+
+      - name: commit changes
+        run: |
+          git config --global user.email "${GH_EMAIL}"
+          git config --global user.name "${GH_USERNAME}"
+          git checkout -B fastpages-automated-setup
+          git rm CNAME action.yml
+          git rm _notebooks/2020-02-21-introducing-fastpages.ipynb
+          git rm _notebooks/2020-09-01-fastcore.ipynb || true
+          git rm _notebooks/2020-11-17-linkcheck.ipynb || true
+          git rm -rf _notebooks/fastcore_imgs
+          git rm -rf _notebooks/fastlinkcheck_images
+          git rm _posts/2020-03-06-fastpages-actions.md
+          git rm _posts/*codespaces.md || true
+          git rm -rf images/fastpages_posts
+          git rm .github/workflows/chatops.yaml
+          git rm .github/workflows/docker.yaml
+          git rm .github/workflows/issue_reminder.yaml
+          git rm .github/workflows/setup.yaml
+          git rm .github/ISSUE_TEMPLATE/bug.md
+          git rm .github/ISSUE_TEMPLATE/feature_request.md
+          git rm _word/*.docx
+          git add _config.yml README.md _fastpages_docs/ _action_files/settings.ini
+          git commit -m'setup repo'
+          git push -f --set-upstream origin fastpages-automated-setup
+        env:
+          GH_EMAIL: ${{ github.event.commits[0].author.email }}
+          GH_USERNAME: ${{ github.event.commits[0].author.username }}
+
+      - name: Open a PR
+        uses: actions/github-script@0.5.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            var fs = require('fs');
+            var contents = fs.readFileSync('_fastpages_docs/_setup_pr_template.md', 'utf8');
+            github.pulls.create({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          title: 'Initial Setup',
+                          head: 'fastpages-automated-setup',
+                          base: 'master',
+                          body: `${contents}`
+                          })

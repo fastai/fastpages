@@ -1,11 +1,15 @@
 name: GH-Pages Status
-on:
-  page_build
-  
+on: page_build
+
+permissions:
+  actions: write
+  pull-requests: write
+  contents: write
+
 jobs:
   see-page-build-payload:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: check status
         run: |
           import os
