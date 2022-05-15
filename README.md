@@ -56,7 +56,7 @@ See below for a more detailed list of features.
     - [Toggle Search Visibility](#toggle-search-visibility)
   - [Site Wide Configuration Options](#site-wide-configuration-options)
   - [Adjusting Page Width](#adjusting-page-width)
-  - [Annotations and Highlighting With hypothes.is](#annotations-and-highlighting-with-hypothes.is)
+  - [Annotations and Highlighting With hypothes.is](#annotations-and-highlighting-with-hypothesis)
   - [Subscribing with RSS](#subscribing-with-rss)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Dark Mode](#dark-mode)
@@ -92,7 +92,22 @@ See below for a more detailed list of features.
 
 For a live walk-through of the setup steps (with some additional tips) see this [video tutorial of setting up a fastpages blog](https://youtu.be/L0boq3zqazI) by Abdul Majed.
 
-3.  To create your first post, add content in the `_posts`, `_notebooks` or `_word` directories.  You can follow examples of content in those folders in this repo of how to structure the content.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.  Note that content in the `_word` directory does not support front matter.
+
+3. In some cases because of permissions step 2 may fail to create a Pull Request.  If this occurs, go to your repository settings and in the Actions section, grant `Read and Write` permissions and check `Allow GitHub Actions to create and approve pull requests`.  
+
+![](2022-05-15-07-21-16.png)
+
+Once you have granted permissions, go to the `Actions` tab at the top of your repository home page, where you will be presented with a list of Actions runs.  First click on the failed run (the item with the red X):
+
+![](2022-05-15-07-25-15.png)
+
+You will be taken to a screen where there will be a button on the upper right hand side allowing you to re-run jobs.
+
+![](2022-05-15-07-24-25.png)
+
+After doing this, a pull request should appear.
+
+1.  To create your first post, add content in the `_posts`, `_notebooks` or `_word` directories.  You can follow examples of content in those folders in this repo of how to structure the content.  The most important thing to pay attention to is the front matter, which is discussed in more detail below.  Furthermore, you can add additional pages that will appear on your blog's navbar in the `_pages` directory.  Note that content in the `_word` directory does not support front matter.
 
 ## Customizing Blog Posts With Front Matter
 
