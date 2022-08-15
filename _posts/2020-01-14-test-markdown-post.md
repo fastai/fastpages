@@ -7,6 +7,10 @@ title: An Example Markdown Post
 ---
 # Example Markdown Post
 
+# Resources 
+
+[khuyentran]([url](https://github.com/khuyentran1401/Data-science)) 
+
 ## Basic setup
 
 Jekyll requires blog post files to be named according to the following format:
