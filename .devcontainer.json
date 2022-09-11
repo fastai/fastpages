@@ -2,6 +2,7 @@
     "name": "fastpages-codespaces",
     "dockerComposeFile": "docker-compose.yml",
     "service": "watcher",
+    "workspaceFolder": "/data",
     "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     "forwardPorts": [4000, 8080],
     "appPort": [4000, 8080],
