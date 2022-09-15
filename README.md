@@ -7,6 +7,8 @@
 
 [//]: # (END OF BADGES SECTION)
 
+# :warning: This Project Is Deprecated.  We recommend using [Quarto](https://quarto.org/) instead.  See this [migration guide](https://nbdev.fast.ai/tutorials/blogging.html) if you are already using fastpages. :warning:
+
 # Welcome To `fastpages`
 
 > An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and Markdown.
