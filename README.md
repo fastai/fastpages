@@ -17,10 +17,6 @@
 
 # :warning:
 
-I've written a detailed [migration guide](https://nbdev.fast.ai/tutorials/blogging.html) with some tools that will hopefully make the process of switching much easier.  Overall I think it will be worth it for users.
-
-My apologies again for not getting to this issue sooner.  Will close this PR with this PR https://github.com/fastai/fastpages/pull/657, where we are letting people know that we are deprecating this project.  Thanks again for your support and for using fastpages!  🙇🏽 
-
 # Welcome To `fastpages`
 
 > An easy to use blogging platform, with support for Jupyter notebooks, Word docs, and Markdown.
