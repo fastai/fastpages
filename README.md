@@ -11,9 +11,7 @@
 
 # This Project Is Deprecated.  We recommend using [Quarto](https://quarto.org/) instead.  See this [migration guide](https://nbdev.fast.ai/tutorials/blogging.html) if you are already using fastpages. 
 
-Note from Hamel re: deprecation
-
-> While we were working on newest version of [nbdev](https://github.com/fastai/nbdev),  we realized that [Quarto](https://quarto.org/), which the new version of nbdev is built on, is much better than fastpages for blogging.   Rather than keep this project going, we are recommending that people migrate to Quarto.  I believe in recommending the best tools to users for the task they want to do (regardless of whether or not I helped create something), and I believe that Quarto is the best tool for blogging with notebooks.
+More information on why we deprecated this project is [here](https://forums.fast.ai/t/fastpages-deprecating-fastpages-in-favor-of-quarto/99095).
 
 # :warning:
 
